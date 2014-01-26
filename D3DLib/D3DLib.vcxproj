@@ -10,59 +10,10 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="bitmap.cpp" />
-    <ClCompile Include="camera.cpp" />
-    <ClCompile Include="cpu.cpp" />
-    <ClCompile Include="D3D.cpp" />
-    <ClCompile Include="fps.cpp" />
-    <ClCompile Include="frustum.cpp" />
-    <ClCompile Include="frustumcull.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="math3d.cpp" />
-    <ClCompile Include="model.cpp" />
-    <ClCompile Include="painter.cpp" />
-    <ClCompile Include="shader.cpp" />
-    <ClCompile Include="shaderlight.cpp" />
-    <ClCompile Include="shadertexture.cpp" />
-    <ClCompile Include="sound.cpp" />
-    <ClCompile Include="sound_WAVEPCM.cpp" />
-    <ClCompile Include="text.cpp" />
-    <ClCompile Include="texture.cpp" />
-    <ClCompile Include="timer.cpp" />
-    <ClCompile Include="viewport.cpp" />
-    <ClCompile Include="window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="bitmap.h" />
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="cpu.h" />
-    <ClInclude Include="D3D.h" />
-    <ClInclude Include="fps.h" />
-    <ClInclude Include="frustum.h" />
-    <ClInclude Include="frustumcull.h" />
-    <ClInclude Include="globals.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="math3d.h" />
-    <ClInclude Include="model.h" />
-    <ClInclude Include="painter.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="shader.h" />
-    <ClInclude Include="shaderlight.h" />
-    <ClInclude Include="shadertexture.h" />
-    <ClInclude Include="sound.h" />
-    <ClInclude Include="sound_WAVEPCM.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="text.h" />
-    <ClInclude Include="texture.h" />
-    <ClInclude Include="timer.h" />
-    <ClInclude Include="viewport.h" />
-    <ClInclude Include="window.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BDDCD10A-3DEA-4990-A03B-6E2502DFB796}</ProjectGuid>
+    <ProjectGuid>{BED31694-FF93-4B32-A54D-527043077B74}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>D3DLib</RootNamespace>
+    <RootNamespace>d3dlib</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -89,27 +40,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)\bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(Platform)\</IntDir>
-    <IncludePath>$(SolutionDir)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\lib\x86\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)\bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)\build\$(Configuration)\$(Platform)\</IntDir>
-    <IncludePath>$(SolutionDir)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\lib\x86\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <MultiProcessorCompilation>false</MultiProcessorCompilation>
-      <PrecompiledHeaderOutputFile>
-      </PrecompiledHeaderOutputFile>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -119,12 +68,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

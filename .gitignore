@@ -4,7 +4,7 @@
 *.sln.docstates
 
 # Build results
-build/
+obj/
 bin/
 
 # MSTest test Results
