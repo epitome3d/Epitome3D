@@ -31,7 +31,7 @@ namespace D3DLIB
 
 		// Initialize the vertex and pixel shaders.
 		result = InitializeShader(device, hwnd,
-			L"../Assets/Shaders/Texture.vs", L"../Assets/Shaders/Texture.ps");
+			L"../assets/shader/Texture.vs", L"../assets/shader/Texture.ps");
 		if(!result)
 		{
 			return false;
