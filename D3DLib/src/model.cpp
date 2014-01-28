@@ -91,6 +91,9 @@ namespace D3DLIB
 			return false;
 		}
 
+		//Mesh Loading Function!
+		//D3DXLoadMeshFromX();
+
 		if (getdata)
 		{
 			// Load the vertex array with data and get the size

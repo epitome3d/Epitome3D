@@ -6,7 +6,8 @@
 #include <D3D11.h>
 #include <D3DX10math.h>
 #include <fstream>
-//#include "globals.h"
+#include <d3dx9.h>
+#pragma warning (disable:4996)
 using namespace std;
 
 //my class includes
