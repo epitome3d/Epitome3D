@@ -1,4 +1,5 @@
 D3DLib
 ======
 
-Direct3D/2D Engine
+Open Source Direct3D/2D Engine for Everyone!
+
