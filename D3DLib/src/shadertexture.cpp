@@ -260,7 +260,7 @@ namespace D3DLIB
 		unsigned int bufferNumber;
 
 		D3DXQUATERNION quad = D3DXQUATERNION();
-		D3DXQuaternionRotationYawPitchRoll(&quad, transform.rotation.x, transform.rotation.y, transform.rotation.z);
+		D3DXQuaternionRotationYawPitchRoll(&quad, transform.rotation.z, transform.rotation.y - 90.0f, transform.rotation.x);
 		D3DXMatrixTransformation(&worldMatrix, NULL, NULL, &D3DXVECTOR3(transform.scale.x, transform.scale.y, transform.scale.z),
 			NULL, &quad, &D3DXVECTOR3(transform.translation.x, transform.translation.y, transform.translation.z));
 
