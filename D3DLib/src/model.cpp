@@ -22,7 +22,7 @@ namespace D3DLIB
 	bool Model::Initialize(ID3D11Device* device, char* modelFilename, bool getdata)
 	{
 		bool result;
-		
+
 		m_data = new ModelData();
 
 		m_data->Reset();
@@ -79,43 +79,38 @@ namespace D3DLIB
 
 		// Create the vertex array.
 		vertices = new VertexType[m_vertexCount];
-		if(!vertices)
-		{
-			return false;
-		}
+		if(!vertices) {	return false; }
+		//vertices = m_vertices;
 
 		// Create the index array.
 		indices = new unsigned long[m_indexCount];
-		if(!indices)
-		{
-			return false;
-		}
+		if(!indices) { return false; }
 
-		//Mesh Loading Function!
-		//D3DXLoadMeshFromX();
+		//indices = m_indices;
 
 		if (getdata)
 		{
 			// Load the vertex array with data and get the size
-
 			float xL = FLT_MAX, yL = FLT_MAX, zL = FLT_MAX;
 			float xR = FLT_MIN, yR = FLT_MIN, zR = FLT_MIN;
 			float radius = 0;
 
-			for(int i=0;i<m_vertexCount;i++)
+			int loc = 0;
+			for(vector<VertexType>::iterator i=m_model->begin(); i!=m_model->end(); ++i)
 			{
-				vertices[i].position = D3DXVECTOR3(m_model[i].x, m_model[i].y, m_model[i].z);
-				vertices[i].texture = D3DXVECTOR2(m_model[i].tu, m_model[i].tv);
-				vertices[i].normal = D3DXVECTOR3(m_model[i].nx, m_model[i].ny, m_model[i].nz);
+				vertices[loc].pos = D3DXVECTOR3(i->pos.x, i->pos.y, i->pos.z);
+				vertices[loc].uv = D3DXVECTOR2(i->uv.x, i->uv.y);
+				vertices[loc].norm = D3DXVECTOR3(i->norm.x, i->norm.y, i->norm.z);
 
-				if (m_model[i].x > xR) { xR = m_model[i].x; }
-				if (m_model[i].x < xL) { xL = m_model[i].x; }
-				if (m_model[i].y > yR) { yR = m_model[i].y; }
-				if (m_model[i].y < yL) { yL = m_model[i].y; }
-				if (m_model[i].z > zR) { zR = m_model[i].z; }
-				if (m_model[i].z < zL) { zL = m_model[i].z; }
+				if (i->pos.x > xR) { xR = i->pos.x; }
+				if (i->pos.x < xL) { xL = i->pos.x; }
+				if (i->pos.y > yR) { yR = i->pos.y; }
+				if (i->pos.y < yL) { yL = i->pos.y; }
+				if (i->pos.z > zR) { zR = i->pos.z; }
+				if (i->pos.z < zL) { zL = i->pos.z; }
 
-				indices[i] = i;
+				indices[loc] = loc;
+				loc++;
 			}
 
 			m_data->xSize = Abs(xR - xL);
@@ -132,17 +127,20 @@ namespace D3DLIB
 
 			m_data->radius = radius;
 		}
-		else
-		{
-			// Load the vertex array with data.
-			for(int i=0;i<m_vertexCount;i++)
+		else 
+		{ 
+			int loc = 0;
+			for(vector<VertexType>::iterator i=m_model->begin(); i!=m_model->end(); ++i)
 			{
-				vertices[i].position = D3DXVECTOR3(m_model[i].x, m_model[i].y, m_model[i].z);
-				vertices[i].texture = D3DXVECTOR2(m_model[i].tu, m_model[i].tv);
-				vertices[i].normal = D3DXVECTOR3(m_model[i].nx, m_model[i].ny, m_model[i].nz);
+				vertices[loc].pos = D3DXVECTOR3(i->pos.x, i->pos.y, i->pos.z);
+				vertices[loc].uv = D3DXVECTOR2(i->uv.x, i->uv.y);
+				vertices[loc].norm = D3DXVECTOR3(i->norm.x, i->norm.y, i->norm.z);
 
-				indices[i] = i;
+				indices[loc] = loc;
+				loc++;
 			}
+
+			m_data->data = false;
 		}
 
 		// Set up the description of the static vertex buffer.
@@ -185,69 +183,143 @@ namespace D3DLIB
 			return false;
 		}
 
-		// Release the arrays now that the vertex and index buffers have been created and loaded.
-		delete [] vertices;
-		vertices = 0;
-
-		delete [] indices;
-		indices = 0;
-
 		return true;
 	}
 
 	//THIS FUNCTION PARSES THE VERTICES IN THE ARRAY
+	///////////////////////////////
+	/***** FBX MODEL LOADING *****/
+	///////////////////////////////
+	//INSERT m_vertexCount and m_indexCount
+
 	bool Model::LoadModel(char* filename)
 	{
-		ifstream fin;
-		char input;
-		int i;
-
-		//open the model file
-		fin.open(filename);
-
-		//if it could not open the file, then exit
-		if (fin.fail())
+		if(g_pFbxSdkManager == nullptr)
 		{
-			return false;
+			g_pFbxSdkManager = FbxManager::Create();
+
+			FbxIOSettings* pIOsettings = FbxIOSettings::Create(g_pFbxSdkManager, IOSROOT );
+			g_pFbxSdkManager->SetIOSettings(pIOsettings);
 		}
 
-		//read up to the value of vertex count
-		fin.get(input);
-		while(input !=':')
+		/*D3DXMATRIXA16 lefthandedConversion
+		{1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, -1, 0,
+		0, 0, 0, 1;*/
+
+		FbxImporter* pImporter = FbxImporter::Create(g_pFbxSdkManager,"");
+		FbxScene* pFbxScene = FbxScene::Create(g_pFbxSdkManager,"");
+
+		bool bSuccess = pImporter->Initialize(filename, -1, g_pFbxSdkManager->GetIOSettings() );
+		if(!bSuccess) return false;
+
+		bSuccess = pImporter->Import(pFbxScene);
+		if(!bSuccess) return false;
+
+		pImporter->Destroy();
+
+		FbxNode* pFbxRootNode = pFbxScene->GetRootNode();
+
+		/*** ZERO VARIABLES ***/
+
+		m_model = new vector<VertexType>();
+
+		m_vertexCount = 0;
+		m_indexCount = 0;
+		m_normalCount = 0;
+		m_UVCount = 0;
+
+		if(pFbxRootNode)
 		{
-			fin.get(input);
+			/*** LOAD MESH DATA ***/
+
+			for(int i = 0; i < pFbxRootNode->GetChildCount(); i++)
+			{
+				FbxNode* pFbxChildNode = pFbxRootNode->GetChild(i);
+				if(pFbxChildNode->GetNodeAttribute() == NULL)
+					continue;
+				FbxNodeAttribute::EType AttributeType = pFbxChildNode->GetNodeAttribute()->GetAttributeType();
+				if(AttributeType != FbxNodeAttribute::eMesh)
+					continue;
+				FbxMesh* pMesh = (FbxMesh*) pFbxChildNode->GetNodeAttribute();
+
+
+				/*** LOAD POLYGON DATA ***/
+				//(not by control points, but by polygon
+
+				LoadPolygonData(pMesh);
+			}
+
 		}
 
-		//read in the vertex count
-		fin >> m_vertexCount;
+		return true;
+	}
 
-		//set the number of vertices to be the same as the vertex count
+	bool Model::LoadPolygonData(FbxMesh* mesh)
+	{		
+		int baseVertex = m_vertexCount;
+		int polygonCount = mesh->GetPolygonCount();
+		FbxVector4* pVertices = mesh->GetControlPoints(); //get vertices
+
+		//just get polygons, vertices = indices
+		//JUST LOOK AT INDICES
+
+		/*** GET LOCATION (from indices) ***/
+		int indexCount = mesh->GetPolygonVertexCount();
+		int* indices = new int[indexCount];
+		indices = mesh->GetPolygonVertices();
+		for ( int i = 0; i < indexCount; i++)
+		{
+			VertexType vertex;
+			vertex.pos.x = (float)pVertices[indices[i] + baseVertex].mData[0];
+			vertex.pos.y = (float)pVertices[indices[i] + baseVertex].mData[1];
+			vertex.pos.z = (float)pVertices[indices[i] + baseVertex].mData[2];
+			m_model->push_back(vertex); //??? : would this make this backwards?
+			m_vertexCount++;
+		}
+
 		m_indexCount = m_vertexCount;
 
-		//create the model using the vertex count
-		m_model = new ModelType[m_vertexCount];
-		if (!m_model)
+		/*** GET NORMALS ***/
+		FbxGeometryElementNormal* normalel = mesh->GetElementNormal();
+		if (normalel)
 		{
-			return false;
+			int vertexCounter = 0;
+			for(int i = 0; i < mesh->GetPolygonCount(); i++)
+			{
+				for (int j = 0; j < 3; j++)
+				{
+					FbxVector4 normal = normalel->GetDirectArray().GetAt(vertexCounter);
+					VertexType vertex = m_model->at(m_normalCount);
+					vertex.norm.x = (float)normal[0];
+					vertex.norm.y = (float)normal[1];
+					vertex.norm.z = (float)normal[2];
+					m_model->at(m_normalCount) = vertex;
+					m_normalCount++;
+					vertexCounter++;
+				}
+			}
 		}
 
-		//read upto the beginning of the data
-		fin.get(input);
-		while(input != ':')
+		/*** GET UVs ***/
+		int vertexCounter = 0;
+		for (int i = 0; i < polygonCount; i++)
 		{
-			fin.get(input);
-		}
+			FbxLayerElementArrayTemplate<FbxVector2>* uvArray = 0;
+			mesh->GetTextureUV(&uvArray, FbxLayerElement::eTextureDiffuse);
 
-		//read in the vertex data
-		for (i=0; i<m_vertexCount;i++)
-		{
-			fin >> m_model[i].x >> m_model[i].y >> m_model[i].z;
-			fin >> m_model[i].tu >> m_model[i].tv;
-			fin >> m_model[i].nx >> m_model[i].ny >> m_model[i].nz;
-		}
+			for (int j = 0; j < mesh->GetPolygonSize(i); j++)
+			{
+				//FbxVector2 uv = uvVertices[mesh->GetTextureUVIndex(i, j)];
 
-		//close the model file
-		fin.close();
+				VertexType vertex = m_model->at(m_UVCount);
+				vertex.uv.x = (float)uvArray->GetAt(mesh->GetTextureUVIndex(i, j)).mData[0];
+				vertex.uv.y = (float)uvArray->GetAt(mesh->GetTextureUVIndex(i, j)).mData[1];
+				m_model->at(m_UVCount) = vertex;
+				m_UVCount++;
+			}
+		}
 
 		return true;
 	}
@@ -256,9 +328,14 @@ namespace D3DLIB
 	{
 		if(m_model)
 		{
-			delete [] m_model;
+			m_model->clear();
 			m_model = 0;
 		}
+
+		m_vertexCount = 0;
+		m_indexCount = 0;
+		m_normalCount = 0;
+		m_UVCount = 0;
 
 		return;
 	}
@@ -291,7 +368,7 @@ namespace D3DLIB
 		// Set vertex buffer stride and offset.
 		stride = sizeof(VertexType); 
 		offset = 0;
-    
+
 		// Set the vertex buffer to active in the input assembler so it can be rendered.
 		deviceContext->IASetVertexBuffers(0, 1, &m_vertexBuffer, &stride, &offset);
 

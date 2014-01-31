@@ -12,8 +12,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 
 bool Initialize()
 {
-	sound1 = 0;
-	buffer1 = 0;
 	bool result;
 	int w, h;
 	bool f;
@@ -22,72 +20,23 @@ bool Initialize()
 	if (!win.Initialize(L"D3DLib Test", false, false, 800, 600, true, false))
 	{ return false; }
 
+	model.Initialize(win.d3d->GetDevice(),
+		"../../../../assets/model/teapot.fbx", true);
+	shadetex.Initialize(win.d3d->GetDevice(), win.GetHWND());
+	tex.Initialize(win.d3d->GetDevice(), L"../../../../assets/image/CheckerboardHill.dds");
+
 	win.GetWindowSize(w, h, f);
 	win.d3d->TurnZBufferOn();
 	win.d3d->TurnOnAlphaBlending();
 
-	//initialize the sound1 object
-	sound1 = new D3DLIB::Sound_WAVEPCM;
-	if (!sound1) { return false; }
-	result = sound1->Initialize(win.GetHWND());
-	if(!result)	{ return false;	}
-	result = sound1->LoadFile(&buffer1, "../assets/sound/sound01.wav");
-	if (!result) { return false; }
-	result = sound1->Play(buffer1, false);
-	if (!result) { return false; }
-
-	//initialize the bitmap object
-	image1 = new Bitmap();
-	image1->Initialize(win.d3d->GetDevice(), w, h);
-
-	cursor = new Bitmap();
-	cursor->Initialize(win.d3d->GetDevice(), w, h);
-
-	//initialize models
-	earth = new Model();
-	earth->Initialize(win.d3d->GetDevice(), "../assets/model/Earth.txt", true);
-	moon = new Model();
-	moon->Initialize(win.d3d->GetDevice(), "../assets/model/Sphere.txt", true);
-
-	//initialize shaders
-	shade_tex = new Shader_TEXTURE();
-	shade_tex->Initialize(win.d3d->GetDevice(), win.GetHWND());
-	shade_light = new Shader_LIGHT();
-	shade_light->Initialize(win.d3d->GetDevice(), win.GetHWND());
-
-	//initialize textures
-	texhill = new Texture(win.d3d->GetDevice(), L"../assets/image/CheckerboardHill.dds");
-	texgrass = new Texture(win.d3d->GetDevice(), L"../assets/image/CheckerboardGrass.dds");
-	texteapot = new Texture(win.d3d->GetDevice(), L"../assets/image/Teapot.dds");
-	texearth = new Texture(win.d3d->GetDevice(), L"../assets/image/Earth_CloudyDiffuse.dds");
-	texmoon = new Texture(win.d3d->GetDevice(), L"../assets/image/Moon.dds");
-	texstars = new Texture(win.d3d->GetDevice(), L"../assets/image/stars-04.dds");
-	texmouse = new Texture(win.d3d->GetDevice(), L"../assets/image/Cursors/Accurate.dds");
-	texmouseclick = new Texture(win.d3d->GetDevice(), L"../assets/image/Cursors/Accurate Click.dds");
 	return true;
 }
 
 void Shutdown()
 {
-	sound1->ShutdownBuffer(&buffer1);
-	sound1->Shutdown();
-	image1->Shutdown();
-	cursor->Shutdown();
-
-	texhill->Shutdown();
-	texgrass->Shutdown();
-	texteapot->Shutdown();
-	texearth->Shutdown();
-	texstars->Shutdown();
-	texmoon->Shutdown();
-	texmouse->Shutdown();
-	texmouseclick->Shutdown();
-
-	earth->Shutdown();
-	moon->Shutdown();
-
-	shade_tex->Shutdown();
-	shade_light->Shutdown();
+	shadetex.Shutdown();
+	tex.Shutdown();
+	model.Shutdown();
 	win.Shutdown();
 	return;
 }
@@ -96,6 +45,7 @@ void Run()
 {
 	int w, h;
 	bool f;
+	HRESULT result;
 	D3DXMATRIX world;
 	D3DXMATRIX view;
 	D3DXMATRIX projection;
@@ -129,24 +79,24 @@ void Run()
 
 	while (true)
 	{
+		/*** FRAME INITIALIZATION ***/
+
 		//a return aborts the app
 		if (win.Run(true) == false) { return; }
 		if (win.input->IsKeyPressed(DIK_ESCAPE) == true) { return; }	
 		if (win.HasFocus() == false)
 		{
-			sound1->Pause(buffer1);
 			while (win.HasFocus() == false)
 			{				
 				if (win.Run(true) == false)	{ return; }
 			}
-			sound1->Play(buffer1, false);
 		}
 
 		Movement();
 
 		win.d3d->TurnZBufferOn();
 		win.d3d->BeginScene(0.0f, 0.0f, 0.0f, 0.0f);
-		win.camera->SetPosition(0.0f, 0.0f, -30.0f);
+		win.camera->SetPosition(0.0f, 0.0f, -5.0f);
 		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
@@ -156,67 +106,23 @@ void Run()
 		win.frustum->ConstructFrustum(SCREEN_DEPTH, projection, view);
 		win.viewport->SetViewport(win.d3d->GetDeviceContext(), (float)w, (float)h, 0.0f, 1.0f, 0.0f, 0.0f);
 
+		/*** MATH ***/
+
 		deg = deg + (float)0.01;
 		if (deg >= 360.0f) { deg -= 360.0f;}
 
 		/***** DRAWING *****/
 		
-		win.painter->ClearList();		
+		win.painter->ClearList();
 
-		//background stars
-		shade_tex->SetParameters(texstars->GetTexture());
-		win.painter->AddToFront(BitmapType(image1, (Shader*)shade_tex, new Transform(),
-			0, 0, w, h, 0.0f, true, new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
-
-		win.camera->SetRotation(rotationX, rotationY, 0.0f);
-		win.camera->SetPosition(movementX, rotationZ, -30.0f + movementZ);
-		win.camera->Render();
-		win.camera->GetViewMatrix(view);
-		
-		//moon
-		shade_tex->SetParameters(texmoon->GetTexture());
-		win.painter->AddToFront(ModelType(moon, (Shader*)shade_tex, new Transform(
-			D3DXVECTOR3(deg / 28, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f), 
-			D3DXVECTOR3(-6.0f, 0.0f, -75.0f)), new CullAuto(), new PaintData(
-			&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
-
-		//earth
-		shade_light->SetParameters(texearth->GetTexture(), l_direction,
-			l_ambientColor, l_diffuseColor, win.camera->GetPosition(),
-			l_specularColor, l_specularPower);
-		win.painter->AddToFront(ModelType(moon, (Shader*)shade_light, new Transform(
-			D3DXVECTOR3(deg, 0.0f, 0.0f), D3DXVECTOR3(3.66f, 3.66f, 3.66f),
-			D3DXVECTOR3(0.0f, 0.0f, 0.0f)), new CullAuto(),
-			new PaintData(&world, &view, &projection, &ortho,
-			&win.viewport->GetViewport())));
-		
-		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
-		win.camera->SetPosition(0.0f, 0.0f, -30.0f);
-		win.camera->Render();
-		win.camera->GetViewMatrix(view);
-		
-		/*win.painter->AddToFront(TextType(win.text, L"Hello World!", L"Segoe UI",
-			(float)(w/2), (float)h/2, 60.0f, 0xffffffff, 
-			FW1_CENTER | FW1_VCENTER | FW1_RESTORESTATE,
-			new PaintData(&world, &view, &projection, &ortho,
-			&win.viewport->GetViewport())));*/
-
-		//pointer
-		if (mouseEnabled) {
-		if (mousePressed)
-		{
-			shade_tex->SetParameters(texmouseclick->GetTexture());
-		}
-		else
-		{
-			shade_tex->SetParameters(texmouse->GetTexture());
-		}		
-
-		win.painter->AddToFront(BitmapType(cursor, (Shader*)shade_tex, new Transform(),
-			mouseX, mouseY, 32, 32, 0, true, new PaintData(&world, &view, &projection, &ortho,
-			&win.viewport->GetViewport()))); }
+		shadetex.SetParameters(tex.GetTexture());
+		win.painter->AddToFront(ModelType(&model, &shadetex, 
+			new Transform(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
+			D3DXVECTOR3(0.0f, 0.0f, 0.0f)),
+			new CullAuto(), new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
 
 		win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);
+		
 		DrawInfo();
 		win.d3d->EndScene();
 	}

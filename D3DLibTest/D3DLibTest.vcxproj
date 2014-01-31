@@ -71,7 +71,7 @@
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
     <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>
@@ -83,7 +83,7 @@
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
     <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>

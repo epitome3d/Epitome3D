@@ -118,7 +118,7 @@
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
@@ -128,7 +128,7 @@
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>

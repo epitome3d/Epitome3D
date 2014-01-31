@@ -19,27 +19,14 @@ void Movement();
 void ScrollMove(unsigned char DIK, float &directionSpeedVar, float &outputVar,
 				float frameTime, bool positive, bool allowNegatives);
 
-D3DLIB::Window win;
+/*** DRAWING ***/
 
-Sound_WAVEPCM* sound1;
-IDirectSoundBuffer8* buffer1;
+Window win;
+Model model;
+Shader_TEXTURE shadetex;
+Texture tex;
 
-Bitmap* image1;
-Bitmap* cursor;
-Model* earth;
-Model* moon;
-
-Shader_TEXTURE* shade_tex;
-Shader_LIGHT* shade_light;
-
-Texture* texhill;
-Texture* texgrass;
-Texture* texteapot;
-Texture* texearth;
-Texture* texstars;
-Texture* texmoon;
-Texture* texmouse;
-Texture* texmouseclick;
+/*** MOVEMENT CONTROL ***/
 
 float frameTime = 0.0f;
 float rotationX = 0.0f;

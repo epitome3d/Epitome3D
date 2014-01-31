@@ -17,10 +17,10 @@
 
 namespace D3DLIB
 {
-	namespace Math
-	{
-		void DrawCircle();
-	}
+	#define Float_MAX         3.402823466e+38F 
+	#define Float_MIN         1.175494351e-38F
+
+	float Abs(float value);
 }
 
 #endif
