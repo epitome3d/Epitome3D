@@ -131,6 +131,12 @@ void Run()
 		
 		win.painter->ClearList();
 
+		//stars
+		s_tex.SetParameters(t_stars.GetTexture());
+		win.painter->AddToFront(BitmapType(&stars, &s_tex,
+			new Transform(), 0, 0, w, h, 0, true,
+			new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
+
 		//earth
 		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
 			win.camera->GetPosition(), l_specularColor, l_specularPower);
