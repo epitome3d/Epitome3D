@@ -19,13 +19,20 @@ bool Initialize()
 	win = D3DLIB::Window::Window();
 	if (!win.Initialize(L"D3DLib Test", false, false, 800, 600, true, false))
 	{ return false; }
-
-	model.Initialize(win.d3d->GetDevice(),
-		"../../../../assets/model/teapot.fbx", true);
-	shadetex.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	tex.Initialize(win.d3d->GetDevice(), L"../../../../assets/image/CheckerboardHill.dds");
-
 	win.GetWindowSize(w, h, f);
+
+	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
+	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
+	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/sphere.fbx", true);
+
+	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
+	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");
+	t_mouseon.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/AccurateClick.dds");
+	t_mouseoff.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/Accurate.dds");
+
+	cursor.Initialize(win.d3d->GetDevice(), 32, 32);
+	stars.Initialize(win.d3d->GetDevice(), w, h);
+
 	win.d3d->TurnZBufferOn();
 	win.d3d->TurnOnAlphaBlending();
 
@@ -34,9 +41,18 @@ bool Initialize()
 
 void Shutdown()
 {
-	shadetex.Shutdown();
-	tex.Shutdown();
-	model.Shutdown();
+	m_sphere.Shutdown();
+	s_tex.Shutdown();
+	s_light.Shutdown();
+
+	t_stars.Shutdown();
+	t_earth.Shutdown();
+	t_mouseon.Shutdown();
+	t_mouseoff.Shutdown();
+
+	cursor.Shutdown();
+	stars.Shutdown();
+
 	win.Shutdown();
 	return;
 }
@@ -62,7 +78,7 @@ void Run()
 	l_direction = D3DXVECTOR3(0.5f, 0.0f, 0.5f);
 	l_specularColor = D3DXVECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
 	l_specularPower = 4.0f;
-			
+	
 	//LIGHT DIR  :  Changes  :  Which Dir?
 	//front = 0,0,1 (inc, dec) (z)
 	//left = 1,0,0  (dec, dec) (x)
@@ -96,8 +112,8 @@ void Run()
 
 		win.d3d->TurnZBufferOn();
 		win.d3d->BeginScene(0.0f, 0.0f, 0.0f, 0.0f);
-		win.camera->SetPosition(0.0f, 0.0f, -5.0f);
-		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
+		win.camera->SetPosition(movementX, rotationZ, movementZ - 15.0f);
+		win.camera->SetRotation(rotationX, rotationY, 0.0f);
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
 		win.d3d->GetWorldMatrix(world);
@@ -115,11 +131,29 @@ void Run()
 		
 		win.painter->ClearList();
 
-		shadetex.SetParameters(tex.GetTexture());
-		win.painter->AddToFront(ModelType(&model, &shadetex, 
-			new Transform(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
+		//earth
+		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
+			win.camera->GetPosition(), l_specularColor, l_specularPower);
+		win.painter->AddToFront(ModelType(&m_sphere, &s_light, 
+			new Transform(D3DXVECTOR3(deg, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
 			D3DXVECTOR3(0.0f, 0.0f, 0.0f)),
 			new CullAuto(), new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
+
+		//mouse
+		if (mouseEnabled)
+		{
+			if (mousePressed)
+			{
+				s_tex.SetParameters(t_mouseon.GetTexture());
+			}
+			else
+			{
+				s_tex.SetParameters(t_mouseoff.GetTexture());
+			}
+
+			win.painter->AddToFront(BitmapType(&cursor, &s_tex, new Transform(), mouseX, mouseY, cursor.GetBitmapHeight(), cursor.GetBitmapWidth(), 0.0f, true,
+				new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
+		}
 
 		win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);
 		

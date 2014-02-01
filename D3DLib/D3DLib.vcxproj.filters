@@ -150,4 +150,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\assets\shader\Light.ps">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\assets\shader\Light.vs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\assets\shader\Texture.ps">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\assets\shader\Texture.vs">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

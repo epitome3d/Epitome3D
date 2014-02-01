@@ -1,3 +1,7 @@
+# Specific Folders
+assets/model/design/
+
+
 # User-specific files
 *.suo
 *.user

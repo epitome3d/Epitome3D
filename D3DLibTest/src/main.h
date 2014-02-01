@@ -1,5 +1,5 @@
-#ifndef ROBORALLY_MAIN
-#define ROBORALLY_MAIN
+#ifndef D3DLIBTEST_MAIN
+#define D3DLIBTEST_MAIN
 
 #include "window.h"
 #include "sound_WAVEPCM.h"
@@ -22,9 +22,18 @@ void ScrollMove(unsigned char DIK, float &directionSpeedVar, float &outputVar,
 /*** DRAWING ***/
 
 Window win;
-Model model;
-Shader_TEXTURE shadetex;
-Texture tex;
+
+Model m_sphere;
+Bitmap cursor;
+Bitmap stars;
+
+Shader_TEXTURE s_tex;
+Shader_LIGHT s_light;
+
+Texture t_stars;
+Texture t_earth;
+Texture t_mouseoff;
+Texture t_mouseon;
 
 /*** MOVEMENT CONTROL ***/
 
