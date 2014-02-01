@@ -33,7 +33,9 @@ namespace D3DLIB
 		IDXGIFactory* factory;
 		IDXGIAdapter* adapter;
 		IDXGIOutput* adapterOutput;
-		unsigned int numModes, i, numerator, denominator, stringLength;
+		unsigned int numModes, i, stringLength;
+		unsigned int numerator = 1;
+		unsigned int denominator = 0;
 		DXGI_MODE_DESC* displayModeList;
 		DXGI_ADAPTER_DESC adapterDesc;
 		int error;
