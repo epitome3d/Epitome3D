@@ -54,19 +54,14 @@ namespace D3DLIB
 		D3DXMATRIX rotationMatrix;
 
 		//setup the vector that points upwards
-		up.x = 0.0f;
-		up.y = 1.0f;
-		up.z = 0.0f;
+		up = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+		//setup where the camera is looking by default
+		lookAt = D3DXVECTOR3(0.0f, 0.0f, 1.0f);
 
 		//setup the position of the camera in the world
 		position.x = m_positionX;
 		position.y = m_positionY;
 		position.z = m_positionZ;
-
-		//setup where the camera is looking by default
-		lookAt.x = 0.0f;
-		lookAt.y = 0.0f;
-		lookAt.z = 1.0f;
 
 		//set the yaw (y), pitch (x), and roll (z) rotations in radians
 		pitch = m_rotationX * 0.0174532925f;

@@ -17,19 +17,19 @@ namespace D3DLIB
 	class Shader
 	{
 	protected:
-		virtual bool Initialize(ID3D11Device*, HWND); //called in MAIN
+		virtual bool Initialize(ID3D11Device*, HWND) = 0;
+		void GetQuaternion(D3DXQUATERNION &quad, float rotX, float rotY, float rotZ, UpAxis axis);
 		void ThrowBlobError(ID3D10Blob*, HWND, WCHAR*);
-		
+
 	public:
 		Shader();
 		Shader(const Shader&);
 		~Shader();
+
 		virtual bool Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-									D3DXMATRIX projectionMatrix, Transform transform);
-		
+			D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis) = 0;
 		virtual Shader* Clone() = 0;
 	};
-
 }
 
 #endif

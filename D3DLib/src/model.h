@@ -39,6 +39,7 @@ namespace D3DLIB
 		void Render(ID3D11DeviceContext*);
 		int GetIndexCount();
 		ModelData* GetData();
+		UpAxis GetUpAxis() { return m_axis; }
 
 	private:
 		bool InitializeBuffers(ID3D11Device*, bool);
@@ -57,6 +58,7 @@ namespace D3DLIB
 		vector<VertexType>* m_model;
 
 		ModelData* m_data;
+		UpAxis m_axis;
 	};
 
 }

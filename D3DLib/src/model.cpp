@@ -26,7 +26,7 @@ namespace D3DLIB
 		m_data = new ModelData();
 
 		m_data->Reset();
-		m_data->data = true;
+		m_axis = UpAxis::Zpositive;
 
 		//Load in the model
 		result = LoadModel(modelFilename);

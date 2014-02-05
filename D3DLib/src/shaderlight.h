@@ -36,20 +36,20 @@ namespace D3DLIB
 		Shader_LIGHT(const Shader_LIGHT&);
 		~Shader_LIGHT();
 
-		bool Initialize(ID3D11Device*, HWND) override;
+		bool Initialize(ID3D11Device*, HWND);
 		void Shutdown();
 		bool Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-									D3DXMATRIX projectionMatrix, Transform transform) override;		
+			D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis);		
 		void SetParameters(ID3D11ShaderResourceView* texture, D3DXVECTOR3 lightDirection,
-								  D3DXVECTOR4 ambientColor, D3DXVECTOR4 diffuseColor, D3DXVECTOR3 cameraPosition,
-								  D3DXVECTOR4 specularColor, float specularPower);
+			D3DXVECTOR4 ambientColor, D3DXVECTOR4 diffuseColor, D3DXVECTOR3 cameraPosition,
+			D3DXVECTOR4 specularColor, float specularPower);
 		Shader* Clone();
 
 	private:
 		bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
 		void ShutdownShader();
 
-		bool PrepareShader(ID3D11DeviceContext*, D3DXMATRIX, D3DXMATRIX, D3DXMATRIX, Transform);
+		bool PrepareShader(ID3D11DeviceContext*, D3DXMATRIX, D3DXMATRIX, D3DXMATRIX, Transform, UpAxis upaxis);
 		void RenderShader(ID3D11DeviceContext*, int);
 
 		ID3D11VertexShader* m_vertexShader;

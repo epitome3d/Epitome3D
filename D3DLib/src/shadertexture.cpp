@@ -50,10 +50,10 @@ namespace D3DLIB
 
 
 	bool Shader_TEXTURE::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-									D3DXMATRIX projectionMatrix, Transform transform)
+		D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis)
 	{
 		bool result;
-		result = PrepareShader(deviceContext, worldMatrix, viewMatrix, projectionMatrix, transform);
+		result = PrepareShader(deviceContext, worldMatrix, viewMatrix, projectionMatrix, transform, upaxis);
 		if(!result) { return false; }
 		RenderShader(deviceContext, indexCount);
 		return true;
@@ -251,51 +251,18 @@ namespace D3DLIB
 	}
 
 	bool Shader_TEXTURE::PrepareShader(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-												 D3DXMATRIX projectionMatrix, Transform transform)
+												 D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis)
 	{
 		HRESULT result;
 		D3D11_MAPPED_SUBRESOURCE mappedResource;
 		MatrixBufferType* dataPtr;
 		unsigned int bufferNumber;
 
-		D3DXQUATERNION quad = D3DXQUATERNION();
-		D3DXQuaternionRotationYawPitchRoll(&quad, transform.rotation.z, transform.rotation.y + 90.0f, transform.rotation.x);
+		D3DXQUATERNION quad;
+		
+		GetQuaternion(quad, transform.rotation.x, transform.rotation.y, transform.rotation.z, upaxis);
 		D3DXMatrixTransformation(&worldMatrix, NULL, NULL, &D3DXVECTOR3(transform.scale.x, transform.scale.y, transform.scale.z),
 			NULL, &quad, &D3DXVECTOR3(transform.translation.x, transform.translation.y, transform.translation.z));
-
-
-		//THE BIG IDEA
-
-		//1
-		//The 'Shaders' class contains methods for every shader as Shade_TEXTURE()
-		// + Easy to use
-		// + On initialization, initializes one of each shader
-		// + Shader rendering gets information from the model OR bitmap ..TEXTURE(Model model) OR ..TEXTURE(Bitmap bitmap)
-
-		//2
-		//The 'Drawing' class contains methods for loading lists of models
-		//Contains draw lists for ModelType[], BitmapType[]
-		//ModelType[]: Model, ZOrder, Transformations..., Shader
-		//Drawn by Z-order
-		//Transformations applied here
-		//Shaders drawn by hand... for now
-
-		//3
-		//'Shaders' and 'Drawing' classes are initialized from the 'Window' class
-		//both are callable from the 'Window' class
-
-		//Shader IDEAS
-		//Class 'Shader' is base class for all shaders
-		//1. Shader parameters are set in MAIN
-		//2. Shader is initialized through the Drawing class
-		//3. Drawing rendering starts
-		//4. Shader is rendered through the Drawing class
-
-		//4
-		//No more dynamic vs. static bitmaps... just static
-		//  OR...
-		//Model class separated into static and dynamic
-
 
 		// Transpose the matrices to prepare them for the shader.
 		D3DXMatrixTranspose(&worldMatrix, &worldMatrix);

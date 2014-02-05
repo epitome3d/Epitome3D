@@ -8,6 +8,7 @@
 
 //my class includes
 #include "texture.h"
+#include "globals.h"
 
 namespace D3DLIB
 {
@@ -22,6 +23,7 @@ namespace D3DLIB
 		};
 
 	public:
+
 		Bitmap();
 		Bitmap(const Bitmap&);
 		~Bitmap();
@@ -34,6 +36,7 @@ namespace D3DLIB
 		int GetIndexCount();
 		int GetBitmapWidth();
 		int GetBitmapHeight();
+		UpAxis GetUpAxis() { return UpAxis::Ypositive; }
 
 	private:
 		bool InitializeBuffers(ID3D11Device*);
@@ -47,6 +50,7 @@ namespace D3DLIB
 		int m_screenWidth, m_screenHeight;
 		int m_bitmapWidth, m_bitmapHeight;
 		int m_previousPosX, m_previousPosY;
+
 	};
 
 }

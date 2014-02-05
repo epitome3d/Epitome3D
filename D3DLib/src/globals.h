@@ -1,5 +1,4 @@
-#ifndef D3DLIB_GLOBALS
-#define D3DLIB_GLOBALS
+#pragma once
 
 //globals
 static bool FULL_SCREEN = false;
@@ -13,7 +12,12 @@ static bool SHOW_CURSOR = true;
 #pragma warning(disable:4005)
 #include <d3d11.h>
 #include <d3dx10math.h>
-//#include "model.h"
+
+enum UpAxis
+{
+	Ypositive = 2,
+	Zpositive = 4
+};
 
 namespace D3DLIB
 {
@@ -54,5 +58,3 @@ namespace D3DLIB
 		bool data;
 	};
 }
-
-#endif

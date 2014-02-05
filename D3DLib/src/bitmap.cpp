@@ -21,7 +21,6 @@ namespace D3DLIB
 	{
 		bool result;
 
-
 		// Store the screen size.
 		m_screenWidth = screenWidth;
 		m_screenHeight = screenHeight;

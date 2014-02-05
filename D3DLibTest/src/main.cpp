@@ -23,7 +23,7 @@ bool Initialize()
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/sphere.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/teapot.fbx", true);
 
 	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
 	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");
@@ -84,6 +84,32 @@ void Run()
 	//left = 1,0,0  (dec, dec) (x)
 	//back = 0,0,-1 (dec, inc) (z)
 	//right = -1,0,0(inc, inc) (x)
+
+
+/*  THE NEXT BIG IDEA
+	-----------------------
+
+	The problem is: the type of model drawn affects the type of shader transformations used.
+	Unfortunately, shaders and models do NOT share any data whatsoever.
+
+	So, here is the solution.
+
+	1. Options class stores global variables, especially the drawing format.
+		> Create options class
+		> Add a list of protected globals and enums that can be read from and written to
+			> WORLD_COORDINATE_SYSTEM_UPAXIS (+- {X, Y, Z})
+		> Add a list of public classes to set these variables
+			> SetWorldCoordinateSystem(UpAxis)
+			> GetWorldCoordinateSystem(&UpAxis)
+			> GetWorldRotationMapping(&Quaternion, ModelUpAxis, RotationX, RotationY, RotationX)
+	2. Window class initializes and provides access to these variables.
+
+	
+	
+	
+	
+	
+*/
 
 	win.GetWindowSize(w, h, f);
 	int m = w;

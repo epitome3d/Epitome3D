@@ -309,7 +309,7 @@ namespace D3DLIB
 		m_deviceContext->OMSetRenderTargets(1, &m_renderTargetView, m_depthStencilView);
 
 		// Setup the raster description which will determine how and what polygons will be drawn.
-		rasterDesc.AntialiasedLineEnable = false;
+		rasterDesc.AntialiasedLineEnable = true;
 		rasterDesc.CullMode = D3D11_CULL_NONE;
 		rasterDesc.DepthBias = 0;
 		rasterDesc.DepthBiasClamp = 0.0f;
