@@ -23,14 +23,14 @@ bool Initialize()
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/teapot.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/sphere.fbx", true);
 
 	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
 	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");
-	t_mouseon.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/AccurateClick.dds");
+	t_mouseon.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/Accurate Click.dds");
 	t_mouseoff.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/Accurate.dds");
 
-	cursor.Initialize(win.d3d->GetDevice(), 32, 32);
+	cursor.Initialize(win.d3d->GetDevice(), w, h);
 	stars.Initialize(win.d3d->GetDevice(), w, h);
 
 	win.d3d->TurnZBufferOn();
@@ -138,8 +138,8 @@ void Run()
 
 		win.d3d->TurnZBufferOn();
 		win.d3d->BeginScene(0.0f, 0.0f, 0.0f, 0.0f);
-		win.camera->SetPosition(movementX, rotationZ, movementZ - 15.0f);
-		win.camera->SetRotation(rotationX, rotationY, 0.0f);
+		win.camera->SetPosition(0.0f, 0.0f, -30.0f);
+		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
 		win.d3d->GetWorldMatrix(world);
@@ -163,6 +163,11 @@ void Run()
 			new Transform(), 0, 0, w, h, 0, true,
 			new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
 
+		win.camera->SetPosition(movementX, rotationZ, movementZ - 15.0f);
+		win.camera->SetRotation(rotationX, rotationY, 0.0f);
+		win.camera->Render();
+		win.camera->GetViewMatrix(view);
+
 		//earth
 		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
 			win.camera->GetPosition(), l_specularColor, l_specularPower);
@@ -170,6 +175,11 @@ void Run()
 			new Transform(D3DXVECTOR3(deg, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
 			D3DXVECTOR3(0.0f, 0.0f, 0.0f)),
 			new CullAuto(), new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
+
+		win.camera->SetPosition(0.0f, 0.0f, -30.0f);
+		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
+		win.camera->Render();
+		win.camera->GetViewMatrix(view);
 
 		//mouse
 		if (mouseEnabled)
@@ -183,12 +193,11 @@ void Run()
 				s_tex.SetParameters(t_mouseoff.GetTexture());
 			}
 
-			win.painter->AddToFront(BitmapType(&cursor, &s_tex, new Transform(), mouseX, mouseY, cursor.GetBitmapHeight(), cursor.GetBitmapWidth(), 0.0f, true,
+			win.painter->AddToFront(BitmapType(&cursor, &s_tex, new Transform(), mouseX - 16, mouseY - 16, 32, 32, 0.0f, true,
 				new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
 		}
 
 		win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);
-		
 		DrawInfo();
 		win.d3d->EndScene();
 	}
