@@ -9,7 +9,7 @@ namespace D3DLIB
 		this->mode = Rad;
 	}
 
-	Transform::Transform(Mode mode)
+	Transform::Transform(RotMode mode)
 	{
 		this->rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 		this->scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
@@ -18,12 +18,24 @@ namespace D3DLIB
 	}
 
 	Transform::Transform(D3DXVECTOR3 rotation, D3DXVECTOR3 scale,
-		D3DXVECTOR3 translation, Mode mode)
+		D3DXVECTOR3 translation, RotMode mode)
 	{
 		this->rotation = rotation;
 		this->scale = scale;
 		this->translation = translation;
 		this->mode = mode;
+	}
+
+	Orientation::Orientation()
+	{
+		this->upaxis = Ypositive;
+		this->hand = Left;
+	}
+
+	Orientation::Orientation(UpAxis upaxis, Handedness hand)
+	{
+		this->upaxis = upaxis;
+		this->hand = hand;
 	}
 
 }

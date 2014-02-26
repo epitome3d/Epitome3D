@@ -46,12 +46,12 @@ namespace D3DLIB
 	}
 
 	bool Shader_LIGHT::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-		D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis)
+		D3DXMATRIX projectionMatrix, Transform transform, Orientation orient)
 	{
 		bool result;
 		
 		// Set the shader parameters that it will use for rendering.
-		result = PrepareShader(deviceContext, worldMatrix, viewMatrix, projectionMatrix, transform, upaxis);
+		result = PrepareShader(deviceContext, worldMatrix, viewMatrix, projectionMatrix, transform, orient);
 		if(!result)
 		{
 			return false;
@@ -308,7 +308,7 @@ namespace D3DLIB
 	}
 
 	bool Shader_LIGHT::PrepareShader(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-		D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis)
+		D3DXMATRIX projectionMatrix, Transform transform, Orientation orient)
 	{
 		HRESULT result;
 		D3D11_MAPPED_SUBRESOURCE mappedResource;
@@ -318,7 +318,7 @@ namespace D3DLIB
 		CameraBufferType* dataPtr3;
 
 		D3DXQUATERNION quad;
-		GetQuaternion(quad, transform.rotation.x, transform.rotation.y, transform.rotation.z, upaxis);
+		GetQuaternion(quad, transform.rotation.x, transform.rotation.y, transform.rotation.z, orient);
 		D3DXMatrixTransformation(&worldMatrix, NULL, NULL, &D3DXVECTOR3(transform.scale.x, transform.scale.y, transform.scale.z),
 			NULL, &quad, &D3DXVECTOR3(transform.translation.x, transform.translation.y, transform.translation.z));
 		

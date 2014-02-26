@@ -13,33 +13,48 @@ static bool SHOW_CURSOR = true;
 #include <d3d11.h>
 #include <d3dx10math.h>
 
-enum UpAxis
-{
-	Ypositive = 2,
-	Zpositive = 4
-};
-
-enum Mode
-{
-	Deg = 0,
-	Rad = 1
-};
-
 namespace D3DLIB
 {
+	enum UpAxis
+	{
+		Ypositive = 2,
+		Zpositive = 4
+	};
+
+	enum Handedness
+	{
+		Left = 0,
+		Right = 1
+	};
+
+	enum RotMode
+	{
+		Deg = 0,
+		Rad = 1
+	};
+
 	///<summary>Transformations applied to a set points.  If mode (for rotation) is unset, defaults to radians.</summary>
 	struct Transform
 	{
 	public:
 		Transform();
-		Transform(Mode mode);
+		Transform(RotMode mode);
 		Transform(D3DXVECTOR3 rotation, D3DXVECTOR3 scale,
-			D3DXVECTOR3 translation, Mode mode);
+			D3DXVECTOR3 translation, RotMode mode);
 
 		D3DXVECTOR3 rotation;
 		D3DXVECTOR3 scale;
 		D3DXVECTOR3 translation;
-		Mode mode;
+		RotMode mode;
+	};
+
+	struct Orientation
+	{
+		Orientation();
+		Orientation(UpAxis upaxis, Handedness hand);
+
+		UpAxis upaxis;
+		Handedness hand;
 	};
 
 	struct ModelData

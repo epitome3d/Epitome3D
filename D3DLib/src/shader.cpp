@@ -18,19 +18,19 @@ namespace D3DLIB
 		return false;
 	}
 	bool Shader::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-									D3DXMATRIX projectionMatrix, Transform transform, UpAxis axis)
+									D3DXMATRIX projectionMatrix, Transform transform, Orientation orient)
 	{
 		return false;
 	}
 
-	void Shader::GetQuaternion(D3DXQUATERNION &quad, float rotX, float rotY, float rotZ, UpAxis axis)
+	void Shader::GetQuaternion(D3DXQUATERNION &quad, float rotX, float rotY, float rotZ, Orientation orient)
 	{
 		quad = D3DXQUATERNION();
-		if (axis == UpAxis::Ypositive)
+		if (orient.upaxis == Ypositive)
 		{
 			D3DXQuaternionRotationYawPitchRoll(&quad, rotX, rotY, rotZ);
 		}
-		if (axis == UpAxis::Zpositive)
+		if (orient.upaxis == Zpositive)
 		{
 			D3DXQuaternionRotationYawPitchRoll(&quad, rotZ, rotY - 90.0f, rotX);
 		}

@@ -32,5 +32,5 @@ namespace D3DLIB
 	D3DXVECTOR3 xdeg(D3DXVECTOR3 in);
 	Transform xdeg(Transform in);
 
-	Transform xforce(Transform transform, Mode mode);
+	Transform xforce(Transform transform, RotMode mode);
 }

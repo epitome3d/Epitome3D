@@ -39,7 +39,7 @@ namespace D3DLIB {
 		out.translation = in.translation;
 		return out;
 	}
-	Transform xforce(Transform transform, Mode mode)
+	Transform xforce(Transform transform, RotMode mode)
 	{
 		if (mode == transform.mode) { return transform; }
 		if (mode == Rad) { return xrad(transform); }

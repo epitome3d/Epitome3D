@@ -25,14 +25,14 @@ namespace D3DLIB
 		void Shutdown();
 
 		bool Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
-			D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis);
+			D3DXMATRIX projectionMatrix, Transform transform, Orientation orient);
 		void SetParameters(ID3D11ShaderResourceView* texture);
 
 		Shader* Clone();
 	private:
 		bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
 		void ShutdownShader();
-		bool PrepareShader(ID3D11DeviceContext*, D3DXMATRIX, D3DXMATRIX, D3DXMATRIX, Transform transform, UpAxis upaxis);
+		bool PrepareShader(ID3D11DeviceContext*, D3DXMATRIX, D3DXMATRIX, D3DXMATRIX, Transform transform, Orientation orient);
 		void RenderShader(ID3D11DeviceContext*, int);
 
 	private:

@@ -26,7 +26,7 @@ namespace D3DLIB
 		m_data = new ModelData();
 
 		m_data->Reset();
-		m_axis = UpAxis::Zpositive;
+		m_orient = Orientation(Zpositive, Left);
 
 		//Load in the model
 		result = LoadModel(modelFilename);
@@ -312,10 +312,8 @@ namespace D3DLIB
 			for (int j = 0; j < mesh->GetPolygonSize(i); j++)
 			{
 				VertexType vertex = m_model->at(m_UVCount);
-				vertex.uv.x = (float)uvArray->GetAt(mesh->GetTextureUVIndex(i, j)).mData[0];
-				vertex.uv.y = (float)uvArray->GetAt(mesh->GetTextureUVIndex(i, j)).mData[1];
-				if (m_axis == Zpositive) { vertex.uv.x = 1 - vertex.uv.x; }
-				if (m_axis == Zpositive) { vertex.uv.y = 1 - vertex.uv.y; }
+				vertex.uv.x = 1 - (float)uvArray->GetAt(mesh->GetTextureUVIndex(i, j)).mData[0];
+				vertex.uv.y = 1 - (float)uvArray->GetAt(mesh->GetTextureUVIndex(i, j)).mData[1];
 				m_model->at(m_UVCount) = vertex;
 				m_UVCount++;
 			}

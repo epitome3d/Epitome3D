@@ -18,7 +18,7 @@ namespace D3DLIB
 	{
 	protected:
 		virtual bool Initialize(ID3D11Device*, HWND) = 0;
-		void GetQuaternion(D3DXQUATERNION &quad, float rotX, float rotY, float rotZ, UpAxis axis);
+		void GetQuaternion(D3DXQUATERNION &quad, float rotX, float rotY, float rotZ, Orientation orient);
 		void ThrowBlobError(ID3D10Blob*, HWND, WCHAR*);
 
 	public:
@@ -27,7 +27,7 @@ namespace D3DLIB
 		~Shader();
 
 		virtual bool Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
-			D3DXMATRIX projectionMatrix, Transform transform, UpAxis upaxis) = 0;
+			D3DXMATRIX projectionMatrix, Transform transform, Orientation orient) = 0;
 		virtual Shader* Clone() = 0;
 	};
 }

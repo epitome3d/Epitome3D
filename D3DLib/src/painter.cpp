@@ -94,7 +94,7 @@ namespace D3DLIB
 			viewport->RenderViewport(deviceContext);
 			this->model->Render(deviceContext);
 			this->shader->Render(deviceContext, model->GetIndexCount(),
-				*(this->data->world), *(this->data->view), *(this->data->projection), *this->transform, this->model->GetUpAxis());			
+				*(this->data->world), *(this->data->view), *(this->data->projection), *this->transform, this->model->GetOrientation());			
 		}
 		return;
 	}
@@ -243,13 +243,13 @@ namespace D3DLIB
 		{
 			d3d->TurnZBufferOff();
 			shader->Render(d3d->GetDeviceContext(), bitmap->GetIndexCount(),
-				*(this->data->world), *(this->data->view), *(this->data->ortho), *transform, this->bitmap->GetUpAxis());
+				*(this->data->world), *(this->data->view), *(this->data->ortho), *transform, this->bitmap->GetOrientation());
 			d3d->TurnZBufferOn();
 		}
 		else
 		{
 			shader->Render(d3d->GetDeviceContext(), bitmap->GetIndexCount(),
-				*(this->data->world), *(this->data->view), *(this->data->projection), *transform, this->bitmap->GetUpAxis());
+				*(this->data->world), *(this->data->view), *(this->data->projection), *transform, this->bitmap->GetOrientation());
 		}
 		return;
 	}

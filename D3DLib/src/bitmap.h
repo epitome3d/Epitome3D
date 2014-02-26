@@ -23,7 +23,6 @@ namespace D3DLIB
 		};
 
 	public:
-
 		Bitmap();
 		Bitmap(const Bitmap&);
 		~Bitmap();
@@ -36,7 +35,7 @@ namespace D3DLIB
 		int GetIndexCount();
 		int GetBitmapWidth();
 		int GetBitmapHeight();
-		UpAxis GetUpAxis() { return UpAxis::Ypositive; }
+		Orientation GetOrientation() { return Orientation(Ypositive, Handedness::Left); }
 
 	private:
 		bool InitializeBuffers(ID3D11Device*);
