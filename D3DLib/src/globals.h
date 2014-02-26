@@ -19,18 +19,27 @@ enum UpAxis
 	Zpositive = 4
 };
 
+enum Mode
+{
+	Deg = 0,
+	Rad = 1
+};
+
 namespace D3DLIB
 {
+	///<summary>Transformations applied to a set points.  If mode (for rotation) is unset, defaults to radians.</summary>
 	struct Transform
 	{
 	public:
 		Transform();
+		Transform(Mode mode);
 		Transform(D3DXVECTOR3 rotation, D3DXVECTOR3 scale,
-			D3DXVECTOR3 translation);
+			D3DXVECTOR3 translation, Mode mode);
 
 		D3DXVECTOR3 rotation;
 		D3DXVECTOR3 scale;
 		D3DXVECTOR3 translation;
+		Mode mode;
 	};
 
 	struct ModelData

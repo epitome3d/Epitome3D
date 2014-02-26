@@ -12,7 +12,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 
 bool Initialize()
 {
-	bool result;
 	int w, h;
 	bool f;
 
@@ -23,7 +22,7 @@ bool Initialize()
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/sphere.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/teapot.fbx", true);
 
 	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
 	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");
@@ -61,7 +60,6 @@ void Run()
 {
 	int w, h;
 	bool f;
-	HRESULT result;
 	D3DXMATRIX world;
 	D3DXMATRIX view;
 	D3DXMATRIX projection;
@@ -150,7 +148,7 @@ void Run()
 
 		/*** MATH ***/
 
-		deg = deg + (float)0.01;
+		deg = deg + 5.0f;
 		if (deg >= 360.0f) { deg -= 360.0f;}
 
 		/***** DRAWING *****/
@@ -160,7 +158,7 @@ void Run()
 		//stars
 		s_tex.SetParameters(t_stars.GetTexture());
 		win.painter->AddToFront(BitmapType(&stars, &s_tex,
-			new Transform(), 0, 0, w, h, 0, true,
+			new Transform(Rad), 0, 0, w, h, 0, true,
 			new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
 
 		win.camera->SetPosition(movementX, rotationZ, movementZ - 15.0f);
@@ -173,9 +171,9 @@ void Run()
 			win.camera->GetPosition(), l_specularColor, l_specularPower);
 		win.painter->AddToFront(ModelType(&m_sphere, &s_light, 
 			new Transform(D3DXVECTOR3(deg, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
-			D3DXVECTOR3(0.0f, 0.0f, 0.0f)),
+			D3DXVECTOR3(0.0f, 0.0f, 0.0f), Deg),
 			new CullAuto(), new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
-
+		
 		win.camera->SetPosition(0.0f, 0.0f, -30.0f);
 		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
 		win.camera->Render();
@@ -199,6 +197,16 @@ void Run()
 
 		win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);
 		DrawInfo();
+
+		WCHAR tempString[80];
+		WCHAR tempString2[80];
+		swprintf_s(tempString, L"%f", deg);
+		wcscpy_s(tempString2, L"Rotation: ");
+		wcscat_s(tempString2, tempString);
+		win.text->Render(win.d3d->GetDeviceContext(), tempString2, L"Segoe UI", 10, 70, 12.0f, 0xffffffff,
+			FW1_LEFT | FW1_TOP | FW1_RESTORESTATE);
+
+
 		win.d3d->EndScene();
 	}
 }

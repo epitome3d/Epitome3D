@@ -22,21 +22,6 @@ namespace D3DLIB
 		return i;
 	}
 
-	Transform::Transform()
-	{
-		this->rotation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-		this->scale = D3DXVECTOR3(1.0f, 1.0f, 1.0f);
-		this->translation = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	}
-
-	Transform::Transform(D3DXVECTOR3 rotation, D3DXVECTOR3 scale,
-			D3DXVECTOR3 translation)
-	{
-		this->rotation = rotation;
-		this->scale = scale;
-		this->translation = translation;
-	}
-
 	BaseType::BaseType()
 	{
 		//ZOrder = 0;
@@ -384,6 +369,7 @@ namespace D3DLIB
 			if (type == 1)
 			{
 				ModelType* model = (ModelType*)base;
+				model->transform = &xforce(*model->transform, Rad);
 				model->Render(d3d->GetDeviceContext(), frustum, viewport);
 			}
 			if (type == 2)
@@ -394,6 +380,7 @@ namespace D3DLIB
 			if (type == 3)
 			{
 				BitmapType* bitmap = (BitmapType*)base;
+				bitmap->transform = &xforce(*bitmap->transform, Rad);
 				bitmap->Render(d3d, viewport);
 			}
 			/*if (type == 4)

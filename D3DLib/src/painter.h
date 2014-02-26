@@ -146,7 +146,7 @@ namespace D3DLIB
 
 		void ClearList(); //clear model list
 		void Render(D3D* d3d, Frustum* frustum, Viewport* viewport, 
-		D3DXMATRIX world, D3DXMATRIX view, D3DXMATRIX projection, D3DXMATRIX ortho); //called in MAIN
+			D3DXMATRIX world, D3DXMATRIX view, D3DXMATRIX projection, D3DXMATRIX ortho); //called in MAIN
 		
 		static bool Compare(const BaseType * const & a,
 			const BaseType * const & b)

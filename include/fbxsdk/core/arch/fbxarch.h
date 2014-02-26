@@ -50,7 +50,8 @@
 #if defined(_WIN32) || defined(_WIN64) //Microsoft Windows ------------------------------
 
 	#define FBXSDK_ENV_WIN 1
-
+	#pragma warning(disable:4067)
+	
 	#if defined(WINAPI_FAMILY)
 		#if WINAPI_FAMILY_ONE_PARTITION(WINAPI_FAMILY, WINAPI_PARTITION_APP)
 			#define FBXSDK_ENV_WINSTORE 1
