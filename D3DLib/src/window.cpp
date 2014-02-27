@@ -133,7 +133,7 @@ namespace D3DLIB
 		input->Frame(m_focus);
 		m_focus = !m_focus;
 		timer->Frame();
-		fps->Frame();
+		fps->Frame(m_focus);
 		cpu->Frame();
 		return true;
 	}

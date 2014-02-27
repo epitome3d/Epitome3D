@@ -136,8 +136,8 @@ namespace D3DLIB
 
 		if (!m_touchdevice)
 		{
-		result = ReadMouse();
-		if(!result) { return false; }
+			result = ReadMouse();
+			if(!result) { return false; }
 		}
 
 		//process the changes

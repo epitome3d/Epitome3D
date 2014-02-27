@@ -15,11 +15,9 @@ namespace D3DLIB
 	{
 	public:
 		FPS();
-		FPS(const FPS&);
-		~FPS();
 
 		void Initialize();
-		void Frame();
+		void Frame(bool focused);
 		int GetFPS();
 
 	private:

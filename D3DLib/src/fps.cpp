@@ -7,14 +7,6 @@ namespace D3DLIB
 	{
 	}
 
-	FPS::FPS(const FPS& other)
-	{
-	}
-
-	FPS::~FPS()
-	{
-	}
-
 	void FPS::Initialize()
 	{
 		m_fps = 0;
@@ -23,11 +15,20 @@ namespace D3DLIB
 		return;
 	}
 
-	void FPS::Frame()
+	void FPS::Frame(bool focused)
 	{
-		m_count++;
+		if (focused)
+		{
+			m_count++;
 
-		if(timeGetTime() >= (m_startTime + 1000))
+			if (timeGetTime() >= (m_startTime + 1000))
+			{
+				m_fps = m_count;
+				m_count = 0;
+				m_startTime = timeGetTime();
+			}
+		}
+		else
 		{
 			m_fps = m_count;
 			m_count = 0;
