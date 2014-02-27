@@ -3,7 +3,7 @@ assets/model/design/
 
 
 # User-specific files
-*.suo
+# *.suo #commented for single-user compatibility; REMOVE BEFORE PUBLIC
 *.user
 *.sln.docstates
 
