@@ -2,11 +2,11 @@
 #define D3DLIBTEST_MAIN
 
 #include "window.h"
-#include "sound_WAVEPCM.h"
-#include "shadertexture.h"
-#include "shaderlight.h"
-#include "model_FBX.h"
-#include "model_OBJ.h"
+#include "sounds/sound_WAVEPCM.h"
+#include "shaders/shader_TEXTURE.h"
+#include "shaders/shader_LIGHT.h"
+#include "models/model_FBX.h"
+#include "models/model_OBJ.h"
 #pragma comment (lib, "D3DLib.lib")
 
 using namespace D3DLIB;

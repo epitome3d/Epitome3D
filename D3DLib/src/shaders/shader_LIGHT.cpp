@@ -1,4 +1,4 @@
-#include "shaderlight.h"
+#include "shader_LIGHT.h"
 
 namespace D3DLIB
 {

@@ -1,7 +1,7 @@
 #ifndef D3DLIB_SOUND_WAVEPCM
 #define D3DLIB_SOUND_WAVEPCM
 
-#include "sound.h"
+#include "../sound.h"
 
 namespace D3DLIB
 {

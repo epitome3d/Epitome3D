@@ -2,7 +2,7 @@
 #define D3DLIB_MODEL_OBJ
 
 //includes
-#include "model.h"
+#include "../model.h"
 
 namespace D3DLIB
 {

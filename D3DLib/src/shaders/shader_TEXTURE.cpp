@@ -1,4 +1,4 @@
-#include "shadertexture.h"
+#include "shader_TEXTURE.h"
 
 namespace D3DLIB
 {

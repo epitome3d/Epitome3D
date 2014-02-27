@@ -2,7 +2,7 @@
 #define D3DLIB_SHADER_LIGHT
 
 //includes
-#include "shader.h"
+#include "../shader.h"
 
 namespace D3DLIB
 {

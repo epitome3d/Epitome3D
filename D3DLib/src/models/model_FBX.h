@@ -4,7 +4,7 @@
 //includes
 #pragma comment (lib,"libfbxsdk.lib")
 #include <fbxsdk.h>
-#include "model.h"
+#include "../model.h"
 
 namespace D3DLIB
 {

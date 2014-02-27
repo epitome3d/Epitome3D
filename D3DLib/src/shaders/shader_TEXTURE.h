@@ -2,7 +2,7 @@
 #define D3DLIB_SHADER_TEXTURE
 
 //includes
-#include "shader.h"
+#include "../shader.h"
 
 namespace D3DLIB
 {

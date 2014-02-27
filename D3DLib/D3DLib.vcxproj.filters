@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Model Formats">
+      <UniqueIdentifier>{fbe8ae1d-da2a-4b20-a978-a6d9d89ab2cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sound Formats">
+      <UniqueIdentifier>{7dd33291-9a03-4cb1-82f7-4facdbf4870a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shaders">
+      <UniqueIdentifier>{0b0bc339-3f72-467a-a6f6-5b3b61929526}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\bitmap.cpp">
@@ -51,16 +60,7 @@
     <ClCompile Include="src\shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\shaderlight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\shadertexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sound_WAVEPCM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\text.cpp">
@@ -81,10 +81,19 @@
     <ClCompile Include="src\globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\model_FBX.cpp">
+    <ClCompile Include="src\Models\model_FBX.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\model_OBJ.cpp">
+    <ClCompile Include="src\Models\model_OBJ.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sounds\sound_WAVEPCM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shaders\shader_LIGHT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shaders\shader_TEXTURE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -131,16 +140,7 @@
     <ClInclude Include="src\shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\shaderlight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\shadertexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\sound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sound_WAVEPCM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\text.h">
@@ -158,10 +158,19 @@
     <ClInclude Include="src\window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\model_FBX.h">
+    <ClInclude Include="src\Models\model_OBJ.h">
+      <Filter>Header Files\Model Formats</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Models\model_FBX.h">
+      <Filter>Header Files\Model Formats</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sounds\sound_WAVEPCM.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\model_OBJ.h">
+    <ClInclude Include="src\Shaders\shader_LIGHT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shaders\shader_TEXTURE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
