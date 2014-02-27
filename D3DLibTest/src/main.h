@@ -5,6 +5,8 @@
 #include "sound_WAVEPCM.h"
 #include "shadertexture.h"
 #include "shaderlight.h"
+#include "model_FBX.h"
+#include "model_OBJ.h"
 #pragma comment (lib, "D3DLib.lib")
 
 using namespace D3DLIB;
@@ -23,7 +25,7 @@ void ScrollMove(unsigned char DIK, float &directionSpeedVar, float &outputVar,
 
 Window win;
 
-Model m_sphere;
+Model_OBJ m_sphere;
 Bitmap cursor;
 Bitmap stars;
 

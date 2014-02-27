@@ -22,7 +22,7 @@ bool Initialize()
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/teapot.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/Sphere.txt", true);
 
 	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
 	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");

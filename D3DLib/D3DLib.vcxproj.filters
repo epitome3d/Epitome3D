@@ -81,6 +81,12 @@
     <ClCompile Include="src\globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\model_FBX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\model_OBJ.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\bitmap.h">
@@ -150,6 +156,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model_FBX.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\model_OBJ.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -30,6 +30,8 @@
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\math3d.cpp" />
     <ClCompile Include="src\model.cpp" />
+    <ClCompile Include="src\model_FBX.cpp" />
+    <ClCompile Include="src\model_OBJ.cpp" />
     <ClCompile Include="src\painter.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\shaderlight.cpp" />
@@ -54,6 +56,8 @@
     <ClInclude Include="src\input.h" />
     <ClInclude Include="src\math3d.h" />
     <ClInclude Include="src\model.h" />
+    <ClInclude Include="src\model_FBX.h" />
+    <ClInclude Include="src\model_OBJ.h" />
     <ClInclude Include="src\painter.h" />
     <ClInclude Include="src\resource.h" />
     <ClInclude Include="src\shader.h" />

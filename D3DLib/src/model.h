@@ -3,11 +3,9 @@
 
 //includes
 #pragma warning (disable:4005)
-#pragma comment (lib,"libfbxsdk.lib")
 #include <D3D11.h>
 #include <D3DX10math.h>
 #include <fstream>
-#include <fbxsdk.h>
 #include <vector>
 #include <assert.h>
 using namespace std;
@@ -19,10 +17,10 @@ using namespace std;
 
 namespace D3DLIB
 {
-	class Model
+	class Model abstract
 	{
-	private:
-		struct VertexType
+	protected:
+		virtual struct VertexType
 		{
 			D3DXVECTOR3 pos;
 			D3DXVECTOR2 uv;
@@ -31,34 +29,28 @@ namespace D3DLIB
 
 	public:
 		Model();
-		Model(const Model&);
-		~Model();
 
 		bool Initialize(ID3D11Device*, char*, bool getdata);
-		void Shutdown();
 		void Render(ID3D11DeviceContext*);
+		void Shutdown();
+
 		int GetIndexCount();
 		ModelData* GetData();
-		Orientation GetOrientation() { return m_orient; }
+		virtual Orientation GetOrientation() = 0;
+	
+	protected:
+		virtual bool LoadModel(char* filename) = 0;
 
-	private:
+		void ReleaseModel();
 		bool InitializeBuffers(ID3D11Device*, bool);
 		void ShutdownBuffers();
 		void RenderBuffers(ID3D11DeviceContext*);
-
-		bool LoadModel(char*);
-		void ReleaseModel();
-
-		bool LoadPolygonData(FbxMesh*);
-
-		FbxManager* g_pFbxSdkManager;
-		ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;
-
+		
 		int m_vertexCount, m_indexCount, m_normalCount, m_UVCount;
+		ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;
 		vector<VertexType>* m_model;
-
 		ModelData* m_data;
-		Orientation m_orient;
+
 	};
 
 }
