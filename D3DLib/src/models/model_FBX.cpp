@@ -39,6 +39,7 @@ namespace D3DLIB
 		/*** ZERO VARIABLES ***/
 
 		m_model = new vector<VertexType>();
+		m_indices = new vector<unsigned int>();
 
 		m_vertexCount = 0;
 		m_indexCount = 0;
@@ -90,6 +91,7 @@ namespace D3DLIB
 			vertex.pos.x = (float)pVertices[indices[i] + baseVertex].mData[0];
 			vertex.pos.y = (float)pVertices[indices[i] + baseVertex].mData[1];
 			vertex.pos.z = (float)pVertices[indices[i] + baseVertex].mData[2];
+			m_indices->push_back((unsigned int)i);
 			m_model->push_back(vertex); //??? : would this make this backwards?
 			m_vertexCount++;
 		}

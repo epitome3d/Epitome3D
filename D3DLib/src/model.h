@@ -46,11 +46,13 @@ namespace D3DLIB
 		void ShutdownBuffers();
 		void RenderBuffers(ID3D11DeviceContext*);
 		
+		vector<VertexType>* m_model; //add vertices to this vector
+		vector<unsigned int>* m_indices; //add indices to this vector
 		int m_vertexCount, m_indexCount, m_normalCount, m_UVCount;
+		
+	private:
 		ID3D11Buffer *m_vertexBuffer, *m_indexBuffer;
-		vector<VertexType>* m_model;
 		ModelData* m_data;
-
 	};
 
 }

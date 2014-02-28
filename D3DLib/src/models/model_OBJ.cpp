@@ -9,54 +9,148 @@ namespace D3DLIB
 
 	bool Model_OBJ::LoadModel(char* filename)
 	{
-		ifstream fin;
-		char input;
-		int i;
+		return LoadDataStructures(filename);
+	}
 
-		//open the model file
+	bool Model_OBJ::LoadDataStructures(char* filename)
+	{
+		ifstream fin;
+		char input, input2;
+		vector<FaceType>* m_faces = new vector<FaceType>();
+
+		m_model = new vector<VertexType>();
+		m_indices = new vector<unsigned int>();
+		vector<VertexType>* m_modeltemp = new vector<VertexType>();
+
+		m_vertexCount = 0;
+		m_indexCount = 0;
+		m_normalCount = 0;
+		m_UVCount = 0;
+		int m_faceCount = 0;
+
+		// Open the file.
 		fin.open(filename);
 
-		//if it could not open the file, then exit
-		if (fin.fail())
+		// Check if it was successful in opening the file.
+		if (fin.fail() == true)
 		{
 			return false;
 		}
 
-		//read up to the value of vertex count
+		// Read in the vertices, texture coordinates, and normals into the data structures.
+		// Important: Also convert to left hand coordinate system since Maya uses right hand coordinate system.
 		fin.get(input);
-		while (input != ':')
+		while (!fin.eof() && !fin.fail())
 		{
+			if (input == 'v')
+			{
+				fin.get(input);
+
+				// Read in the vertices.
+				if (input == ' ')
+				{
+					VertexType vertex = VertexType();
+					fin >> vertex.pos.x >> vertex.pos.y >> vertex.pos.z;
+					vertex.pos.z = vertex.pos.z * -1.0f; // Convert to left hand
+					m_modeltemp->push_back(vertex);
+					m_vertexCount++;
+				}
+
+				// Read in the texture uv coordinates.
+				if (input == 't')
+				{
+					VertexType vertex = m_modeltemp->at(m_UVCount);
+					fin >> vertex.uv.x >> vertex.uv.y;
+					vertex.uv.y = 1.0f - vertex.uv.y; //Convert to left hand
+					m_modeltemp->at(m_UVCount) = vertex;
+					m_UVCount++;
+				}
+
+				// Read in the normals.
+				if (input == 'n')
+				{
+					VertexType vertex = m_modeltemp->at(m_normalCount);
+					fin >> vertex.norm.x >> vertex.norm.y >> vertex.norm.z;
+					vertex.norm.z = vertex.norm.z * -1.0f; // Convert to left hand
+					m_modeltemp->at(m_UVCount) = vertex;
+					m_normalCount++;
+				}
+			}
+
+			// Read in the faces.
+			if (input == 'f')
+			{
+				fin.get(input);
+				if (input == ' ')
+				{
+					FaceType face = FaceType();
+					// Read the face data in backwards to convert it to a left hand system from right hand system.
+					fin >> face.vIndex3 >> input2 >> face.tIndex3 >> input2 >> face.nIndex3
+						>> face.vIndex2 >> input2 >> face.tIndex2 >> input2 >> face.nIndex2
+						>> face.vIndex1 >> input2 >> face.tIndex1 >> input2 >> face.nIndex1;
+
+					m_faces->push_back(face);
+					m_faceCount++;
+					m_indexCount = m_indexCount + 3;
+				}
+			}
+
+			// Read in the remainder of the line.
+			while ((input != '\n') && (!fin.eof()))
+			{
+				fin.get(input);
+			}
+
+			// Start reading the beginning of the next line.
 			fin.get(input);
 		}
 
-		//read in the vertex count
-		fin >> m_vertexCount;
-
-		//set the number of vertices to be the same as the vertex count
-		m_indexCount = m_vertexCount;
-
-		//create the model using the vertex count
-		m_model = new vector<VertexType>();
-
-		//read upto the beginning of the data
-		fin.get(input);
-		while (input != ':')
-		{
-			fin.get(input);
-		}
-
-		//read in the vertex data
-		for (i = 0; i < m_vertexCount; i++)
-		{
-			VertexType vertex = VertexType();
-			fin >> vertex.pos.x >> vertex.pos.y >> vertex.pos.z;
-			fin >> vertex.uv.x >> vertex.uv.y;
-			fin >> vertex.norm.x >> vertex.norm.y >> vertex.norm.z;
-			m_model->push_back(vertex);
-		}
-
-		//close the model file
+		// Close the file.
 		fin.close();
+
+		int vIndex, tIndex, nIndex;
+		m_vertexCount = 0;
+
+		// Now loop through all the faces and output the three vertices for each face.
+		for (int i = 0; i < m_faceCount; i++)
+		{
+			VertexType v1 = VertexType();
+			VertexType v2 = VertexType();
+			VertexType v3 = VertexType();
+
+			vIndex = m_faces->at(i).vIndex1 - 1;
+			tIndex = m_faces->at(i).tIndex1 - 1;
+			nIndex = m_faces->at(i).nIndex1 - 1;
+
+			v1.pos = m_modeltemp->at(vIndex).pos;
+			v1.uv = m_modeltemp->at(tIndex).uv;
+			v1.norm = m_modeltemp->at(nIndex).norm;
+
+			vIndex = m_faces->at(i).vIndex2 - 1;
+			tIndex = m_faces->at(i).tIndex2 - 1;
+			nIndex = m_faces->at(i).nIndex2 - 1;
+
+			v2.pos = m_modeltemp->at(vIndex).pos;
+			v2.uv = m_modeltemp->at(tIndex).uv;
+			v2.norm = m_modeltemp->at(nIndex).norm;
+
+			vIndex = m_faces->at(i).vIndex3 - 1;
+			tIndex = m_faces->at(i).tIndex3 - 1;
+			nIndex = m_faces->at(i).nIndex3 - 1;
+
+			v3.pos = m_modeltemp->at(vIndex).pos;
+			v3.uv = m_modeltemp->at(tIndex).uv;
+			v3.norm = m_modeltemp->at(nIndex).norm;
+
+			m_model->push_back(v1);
+			m_model->push_back(v2);
+			m_model->push_back(v3);
+			m_indices->push_back((unsigned int)(i * 3));
+			m_indices->push_back((unsigned int)((i * 3) + 1));
+			m_indices->push_back((unsigned int)((i * 3) + 2));
+			m_vertexCount += 3;
+		}
+
 		return true;
 	}
 

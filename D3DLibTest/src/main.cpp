@@ -22,7 +22,7 @@ bool Initialize()
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/Sphere.txt", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/cube.obj", true);
 
 	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
 	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");
@@ -101,11 +101,6 @@ void Run()
 			> GetWorldCoordinateSystem(&UpAxis)
 			> GetWorldRotationMapping(&Quaternion, ModelUpAxis, RotationX, RotationY, RotationX)
 	2. Window class initializes and provides access to these variables.
-
-	
-	
-	
-	
 	
 */
 

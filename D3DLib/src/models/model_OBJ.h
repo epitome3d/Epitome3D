@@ -8,6 +8,13 @@ namespace D3DLIB
 {
 	class Model_OBJ : public Model
 	{
+	private:
+		typedef struct FaceType
+		{
+			int vIndex1, vIndex2, vIndex3;
+			int tIndex1, tIndex2, tIndex3;
+			int nIndex1, nIndex2, nIndex3;
+		};
 
 	public:
 		Model_OBJ();

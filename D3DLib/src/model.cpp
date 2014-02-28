@@ -8,6 +8,7 @@ namespace D3DLIB
 		m_vertexBuffer = 0;
 		m_indexBuffer = 0;
 		m_model = 0;
+		m_indices = 0;
 		m_data = 0;
 	}
 
@@ -62,7 +63,7 @@ namespace D3DLIB
 	bool Model::InitializeBuffers(ID3D11Device* device, bool getdata)
 	{
 		VertexType* vertices;
-		unsigned long* indices;
+		unsigned int* indices;
 		D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 		D3D11_SUBRESOURCE_DATA vertexData, indexData;
 		HRESULT result;
@@ -73,7 +74,7 @@ namespace D3DLIB
 		//vertices = m_vertices;
 
 		// Create the index array.
-		indices = new unsigned long[m_indexCount];
+		indices = new unsigned int[m_indexCount];
 		if(!indices) { return false; }
 
 		//indices = m_indices;
@@ -99,7 +100,6 @@ namespace D3DLIB
 				if (i->pos.z > zR) { zR = i->pos.z; }
 				if (i->pos.z < zL) { zL = i->pos.z; }
 
-				indices[loc] = loc;
 				loc++;
 			}
 
@@ -126,11 +126,17 @@ namespace D3DLIB
 				vertices[loc].uv = D3DXVECTOR2(i->uv.x, i->uv.y);
 				vertices[loc].norm = D3DXVECTOR3(i->norm.x, i->norm.y, i->norm.z);
 
-				indices[loc] = loc;
 				loc++;
 			}
 
 			m_data->data = false;
+		}
+
+		int loc = 0;
+		for (vector<unsigned int>::iterator i=m_indices->begin(); i!=m_indices->end(); ++i)
+		{
+			indices[loc] = *i;
+			loc++;
 		}
 
 		// Set up the description of the static vertex buffer.
@@ -155,7 +161,7 @@ namespace D3DLIB
 
 		// Set up the description of the static index buffer.
 		indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-		indexBufferDesc.ByteWidth = sizeof(unsigned long) * m_indexCount;
+		indexBufferDesc.ByteWidth = sizeof(unsigned int) * m_indexCount;
 		indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 		indexBufferDesc.CPUAccessFlags = 0;
 		indexBufferDesc.MiscFlags = 0;
