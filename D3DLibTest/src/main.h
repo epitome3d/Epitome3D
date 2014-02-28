@@ -25,7 +25,7 @@ void ScrollMove(unsigned char DIK, float &directionSpeedVar, float &outputVar,
 
 Window win;
 
-Model_OBJ m_sphere;
+Model_FBX m_sphere;
 Bitmap cursor;
 Bitmap stars;
 

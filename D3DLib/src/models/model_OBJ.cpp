@@ -17,10 +17,12 @@ namespace D3DLIB
 		ifstream fin;
 		char input, input2;
 		vector<FaceType>* m_faces = new vector<FaceType>();
+		vector<D3DXVECTOR3>* vertices = new vector<D3DXVECTOR3>();
+		vector<D3DXVECTOR2>* uvs = new vector<D3DXVECTOR2>();
+		vector<D3DXVECTOR3>* normals = new vector<D3DXVECTOR3>();
 
 		m_model = new vector<VertexType>();
 		m_indices = new vector<unsigned int>();
-		vector<VertexType>* m_modeltemp = new vector<VertexType>();
 
 		m_vertexCount = 0;
 		m_indexCount = 0;
@@ -49,30 +51,30 @@ namespace D3DLIB
 				// Read in the vertices.
 				if (input == ' ')
 				{
-					VertexType vertex = VertexType();
-					fin >> vertex.pos.x >> vertex.pos.y >> vertex.pos.z;
-					vertex.pos.z = vertex.pos.z * -1.0f; // Convert to left hand
-					m_modeltemp->push_back(vertex);
+					D3DXVECTOR3 vertex = D3DXVECTOR3();
+					fin >> vertex.x >> vertex.y >> vertex.z;
+					vertex.z = vertex.z * -1.0f; // Convert to left hand
+					vertices->push_back(vertex);
 					m_vertexCount++;
 				}
 
 				// Read in the texture uv coordinates.
 				if (input == 't')
 				{
-					VertexType vertex = m_modeltemp->at(m_UVCount);
-					fin >> vertex.uv.x >> vertex.uv.y;
-					vertex.uv.y = 1.0f - vertex.uv.y; //Convert to left hand
-					m_modeltemp->at(m_UVCount) = vertex;
+					D3DXVECTOR2 vertex = D3DXVECTOR2();
+					fin >> vertex.x >> vertex.y;
+					vertex.y = 1.0f - vertex.y; //Convert to left hand
+					uvs->push_back(vertex);
 					m_UVCount++;
 				}
 
 				// Read in the normals.
 				if (input == 'n')
 				{
-					VertexType vertex = m_modeltemp->at(m_normalCount);
-					fin >> vertex.norm.x >> vertex.norm.y >> vertex.norm.z;
-					vertex.norm.z = vertex.norm.z * -1.0f; // Convert to left hand
-					m_modeltemp->at(m_UVCount) = vertex;
+					D3DXVECTOR3 vertex = D3DXVECTOR3();
+					fin >> vertex.x >> vertex.y >> vertex.z;
+					vertex.z = vertex.z * -1.0f; // Convert to left hand
+					normals->push_back(vertex);
 					m_normalCount++;
 				}
 			}
@@ -122,25 +124,25 @@ namespace D3DLIB
 			tIndex = m_faces->at(i).tIndex1 - 1;
 			nIndex = m_faces->at(i).nIndex1 - 1;
 
-			v1.pos = m_modeltemp->at(vIndex).pos;
-			v1.uv = m_modeltemp->at(tIndex).uv;
-			v1.norm = m_modeltemp->at(nIndex).norm;
+			v1.pos = vertices->at(vIndex);
+			v1.uv = uvs->at(tIndex);
+			v1.norm = normals->at(nIndex);
 
 			vIndex = m_faces->at(i).vIndex2 - 1;
 			tIndex = m_faces->at(i).tIndex2 - 1;
 			nIndex = m_faces->at(i).nIndex2 - 1;
 
-			v2.pos = m_modeltemp->at(vIndex).pos;
-			v2.uv = m_modeltemp->at(tIndex).uv;
-			v2.norm = m_modeltemp->at(nIndex).norm;
+			v2.pos = vertices->at(vIndex);
+			v2.uv = uvs->at(tIndex);
+			v2.norm = normals->at(nIndex);
 
 			vIndex = m_faces->at(i).vIndex3 - 1;
 			tIndex = m_faces->at(i).tIndex3 - 1;
 			nIndex = m_faces->at(i).nIndex3 - 1;
 
-			v3.pos = m_modeltemp->at(vIndex).pos;
-			v3.uv = m_modeltemp->at(tIndex).uv;
-			v3.norm = m_modeltemp->at(nIndex).norm;
+			v3.pos = vertices->at(vIndex);
+			v3.uv = uvs->at(tIndex);
+			v3.norm = normals->at(nIndex);
 
 			m_model->push_back(v1);
 			m_model->push_back(v2);
