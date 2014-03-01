@@ -17,12 +17,6 @@ namespace D3DLIB
 			g_pFbxSdkManager->SetIOSettings(pIOsettings);
 		}
 
-		/*D3DXMATRIXA16 lefthandedConversion
-		{1, 0, 0, 0,
-		0, 1, 0, 0,
-		0, 0, -1, 0,
-		0, 0, 0, 1;*/
-
 		FbxImporter* pImporter = FbxImporter::Create(g_pFbxSdkManager, "");
 		FbxScene* pFbxScene = FbxScene::Create(g_pFbxSdkManager, "");
 

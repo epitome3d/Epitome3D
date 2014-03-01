@@ -19,15 +19,21 @@ bool Initialize()
 	if (!win.Initialize(L"D3DLib Test", false, false, 800, 600, true, false))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
+	
+	DrawStartupText(L"Initializing models...");
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/cube.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/sphere.fbx", true);
+
+	DrawStartupText(L"Initializing textures...");
 
 	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
 	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");
 	t_mouseon.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/Accurate Click.dds");
 	t_mouseoff.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/Accurate.dds");
+
+	DrawStartupText(L"Completing initialization...");
 
 	cursor.Initialize(win.d3d->GetDevice(), w, h);
 	stars.Initialize(win.d3d->GetDevice(), w, h);
@@ -332,4 +338,12 @@ void ScrollMove(unsigned char DIK, float &directionSpeedVar, float &outputVar,
 	{
 		outputVar += 360.0f;
 	}
+}
+
+void DrawStartupText(const WCHAR* string)
+{
+	win.d3d->BeginScene(0.0f, 0.0f, 0.0f, 0.0f);
+	win.text->Render(win.d3d->GetDeviceContext(), string, L"Segoe UI", 10, 10, 12.0f, 0xff00ff00,
+		FW1_LEFT | FW1_TOP | FW1_RESTORESTATE);
+	win.d3d->EndScene();
 }

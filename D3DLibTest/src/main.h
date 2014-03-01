@@ -14,6 +14,7 @@ using namespace D3DLIB;
 bool Initialize();
 void Run();
 void Shutdown();
+void DrawStartupText(const WCHAR* string);
 
 void DrawInfo();
 void DrawView();
