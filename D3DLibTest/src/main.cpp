@@ -146,6 +146,7 @@ void Run()
 		win.d3d->GetProjectionMatrix(projection);
 		win.frustum->ConstructFrustum(SCREEN_DEPTH, projection, view);
 		win.viewport->SetViewport(win.d3d->GetDeviceContext(), (float)w, (float)h, 0.0f, 1.0f, 0.0f, 0.0f);
+		win.d3d->BackCullOn();
 
 		/*** MATH ***/
 

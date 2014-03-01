@@ -45,6 +45,9 @@ namespace D3DLIB
 		void TurnOnAlphaBlending();
 		void TurnOffAlphaBlending();
 
+		void BackCullOn();
+		void BackCullOff();
+
 		ID3D11DepthStencilView* GetDepthStencilView();
 		void SetBackBufferRenderTarget();
 
