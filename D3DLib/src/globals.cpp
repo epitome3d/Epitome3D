@@ -38,5 +38,4 @@ namespace D3DLIB
 		this->hand = hand;
 		this->uvorigin = uvorigin;
 	}
-
 }

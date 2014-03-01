@@ -14,6 +14,7 @@ using namespace std;
 #include "texture.h"
 #include "globals.h"
 #include "math3d.h"
+#include "D3Ddesc.h"
 
 namespace D3DLIB
 {

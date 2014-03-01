@@ -16,6 +16,7 @@ namespace D3DLIB
 		m_depthDisabledStencilState = 0;
 		m_alphaEnableBlendingState = 0;
 		m_alphaDisableBlendingState = 0;
+		_raster = D3DDesc::Rasterizer();
 	}
 
 	D3D::D3D(const D3D& other)
@@ -45,12 +46,12 @@ namespace D3DLIB
 		D3D11_TEXTURE2D_DESC depthBufferDesc;
 		D3D11_DEPTH_STENCIL_DESC depthStencilDesc;
 		D3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc;
-		D3D11_RASTERIZER_DESC rasterDesc;
 		D3D11_VIEWPORT viewport;
 		float fieldOfView, screenAspect;
 		D3D11_DEPTH_STENCIL_DESC depthDisabledStencilDesc;
 		D3D11_BLEND_DESC blendStateDescription;
 
+		m_rasterDesc = D3D11_RASTERIZER_DESC();
 
 		// Store the vsync setting.
 		m_vsync_enabled = vsync;
@@ -309,19 +310,19 @@ namespace D3DLIB
 		m_deviceContext->OMSetRenderTargets(1, &m_renderTargetView, m_depthStencilView);
 
 		// Setup the raster description which will determine how and what polygons will be drawn.
-		rasterDesc.AntialiasedLineEnable = true;
-		rasterDesc.CullMode = D3D11_CULL_NONE;
-		rasterDesc.DepthBias = 0;
-		rasterDesc.DepthBiasClamp = 0.0f;
-		rasterDesc.DepthClipEnable = true;
-		rasterDesc.FillMode = D3D11_FILL_SOLID;
-		rasterDesc.FrontCounterClockwise = false;
-		rasterDesc.MultisampleEnable = false;
-		rasterDesc.ScissorEnable = false;
-		rasterDesc.SlopeScaledDepthBias = 0.0f;
+		m_rasterDesc.AntialiasedLineEnable = true;
+		m_rasterDesc.CullMode = D3D11_CULL_NONE;
+		m_rasterDesc.DepthBias = 0;
+		m_rasterDesc.DepthBiasClamp = 0.0f;
+		m_rasterDesc.DepthClipEnable = true;
+		m_rasterDesc.FillMode = D3D11_FILL_SOLID;
+		m_rasterDesc.FrontCounterClockwise = false;
+		m_rasterDesc.MultisampleEnable = false;
+		m_rasterDesc.ScissorEnable = false;
+		m_rasterDesc.SlopeScaledDepthBias = 0.0f;
 
 		// Create the rasterizer state from the description we just filled out.
-		result = m_device->CreateRasterizerState(&rasterDesc, &m_rasterState);
+		result = m_device->CreateRasterizerState(&m_rasterDesc, &m_rasterState);
 		if(FAILED(result))
 		{
 			return false;
@@ -589,97 +590,6 @@ namespace D3DLIB
 		return;
 	}
 
-	void D3D::TurnOnAlphaBlending()
-	{
-		float blendFactor[4];
-	
-
-		// Setup the blend factor.
-		blendFactor[0] = 0.0f;
-		blendFactor[1] = 0.0f;
-		blendFactor[2] = 0.0f;
-		blendFactor[3] = 0.0f;
-	
-		// Turn on the alpha blending.
-		m_deviceContext->OMSetBlendState(m_alphaEnableBlendingState, blendFactor, 0xffffffff);
-
-		return;
-	}
-
-
-	void D3D::TurnOffAlphaBlending()
-	{
-		float blendFactor[4];
-	
-
-		// Setup the blend factor.
-		blendFactor[0] = 0.0f;
-		blendFactor[1] = 0.0f;
-		blendFactor[2] = 0.0f;
-		blendFactor[3] = 0.0f;
-	
-		// Turn off the alpha blending.
-		m_deviceContext->OMSetBlendState(m_alphaDisableBlendingState, blendFactor, 0xffffffff);
-
-		return;
-	}
-
-	void D3D::BackCullOn()
-	{
-		HRESULT result;
-		D3D11_RASTERIZER_DESC rasterDesc;
-
-		// Setup the raster description which will determine how and what polygons will be drawn.
-		rasterDesc.AntialiasedLineEnable = true;
-		rasterDesc.CullMode = D3D11_CULL_BACK;
-		rasterDesc.DepthBias = 0;
-		rasterDesc.DepthBiasClamp = 0.0f;
-		rasterDesc.DepthClipEnable = true;
-		rasterDesc.FillMode = D3D11_FILL_SOLID;
-		rasterDesc.FrontCounterClockwise = false;
-		rasterDesc.MultisampleEnable = false;
-		rasterDesc.ScissorEnable = false;
-		rasterDesc.SlopeScaledDepthBias = 0.0f;
-
-		// Create the rasterizer state from the description we just filled out.
-		result = m_device->CreateRasterizerState(&rasterDesc, &m_rasterState);
-		if (FAILED(result))
-		{
-			return;
-		}
-
-		// Now set the rasterizer state.
-		m_deviceContext->RSSetState(m_rasterState);
-	}
-
-	void D3D::BackCullOff()
-	{
-		HRESULT result;
-		D3D11_RASTERIZER_DESC rasterDesc;
-
-		// Setup the raster description which will determine how and what polygons will be drawn.
-		rasterDesc.AntialiasedLineEnable = true;
-		rasterDesc.CullMode = D3D11_CULL_NONE;
-		rasterDesc.DepthBias = 0;
-		rasterDesc.DepthBiasClamp = 0.0f;
-		rasterDesc.DepthClipEnable = true;
-		rasterDesc.FillMode = D3D11_FILL_SOLID;
-		rasterDesc.FrontCounterClockwise = false;
-		rasterDesc.MultisampleEnable = false;
-		rasterDesc.ScissorEnable = false;
-		rasterDesc.SlopeScaledDepthBias = 0.0f;
-
-		// Create the rasterizer state from the description we just filled out.
-		result = m_device->CreateRasterizerState(&rasterDesc, &m_rasterState);
-		if (FAILED(result))
-		{
-			return;
-		}
-
-		// Now set the rasterizer state.
-		m_deviceContext->RSSetState(m_rasterState);
-	}
-
 	ID3D11DepthStencilView* D3D::GetDepthStencilView()
 	{
 		return m_depthStencilView;
@@ -691,6 +601,48 @@ namespace D3DLIB
 		// Bind the render target view and depth stencil buffer to the output render pipeline.
 		m_deviceContext->OMSetRenderTargets(1, &m_renderTargetView, m_depthStencilView);
 
+		return;
+	}
+
+	void D3D::SetRasterizer(D3DDesc::Rasterizer raster)
+	{
+		if (raster == _raster) { return; }
+
+		HRESULT result;	
+
+		// Setup the raster description which will determine how and what polygons will be drawn.
+		m_rasterDesc.CullMode = raster.cull;
+		m_rasterDesc.FillMode = raster.fill;
+
+		// Create the rasterizer state from the description we just filled out.
+		result = m_device->CreateRasterizerState(&m_rasterDesc, &m_rasterState);
+		if (FAILED(result))
+		{
+			return;
+		}
+
+		// Now set the rasterizer state.
+		m_deviceContext->RSSetState(m_rasterState);
+
+		float blendFactor[4];
+
+		// Setup the blend factor.
+		blendFactor[0] = 0.0f;
+		blendFactor[1] = 0.0f;
+		blendFactor[2] = 0.0f;
+		blendFactor[3] = 0.0f;
+
+		if (raster.alphablend)
+		{
+			// Turn on the alpha blending.
+			m_deviceContext->OMSetBlendState(m_alphaEnableBlendingState, blendFactor, 0xffffffff);
+		}
+		else
+		{
+			// Turn off the alpha blending.
+			m_deviceContext->OMSetBlendState(m_alphaDisableBlendingState, blendFactor, 0xffffffff);
+		}
+		_raster = raster;
 		return;
 	}
 

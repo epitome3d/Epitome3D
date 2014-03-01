@@ -20,14 +20,15 @@ namespace D3DLIB
 	struct PaintData
 	{
 		PaintData(D3DXMATRIX* world, D3DXMATRIX* view, D3DXMATRIX* projection,
-			D3DXMATRIX* ortho, D3D11_VIEWPORT *viewport);
+			D3DXMATRIX* ortho, D3D11_VIEWPORT *viewport, D3DDesc::Rasterizer* rasterizer);
 		PaintData* Clone();
 
 		D3DXMATRIX *world, *view, *projection, *ortho;
 		D3D11_VIEWPORT *viewport;
+		D3DDesc::Rasterizer* rasterizer;
 	};
 
-	struct BaseType
+	struct BaseType abstract
 	{
 	public:
 		BaseType();

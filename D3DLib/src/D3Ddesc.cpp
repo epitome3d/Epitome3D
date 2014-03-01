@@ -2,17 +2,25 @@
 
 namespace D3DLIB
 {
-	Descriptions::Rasterizer::Rasterizer()
+	D3DDesc::Rasterizer::Rasterizer()
 	{
 		alphablend = true;
 		cull = D3D11_CULL_NONE;
 		fill = D3D11_FILL_SOLID;
 	}
-	Descriptions::Rasterizer::Rasterizer(bool alphablend, D3D11_CULL_MODE cull, D3D11_FILL_MODE fill)
+	D3DDesc::Rasterizer::Rasterizer(bool alphablend, D3D11_CULL_MODE cull, D3D11_FILL_MODE fill)
 	{
 		this->alphablend = alphablend;
 		this->cull = cull;
 		this->fill = fill;
+	}
+
+	int D3DDesc::Rasterizer::operator==(const D3DDesc::Rasterizer &other) const
+	{
+		if (alphablend != other.alphablend) { return 0; }
+		if (cull != other.cull) { return 0; }
+		if (fill != other.fill) { return 0; }
+		return 1;
 	}
 
 	D3DDEFAULTS::D3DDEFAULTS()
@@ -20,23 +28,12 @@ namespace D3DLIB
 		world = Orientation(Ypositive, Left, TopLeft);
 		rot = Rad;
 	}
-	D3DDEFAULTS::D3DDEFAULTS(Orientation world, RotMode rot, Descriptions::Rasterizer rasterizer)
+
+	D3DDEFAULTS::D3DDEFAULTS(Orientation world, RotMode rot)
 	{
 		this->world = world;
 		this->rot = rot;
 	}
 
-	D3DDESC::D3DDESC()
-	{
-	}
-	D3DDESC::D3DDESC(D3DXMATRIX world, D3DXMATRIX view, D3DXMATRIX projection,
-		D3DXMATRIX ortho, D3D11_VIEWPORT viewport, Descriptions::Rasterizer rasterizer)
-	{
-		this->world = &world;
-		this->view = &view;
-		this->projection = &projection;
-		this->ortho = &ortho;
-		this->viewport = &viewport;
-		this->rasterizer = &rasterizer;
-	}
+	
 }

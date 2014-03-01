@@ -9,6 +9,7 @@
 //my class includes
 #include "texture.h"
 #include "globals.h"
+#include "D3Ddesc.h"
 
 namespace D3DLIB
 {

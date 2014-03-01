@@ -3,13 +3,14 @@
 namespace D3DLIB
 {
 	PaintData::PaintData(D3DXMATRIX* world, D3DXMATRIX* view, D3DXMATRIX* projection,
-			D3DXMATRIX* ortho, D3D11_VIEWPORT *viewport)
+		D3DXMATRIX* ortho, D3D11_VIEWPORT *viewport, D3DDesc::Rasterizer* rasterizer)
 	{
 		this->world = new D3DXMATRIX(*world);
 		this->view = new D3DXMATRIX(*view);
 		this->projection = new D3DXMATRIX(*projection);
 		this->ortho = new D3DXMATRIX(*ortho);
 		this->viewport = new D3D11_VIEWPORT(*viewport);
+		this->rasterizer = new D3DDesc::Rasterizer(*rasterizer);
 	}
 	PaintData* PaintData::Clone()
 	{

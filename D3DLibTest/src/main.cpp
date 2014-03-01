@@ -1,5 +1,7 @@
 #include "main.h"
 
+#define PAINT new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport(), &win.d3d->GetRasterizer())
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 				   , PSTR pScmdline, int iCmdshow)
 {
@@ -14,6 +16,8 @@ bool Initialize()
 {
 	int w, h;
 	bool f;
+
+	_defaults = new D3DDEFAULTS(Orientation(Ypositive, Left, TopLeft), Rad);
 
 	win = D3DLIB::Window::Window();
 	if (!win.Initialize(L"D3DLib Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
@@ -39,7 +43,7 @@ bool Initialize()
 	stars.Initialize(win.d3d->GetDevice(), w, h);
 
 	win.d3d->TurnZBufferOn();
-	win.d3d->TurnOnAlphaBlending();
+	win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_BACK, D3D11_FILL_SOLID));
 
 	return true;
 }
@@ -146,7 +150,6 @@ void Run()
 		win.d3d->GetProjectionMatrix(projection);
 		win.frustum->ConstructFrustum(SCREEN_DEPTH, projection, view);
 		win.viewport->SetViewport(win.d3d->GetDeviceContext(), (float)w, (float)h, 0.0f, 1.0f, 0.0f, 0.0f);
-		win.d3d->BackCullOn();
 
 		/*** MATH ***/
 
@@ -160,13 +163,14 @@ void Run()
 		//stars
 		s_tex.SetParameters(t_stars.GetTexture());
 		win.painter->AddToFront(BitmapType(&stars, &s_tex,
-			new Transform(Rad), 0, 0, w, h, 0, true,
-			new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
+			new Transform(Rad), 0, 0, w, h, 0, true, PAINT));
 
 		win.camera->SetPosition(movementX, rotationZ, movementZ - 15.0f);
 		win.camera->SetRotation(rotationX, rotationY, 0.0f);
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
+
+		win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_NONE, D3D11_FILL_SOLID));
 
 		//earth
 		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
@@ -174,7 +178,7 @@ void Run()
 		win.painter->AddToFront(ModelType(&m_sphere, &s_light, 
 			new Transform(D3DXVECTOR3(deg, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
 			D3DXVECTOR3(0.0f, 0.0f, 0.0f), Deg),
-			new CullAuto(), new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
+			new CullAuto(), PAINT));
 		
 		win.camera->SetPosition(0.0f, 0.0f, -30.0f);
 		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
@@ -193,8 +197,7 @@ void Run()
 				s_tex.SetParameters(t_mouseoff.GetTexture());
 			}
 
-			win.painter->AddToFront(BitmapType(&cursor, &s_tex, new Transform(), mouseX - 16, mouseY - 16, 32, 32, 0.0f, true,
-				new PaintData(&world, &view, &projection, &ortho, &win.viewport->GetViewport())));
+			win.painter->AddToFront(BitmapType(&cursor, &s_tex, new Transform(), mouseX - 16, mouseY - 16, 32, 32, 0.0f, true, PAINT));
 		}
 
 		win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);

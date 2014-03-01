@@ -2,6 +2,7 @@
 #define D3DLIB_D3D
 
 //linking
+#include "globals.h"
 #include "D3Ddesc.h"
 
 namespace D3DLIB
@@ -32,16 +33,15 @@ namespace D3DLIB
 		void TurnZBufferOn();
 		void TurnZBufferOff();
 
-		void TurnOnAlphaBlending();
-		void TurnOffAlphaBlending();
-
-		void BackCullOn();
-		void BackCullOff();
+		void SetRasterizer(D3DDesc::Rasterizer raster);
+		D3DDesc::Rasterizer GetRasterizer() { return _raster; }
 
 		ID3D11DepthStencilView* GetDepthStencilView();
 		void SetBackBufferRenderTarget();
 
 	private:
+		D3DDesc::Rasterizer _raster; //last rasterizer state
+
 		bool m_vsync_enabled;
 		int m_videoCardMemory;
 		char m_videoCardDescription[128];
@@ -63,6 +63,7 @@ namespace D3DLIB
 		D3D11_TEXTURE2D_DESC m_depthBufferDesc;
 		ID3D11BlendState* m_alphaEnableBlendingState;
 		ID3D11BlendState* m_alphaDisableBlendingState;
+		D3D11_RASTERIZER_DESC m_rasterDesc;
 	};
 }
 

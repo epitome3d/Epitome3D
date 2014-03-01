@@ -37,7 +37,7 @@ namespace D3DLIB
 	{
 		Deg = 0,
 		Rad = 1
-	};
+	};	
 
 	///<summary>Transformations applied to a set points.  If mode (for rotation) is unset, defaults to radians.</summary>
 	struct Transform
