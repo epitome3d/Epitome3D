@@ -27,6 +27,12 @@ namespace D3DLIB
 		Right = 1
 	};
 
+	enum UVOrigin
+	{
+		TopLeft = 0,
+		BottomLeft = 1
+	};
+
 	enum RotMode
 	{
 		Deg = 0,
@@ -51,10 +57,11 @@ namespace D3DLIB
 	struct Orientation
 	{
 		Orientation();
-		Orientation(UpAxis upaxis, Handedness hand);
+		Orientation(UpAxis upaxis, Handedness hand, UVOrigin uvorigin);
 
 		UpAxis upaxis;
 		Handedness hand;
+		UVOrigin uvorigin;
 	};
 
 	struct ModelData

@@ -16,7 +16,7 @@ bool Initialize()
 	bool f;
 
 	win = D3DLIB::Window::Window();
-	if (!win.Initialize(L"D3DLib Test", false, false, 800, 600, true, false))
+	if (!win.Initialize(L"D3DLib Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	

@@ -23,6 +23,7 @@
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\cpu.cpp" />
     <ClCompile Include="src\D3D.cpp" />
+    <ClCompile Include="src\D3Ddesc.cpp" />
     <ClCompile Include="src\fps.cpp" />
     <ClCompile Include="src\frustum.cpp" />
     <ClCompile Include="src\frustumcull.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="src\camera.h" />
     <ClInclude Include="src\cpu.h" />
     <ClInclude Include="src\D3D.h" />
+    <ClInclude Include="src\D3Ddesc.h" />
     <ClInclude Include="src\fps.h" />
     <ClInclude Include="src\frustum.h" />
     <ClInclude Include="src\frustumcull.h" />

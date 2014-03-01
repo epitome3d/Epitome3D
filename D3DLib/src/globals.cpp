@@ -32,10 +32,11 @@ namespace D3DLIB
 		this->hand = Left;
 	}
 
-	Orientation::Orientation(UpAxis upaxis, Handedness hand)
+	Orientation::Orientation(UpAxis upaxis, Handedness hand, UVOrigin uvorigin)
 	{
 		this->upaxis = upaxis;
 		this->hand = hand;
+		this->uvorigin = uvorigin;
 	}
 
 }

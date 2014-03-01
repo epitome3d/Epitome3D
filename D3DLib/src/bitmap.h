@@ -35,7 +35,7 @@ namespace D3DLIB
 		int GetIndexCount();
 		int GetBitmapWidth();
 		int GetBitmapHeight();
-		Orientation GetOrientation() { return Orientation(Ypositive, Handedness::Left); }
+		Orientation GetOrientation() { return Orientation(Ypositive, Left, TopLeft); }
 
 	private:
 		bool InitializeBuffers(ID3D11Device*);

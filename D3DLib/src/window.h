@@ -31,8 +31,11 @@ namespace D3DLIB
 		Window(const Window&);
 		~Window();
 
-		bool Initialize(LPCWSTR title, bool showcursor, bool fullscreen,
-			int windowedwidth, int windowedheight, bool vsync, bool bindMouse);
+		bool Initialize(LPCWSTR title, bool showcursor, bool bindMouse,
+			bool fullscreen, int windowedwidth, int windowedheight, bool vsync);
+		bool Initialize(LPCWSTR title, bool showcursor, bool bindMouse,
+			bool fullscreen, int windowedwidth, int windowedheight, float screendepth, 
+			float screennear, bool vsync);
 		void Shutdown();
 		bool Frame();
 		bool Run(bool allowexit);

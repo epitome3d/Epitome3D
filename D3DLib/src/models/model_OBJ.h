@@ -19,7 +19,7 @@ namespace D3DLIB
 	public:
 		Model_OBJ();
 		
-		Orientation GetOrientation() { return Orientation(Ypositive, Left); }
+		Orientation GetOrientation() { return Orientation(Ypositive, Left, TopLeft); }
 
 	protected:
 		bool LoadModel(char* filename);

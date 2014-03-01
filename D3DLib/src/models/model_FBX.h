@@ -14,7 +14,7 @@ namespace D3DLIB
 	public:
 		Model_FBX();
 		
-		Orientation GetOrientation() { return Orientation(Zpositive, Left); }
+		Orientation GetOrientation() { return Orientation(Zpositive, Left, TopLeft); }
 
 	protected:
 		bool LoadModel(char* filename);

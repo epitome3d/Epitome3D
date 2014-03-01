@@ -25,13 +25,21 @@ namespace D3DLIB
 	{
 	}
 	
-	bool Window::Initialize(LPCWSTR title, bool showcursor, bool fullscreen,
-			int windowedwidth, int windowedheight, bool vsync, bool bindMouse)
+	bool Window::Initialize(LPCWSTR title, bool showcursor, bool bindMouse,
+		bool fullscreen, int windowedwidth, int windowedheight, bool vsync)
+	{
+		return Initialize(title, showcursor, bindMouse, fullscreen, windowedwidth,
+			windowedheight, 1000.0f, 0.1f, vsync);
+	}
+
+	bool Window::Initialize(LPCWSTR title, bool showcursor, bool bindMouse,
+		bool fullscreen, int windowedwidth, int windowedheight, float screendepth,
+		float screennear, bool vsync)
 	{
 		int screenWidth, screenHeight;
 		bool result;
 
-		//initilize the size of the screen
+		//Initialize the size of the screen
 		screenWidth = 0;
 		screenHeight = 0;
 
@@ -40,11 +48,13 @@ namespace D3DLIB
 		WINDOWED_WIDTH = windowedwidth;
 		WINDOWED_HEIGTH = windowedheight;
 		VSYNC_ENABLED = vsync;
+		SCREEN_DEPTH = screendepth;
+		SCREEN_NEAR = screennear;
 		
 		//Initialize the Windows API
 		InitializeWindows(screenWidth, screenHeight, title);
 
-		// Initialize the Direct3D object.
+		//Initialize the Direct3D object.
 		d3d = new D3D;
 		if(!d3d)
 		{
