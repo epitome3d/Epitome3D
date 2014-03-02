@@ -12,6 +12,7 @@ static bool SHOW_CURSOR = true;
 #pragma warning(disable:4005)
 #include <d3d11.h>
 #include <d3dx10math.h>
+#include "exception.h"
 
 namespace D3DLIB
 {

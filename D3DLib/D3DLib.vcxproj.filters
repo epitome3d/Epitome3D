@@ -99,6 +99,9 @@
     <ClCompile Include="src\D3Ddesc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\exception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\bitmap.h">
@@ -177,6 +180,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\D3Ddesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

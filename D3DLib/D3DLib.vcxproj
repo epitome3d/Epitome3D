@@ -27,6 +27,7 @@
     <ClCompile Include="src\fps.cpp" />
     <ClCompile Include="src\frustum.cpp" />
     <ClCompile Include="src\frustumcull.cpp" />
+    <ClCompile Include="src\exception.cpp" />
     <ClCompile Include="src\globals.cpp" />
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\math3d.cpp" />
@@ -54,6 +55,7 @@
     <ClInclude Include="src\fps.h" />
     <ClInclude Include="src\frustum.h" />
     <ClInclude Include="src\frustumcull.h" />
+    <ClInclude Include="src\exception.h" />
     <ClInclude Include="src\globals.h" />
     <ClInclude Include="src\input.h" />
     <ClInclude Include="src\math3d.h" />

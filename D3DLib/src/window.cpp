@@ -392,11 +392,6 @@ namespace D3DLIB
 		return;
 	}
 
-	void Window::ShowError(LPCWSTR string, LPCWSTR title)
-	{
-		MessageBox(m_hwnd, string, title, MB_OK | MB_ICONERROR);
-	}
-
 	float Window::GetTime()
 	{
 		return timer->GetTime();

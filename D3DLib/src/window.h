@@ -40,7 +40,6 @@ namespace D3DLIB
 		bool Frame();
 		bool Run(bool allowexit);
 
-		void ShowError(LPCWSTR string, LPCWSTR title);
 		void Cursor(bool visible);
 		void GetWindowSize(int& width, int& height, bool& fullscreen);
 		HWND GetHWND();

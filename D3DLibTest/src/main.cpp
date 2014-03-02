@@ -14,6 +14,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 
 bool Initialize()
 {
+	///*** SET GLOBAL VARIABLES ***///
+	_verbosity = ErrorLevel::Warning; //minimum level of message shown
+	
+	DisplayMessage(win.GetHWND(), ErrorLevel::Warning, false, false, L"Still flying, Houston!", L"ALL GO");
+	KillAll(true, 42);
+
 	int w, h;
 	bool f;
 
