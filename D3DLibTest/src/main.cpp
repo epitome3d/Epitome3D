@@ -17,8 +17,6 @@ bool Initialize()
 	int w, h;
 	bool f;
 
-	_defaults = new D3DDEFAULTS(Orientation(Ypositive, Left, TopLeft), Rad);
-
 	win = D3DLIB::Window::Window();
 	if (!win.Initialize(L"D3DLib Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
 	{ return false; }

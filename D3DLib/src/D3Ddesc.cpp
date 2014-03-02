@@ -23,7 +23,7 @@ namespace D3DLIB
 		return 1;
 	}
 
-	D3DDEFAULTS::D3DDEFAULTS()
+	/*D3DDEFAULTS::D3DDEFAULTS()
 	{
 		world = Orientation(Ypositive, Left, TopLeft);
 		rot = Rad;
@@ -33,7 +33,7 @@ namespace D3DLIB
 	{
 		this->world = world;
 		this->rot = rot;
-	}
+	}*/
 
 	
 }

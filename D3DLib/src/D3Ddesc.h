@@ -12,7 +12,6 @@
 #include <d3dcommon.h>
 #include <d3d11.h>
 #include <D3DX10math.h>
-#include "globals.h"
 
 namespace D3DLIB
 {
@@ -33,6 +32,8 @@ namespace D3DLIB
 		};
 	};
 
+	/* DISABLED since not yet implemented
+	
 	///<summary>Default D3D settings applied to all models.</summary>
 	struct D3DDEFAULTS
 	{
@@ -49,5 +50,5 @@ namespace D3DLIB
 	};
 
 	//globals
-	static D3DDEFAULTS* _defaults = 0;
+	static D3DDEFAULTS* _defaults = 0;*/
 }
