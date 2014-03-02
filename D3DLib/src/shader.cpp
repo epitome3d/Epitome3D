@@ -67,7 +67,7 @@ namespace D3DLIB
 		errorMessage = 0;
 
 		// Pop a message up on the screen to notify the user to check the text file for compile errors.
-		MessageBox(hwnd, shaderFilename, L"Shader Compilation Error", MB_OK);
+		DisplayMessage(hwnd, Error, false, false, shaderFilename, L"Shader Compilation Error - Check shader-error.txt");
 
 		return;
 	}

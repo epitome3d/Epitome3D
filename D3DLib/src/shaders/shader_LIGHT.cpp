@@ -98,7 +98,7 @@ namespace D3DLIB
 			// If there was nothing in the error message then it simply could not find the shader file itself.
 			else
 			{
-				MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
+				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", vsFilename);
 			}
 
 			return false;
@@ -117,7 +117,7 @@ namespace D3DLIB
 			// If there was nothing in the error message then it simply could not find the file itself.
 			else
 			{
-				MessageBox(hwnd, psFilename, L"Missing Shader File", MB_OK);
+				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", psFilename);
 			}
 
 			return false;

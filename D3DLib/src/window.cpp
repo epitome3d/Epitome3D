@@ -64,7 +64,7 @@ namespace D3DLIB
 			m_hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
 		if(!result)
 		{
-			MessageBox(m_hwnd, L"Could not initialize Direct3D.", L"Error", MB_OK);
+			DisplayMessage(m_hwnd, Critical, false, false, L"Could not initialize Direct3D!", L"Critical Error");
 			return false;
 		}
 		
@@ -77,7 +77,7 @@ namespace D3DLIB
 		result = input->Initialize(m_hinstance, m_hwnd, screenWidth, screenHeight, bindMouse);
 		if (!result)
 		{
-			MessageBox(m_hwnd, L"Could not initialize DirectInput.", L"Error", MB_OK);
+			DisplayMessage(m_hwnd, Critical, false, false, L"Could not initialize Direct Input!", L"Critical Error");
 			return false;
 		}
 
@@ -96,7 +96,7 @@ namespace D3DLIB
 		result = text->Initialize(d3d->GetDevice(), d3d->GetDeviceContext());
 		if (!result)
 		{
-			MessageBox(m_hwnd, L"Could not initialize the text object.", L"Error", MB_OK);
+			DisplayMessage(m_hwnd, Critical, false, false, L"Could not initialize text control!", L"Critical Error");
 			return false;
 		}
 
@@ -104,6 +104,7 @@ namespace D3DLIB
 		camera = new Camera;
 		if(!camera)
 		{
+			DisplayMessage(m_hwnd, Critical, false, false, L"Could not initialize camera control!", L"Critical Error");
 			return false;
 		}
 		camera->SetPosition(0.0f, 1.0f, -10.0f);
@@ -114,7 +115,7 @@ namespace D3DLIB
 		result = timer->Initialize();
 		if(!result)
 		{
-			MessageBox(m_hwnd, L"Could not initialize the timer.", L"Error", MB_OK);
+			DisplayMessage(m_hwnd, Critical, false, false, L"Could not initialize timer control!", L"Critical Error");
 			return false;
 		}
 

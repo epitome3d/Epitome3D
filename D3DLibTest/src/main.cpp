@@ -16,9 +16,6 @@ bool Initialize()
 {
 	///*** SET GLOBAL VARIABLES ***///
 	_verbosity = ErrorLevel::Warning; //minimum level of message shown
-	
-	DisplayMessage(win.GetHWND(), ErrorLevel::Warning, false, false, L"Still flying, Houston!", L"ALL GO");
-	KillAll(true, 42);
 
 	int w, h;
 	bool f;
@@ -46,8 +43,9 @@ bool Initialize()
 	cursor.Initialize(win.d3d->GetDevice(), w, h);
 	stars.Initialize(win.d3d->GetDevice(), w, h);
 
+	///*** SET DIRECT3D SETTINGS ***///
 	win.d3d->TurnZBufferOn();
-	win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_BACK, D3D11_FILL_SOLID));
+	win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_NONE, D3D11_FILL_SOLID));
 
 	return true;
 }
@@ -174,7 +172,7 @@ void Run()
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
 
-		win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_NONE, D3D11_FILL_SOLID));
+		win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_BACK, D3D11_FILL_SOLID));
 
 		//earth
 		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
