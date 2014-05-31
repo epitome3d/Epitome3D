@@ -49,6 +49,7 @@ This engine simplifies the use of DirectX with an easy-to-use graphics, sound, a
 - Timer: Controls high-precision timers
 - Viewport: Allows rendering on multiple viewports
 - Window: Main method, starts window functions and dependencies
+
 Note that not a single file is required for use in your application, but it is recommended that you at least include the window class.
 
 ###Contributing
