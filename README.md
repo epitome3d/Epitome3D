@@ -13,6 +13,7 @@ This engine simplifies the use of DirectX with an easy-to-use graphics, sound, a
 
 
 ###Example: Writing your first 3D game in 30 minutes
+{need to write content, including Visual Studio installation}
 
 
 ###Files
