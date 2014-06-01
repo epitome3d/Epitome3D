@@ -9,7 +9,7 @@ namespace D3DLIB
 	class Shader_TEXTURE : public Shader
 	{
 	private:
-		struct MatrixBufferType
+		struct MatrixBufferType : Buffer
 		{
 			D3DXMATRIX world;
 			D3DXMATRIX view;
@@ -41,8 +41,9 @@ namespace D3DLIB
 		ID3D11VertexShader* m_vertexShader;
 		ID3D11PixelShader* m_pixelShader;
 		ID3D11InputLayout* m_layout;
-		ID3D11Buffer* m_matrixBuffer;
 		ID3D11SamplerState* m_sampleState;
+		
+		ID3D11Buffer* m_matrixBuffer;
 	};
 
 }

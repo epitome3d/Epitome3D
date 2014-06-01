@@ -2,6 +2,30 @@
 
 namespace D3DLIB
 {
+	BufferDirectory::BufferDirectory()
+	{
+		buffers = std::vector<ID3D11Buffer**>();
+	}
+	void BufferDirectory::Add(ID3D11Buffer** buffer)
+	{
+		buffers.push_back(buffer);
+	}
+	void BufferDirectory::Add(ID3D11Buffer** bufferlist[], int count)
+	{
+		for (int i = 0; i < count; i++)
+		{
+			Add(bufferlist[i]);
+		}
+	}
+	void BufferDirectory::Shutdown()
+	{
+		for (vector<ID3D11Buffer**>::iterator p = buffers.begin(); p != buffers.end(); ++p)
+		{
+			(*((ID3D11Buffer**)*p))->Release();
+			(*((ID3D11Buffer**)*p)) = 0;
+		}
+	}
+
 	Shader::Shader()
 	{
 

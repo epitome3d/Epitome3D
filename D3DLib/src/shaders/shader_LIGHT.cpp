@@ -12,6 +12,10 @@ namespace D3DLIB
 		m_matrixBuffer = 0;
 		m_cameraBuffer = 0;
 		m_lightBuffer = 0;
+
+		bd.Add(new ID3D11Buffer**[] 
+		{&m_matrixBuffer, &m_cameraBuffer, &m_lightBuffer}
+		, 3);
 	}
 
 	Shader_LIGHT::Shader_LIGHT(const Shader_LIGHT& other)
@@ -255,26 +259,28 @@ namespace D3DLIB
 
 	void Shader_LIGHT::ShutdownShader()
 	{
-		// Release the light constant buffer.
-		if(m_lightBuffer)
-		{
-			m_lightBuffer->Release();
-			m_lightBuffer = 0;
-		}
+		bd.Shutdown();
 
-		// Release the camera constant buffer.
-		if(m_cameraBuffer)
-		{
-			m_cameraBuffer->Release();
-			m_cameraBuffer = 0;
-		}
+		//// Release the light constant buffer.
+		//if(m_lightBuffer)
+		//{
+		//	m_lightBuffer->Release();
+		//	m_lightBuffer = 0;
+		//}
 
-		// Release the matrix constant buffer.
-		if(m_matrixBuffer)
-		{
-			m_matrixBuffer->Release();
-			m_matrixBuffer = 0;
-		}
+		//// Release the camera constant buffer.
+		//if(m_cameraBuffer)
+		//{
+		//	m_cameraBuffer->Release();
+		//	m_cameraBuffer = 0;
+		//}
+
+		//// Release the matrix constant buffer.
+		//if(m_matrixBuffer)
+		//{
+		//	m_matrixBuffer->Release();
+		//	m_matrixBuffer = 0;
+		//}
 
 		// Release the sampler state.
 		if(m_sampleState)

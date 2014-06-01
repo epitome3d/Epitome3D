@@ -163,9 +163,9 @@ void Run()
 		win.painter->ClearList();
 
 		//stars
-		s_tex.SetParameters(t_stars.GetTexture());
+		/*s_tex.SetParameters(t_stars.GetTexture());
 		win.painter->AddToFront(BitmapType(&stars, &s_tex,
-			new Transform(Rad), 0, 0, w, h, 0, true, PAINT));
+			new Transform(Rad), 0, 0, w, h, 0, true, PAINT));*/
 
 		win.camera->SetPosition(movementX, rotationZ, movementZ - 15.0f);
 		win.camera->SetRotation(rotationX, rotationY, 0.0f);
@@ -188,7 +188,7 @@ void Run()
 		win.camera->GetViewMatrix(view);
 
 		//mouse
-		if (mouseEnabled)
+		/*if (mouseEnabled)
 		{
 			if (mousePressed)
 			{
@@ -200,7 +200,7 @@ void Run()
 			}
 
 			win.painter->AddToFront(BitmapType(&cursor, &s_tex, new Transform(), mouseX - 16, mouseY - 16, 32, 32, 0.0f, true, PAINT));
-		}
+		}*/
 
 		win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);
 		DrawInfo();

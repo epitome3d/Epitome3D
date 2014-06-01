@@ -9,13 +9,7 @@ namespace D3DLIB
 	class Shader_LIGHT : public Shader
 	{
 	private:
-		struct MatrixBufferType
-		{
-			D3DXMATRIX world;
-			D3DXMATRIX view;
-			D3DXMATRIX projection;
-		};
-		struct LightBufferType
+		struct LightBufferType : Buffer
 		{
 			D3DXVECTOR4 ambientColor;
 			D3DXVECTOR4 diffuseColor;
@@ -23,7 +17,7 @@ namespace D3DLIB
 			float specularPower;
 			D3DXVECTOR4 specularColor;
 		};
-		struct CameraBufferType
+		struct CameraBufferType : Buffer
 		{
 			D3DXVECTOR3 cameraPosition;
 			float padding;
@@ -56,6 +50,8 @@ namespace D3DLIB
 		ID3D11PixelShader* m_pixelShader;
 		ID3D11InputLayout* m_layout;
 		ID3D11SamplerState* m_sampleState;
+
+	private:
 		ID3D11Buffer* m_matrixBuffer;
 		ID3D11Buffer* m_cameraBuffer;
 		ID3D11Buffer* m_lightBuffer;
