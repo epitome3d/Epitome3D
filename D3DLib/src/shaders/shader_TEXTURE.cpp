@@ -11,6 +11,7 @@ namespace D3DLIB
 		m_sampleState = 0;
 
 		r_texture = 0;
+		bd.Add(&m_matrixBuffer);
 	}
 
 
@@ -212,18 +213,13 @@ namespace D3DLIB
 
 	void Shader_TEXTURE::ShutdownShader()
 	{
+		bd.Shutdown();
+
 		// Release the sampler state.
 		if(m_sampleState)
 		{
 			m_sampleState->Release();
 			m_sampleState = 0;
-		}
-
-		// Release the matrix constant buffer.
-		if(m_matrixBuffer)
-		{
-			m_matrixBuffer->Release();
-			m_matrixBuffer = 0;
 		}
 
 		// Release the layout.
