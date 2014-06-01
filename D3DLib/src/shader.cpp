@@ -23,6 +23,7 @@ namespace D3DLIB
 		{
 			(*((ID3D11Buffer**)*p))->Release();
 			(*((ID3D11Buffer**)*p)) = 0;
+			delete (*((ID3D11Buffer**)*p));
 		}
 	}
 
