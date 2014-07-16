@@ -29,7 +29,7 @@ bool Initialize()
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "../../grace-test1/assets/models/GRACE_v011.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "../assets/model/sphere.fbx", true);
 
 	DrawStartupText(L"Initializing textures...");
 
@@ -172,7 +172,7 @@ void Run()
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
 
-		win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_BACK, D3D11_FILL_WIREFRAME));
+		win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_BACK, D3D11_FILL_SOLID));
 
 		//earth
 		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
