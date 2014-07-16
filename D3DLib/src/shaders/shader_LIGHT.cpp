@@ -3,7 +3,7 @@
 namespace D3DLIB
 {
 
-	Shader_LIGHT::Shader_LIGHT()
+	Shader_LIGHT::Shader_LIGHT(WCHAR* VS, WCHAR* PS)
 	{
 		m_vertexShader = 0;
 		m_pixelShader = 0;
@@ -12,6 +12,9 @@ namespace D3DLIB
 		m_matrixBuffer = 0;
 		m_cameraBuffer = 0;
 		m_lightBuffer = 0;
+
+		this->VS = VS;
+		this->PS = PS;
 
 		bd.Add(new ID3D11Buffer**[] 
 		{&m_matrixBuffer, &m_cameraBuffer, &m_lightBuffer}
@@ -32,7 +35,7 @@ namespace D3DLIB
 
 
 		// Initialize the vertex and pixel shaders.
-		result = InitializeShader(device, hwnd, L"../assets/shader/Light.vs", L"../assets/shader/Light.ps");
+		result = InitializeShader(device, hwnd, VS, PS);
 		if(!result)
 		{
 			return false;

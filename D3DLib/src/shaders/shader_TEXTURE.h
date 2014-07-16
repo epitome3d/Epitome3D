@@ -17,7 +17,7 @@ namespace D3DLIB
 		};
 
 	public:
-		Shader_TEXTURE();
+		Shader_TEXTURE(WCHAR* VS, WCHAR* PS);
 		Shader_TEXTURE(const Shader_TEXTURE&);
 		~Shader_TEXTURE();
 
@@ -44,6 +44,9 @@ namespace D3DLIB
 		ID3D11SamplerState* m_sampleState;
 		
 		ID3D11Buffer* m_matrixBuffer;
+
+		WCHAR* VS;
+		WCHAR* PS;
 	};
 
 }

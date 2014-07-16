@@ -26,7 +26,7 @@ namespace D3DLIB
 		};
 
 	public:
-		Shader_LIGHT();
+		Shader_LIGHT(WCHAR* VS, WCHAR* PS);
 		Shader_LIGHT(const Shader_LIGHT&);
 		~Shader_LIGHT();
 
@@ -55,6 +55,8 @@ namespace D3DLIB
 		ID3D11Buffer* m_matrixBuffer;
 		ID3D11Buffer* m_cameraBuffer;
 		ID3D11Buffer* m_lightBuffer;
+		WCHAR* VS;
+		WCHAR* PS;
 
 		ID3D11ShaderResourceView* r_texture;
 		D3DXVECTOR3 r_lightDirection, r_cameraPosition;

@@ -2,7 +2,7 @@
 
 namespace D3DLIB
 {
-	Shader_TEXTURE::Shader_TEXTURE()
+	Shader_TEXTURE::Shader_TEXTURE(WCHAR* VS, WCHAR* PS)
 	{
 		m_vertexShader = 0;
 		m_pixelShader = 0;
@@ -11,6 +11,9 @@ namespace D3DLIB
 		m_sampleState = 0;
 
 		r_texture = 0;
+		this->VS = VS;
+		this->PS = PS;
+
 		bd.Add(&m_matrixBuffer);
 	}
 
@@ -31,7 +34,7 @@ namespace D3DLIB
 
 		// Initialize the vertex and pixel shaders.
 		result = InitializeShader(device, hwnd,
-			L"../assets/shader/Texture.vs", L"../assets/shader/Texture.ps");
+			VS, PS);
 		if(!result)
 		{
 			return false;
