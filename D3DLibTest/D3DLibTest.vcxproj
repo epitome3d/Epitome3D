@@ -22,6 +22,7 @@
     <ProjectGuid>{57285D49-15C8-451F-BE1B-3D4B404DB426}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>D3DLibTest</RootNamespace>
+    <ProjectName>D3DLibTest (from D3DLIB)</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,24 +71,24 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
-    <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\D3DLib\src;$(ProjectDir)..\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(ProjectDir)..\D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\D3DLib\src;$(ProjectDir)..\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(ProjectDir)..\D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
-    <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\$(Configuration)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\D3DLib\src;$(ProjectDir)..\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(ProjectDir)..\D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)D3DLib\src;$(SolutionDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)lib\$(PlatformTarget)\;$(SolutionDir)D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\D3DLib\src;$(ProjectDir)..\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(ProjectDir)..\D3DLib\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
