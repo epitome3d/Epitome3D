@@ -32,7 +32,7 @@ namespace D3DLIB
 
 
 		// Initialize the vertex and pixel shaders.
-		result = InitializeShader(device, hwnd, L"assets/shader/Light.vs", L"assets/shader/Light.ps");
+		result = InitializeShader(device, hwnd, L"../assets/shader/Light.vs", L"../assets/shader/Light.ps");
 		if(!result)
 		{
 			return false;

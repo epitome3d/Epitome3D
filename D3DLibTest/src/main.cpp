@@ -29,14 +29,14 @@ bool Initialize()
 
 	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "assets/model/sphere.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "../assets/model/sphere.fbx", true);
 
 	DrawStartupText(L"Initializing textures...");
 
-	t_stars.Initialize(win.d3d->GetDevice(), L"assets/image/Stars.dds");
-	t_earth.Initialize(win.d3d->GetDevice(), L"assets/image/Earth_CloudyDiffuse.dds");
-	t_mouseon.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/Accurate Click.dds");
-	t_mouseoff.Initialize(win.d3d->GetDevice(), L"assets/image/cursors/Accurate.dds");
+	t_stars.Initialize(win.d3d->GetDevice(), L"../assets/image/Stars.dds");
+	t_earth.Initialize(win.d3d->GetDevice(), L"../assets/image/Earth_CloudyDiffuse.dds");
+	t_mouseon.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate Click.dds");
+	t_mouseoff.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate.dds");
 
 	DrawStartupText(L"Completing initialization...");
 
