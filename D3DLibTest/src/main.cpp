@@ -21,7 +21,7 @@ bool Initialize()
 	bool f;
 
 	win = D3DLIB::Window::Window();
-	if (!win.Initialize(L"D3DLib Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
+	if (!win.Initialize(L"D3DLib Test", false, false, true, 800, 600, 1000.0f, 0.1f, true))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	
@@ -87,7 +87,7 @@ void Run()
 	l_diffuseColor = D3DXVECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
 	l_direction = D3DXVECTOR3(0.5f, 0.0f, 0.5f);
 	l_specularColor = D3DXVECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
-	l_specularPower = 4.0f;
+	l_specularPower = 100000.0f;
 	
 	//LIGHT DIR  :  Changes  :  Which Dir?
 	//front = 0,0,1 (inc, dec) (z)
@@ -155,7 +155,7 @@ void Run()
 
 		/*** MATH ***/
 
-		deg = deg + 5.0f;
+		deg = deg + 1.0f;
 		if (deg >= 360.0f) { deg -= 360.0f;}
 
 		/***** DRAWING *****/
@@ -163,9 +163,9 @@ void Run()
 		win.painter->ClearList();
 
 		//stars
-		/*s_tex.SetParameters(t_stars.GetTexture());
+		s_tex.SetParameters(t_stars.GetTexture());
 		win.painter->AddToFront(BitmapType(&stars, &s_tex,
-			new Transform(Rad), 0, 0, w, h, 0, true, PAINT));*/
+			new Transform(Rad), 0, 0, w, h, 0, true, PAINT));
 
 		win.camera->SetPosition(movementX, rotationZ, movementZ - 15.0f);
 		win.camera->SetRotation(rotationX, rotationY, 0.0f);
@@ -188,7 +188,7 @@ void Run()
 		win.camera->GetViewMatrix(view);
 
 		//mouse
-		/*if (mouseEnabled)
+		if (mouseEnabled)
 		{
 			if (mousePressed)
 			{
@@ -200,7 +200,7 @@ void Run()
 			}
 
 			win.painter->AddToFront(BitmapType(&cursor, &s_tex, new Transform(), mouseX - 16, mouseY - 16, 32, 32, 0.0f, true, PAINT));
-		}*/
+		}
 
 		win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);
 		DrawInfo();
@@ -295,8 +295,8 @@ void Movement()
 				float dX, dY;
 				dX = (float)mouseX - (float)originalX;
 				dY = (float)mouseY - (float)originalY;
-				rotationY += -(dX / 25);
-				rotationX += -(dY / 25);
+				rotationY += -(dX / 15);
+				rotationX += -(dY / 15);
 				originalX = mouseX;
 				originalY = mouseY;
 			}

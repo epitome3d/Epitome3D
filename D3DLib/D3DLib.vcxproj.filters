@@ -185,19 +185,16 @@
     <ClInclude Include="src\exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\assets\shader\Light.ps">
+    <FxCompile Include="..\assets\shader\light.hlsl">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\assets\shader\Light.vs">
+    </FxCompile>
+    <FxCompile Include="..\assets\shader\texture.hlsl">
       <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\assets\shader\Texture.ps">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="..\assets\shader\Texture.vs">
-      <Filter>Resource Files</Filter>
-    </None>
+    </FxCompile>
   </ItemGroup>
 </Project>

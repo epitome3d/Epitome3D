@@ -26,7 +26,7 @@ namespace D3DLIB
 		};
 
 	public:
-		Shader_LIGHT(WCHAR* VS, WCHAR* PS);
+		Shader_LIGHT(WCHAR* filename);
 		Shader_LIGHT(const Shader_LIGHT&);
 		~Shader_LIGHT();
 
@@ -40,7 +40,7 @@ namespace D3DLIB
 		Shader* Clone();
 
 	private:
-		bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
+		bool InitializeShader(ID3D11Device*, HWND, WCHAR*);
 		void ShutdownShader();
 
 		bool PrepareShader(ID3D11DeviceContext*, D3DXMATRIX, D3DXMATRIX, D3DXMATRIX, Transform, Orientation orient);
@@ -55,8 +55,7 @@ namespace D3DLIB
 		ID3D11Buffer* m_matrixBuffer;
 		ID3D11Buffer* m_cameraBuffer;
 		ID3D11Buffer* m_lightBuffer;
-		WCHAR* VS;
-		WCHAR* PS;
+		WCHAR* m_filename;
 
 		ID3D11ShaderResourceView* r_texture;
 		D3DXVECTOR3 r_lightDirection, r_cameraPosition;

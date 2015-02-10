@@ -30,8 +30,8 @@ Model_FBX m_sphere;
 Bitmap cursor;
 Bitmap stars;
 
-Shader_TEXTURE s_tex = Shader_TEXTURE(L"../assets/shader/texture.vs", L"../assets/shader/texture.ps");
-Shader_LIGHT s_light = Shader_LIGHT(L"../assets/shader/light.vs", L"../assets/shader/light.ps");
+Shader_TEXTURE s_tex = Shader_TEXTURE(L"../assets/shader/texture.hlsl");
+Shader_LIGHT s_light = Shader_LIGHT(L"../assets/shader/light.hlsl");
 
 Texture t_stars;
 Texture t_earth;

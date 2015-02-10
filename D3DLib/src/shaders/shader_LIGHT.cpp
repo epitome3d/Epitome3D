@@ -3,7 +3,7 @@
 namespace D3DLIB
 {
 
-	Shader_LIGHT::Shader_LIGHT(WCHAR* VS, WCHAR* PS)
+	Shader_LIGHT::Shader_LIGHT(WCHAR* filename)
 	{
 		m_vertexShader = 0;
 		m_pixelShader = 0;
@@ -13,8 +13,7 @@ namespace D3DLIB
 		m_cameraBuffer = 0;
 		m_lightBuffer = 0;
 
-		this->VS = VS;
-		this->PS = PS;
+		this->m_filename = filename;
 
 		bd.Add(new ID3D11Buffer**[] 
 		{&m_matrixBuffer, &m_cameraBuffer, &m_lightBuffer}
@@ -35,7 +34,7 @@ namespace D3DLIB
 
 
 		// Initialize the vertex and pixel shaders.
-		result = InitializeShader(device, hwnd, VS, PS);
+		result = InitializeShader(device, hwnd, m_filename);
 		if(!result)
 		{
 			return false;
@@ -73,12 +72,12 @@ namespace D3DLIB
 
 
 
-	bool Shader_LIGHT::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
+	bool Shader_LIGHT::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* filename)
 	{
 		HRESULT result;
 		ID3D10Blob* errorMessage;
-		ID3D10Blob* vertexShaderBuffer;
-		ID3D10Blob* pixelShaderBuffer;
+		ID3D10Blob* VSBuffer;
+		ID3D10Blob* PSBuffer;
 		D3D11_INPUT_ELEMENT_DESC polygonLayout[3];
 		unsigned int numElements;
 		D3D11_SAMPLER_DESC samplerDesc;
@@ -89,56 +88,56 @@ namespace D3DLIB
 
 		// Initialize the pointers this function will use to null.
 		errorMessage = 0;
-		vertexShaderBuffer = 0;
-		pixelShaderBuffer = 0;
+		VSBuffer = 0;
+		PSBuffer = 0;
 
 		// Compile the vertex shader code.
-		result = D3DX11CompileFromFile(vsFilename, NULL, NULL, "LightVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, 
-										&vertexShaderBuffer, &errorMessage, NULL);
+		result = D3DX11CompileFromFile(filename, NULL, NULL, "VS", "vs_5_0", 0, 0, 0, 
+										&VSBuffer, &errorMessage, NULL);
 		if(FAILED(result))
 		{
 			// If the shader failed to compile it should have writen something to the error message.
 			if(errorMessage)
 			{
-				ThrowBlobError(errorMessage, hwnd, vsFilename);
+				ThrowBlobError(errorMessage, hwnd, filename);
 			}
 			// If there was nothing in the error message then it simply could not find the shader file itself.
 			else
 			{
-				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", vsFilename);
+				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", filename);
 			}
 
 			return false;
 		}
 
 		// Compile the pixel shader code.
-		result = D3DX11CompileFromFile(psFilename, NULL, NULL, "LightPixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, 
-										&pixelShaderBuffer, &errorMessage, NULL);
+		result = D3DX11CompileFromFile(filename, NULL, NULL, "PS", "ps_5_0", 0, 0, 0, 
+										&PSBuffer, &errorMessage, NULL);
 		if(FAILED(result))
 		{
 			// If the shader failed to compile it should have writen something to the error message.
 			if(errorMessage)
 			{
-				ThrowBlobError(errorMessage, hwnd, psFilename);
+				ThrowBlobError(errorMessage, hwnd, filename);
 			}
 			// If there was nothing in the error message then it simply could not find the file itself.
 			else
 			{
-				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", psFilename);
+				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", filename);
 			}
 
 			return false;
 		}
 
 		// Create the vertex shader from the buffer.
-		result = device->CreateVertexShader(vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), NULL, &m_vertexShader);
+		result = device->CreateVertexShader(VSBuffer->GetBufferPointer(), VSBuffer->GetBufferSize(), NULL, &m_vertexShader);
 		if(FAILED(result))
 		{
 			return false;
 		}
 
 		// Create the pixel shader from the buffer.
-		result = device->CreatePixelShader(pixelShaderBuffer->GetBufferPointer(), pixelShaderBuffer->GetBufferSize(), NULL, &m_pixelShader);
+		result = device->CreatePixelShader(PSBuffer->GetBufferPointer(), PSBuffer->GetBufferSize(), NULL, &m_pixelShader);
 		if(FAILED(result))
 		{
 			return false;
@@ -174,7 +173,7 @@ namespace D3DLIB
 		numElements = sizeof(polygonLayout) / sizeof(polygonLayout[0]);
 
 		// Create the vertex input layout.
-		result = device->CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer->GetBufferPointer(), vertexShaderBuffer->GetBufferSize(), 
+		result = device->CreateInputLayout(polygonLayout, numElements, VSBuffer->GetBufferPointer(), VSBuffer->GetBufferSize(),
 											&m_layout);
 		if(FAILED(result))
 		{
@@ -182,14 +181,15 @@ namespace D3DLIB
 		}
 
 		// Release the vertex shader buffer and pixel shader buffer since they are no longer needed.
-		vertexShaderBuffer->Release();
-		vertexShaderBuffer = 0;
+		VSBuffer->Release();
+		VSBuffer = 0;
 
-		pixelShaderBuffer->Release();
-		pixelShaderBuffer = 0;
+		PSBuffer->Release();
+		PSBuffer = 0;
 
 		// Create a texture sampler state description.
 		samplerDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+
 		samplerDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
 		samplerDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
 		samplerDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;

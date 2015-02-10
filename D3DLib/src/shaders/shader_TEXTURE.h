@@ -17,7 +17,7 @@ namespace D3DLIB
 		};
 
 	public:
-		Shader_TEXTURE(WCHAR* VS, WCHAR* PS);
+		Shader_TEXTURE(WCHAR* filename);
 		Shader_TEXTURE(const Shader_TEXTURE&);
 		~Shader_TEXTURE();
 
@@ -30,7 +30,7 @@ namespace D3DLIB
 
 		Shader* Clone();
 	private:
-		bool InitializeShader(ID3D11Device*, HWND, WCHAR*, WCHAR*);
+		bool InitializeShader(ID3D11Device*, HWND, WCHAR*);
 		void ShutdownShader();
 		bool PrepareShader(ID3D11DeviceContext*, D3DXMATRIX, D3DXMATRIX, D3DXMATRIX, Transform transform, Orientation orient);
 		void RenderShader(ID3D11DeviceContext*, int);
@@ -45,8 +45,7 @@ namespace D3DLIB
 		
 		ID3D11Buffer* m_matrixBuffer;
 
-		WCHAR* VS;
-		WCHAR* PS;
+		WCHAR* m_filename;
 	};
 
 }

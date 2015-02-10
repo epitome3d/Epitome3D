@@ -2,7 +2,7 @@
 
 namespace D3DLIB
 {
-	Shader_TEXTURE::Shader_TEXTURE(WCHAR* VS, WCHAR* PS)
+	Shader_TEXTURE::Shader_TEXTURE(WCHAR* filename)
 	{
 		m_vertexShader = 0;
 		m_pixelShader = 0;
@@ -11,8 +11,7 @@ namespace D3DLIB
 		m_sampleState = 0;
 
 		r_texture = 0;
-		this->VS = VS;
-		this->PS = PS;
+		this->m_filename = filename;
 
 		bd.Add(&m_matrixBuffer);
 	}
@@ -33,8 +32,7 @@ namespace D3DLIB
 		bool result;
 
 		// Initialize the vertex and pixel shaders.
-		result = InitializeShader(device, hwnd,
-			VS, PS);
+		result = InitializeShader(device, hwnd, m_filename);
 		if(!result)
 		{
 			return false;
@@ -68,7 +66,7 @@ namespace D3DLIB
 		r_texture = texture;
 	}
 
-	bool Shader_TEXTURE::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
+	bool Shader_TEXTURE::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* filename)
 	{
 		HRESULT result;
 		ID3D10Blob* errorMessage;
@@ -86,38 +84,38 @@ namespace D3DLIB
 		pixelShaderBuffer = 0;
 
 		// Compile the vertex shader code.
-		result = D3DX11CompileFromFile(vsFilename, NULL, NULL, "TextureVertexShader", "vs_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, 
+		result = D3DX11CompileFromFile(filename, NULL, NULL, "VS", "vs_5_0", 0, 0, 0,
 									   &vertexShaderBuffer, &errorMessage, NULL);
 		if(FAILED(result))
 		{
 			// If the shader failed to compile it should have writen something to the error message.
 			if(errorMessage)
 			{
-				ThrowBlobError(errorMessage, hwnd, vsFilename);
+				ThrowBlobError(errorMessage, hwnd, filename);
 			}
 			// If there was nothing in the error message then it simply could not find the shader file itself.
 			else
 			{
-				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", vsFilename);
+				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", filename);
 			}
 
 			return false;
 		}
 
 		// Compile the pixel shader code.
-		result = D3DX11CompileFromFile(psFilename, NULL, NULL, "TexturePixelShader", "ps_5_0", D3D10_SHADER_ENABLE_STRICTNESS, 0, NULL, 
+		result = D3DX11CompileFromFile(filename, NULL, NULL, "PS", "ps_5_0", 0, 0, 0,
 									   &pixelShaderBuffer, &errorMessage, NULL);
-		if(FAILED(result))
+		if (FAILED(result))
 		{
 			// If the shader failed to compile it should have writen something to the error message.
 			if(errorMessage)
 			{
-				ThrowBlobError(errorMessage, hwnd, psFilename);
+				ThrowBlobError(errorMessage, hwnd, filename);
 			}
 			// If there was  nothing in the error message then it simply could not find the file itself.
 			else
 			{
-				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", psFilename);
+				DisplayMessage(hwnd, Error, false, false, L"Missing Shader File", filename);
 			}
 
 			return false;
