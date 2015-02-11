@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "d3dlib", "D3DLib\d3dlib.vcxproj", "{BED31694-FF93-4B32-A54D-527043077B74}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "d3dlib-core", "d3dlib-core\d3dlib-core.vcxproj", "{BED31694-FF93-4B32-A54D-527043077B74}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D3DLibTest (from D3DLIB)", "D3DLibTest\D3DLibTest.vcxproj", "{57285D49-15C8-451F-BE1B-3D4B404DB426}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "d3dlib-tester", "d3dlib-tester\d3dlib-tester.vcxproj", "{57285D49-15C8-451F-BE1B-3D4B404DB426}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BED31694-FF93-4B32-A54D-527043077B74} = {BED31694-FF93-4B32-A54D-527043077B74}
 	EndProjectSection
