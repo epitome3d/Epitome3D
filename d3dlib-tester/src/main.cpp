@@ -15,7 +15,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 bool Initialize()
 {
 	///*** SET GLOBAL VARIABLES ***///
-	_verbosity = ErrorLevel::Warning; //minimum level of message shown
+	_verbosity = ErrorLevel::OK; //minimum level of message shown
 
 	int w, h;
 	bool f;

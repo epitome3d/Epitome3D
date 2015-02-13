@@ -177,14 +177,15 @@
   <ItemGroup>
     <Filter Include="Header Files">
       <UniqueIdentifier>{9fb007df-a2b5-4b60-ba8d-d178749f4fa0}</UniqueIdentifier>
-      <Extensions>*.h</Extensions>
+      <Extensions>h</Extensions>
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{b88814ed-4739-4fb2-af16-fbaad58c188e}</UniqueIdentifier>
-      <Extensions>*.cpp</Extensions>
+      <Extensions>cpp;c;</Extensions>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{8c51a7d3-7cbd-4cf5-9288-79b8fc653f39}</UniqueIdentifier>
+      <Extensions>hlsl;</Extensions>
     </Filter>
   </ItemGroup>
 </Project>

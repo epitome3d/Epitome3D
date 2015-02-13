@@ -2,7 +2,7 @@
 
 namespace D3DLIB
 {
-	ErrorLevel _verbosity = Error;
+	extern ErrorLevel _verbosity = Error;
 
 	void DisplayMessage(HWND window, ErrorLevel level, bool debugonly, bool ignoreverbosity, LPCWSTR string, LPCWSTR title)
 	{

@@ -15,7 +15,7 @@ using namespace std;
 
 namespace D3DLIB
 {
-	struct Buffer
+	struct Buffer abstract
 	{
 
 	};
