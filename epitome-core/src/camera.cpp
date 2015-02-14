@@ -19,6 +19,7 @@ namespace EPITOME
 
 	Camera::~Camera()
 	{
+		//TODO this
 	}
 
 	void Camera::SetPosition(float x, float y, float z)
