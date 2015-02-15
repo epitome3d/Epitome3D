@@ -37,6 +37,7 @@ Texture t_stars;
 Texture t_earth;
 Texture t_mouseoff;
 Texture t_mouseon;
+Texture t_moon;
 
 /*** MOVEMENT CONTROL ***/
 
