@@ -29,6 +29,7 @@ Window win;
 Model_FBX m_sphere;
 Bitmap cursor;
 Bitmap stars;
+Bitmap logo;
 
 Shader_TEXTURE s_tex = Shader_TEXTURE(L"../assets/shader/texture.hlsl");
 Shader_LIGHT s_light = Shader_LIGHT(L"../assets/shader/light.hlsl");
@@ -38,6 +39,7 @@ Texture t_earth;
 Texture t_mouseoff;
 Texture t_mouseon;
 Texture t_moon;
+Texture t_logo;
 
 /*** MOVEMENT CONTROL ***/
 

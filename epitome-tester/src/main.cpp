@@ -21,7 +21,7 @@ bool Initialize()
 	bool f;
 
 	win = EPITOME::Window::Window();
-	if (!win.Initialize(L"Epitome3D Test", false, false, 0, 800, 600, 1000.0f, 0.1f, true))
+	if (!win.Initialize(L"Epitome3D Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	
@@ -38,14 +38,16 @@ bool Initialize()
 	t_mouseon.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate Click.dds");
 	t_mouseoff.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate.dds");
 	t_moon.Initialize(win.d3d->GetDevice(), L"../assets/image/Moon.dds");
+	t_logo.Initialize(win.d3d->GetDevice(), L"../assets/image/epitome-512-fillblack.dds");
 
 	DrawStartupText(L"Completing initialization...");
 	cursor.Initialize(win.d3d->GetDevice(), w, h);
 	stars.Initialize(win.d3d->GetDevice(), w, h);
+	logo.Initialize(win.d3d->GetDevice(), w, h);
 
 	///*** SET DIRECT3D SETTINGS ***///
 	win.d3d->TurnZBufferOn();
-	win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_NONE, D3D11_FILL_SOLID));
+	win.d3d->SetRasterizer(D3DDesc::Rasterizer(false, D3D11_CULL_NONE, D3D11_FILL_SOLID));
 
 	return true;
 }
@@ -61,6 +63,7 @@ void Shutdown()
 	t_mouseon.Shutdown();
 	t_mouseoff.Shutdown();
 	t_moon.Shutdown();
+	t_logo.Shutdown();
 
 	cursor.Shutdown();
 	stars.Shutdown();
@@ -172,8 +175,6 @@ void Run()
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
 
-		win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_BACK, D3D11_FILL_SOLID));
-
 		//earth
 		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
 			win.camera->GetPosition(), l_specularColor, l_specularPower);
@@ -196,6 +197,10 @@ void Run()
 		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
 		win.camera->Render();
 		win.camera->GetViewMatrix(view);
+
+		//logo
+		s_tex.SetParameters(t_logo.GetTexture());
+		win.painter->AddToFront(BitmapType(&logo, &s_tex, new Transform(), w-64, h-64, 64, 64, 0.0f, true, PAINT));
 
 		//mouse
 		if (mouseEnabled)
