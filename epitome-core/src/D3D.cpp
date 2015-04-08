@@ -50,6 +50,7 @@ namespace EPITOME
 		float fieldOfView, screenAspect;
 		D3D11_DEPTH_STENCIL_DESC depthDisabledStencilDesc;
 		D3D11_BLEND_DESC blendStateDescription;
+		D3D11_BLEND_DESC blendDisabledStateDescription;
 
 		m_rasterDesc = D3D11_RASTERIZER_DESC();
 
@@ -123,7 +124,7 @@ namespace EPITOME
 		m_videoCardMemory = (int)(adapterDesc.DedicatedVideoMemory / 1024 / 1024);
 
 		// Convert the name of the video card to a character array and store it.
-		error = wcstombs_s(&stringLength, m_videoCardDescription, 128, adapterDesc.Description, 128);
+		error = wcstombs_s((size_t*)&stringLength, m_videoCardDescription, 128, adapterDesc.Description, 128);
 		if(error != 0)
 		{
 			return false;
@@ -403,11 +404,21 @@ namespace EPITOME
 			return false;
 		}
 
+		ZeroMemory(&blendDisabledStateDescription, sizeof(D3D11_BLEND_DESC));
 		// Modify the description to create an alpha disabled blend state description.
-		blendStateDescription.RenderTarget[0].BlendEnable = FALSE;
+		
+		blendDisabledStateDescription.RenderTarget[0].BlendEnable = FALSE;
+		//blendDisabledStateDescription.RenderTarget[0].SrcBlend = D3D11_BLEND_ONE;
+		blendDisabledStateDescription.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+		blendDisabledStateDescription.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+		blendDisabledStateDescription.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+		blendDisabledStateDescription.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+		blendDisabledStateDescription.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+		blendDisabledStateDescription.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+		blendDisabledStateDescription.RenderTarget[0].RenderTargetWriteMask = 0x0f;
 
 		// Create the blend state using the description.
-		result = m_device->CreateBlendState(&blendStateDescription, &m_alphaDisableBlendingState);
+		result = m_device->CreateBlendState(&blendDisabledStateDescription, &m_alphaDisableBlendingState);
 		if(FAILED(result))
 		{
 			return false;
@@ -606,8 +617,6 @@ namespace EPITOME
 
 	void D3D::SetRasterizer(D3DDesc::Rasterizer raster)
 	{
-		if (raster == _raster) { return; }
-
 		HRESULT result;	
 
 		// Setup the raster description which will determine how and what polygons will be drawn.

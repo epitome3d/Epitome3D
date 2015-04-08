@@ -21,7 +21,7 @@ bool Initialize()
 	bool f;
 
 	win = EPITOME::Window::Window();
-	if (!win.Initialize(L"Epitome3D Test", false, false, true, 800, 600, 1000.0f, 0.1f, true))
+	if (!win.Initialize(L"Epitome3D Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	
@@ -38,6 +38,7 @@ bool Initialize()
 	t_mouseon.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate Click.dds");
 	t_mouseoff.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate.dds");
 	t_moon.Initialize(win.d3d->GetDevice(), L"../assets/image/Moon.dds");
+	t_logo.Initialize(win.d3d->GetDevice(), L"../assets/image/epitome-512-fillblack.dds");
 
 	DrawStartupText(L"Completing initialization...");
 
@@ -47,7 +48,7 @@ bool Initialize()
 
 	///*** SET DIRECT3D SETTINGS ***///
 	win.d3d->TurnZBufferOn();
-	win.d3d->SetRasterizer(D3DDesc::Rasterizer(false, D3D11_CULL_NONE, D3D11_FILL_SOLID));
+	win.d3d->SetRasterizer(D3DDesc::Rasterizer(true, D3D11_CULL_NONE, D3D11_FILL_SOLID));
 
 	return true;
 }
