@@ -21,7 +21,7 @@ bool Initialize()
 	bool f;
 
 	win = EPITOME::Window::Window();
-	if (!win.Initialize(L"Epitome3D Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
+	if (!win.Initialize(L"Epitome3D Test", false, false, true, 800, 600, 1000.0f, 0.1f, true))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	
@@ -38,9 +38,9 @@ bool Initialize()
 	t_mouseon.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate Click.dds");
 	t_mouseoff.Initialize(win.d3d->GetDevice(), L"../assets/image/cursors/Accurate.dds");
 	t_moon.Initialize(win.d3d->GetDevice(), L"../assets/image/Moon.dds");
-	t_logo.Initialize(win.d3d->GetDevice(), L"../assets/image/epitome-512-fillblack.dds");
 
 	DrawStartupText(L"Completing initialization...");
+
 	cursor.Initialize(win.d3d->GetDevice(), w, h);
 	stars.Initialize(win.d3d->GetDevice(), w, h);
 	logo.Initialize(win.d3d->GetDevice(), w, h);
@@ -63,7 +63,6 @@ void Shutdown()
 	t_mouseon.Shutdown();
 	t_mouseoff.Shutdown();
 	t_moon.Shutdown();
-	t_logo.Shutdown();
 
 	cursor.Shutdown();
 	stars.Shutdown();
@@ -91,7 +90,7 @@ void Run()
 	l_diffuseColor = D3DXVECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
 	l_direction = D3DXVECTOR3(0.5f, 0.0f, 0.5f);
 	l_specularColor = D3DXVECTOR4(1.0f, 1.0f, 1.0f, 1.0f);
-	l_specularPower = 10.0f;
+	l_specularPower = 100000.0f;
 	
 	//LIGHT DIR  :  Changes  :  Which Dir?
 	//front = 0,0,1 (inc, dec) (z)
@@ -142,6 +141,7 @@ void Run()
 				if (win.Run(true) == false)	{ return; }
 			}
 		}
+
 		Movement();
 
 		win.d3d->TurnZBufferOn();
@@ -158,7 +158,7 @@ void Run()
 
 		/*** MATH ***/
 
-		deg = deg + 0.0005f;
+		deg = deg + 1.0f;
 		if (deg >= 360.0f) { deg -= 360.0f;}
 
 		/***** DRAWING *****/
@@ -179,20 +179,10 @@ void Run()
 		s_light.SetParameters(t_earth.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
 			win.camera->GetPosition(), l_specularColor, l_specularPower);
 		win.painter->AddToFront(ModelType(&m_sphere, &s_light,   
-			new Transform(D3DXVECTOR3(deg * 30.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
+			new Transform(D3DXVECTOR3(deg, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f),
 			D3DXVECTOR3(0.0f, 0.0f, 0.0f), Deg),
 			new CullAuto(), PAINT));
 		
-		
-
-		//moon
-		s_light.SetParameters(t_moon.GetTexture(), l_direction, l_ambientColor, l_diffuseColor,
-			win.camera->GetPosition(), l_specularColor, l_specularPower);
-		win.painter->AddToFront(ModelType(&m_sphere, &s_light,
-			new Transform(D3DXVECTOR3(deg, 0.0f, 0.0f), D3DXVECTOR3(0.5f, 0.5f, 0.5f),
-			D3DXVECTOR3(20.0f * cos(deg), 0.0f, 20.0f * sin(deg)), Deg),
-			new CullAuto(), PAINT));
-
 		win.camera->SetPosition(0.0f, 0.0f, -30.0f);
 		win.camera->SetRotation(0.0f, 0.0f, 0.0f);
 		win.camera->Render();
