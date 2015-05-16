@@ -21,7 +21,7 @@ bool Initialize()
 	bool f;
 
 	win = EPITOME::Window::Window();
-	if (!win.Initialize(L"Epitome3D Test", false, false, false, 800, 600, 1000.0f, 0.1f, true))
+	if (!win.Initialize(L"Epitome3D Test", false, false, true, 800, 600, 1000.0f, 0.1f, true))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	

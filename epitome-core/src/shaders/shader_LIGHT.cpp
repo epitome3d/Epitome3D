@@ -15,9 +15,7 @@ namespace EPITOME
 
 		this->m_filename = filename;
 
-		bd.Add(new ID3D11Buffer**[] 
-		{&m_matrixBuffer, &m_cameraBuffer, &m_lightBuffer}
-		, 3);
+		bd.Add(new ID3D11Buffer**[3]{&m_matrixBuffer, &m_cameraBuffer, &m_lightBuffer}, 3);
 	}
 
 	Shader_LIGHT::Shader_LIGHT(const Shader_LIGHT& other)
