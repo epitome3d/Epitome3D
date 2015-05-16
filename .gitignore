@@ -142,3 +142,5 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+/epitome-gltester/x64/Debug/epitome-gltester.tlog
+/epitome-gltester/x64/Debug
