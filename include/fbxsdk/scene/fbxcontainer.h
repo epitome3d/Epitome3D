@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_CONTAINER_H_
 #define _FBXSDK_SCENE_CONTAINER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/scene/fbxcontainertemplate.h>
+#include <core/fbxobject.h>
+#include <scene/fbxcontainertemplate.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Generic container for object grouping and encapsulation.
   * \nosubgrouping
@@ -94,6 +94,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONTAINER_H_ */

@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_NODE_H_
 #define _FBXSDK_SCENE_GEOMETRY_NODE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/core/math/fbxtransforms.h>
+#include <core/fbxobject.h>
+#include <core/math/fbxtransforms.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxStatus;
 class FbxNodeAttribute;
@@ -2401,6 +2401,6 @@ inline EFbxType FbxTypeOf(const EFbxRotationOrder&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxTransform::EInheritType&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const EFbxQuatInterpMode&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_NODE_H_ */

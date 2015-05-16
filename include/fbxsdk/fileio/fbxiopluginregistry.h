@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_FILEIO_IO_PLUGIN_REGISTRY_H_
 #define _FBXSDK_FILEIO_IO_PLUGIN_REGISTRY_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fileio/fbxreader.h>
-#include <fbxsdk/fileio/fbxwriter.h>
+#include <fileio/fbxreader.h>
+#include <fileio/fbxwriter.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**	\brief This class serves as the registrar for file formats.
   * A file format must be registered when it is used by the FBX SDK.
@@ -300,6 +300,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_IO_PLUGIN_REGISTRY_H_ */

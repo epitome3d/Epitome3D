@@ -15,7 +15,7 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //----------------------------------------------------------------------------//
 
@@ -122,6 +122,6 @@ const FbxString ToString(const FbxAMatrix & pValue);
   */
 const FbxString DecodePercentEncoding(const FbxString & pEncodedString);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_COLLADA_IO_STREAM_H_ */

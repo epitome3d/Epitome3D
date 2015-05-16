@@ -13,17 +13,17 @@
 #ifndef _FBXSDK_CORE_OBJECT_H_
 #define _FBXSDK_CORE_OBJECT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxclassid.h>
-#include <fbxsdk/core/fbxquery.h>
-#include <fbxsdk/core/fbxemitter.h>
-#include <fbxsdk/core/fbxproperty.h>
-#include <fbxsdk/core/fbxstream.h>
-#include <fbxsdk/core/base/fbxstringlist.h>
-#include <fbxsdk/utils/fbxnamehandler.h>
+#include <core/fbxclassid.h>
+#include <core/fbxquery.h>
+#include <core/fbxemitter.h>
+#include <core/fbxproperty.h>
+#include <core/fbxstream.h>
+#include <core/base/fbxstringlist.h>
+#include <utils/fbxnamehandler.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxManager;
 class FbxDocument;
@@ -1755,6 +1755,6 @@ public:
 };
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_OBJECT_H_ */

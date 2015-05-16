@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_TRIM_NURBS_SURFACE_H_
 #define _FBXSDK_SCENE_GEOMETRY_TRIM_NURBS_SURFACE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxgeometry.h>
-#include <fbxsdk/scene/geometry/fbxnurbscurve.h>
-#include <fbxsdk/scene/geometry/fbxnurbssurface.h>
+#include <scene/geometry/fbxgeometry.h>
+#include <scene/geometry/fbxnurbscurve.h>
+#include <scene/geometry/fbxnurbssurface.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** FbxBoundary describes a trimming boundary for a trimmed NURBS object.
   * Note:Outer boundaries run counter-clockwise in UV space and inner
@@ -235,6 +235,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_TRIM_NURBS_SURFACE_H_ */

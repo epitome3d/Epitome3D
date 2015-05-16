@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_FILEIO_WRITER_H_
 #define _FBXSDK_FILEIO_WRITER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/utils/fbxrenamingstrategy.h>
+#include <utils/fbxrenamingstrategy.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxStatus;
 class FbxManager;
@@ -239,6 +239,6 @@ private:
 //! Helper to access the IOSetting object pointer as a ref ex: IOS_REF.GetBoolProp( ... );
 #define IOS_REF (*GetIOSettings())
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_WRITER_H_ */

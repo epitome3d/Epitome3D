@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_CHARACTER_NODE_NAME_H_
 #define _FBXSDK_SCENE_CONSTRAINT_CHARACTER_NODE_NAME_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define Character_Hips                      "Hips"
 #define Character_LeftUpLeg                 "LeftUpLeg"
@@ -219,6 +219,6 @@
 #define Character_LeftHandFloorContact              "LeftHandFloorContact"
 #define Character_RightHandFloorContact             "RightHandFloorContact"
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_CHARACTER_NODE_NAME_H_ */

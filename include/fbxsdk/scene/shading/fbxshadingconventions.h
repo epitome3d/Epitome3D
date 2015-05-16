@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_SCENE_SHADING_CONVENTIONS_H_
 #define _FBXSDK_SCENE_SHADING_CONVENTIONS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //Predefined shader languages
 #define FBXSDK_SHADING_LANGUAGE_HLSL	"HLSL"
@@ -55,6 +55,6 @@
 //ASSET Definition conventions
 #define ADSK_UI_DEFINITION_URL			"UIDefinition"
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SHADING_CONVENTIONS_H_ */

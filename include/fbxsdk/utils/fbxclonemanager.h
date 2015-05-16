@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_UTILS_CLONE_MANAGER_H_
 #define _FBXSDK_UTILS_CLONE_MANAGER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/core/fbxquery.h>
+#include <core/fbxobject.h>
+#include <core/fbxquery.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** The clone manager is a utility for cloning entire networks of FbxObject.
   * Options are available for specifying how the clones inherit the connections
@@ -285,7 +285,7 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #define CloneSetCast(x)         ((FbxCloneManager::CloneSet*)(x))
 #define CloneSetElementCast(x)  ((FbxCloneManager::CloneSetElement*)((x!=NULL)?&(x->GetValue()):NULL))

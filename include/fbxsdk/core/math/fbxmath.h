@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_MATH_H_
 #define _FBXSDK_CORE_MATH_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/math/fbxvector2.h>
-#include <fbxsdk/core/math/fbxvector4.h>
-#include <fbxsdk/core/math/fbxmatrix.h>
-#include <fbxsdk/core/math/fbxaffinematrix.h>
+#include <core/math/fbxvector2.h>
+#include <core/math/fbxvector4.h>
+#include <core/math/fbxmatrix.h>
+#include <core/math/fbxaffinematrix.h>
 
 //On Mac OS, cmath will include math.h and undef "isnan"
 #if defined(FBXSDK_ENV_MAC)
@@ -26,7 +26,7 @@
 	extern "C" int isnan (double);
 #endif
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #if defined(FBXSDK_ENV_WIN)
 	#ifndef isnan
@@ -522,6 +522,6 @@ template<class T> inline T FbxACos(const T x);
 template<class T> inline T FbxATan(const T x);
 template<class T> inline T FbxATan(const T y, const T x);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_MATH_H_ */

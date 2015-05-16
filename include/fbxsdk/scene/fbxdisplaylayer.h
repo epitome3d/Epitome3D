@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_DISPLAY_LAYER_H_
 #define _FBXSDK_SCENE_DISPLAY_LAYER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/fbxcollectionexclusive.h>
+#include <scene/fbxcollectionexclusive.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Class for display layers.
 * \nosubgrouping
@@ -72,6 +72,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_DISPLAY_LAYER_H_ */

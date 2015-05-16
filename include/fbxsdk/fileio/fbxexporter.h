@@ -13,16 +13,16 @@
 #ifndef _FBXSDK_FILEIO_EXPORTER_H_
 #define _FBXSDK_FILEIO_EXPORTER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxevent.h>
-#include <fbxsdk/core/base/fbxstring.h>
-#include <fbxsdk/fileio/fbxiobase.h>
-#include <fbxsdk/fileio/fbxiosettings.h>
-#include <fbxsdk/fileio/fbxprogress.h>
-#include <fbxsdk/utils/fbxrenamingstrategy.h>
+#include <core/fbxevent.h>
+#include <core/base/fbxstring.h>
+#include <fileio/fbxiobase.h>
+#include <fileio/fbxiosettings.h>
+#include <fileio/fbxprogress.h>
+#include <utils/fbxrenamingstrategy.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxIO;
 class FbxIOFileHeaderInfo;
@@ -299,6 +299,6 @@ public:
 	FbxDocument* mDocument;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_EXPORTER_H_ */

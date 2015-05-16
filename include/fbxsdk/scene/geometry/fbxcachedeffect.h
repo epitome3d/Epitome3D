@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_CACHED_EFFECT_H_
 #define _FBXSDK_SCENE_GEOMETRY_CACHED_EFFECT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
-#include <fbxsdk/scene/geometry/fbxcache.h>
+#include <scene/geometry/fbxnodeattribute.h>
+#include <scene/geometry/fbxcache.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** A cached effect is a type of node attribute to represent certain type of effect 
   *  by an cache object. Categories are particle cache, fluid cache, hair cache and general cache.
@@ -95,6 +95,6 @@ private:
 
 inline EFbxType FbxTypeOf(const FbxCachedEffect::ECategory&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_CACHED_EFFECT_H_ */

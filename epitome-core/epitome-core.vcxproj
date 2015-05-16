@@ -100,7 +100,8 @@
     <ProjectGuid>{BED31694-FF93-4B32-A54D-527043077B74}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>d3dlib</RootNamespace>
-    <ProjectName>epitome-core</ProjectName>
+    <ProjectName>epitome-d3dcore</ProjectName>
+    <TargetPlatformVersion>10.0.10069.0</TargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -148,22 +149,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
-    <IncludePath>$(ProjectDir)..\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\fbxsdk;$(ProjectDir)..\include\directx;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\directx\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(ProjectDir)..\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\fbxsdk;$(ProjectDir)..\include\directx;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\directx\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
-    <IncludePath>$(ProjectDir)..\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\fbxsdk;$(ProjectDir)..\include\directx;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\directx\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(ProjectDir)..\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\fbxsdk;$(ProjectDir)..\include\directx;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\directx\$(PlatformTarget)\$(Configuration)\;$(LibraryPath)</LibraryPath>
+    <OutDir>bin\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_UTILS_NAMEHANDLER_H_
 #define _FBXSDK_UTILS_NAMEHANDLER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxarray.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** A name is a case-sensitive string ID of a property, a node, a node attribute, a texture, etc. The characters constituting a name has no specific limitation.
   * An initial name is the original name (from importing a file, for example), which is saved up for reversible renaming.
@@ -138,6 +138,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_NAMEHANDLER_H_ */

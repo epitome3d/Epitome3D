@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_COLLECTION_EXCLUSIVE_H_
 #define _FBXSDK_SCENE_COLLECTION_EXCLUSIVE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/fbxcollection.h>
+#include <scene/fbxcollection.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Class for exclusive collections. An object (FbxObject) should belong to only one exclusive collection at most.
   * \nosubgrouping
@@ -33,6 +33,6 @@ public:
     bool AddMember(FbxObject* pMember);
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_COLLECTION_EXCLUSIVE_H_ */

@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_VERTEX_CACHE_DEFORMER_H_
 #define _FBXSDK_SCENE_GEOMETRY_VERTEX_CACHE_DEFORMER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxdeformer.h>
-#include <fbxsdk/scene/geometry/fbxcache.h>
+#include <scene/geometry/fbxdeformer.h>
+#include <scene/geometry/fbxcache.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief This class deforms control points of a geometry using control point positions
  * stored in the associated cache object.
@@ -99,6 +99,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_VERTEX_CACHE_DEFORMER_H_ */

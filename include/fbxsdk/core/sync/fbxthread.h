@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_SYNC_THREAD_H_
 #define _FBXSDK_CORE_SYNC_THREAD_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #ifndef FBXSDK_ENV_WINSTORE
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxThreadImpl;
 
@@ -92,7 +92,7 @@ private:
 	FbxThreadImpl* mImpl;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* !FBXSDK_ENV_WINSTORE */
 

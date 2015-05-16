@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_OBJECTS_CONTAINER_H_
 #define _FBXSDK_SCENE_OBJECTS_CONTAINER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/scene/fbxscene.h>
+#include <core/base/fbxarray.h>
+#include <scene/fbxscene.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 typedef FbxArray<FbxNodeAttribute::EType> FbxAttributeFilters;
 
@@ -61,6 +61,6 @@ protected:
 	FbxNode* mStartNode;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_OBJECTS_CONTAINER_H_ */

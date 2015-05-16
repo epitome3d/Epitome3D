@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_WEIGHTED_MAPPING_H_
 #define _FBXSDK_SCENE_GEOMETRY_WEIGHTED_MAPPING_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
+#include <core/base/fbxarray.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**	Define a weighted bidirectional mapping relation on objects.
   * \nosubgrouping
@@ -134,6 +134,6 @@ private:
 typedef class FbxArray<FbxWeightedMapping::Element> FbxArrayTemplateElement;
 typedef class FbxArray<FbxArray<FbxWeightedMapping::Element>*> FbxArrayTemplateArrayTemplateElement;
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_WEIGHTED_MAPPING_H_ */

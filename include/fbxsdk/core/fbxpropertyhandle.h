@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_CORE_PROPERTY_HANDLE_H_
 #define _FBXSDK_CORE_PROPERTY_HANDLE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxconnectionpoint.h>
-#include <fbxsdk/core/fbxpropertytypes.h>
-#include <fbxsdk/core/fbxpropertydef.h>
+#include <core/fbxconnectionpoint.h>
+#include <core/fbxpropertytypes.h>
+#include <core/fbxpropertydef.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxPropertyPage;
 class FbxPropertyHandle;
@@ -571,6 +571,6 @@ private:
 	FbxInt				mId;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_PROPERTY_HANDLE_H_ */

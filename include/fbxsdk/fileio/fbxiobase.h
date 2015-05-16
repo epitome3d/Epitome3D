@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_FILEIO_IO_BASE_H_
 #define _FBXSDK_FILEIO_IO_BASE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/core/base/fbxstatus.h>
+#include <core/fbxobject.h>
+#include <core/base/fbxstatus.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define FBXSDK_IO_END_NODE_STR "_End"
 
@@ -62,6 +62,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_IO_BASE_H_ */

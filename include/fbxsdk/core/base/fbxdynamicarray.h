@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_BASE_DYNAMICARRAY_H_
 #define _FBXSDK_CORE_BASE_DYNAMICARRAY_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxcontainerallocators.h>
+#include <core/base/fbxcontainerallocators.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Template class for dynamic array holding objects.
   * \nosubgrouping
@@ -320,6 +320,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_DYNAMICARRAY_H_ */

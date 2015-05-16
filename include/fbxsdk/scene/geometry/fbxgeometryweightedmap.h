@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_WEIGHTED_MAP_H_
 #define _FBXSDK_SCENE_GEOMETRY_WEIGHTED_MAP_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/scene/geometry/fbxweightedmapping.h>
+#include <core/fbxobject.h>
+#include <scene/geometry/fbxweightedmapping.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxGeometry;
 
@@ -82,6 +82,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_WEIGHTED_MAP_H_ */

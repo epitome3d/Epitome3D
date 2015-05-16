@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_ANIMATION_CURVE_BASE_H_
 #define _FBXSDK_SCENE_ANIMATION_CURVE_BASE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
+#include <core/fbxobject.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxIO;
 
@@ -256,6 +256,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif // FBXFILESDK_KFBXPLUGINS_KFBXANIMCURVEBASE_H

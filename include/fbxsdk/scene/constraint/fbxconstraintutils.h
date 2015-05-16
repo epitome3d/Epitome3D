@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_UTILS_H_
 #define _FBXSDK_SCENE_CONSTRAINT_UTILS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxNode; 
 
@@ -32,6 +32,6 @@ public:
 	static bool IsNodeSingleChainIKEffector(FbxNode* pNode);
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_UTILS_H_ */

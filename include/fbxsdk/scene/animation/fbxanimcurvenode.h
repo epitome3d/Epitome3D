@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_ANIMATION_CURVE_NODE_H_
 #define _FBXSDK_SCENE_ANIMATION_CURVE_NODE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
+#include <core/fbxobject.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //Standard curve node names
 #define FBXSDK_CURVENODE_TRANSFORM		"Transform"
@@ -344,7 +344,7 @@ private:
 FBXSDK_DLL void GetAllAnimCurves(FbxAnimStack* pAnimStack, FbxArray<FbxAnimCurve*>& pCurves);
 FBXSDK_DLL void GetAllAnimCurves(FbxObject* pObj, FbxAnimStack* pAnimStack, FbxArray<FbxAnimCurve*>& pCurves);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif // FBXFILESDK_KFBXPLUGINS_KFBXANIMCURVENODE_H
 

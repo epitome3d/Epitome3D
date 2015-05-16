@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_LAYER_H_
 #define _FBXSDK_SCENE_GEOMETRY_LAYER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxdatatypes.h>
-#include <fbxsdk/core/fbxstream.h>
-#include <fbxsdk/scene/shading/fbxsurfacematerial.h>
-#include <fbxsdk/scene/shading/fbxtexture.h>
+#include <core/fbxdatatypes.h>
+#include <core/fbxstream.h>
+#include <scene/shading/fbxsurfacematerial.h>
+#include <scene/shading/fbxtexture.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxLayerElementArray;
 class FbxLayerContainer;
@@ -2767,6 +2767,6 @@ typedef FbxLayerElementVisibility FbxGeometryElementVisibility;
 
 #undef FBXSDK_LAYER_ELEMENT_CREATE_DECLARE
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_LAYER_H_ */

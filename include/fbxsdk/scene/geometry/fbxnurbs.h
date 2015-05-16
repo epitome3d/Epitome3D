@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_NURBS_H_
 #define _FBXSDK_SCENE_GEOMETRY_NURBS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxgeometry.h>
+#include <scene/geometry/fbxgeometry.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** A NURBS surface is a type of parametric geometry. A NURBS surface is defined by the
     order, form, knot vector and control points in the U and V coordinates.
@@ -254,6 +254,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_NURBS_H_ */

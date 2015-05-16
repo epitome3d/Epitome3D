@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_FILEIO_BASE64CODER_H_
 #define _FBXSDK_FILEIO_BASE64CODER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class decodes Base64 encoded data. */
 class FBXSDK_DLL FbxBase64Decoder
@@ -59,6 +59,6 @@ public:
     int Encode(const void* pInBuffer, int pInSize, FbxString& pOutBuffer);
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_BASE64CODER_H_ */

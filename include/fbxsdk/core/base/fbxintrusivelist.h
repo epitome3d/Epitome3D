@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_CORE_BASE_INTRUSIVE_LIST_H_
 #define _FBXSDK_CORE_BASE_INTRUSIVE_LIST_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /*****************************************************************************************************************************
 ** WARNING! Anything beyond these lines is for internal use, may not be documented and is subject to change without notice! **
@@ -257,6 +257,6 @@ private:
 
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_INTRUSIVE_LIST_H_ */

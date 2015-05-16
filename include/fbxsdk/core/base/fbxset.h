@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_BASE_SET_H_
 #define _FBXSDK_CORE_BASE_SET_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxredblacktree.h>
-#include <fbxsdk/core/base/fbxmap.h>
+#include <core/base/fbxredblacktree.h>
+#include <core/base/fbxmap.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Class to manipulate set
 * \nosubgrouping
@@ -340,6 +340,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_SET_H_ */

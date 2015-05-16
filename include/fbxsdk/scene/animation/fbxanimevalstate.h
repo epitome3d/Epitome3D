@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_SCENE_ANIMATION_EVALUATION_STATE_H_
 #define _FBXSDK_SCENE_ANIMATION_EVALUATION_STATE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxtime.h>
-#include <fbxsdk/core/fbxpropertydef.h>
-#include <fbxsdk/scene/geometry/fbxnode.h>
+#include <core/base/fbxtime.h>
+#include <core/fbxpropertydef.h>
+#include <scene/geometry/fbxnode.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxTransform;
 class FbxNodeEvalState;
@@ -131,6 +131,6 @@ public:
 	FbxPropertyValue* mValue;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_ANIMATION_EVALUATION_STATE_H_ */

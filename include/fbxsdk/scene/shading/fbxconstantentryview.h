@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_SHADING_CONSTANT_ENTRY_VIEW_H_
 #define _FBXSDK_SCENE_SHADING_CONSTANT_ENTRY_VIEW_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/shading/fbxentryview.h>
+#include <scene/shading/fbxentryview.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxBindingTableEntry;
 
@@ -60,6 +60,6 @@ public:
 	virtual const char* EntryType() const;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SHADING_CONSTANT_ENTRY_VIEW_H_ */

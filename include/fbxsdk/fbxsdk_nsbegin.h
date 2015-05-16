@@ -10,7 +10,7 @@
 ****************************************************************************************/
 
 //! \file fbxsdk_nsbegin.h
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #if FBXSDK_DEFINE_NAMESPACE == 1
 	namespace FBXSDK_NAMESPACE {

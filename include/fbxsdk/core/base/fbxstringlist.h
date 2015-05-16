@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_BASE_STRING_LIST_H_
 #define _FBXSDK_CORE_BASE_STRING_LIST_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxarray.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //! Wraps a string (FbxString) and a pointer (FbxHandle).
 class FbxStringListItem
@@ -361,6 +361,6 @@ public:
 	//@}
 };
 	  
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_STRING_LIST_H_ */

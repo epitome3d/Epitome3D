@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_AIM_H_
 #define _FBXSDK_SCENE_CONSTRAINT_AIM_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/constraint/fbxconstraint.h>
+#include <scene/constraint/fbxconstraint.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** An aim constraint governs an object's orientation so that the object points to other objects.
   * For example, you can use the aim constraint to point a light at an object or group of objects.
@@ -153,6 +153,6 @@ protected:
 
 inline EFbxType FbxTypeOf(const FbxConstraintAim::EWorldUp&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_AIM_H_ */

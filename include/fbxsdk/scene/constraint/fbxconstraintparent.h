@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_PARENT_H_
 #define _FBXSDK_SCENE_CONSTRAINT_PARENT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/constraint/fbxconstraint.h>
+#include <scene/constraint/fbxconstraint.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** The parent constraint creates a parent-to-child relationship between any two objects, from any two hierarchies.
   * It creates the same relationship as the parent-to-child relationships found in hierarchies.
@@ -159,6 +159,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_PARENT_H_ */

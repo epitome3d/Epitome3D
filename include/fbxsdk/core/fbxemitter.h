@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_EMITTER_H_
 #define _FBXSDK_CORE_EMITTER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxintrusivelist.h>
-#include <fbxsdk/core/fbxeventhandler.h>
+#include <core/base/fbxintrusivelist.h>
+#include <core/fbxeventhandler.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxListener;
 
@@ -89,6 +89,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_EMITTER_H_ */

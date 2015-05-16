@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_SHADING_TEXTURE_PROCEDURAL_H_
 #define _FBXSDK_SCENE_SHADING_TEXTURE_PROCEDURAL_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/shading/fbxtexture.h>
+#include <scene/shading/fbxtexture.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Contains the information to generate a texture procedurally. Data information for the texture
   * generation is contained in a blob property.
@@ -77,6 +77,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SHADING_TEXTURE_PROCEDURAL_H_ */

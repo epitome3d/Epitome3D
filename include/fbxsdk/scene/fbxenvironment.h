@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_ENVIRONMENT_H_
 #define _FBXSDK_SCENE_ENVIRONMENT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
+#include <core/fbxobject.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class contains the description of a scene environment. It contains the properties of sun parameters,
   * sky parameters, daylight controller parameters ,environment map parameters 
@@ -37,6 +37,6 @@ public:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_ENVIRONMENT_H_ */

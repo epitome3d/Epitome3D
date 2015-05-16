@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_PROCEDURAL_H_
 #define _FBXSDK_SCENE_GEOMETRY_PROCEDURAL_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxgeometry.h>
+#include <scene/geometry/fbxgeometry.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Base class for procedural geometry. In a standard geometry (FbxGeometry, FbxGeometryBase), control points,
   * normals, possibly polygons (FbxMesh) and other specifications are described. A procedural geometry contains minimal information
@@ -29,6 +29,6 @@ class FBXSDK_DLL FbxProceduralGeometry : public FbxGeometry
     FBXSDK_OBJECT_DECLARE(FbxProceduralGeometry, FbxGeometry);
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_PROCEDURAL_H_ */

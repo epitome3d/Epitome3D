@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_BASE_MAP_H_
 #define _FBXSDK_CORE_BASE_MAP_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
-#include <fbxsdk/core/base/fbxredblacktree.h>
+#include <core/base/fbxstring.h>
+#include <core/base/fbxredblacktree.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxObject;
 
@@ -400,6 +400,6 @@ template <typename K, typename V, typename C, typename A> inline void FbxMapDest
 	pMap.Clear();
 }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_MAP_H_ */

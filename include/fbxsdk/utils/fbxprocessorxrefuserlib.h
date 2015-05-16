@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_UTILS_PROCESSOR_XREF_USERLIB_H_
 #define _FBXSDK_UTILS_PROCESSOR_XREF_USERLIB_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/utils/fbxprocessorxref.h>
+#include <utils/fbxprocessorxref.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**
   * Specialized xref copy processor
@@ -59,6 +59,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_PROCESSOR_XREF_USERLIB_H_ */

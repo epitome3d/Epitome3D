@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_EVENT_H_
 #define _FBXSDK_CORE_EVENT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxpropertytypes.h>
+#include <core/fbxpropertytypes.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** FBX SDK event base class. 
   * An event is something that is emitted by an emitter, with the goal of being filled by the listener that listen to it. 
@@ -183,6 +183,6 @@ private:
 // Static members implementation
 template<typename T> int FbxEvent<T>::smTypeId = 0;
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_EVENT_H_ */

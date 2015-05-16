@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_SCENE_ANIMATION_CURVE_FILTERS_H_
 #define _FBXSDK_SCENE_ANIMATION_CURVE_FILTERS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxtime.h>
-#include <fbxsdk/core/base/fbxstatus.h>
-#include <fbxsdk/scene/animation/fbxanimcurve.h>
-#include <fbxsdk/fileio/fbxiosettings.h>
+#include <core/base/fbxtime.h>
+#include <core/base/fbxstatus.h>
+#include <scene/animation/fbxanimcurve.h>
+#include <fileio/fbxiosettings.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxObject;
 class FbxAnimStack;
@@ -1520,6 +1520,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_ANIMATION_CURVE_FILTERS_H_ */

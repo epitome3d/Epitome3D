@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_FILEIO_EXTERNAL_DOCREF_LISTENER_H_
 #define _FBXSDK_FILEIO_EXTERNAL_DOCREF_LISTENER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxlistener.h>
+#include <core/fbxlistener.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Contains data about an external document.
   * The document is a FbxDocument object.
@@ -128,6 +128,6 @@ private:
     FbxExternalDocRefListenerData * mData;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_EXTERNAL_DOCREF_LISTENER_H_ */

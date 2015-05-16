@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_UTILS_RENAMINGSTRATEGY_BASE_H_
 #define _FBXSDK_UTILS_RENAMINGSTRATEGY_BASE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/fbxscene.h>
-#include <fbxsdk/utils/fbxnamehandler.h>
+#include <scene/fbxscene.h>
+#include <utils/fbxnamehandler.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief Base class for renaming strategy.
 * \nosubgrouping
@@ -87,6 +87,6 @@ public:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_RENAMINGSTRATEGY_BASE_H_ */

@@ -13,16 +13,16 @@
 #ifndef _FBXSDK_CORE_PROPERTY_TYPES_H_
 #define _FBXSDK_CORE_PROPERTY_TYPES_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
-#include <fbxsdk/core/base/fbxtime.h>
-#include <fbxsdk/core/math/fbxvector2.h>
-#include <fbxsdk/core/math/fbxvector4.h>
-#include <fbxsdk/core/math/fbxmatrix.h>
-#include <fbxsdk/core/fbxsystemunit.h>
+#include <core/base/fbxstring.h>
+#include <core/base/fbxtime.h>
+#include <core/math/fbxvector2.h>
+#include <core/math/fbxvector4.h>
+#include <core/math/fbxmatrix.h>
+#include <core/fbxsystemunit.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //! Type identifier constants
 enum EFbxType
@@ -1166,6 +1166,6 @@ FBXSDK_DLL bool FbxTypeDeallocate(const EFbxType pType, void* pData);
   */
 FBXSDK_DLL bool FbxTypeCompare(const void* pA, const void* pB, const EFbxType pType);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_PROPERTY_TYPES_H_ */

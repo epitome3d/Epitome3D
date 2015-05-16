@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_BASE_HASHMAP_H_
 #define _FBXSDK_CORE_BASE_HASHMAP_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/core/base/fbxmap.h>
+#include <core/base/fbxarray.h>
+#include <core/base/fbxmap.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 template<class T> class FbxNoOpDestruct { public: static inline void DoIt(T&) {} };
 template<class T> class FbxPtrDestruct  { public: static inline void DoIt(T& v) { FbxDelete(v); v = NULL; } };
@@ -406,6 +406,6 @@ private:
 	friend class Iterator;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_HASHMAP_H_ */

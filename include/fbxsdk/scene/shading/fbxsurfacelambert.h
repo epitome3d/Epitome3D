@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_SHADING_SURFACE_LAMBERT_H_
 #define _FBXSDK_SCENE_SHADING_SURFACE_LAMBERT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/shading/fbxsurfacematerial.h>
+#include <scene/shading/fbxsurfacematerial.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class contains settings for Lambert Materials.
   * \nosubgrouping
@@ -138,6 +138,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SHADING_SURFACE_LAMBERT_H_ */

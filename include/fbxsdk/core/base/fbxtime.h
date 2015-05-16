@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_BASE_TIME_H_
 #define _FBXSDK_CORE_BASE_TIME_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxtimecode.h>
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxtimecode.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define FBXSDK_TIME_INFINITE		FbxTime(FBXSDK_TC_INFINITY)
 #define FBXSDK_TIME_MINUS_INFINITE	FbxTime(FBXSDK_TC_MINFINITY)
@@ -660,6 +660,6 @@ FBXSDK_DLL int					FbxGetFrameRateStringListIndex(FbxTime::EMode pTimeMode);
 FBXSDK_DLL bool					FbxIsValidCustomFrameRate(double pFramerate);
 FBXSDK_DLL bool					FbxGetNearestCustomFrameRate(double pFramerate, double& pNearestRate);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_TIME_H_ */

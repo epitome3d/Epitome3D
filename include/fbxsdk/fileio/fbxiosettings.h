@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_FILEIO_IO_SETTINGS_H_
 #define _FBXSDK_FILEIO_IO_SETTINGS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/fileio/fbxiosettingspath.h>
+#include <core/fbxobject.h>
+#include <fileio/fbxiosettingspath.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //Undefine the macro mkdir, since it conflict with function mkdir in Qt\4.2.3\src\corelib\io\qdir.h
 #if (defined(_MSC_VER) || defined(__MINGW32__)) && defined(mkdir)
@@ -579,6 +579,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_IO_SETTINGS_H_ */

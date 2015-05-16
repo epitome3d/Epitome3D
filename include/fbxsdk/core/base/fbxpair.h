@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_CORE_BASE_PAIR_H_
 #define _FBXSDK_CORE_BASE_PAIR_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class template holds a pair of objects.
 * \nosubgrouping
@@ -49,6 +49,6 @@ public:
 	T mSecond;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_PAIR_H_ */

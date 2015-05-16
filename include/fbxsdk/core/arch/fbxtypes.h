@@ -19,7 +19,7 @@
 #ifndef _FBXSDK_CORE_ARCH_TYPES_H_
 #define _FBXSDK_CORE_ARCH_TYPES_H_
 
-#include <fbxsdk/core/arch/fbxarch.h>
+#include <core/arch/fbxarch.h>
 
 //Note: On MacOSX and Linux 64-bit, long is defined as 64-bits while on Windows
 //it is still a 32-bits for backward compatibility. We stick with Windows standard.
@@ -27,7 +27,7 @@
 	#define FBXSDK_SYSTEM_IS_LP64 1
 #endif
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxObject;
 
@@ -251,6 +251,6 @@ typedef FbxVectorTemplate3<FbxDouble> FbxDouble3;
 typedef FbxVectorTemplate4<FbxDouble> FbxDouble4;
 typedef FbxVectorTemplate4<FbxDouble4> FbxDouble4x4;
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_ARCH_TYPES_H_ */

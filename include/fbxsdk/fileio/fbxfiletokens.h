@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_FILEIO_FILE_TOKENS_H_
 #define _FBXSDK_FILEIO_FILE_TOKENS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //
 // Summary
@@ -1078,6 +1078,6 @@
 #define OBJECT_OLD_SECTION_VERSION5                 "OldSection_VersionFive"
 #define OBJECT_OLD_SECTION_HIERARCHYVIEW            "OldSection_HierarchyView"
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_FILE_TOKENS_H_ */

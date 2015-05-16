@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_SCENE_ANIMATION_EVALUATOR_CLASSIC_H_
 #define _FBXSDK_SCENE_ANIMATION_EVALUATOR_CLASSIC_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/scene/animation/fbxanimevaluator.h>
-#include <fbxsdk/scene/animation/fbxanimlayer.h>
+#include <core/fbxobject.h>
+#include <scene/animation/fbxanimevaluator.h>
+#include <scene/animation/fbxanimlayer.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** An evaluator implementation that behaves like the original FBX SDK (2010 and previous) evaluation system.
   *
@@ -170,6 +170,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_ANIMATION_EVALUATOR_CLASSIC_H_ */

@@ -13,10 +13,10 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_H_
 #define _FBXSDK_SCENE_CONSTRAINT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <core/fbxobject.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Base class for weighted animation constraints.
   * Constraints are primarily used to impose limits on properties of objects (e.g. position, orientation, scale)
@@ -118,6 +118,6 @@ void CreateWeightPropertyForSourceObject(FbxObject * pConstraint, const FbxObjec
 
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_H_ */

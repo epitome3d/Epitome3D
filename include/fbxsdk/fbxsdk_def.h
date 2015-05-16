@@ -34,16 +34,16 @@
 
 //---------------------------------------------------------------------------------------
 //Define Version and Namespace
-#include <fbxsdk/fbxsdk_version.h>
+#include <fbxsdk_version.h>
 
 //---------------------------------------------------------------------------------------
 //Define Architecture
-#include <fbxsdk/core/arch/fbxarch.h>
-#include <fbxsdk/core/arch/fbxtypes.h>
-#include <fbxsdk/core/arch/fbxdebug.h>
-#include <fbxsdk/core/arch/fbxalloc.h>
-#include <fbxsdk/core/arch/fbxnew.h>
-#include <fbxsdk/core/arch/fbxstdcompliant.h>
+#include <core/arch/fbxarch.h>
+#include <core/arch/fbxtypes.h>
+#include <core/arch/fbxdebug.h>
+#include <core/arch/fbxalloc.h>
+#include <core/arch/fbxnew.h>
+#include <core/arch/fbxstdcompliant.h>
 
 //---------------------------------------------------------------------------------------
 //Useful Macros

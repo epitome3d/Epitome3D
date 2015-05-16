@@ -15,7 +15,7 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //Writable versions for this file type.  
 //Sync the functions PreProcessScene and PostProcessScene with these elements of this list.
@@ -206,6 +206,6 @@ private:
 	};
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_FBX_WRITER_FBX5_H_ */

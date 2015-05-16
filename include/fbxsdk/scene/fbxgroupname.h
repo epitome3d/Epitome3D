@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_SCENE_GROUP_NAME_H_
 #define _FBXSDK_SCENE_GROUP_NAME_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define MODEL_PREFIX					"Model::"
 #define MATERIAL_PREFIX					"Material::"
@@ -67,6 +67,6 @@
 #define ADSK_TEXTURE_PREFIX				"ADSKTextureDefinition::"
 #define ADSK_SWATCHSCENE_PREFIX			"ADSKSwatchSceneDefinition::"
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GROUP_NAME_H_ */

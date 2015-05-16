@@ -14,9 +14,9 @@
 #ifndef _FBXSDK_CORE_ARCH_STDCOMPLIANT_H_
 #define _FBXSDK_CORE_ARCH_STDCOMPLIANT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #if defined(FBXSDK_ENV_WIN)
 	#define FBXSDK_printf							printf_s
@@ -92,6 +92,6 @@
 	#define FBXSDK_CRT_SECURE_NO_WARNING_END
 #endif
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_ARCH_STDCOMPLIANT_H_ */

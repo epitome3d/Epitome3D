@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_UTILS_RENAMINGSTRATEGY_FBX6_H_
 #define _FBXSDK_UTILS_RENAMINGSTRATEGY_FBX6_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/utils/fbxrenamingstrategybase.h>
+#include <utils/fbxrenamingstrategybase.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief This class contains the description of the FBX renaming strategy for fbx file format 6.
 * \nosubgrouping
@@ -61,6 +61,6 @@ public:
     virtual void CleanUp();
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_RENAMINGSTRATEGY_FBX6_H_ */

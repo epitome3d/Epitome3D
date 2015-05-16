@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_MARKER_H_
 #define _FBXSDK_SCENE_GEOMETRY_MARKER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
+#include <scene/geometry/fbxnodeattribute.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**	This node attribute contains the properties of a marker.
   * A FbxMarker can represent a motion capture marker or a HIK IK/FK effector.
@@ -278,6 +278,6 @@ protected:
 
 inline EFbxType FbxTypeOf(const FbxMarker::ELook&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_MARKER_H_ */

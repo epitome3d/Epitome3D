@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_LINE_H_
 #define _FBXSDK_SCENE_GEOMETRY_LINE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/scene/geometry/fbxgeometry.h>
+#include <core/base/fbxarray.h>
+#include <scene/geometry/fbxgeometry.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** A line is a geometry made of points. To be different from curves(nurbs, etc), line is linear.
 * The class can define a line with as many points as needed. The line can also represent line segments, which means there will be gaps among points.
@@ -151,6 +151,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_LINE_H_ */

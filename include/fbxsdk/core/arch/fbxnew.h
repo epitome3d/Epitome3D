@@ -20,7 +20,7 @@
 #ifndef _FBXSDK_CORE_ARCH_NEW_H_
 #define _FBXSDK_CORE_ARCH_NEW_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #include <new>
 
@@ -29,7 +29,7 @@
 	#pragma warning(disable : 4345) //warning C4345: behavior change: an object of POD type constructed with an initializer of the form () will be default-initialized
 #endif
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 //Type traits for primitive types
 template<typename T> struct FbxSimpleType { enum {value = 0}; };
@@ -505,6 +505,6 @@ template<typename T> void FbxDeleteArray(T* p)
 	#pragma warning(pop)
 #endif
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_ARCH_NEW_H_ */

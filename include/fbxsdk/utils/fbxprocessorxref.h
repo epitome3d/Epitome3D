@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_UTILS_PROCESSOR_XREF_H_
 #define _FBXSDK_UTILS_PROCESSOR_XREF_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxmap.h>
-#include <fbxsdk/utils/fbxprocessor.h>
+#include <core/base/fbxmap.h>
+#include <utils/fbxprocessor.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class contains objects
   * This class also provides access to global settings and take information.
@@ -142,6 +142,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_PROCESSOR_XREF_H_ */

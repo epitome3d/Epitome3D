@@ -20,7 +20,7 @@
 #ifndef _FBXSDK_CORE_ARCH_ALLOC_H_
 #define _FBXSDK_CORE_ARCH_ALLOC_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #if defined(_DEBUG) && defined(FBXSDK_ENV_WIN)
 	#include <crtdbg.h>
@@ -32,7 +32,7 @@
 	#include <malloc.h>
 #endif
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #if defined(FBXSDK_CPU_32) && !defined(FBXSDK_ENV_IOS)
 	#define FBXSDK_MEMORY_ALIGNMENT ((size_t)8U)
@@ -271,6 +271,6 @@ public:
     explicit FbxAutoDestroyPtr(Type* pPtr=0) : FbxAutoPtr<Type, FbxDeletionPolicyObject<Type> >(pPtr){}
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_ARCH_ALLOC_H_ */

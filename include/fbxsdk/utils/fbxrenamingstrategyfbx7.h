@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_UTILS_RENAMINGSTRATEGY_FBX7_H_
 #define _FBXSDK_UTILS_RENAMINGSTRATEGY_FBX7_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/utils/fbxrenamingstrategybase.h>
+#include <utils/fbxrenamingstrategybase.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FBXSDK_DLL FbxRenamingStrategyFbx7 : public FbxRenamingStrategyBase
 {
@@ -32,6 +32,6 @@ public:
     virtual bool EncodeString(FbxNameHandler& pName, bool pIsPropertyName=false);
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_RENAMINGSTRATEGY_FBX7_H_ */

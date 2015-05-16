@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_CONNECTION_POINT_H_
 #define _FBXSDK_CORE_CONNECTION_POINT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
+#include <core/base/fbxarray.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FBXSDK_DLL FbxConnection
 {
@@ -307,6 +307,6 @@ public:
 	virtual bool IsEqual(FbxConnectionPointFilter* pConnectFilter) const;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_CONNECTION_POINT_H_ */

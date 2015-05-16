@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_UTILS_RENAMINGSTRATEGY_H_
 #define _FBXSDK_UTILS_RENAMINGSTRATEGY_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxcharptrset.h>
-#include <fbxsdk/utils/fbxnamehandler.h>
+#include <core/base/fbxcharptrset.h>
+#include <utils/fbxnamehandler.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxScene;
 class FbxNode;
@@ -354,7 +354,7 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_RENAMINGSTRATEGY_H_ */
 

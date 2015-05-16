@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_QUERY_EVENT_H_
 #define _FBXSDK_CORE_QUERY_EVENT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxevent.h>
+#include <core/fbxevent.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** A query event is something that is emitted by an entity, with the goal of being filled by someone that listen to it. 
 *  You can see that like a form that you send to some people. If those people know how to fill the form, they fill it and return
@@ -52,6 +52,6 @@ private:
     friend class FbxEvent< FbxQueryEvent<QueryT> >;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_QUERY_EVENT_H_ */

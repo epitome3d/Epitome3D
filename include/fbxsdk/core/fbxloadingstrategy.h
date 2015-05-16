@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_CORE_LOADING_STRATEGY_H_
 #define _FBXSDK_CORE_LOADING_STRATEGY_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #ifndef FBXSDK_ENV_WINSTORE
 
-#include <fbxsdk/core/fbxplugin.h>
-#include <fbxsdk/core/fbxplugincontainer.h>
+#include <core/fbxplugin.h>
+#include <core/fbxplugincontainer.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** 
  * Abstract class used to implemented some plug-in loading strategy.
@@ -79,7 +79,7 @@ private:
     FbxPluginData mData;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* !FBXSDK_ENV_WINSTORE */
 

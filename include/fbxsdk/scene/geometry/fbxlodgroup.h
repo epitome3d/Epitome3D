@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_LOD_GROUP_H_
 #define _FBXSDK_SCENE_GEOMETRY_LOD_GROUP_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
+#include <scene/geometry/fbxnodeattribute.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Defines a LOD (Level of Detail) group.
   * This LodGroup node is a group node that can be used to detect how
@@ -224,6 +224,6 @@ public:
 
 inline EFbxType FbxTypeOf(const FbxLODGroup::EDisplayLevel&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_LOD_GROUP_H_ */

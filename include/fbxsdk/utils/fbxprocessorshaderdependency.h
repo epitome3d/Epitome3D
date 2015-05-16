@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_UTILS_PROCESSOR_SHADER_DEPENDENCY_H_
 #define _FBXSDK_UTILS_PROCESSOR_SHADER_DEPENDENCY_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxhashmap.h>
-#include <fbxsdk/core/base/fbxdynamicarray.h>
-#include <fbxsdk/scene/shading/fbxbindingtable.h>
+#include <core/base/fbxhashmap.h>
+#include <core/base/fbxdynamicarray.h>
+#include <scene/shading/fbxbindingtable.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Crawls CgFx and HLSL shader files, copies them, and all dependent
   * shader files into the location specified by RootProcessPath. 
@@ -140,6 +140,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_PROCESSOR_SHADER_DEPENDENCY_H_ */

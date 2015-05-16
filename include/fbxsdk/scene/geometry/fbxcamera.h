@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_CAMERA_H_
 #define _FBXSDK_SCENE_GEOMETRY_CAMERA_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
-#include <fbxsdk/core/math/fbxvector4.h>
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
+#include <core/base/fbxstring.h>
+#include <core/math/fbxvector4.h>
+#include <scene/geometry/fbxnodeattribute.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxTexture;
 
@@ -1907,6 +1907,6 @@ inline EFbxType FbxTypeOf(const FbxCamera::ESafeAreaStyle&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxCamera::ESamplingType&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxCamera::EFilmRollOrder&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_CAMERA_H_ */

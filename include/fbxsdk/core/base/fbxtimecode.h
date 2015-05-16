@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_CORE_BASE_TIMECODE_H_
 #define _FBXSDK_CORE_BASE_TIMECODE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define FBXSDK_TC_ZERO					FBXSDK_LONGLONG(0)  
 #define FBXSDK_TC_EPSILON				FBXSDK_LONGLONG(1)
@@ -94,6 +94,6 @@ FBXSDK_DLL FbxLongLong FbxTCGetFILM(FbxLongLong pTime, int& pHour, int& pMinute,
 FBXSDK_DLL FbxLongLong FbxTCSetFILMND(int pHour, int pMinute, int pSecond, FbxLongLong pFrame, int pField);
 FBXSDK_DLL FbxLongLong FbxTCGetFILMND(FbxLongLong pTime, int& pHour, int& pMinute, int& pSecond, int& pFrame, int& pField);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_TIMECODE_H_ */

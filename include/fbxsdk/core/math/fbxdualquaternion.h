@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_MATH_DUAL_QUATERNION_H_
 #define _FBXSDK_CORE_MATH_DUAL_QUATERNION_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/math/fbxquaternion.h>
+#include <core/math/fbxquaternion.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**	FBX SDK dual quaternion class to represent rigid transformation, which is combined by two quaternions.
   * A transformation is said to be rigid if it preserves relative distances and angles.
@@ -320,6 +320,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_MATH_DUAL_QUATERNION_H_ */

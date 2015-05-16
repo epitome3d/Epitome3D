@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_SINGLE_CHAIN_IK_H_
 #define _FBXSDK_SCENE_CONSTRAINT_SINGLE_CHAIN_IK_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/constraint/fbxconstraint.h>
+#include <scene/constraint/fbxconstraint.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief This constraint class contains methods for accessing the properties of a single chain IK constraint.
   * \nosubgrouping
@@ -164,6 +164,6 @@ inline EFbxType FbxTypeOf(const FbxConstraintSingleChainIK::EPoleVectorMode&){ r
 inline EFbxType FbxTypeOf(const FbxConstraintSingleChainIK::ESolverMode&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxConstraintSingleChainIK::EEvaluationMode&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_SINGLE_CHAIN_IK_H_ */

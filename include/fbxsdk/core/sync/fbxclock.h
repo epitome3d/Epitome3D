@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_SYNC_CLOCK_H_
 #define _FBXSDK_CORE_SYNC_CLOCK_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #ifndef FBXSDK_ENV_WINSTORE
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Put the current thread to sleep.
   * \param pMilliseconds The duration of the sleep in milli-seconds.
@@ -37,7 +37,7 @@ FBXSDK_DLL FbxLongLong FbxGetHighResCounter();
   */
 FBXSDK_DLL FbxLongLong FbxGetHighResFrequency();
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* !FBXSDK_ENV_WINSTORE */
 

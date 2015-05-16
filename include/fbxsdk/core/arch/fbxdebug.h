@@ -22,9 +22,9 @@
 #ifndef _FBXSDK_CORE_ARCH_DEBUG_H_
 #define _FBXSDK_CORE_ARCH_DEBUG_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** If this environment variable is set to 1, the FBX SDK will assert in debug builds */
 #define FBXSDK_ASSERT_ENVSTR "FBXSDK_ASSERT"
@@ -81,6 +81,6 @@ template<typename T> struct FbxIncompatibleWithArray{ enum {value = 0}; };
 
 #define FBXSDK_IS_INCOMPATIBLE_WITH_ARRAY(T) ((bool) FbxIncompatibleWithArray<T>::value)
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_ARCH_DEBUG_H_ */

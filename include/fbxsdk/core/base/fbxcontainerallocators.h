@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_CORE_BASE_CONTAINER_ALLOCATORS_H_
 #define _FBXSDK_CORE_BASE_CONTAINER_ALLOCATORS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** An allocator class for use as a template parameter to one of the
   * container class (FbxMap, FbxSet2, FbxDynamicArray...) must implement these.
@@ -208,6 +208,6 @@ private:
 	MemoryBlock*	mData;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_CONTAINER_ALLOCATORS_H_ */

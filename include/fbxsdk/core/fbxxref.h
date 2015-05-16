@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_XREF_H_
 #define _FBXSDK_CORE_XREF_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxarray.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxProperty;
 class FbxDocument;
@@ -222,6 +222,6 @@ private:
     static bool UrlExist(const char* pUrl);
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_XREF_H_ */

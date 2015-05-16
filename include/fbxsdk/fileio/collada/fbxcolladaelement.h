@@ -15,7 +15,7 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 // Utility functions to convert type to array tag used in COLLADA source element
 template <typename T>
@@ -272,6 +272,6 @@ template <typename TYPE> FbxLayerElementArray * PopulateLayerElementDirectArray(
     return &(lLayerElement->GetIndexArray());
 }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_COLLADA_ELEMENT_H_ */

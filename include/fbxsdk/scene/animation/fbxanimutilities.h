@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_SCENE_ANIMATION_UTILITIES_H_
 #define _FBXSDK_SCENE_ANIMATION_UTILITIES_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/core/base/fbxstring.h>
-#include <fbxsdk/core/base/fbxtime.h>
-#include <fbxsdk/scene/animation/fbxanimcurve.h>
+#include <core/base/fbxarray.h>
+#include <core/base/fbxstring.h>
+#include <core/base/fbxtime.h>
+#include <scene/animation/fbxanimcurve.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxSet;
 class FbxObject;
@@ -188,6 +188,6 @@ public:
     static void             Resample(FbxAnimCurve &pCurve, FbxTime pPeriod, FbxTime pStart = FBXSDK_TIME_MINUS_INFINITE, FbxTime   pStop = FBXSDK_TIME_INFINITE, bool pKeysOnFrame = false);
 };
  
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_ANIMATION_UTILITIES_H_ */

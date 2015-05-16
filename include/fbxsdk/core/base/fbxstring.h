@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_CORE_BASE_STRING_H_
 #define _FBXSDK_CORE_BASE_STRING_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Convert string from UTF8 to wide-char
 * \param pInUTF8 Input string
@@ -512,6 +512,6 @@ inline void FbxRemoveChar(FbxString& pString, char pToRemove)
     }
 }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_STRING_H_ */

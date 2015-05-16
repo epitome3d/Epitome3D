@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_VIDEO_H_
 #define _FBXSDK_SCENE_VIDEO_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
+#include <core/fbxobject.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**	FBX SDK video class.
   * \nosubgrouping
@@ -291,6 +291,6 @@ protected:
 inline EFbxType FbxTypeOf(const FbxVideo::EInterlaceMode&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxVideo::EAccessMode&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_VIDEO_H_ */

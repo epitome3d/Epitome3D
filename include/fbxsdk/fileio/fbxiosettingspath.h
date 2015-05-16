@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_FILEIO_IO_SETTINGS_PATH_H_
 #define _FBXSDK_FILEIO_IO_SETTINGS_PATH_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define KS_BS                           FbxString("\\")
 
@@ -928,6 +928,6 @@
 //Biovision BVH options
 #define EXP_BIOVISION_BVH_MOTION_TRANSLATION				EXP_BIOVISION_BVH "|" IOSN_MOTION_TRANSLATION
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_IO_SETTINGS_PATH_H_ */

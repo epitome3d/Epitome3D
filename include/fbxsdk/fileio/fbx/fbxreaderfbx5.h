@@ -15,7 +15,7 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxAnimLayer;
 class Fbx5ObjectTypeInfo;	
@@ -251,6 +251,6 @@ private:
 	FbxArray<FbxTexture*> mTemporaryTextures;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_FBX_READER_FBX5_H_ */

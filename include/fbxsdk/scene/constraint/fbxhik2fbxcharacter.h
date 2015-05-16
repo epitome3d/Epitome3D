@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_HIK_TO_FBXCHARACTER_H_
 #define _FBXSDK_SCENE_CONSTRAINT_HIK_TO_FBXCHARACTER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/constraint/fbxcharacter.h>
+#include <scene/constraint/fbxcharacter.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxCharacterPropertyInfo
 {
@@ -268,6 +268,6 @@ public:
 	}
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_HIK_TO_FBXCHARACTER_H_ */

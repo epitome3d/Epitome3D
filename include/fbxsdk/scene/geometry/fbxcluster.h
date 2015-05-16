@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_CLUSTER_H_
 #define _FBXSDK_SCENE_GEOMETRY_CLUSTER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxsubdeformer.h>
+#include <scene/geometry/fbxsubdeformer.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Class for clusters (links). 
   * A cluster, or link, is an entity acting on a geometry (FbxGeometry).
@@ -290,6 +290,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_CLUSTER_H_ */

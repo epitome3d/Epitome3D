@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_BLEND_SHAPE_H_
 #define _FBXSDK_SCENE_GEOMETRY_BLEND_SHAPE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxdeformer.h>
+#include <scene/geometry/fbxdeformer.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxGeometry;
 class FbxBlendShapeChannel;
@@ -108,6 +108,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_BLEND_SHAPE_H_ */

@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_BASE_H_
 #define _FBXSDK_SCENE_GEOMETRY_BASE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/core/math/fbxvector4.h>
-#include <fbxsdk/scene/geometry/fbxlayercontainer.h>
+#include <core/base/fbxarray.h>
+#include <core/math/fbxvector4.h>
+#include <scene/geometry/fbxlayercontainer.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class is the base class for geometric object such as meshes, NURBS and patches.
   * Use the FbxGeometryBase class to manage the control points, normals, binormals and tangents of the
@@ -651,6 +651,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_BASE_H_ */

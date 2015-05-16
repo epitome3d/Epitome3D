@@ -13,9 +13,9 @@
 #ifndef _FBXSDK_CORE_MATH_VECTOR_2_H_
 #define _FBXSDK_CORE_MATH_VECTOR_2_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**	A two double mathematic vector class.
   * \nosubgrouping
@@ -255,6 +255,6 @@ public:
 	void FixIncorrectValue();
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_MATH_VECTOR_2_H_ */

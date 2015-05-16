@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_FILEIO_READER_H_
 #define _FBXSDK_FILEIO_READER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/core/base/fbxstring.h>
-#include <fbxsdk/core/base/fbxtime.h>
-#include <fbxsdk/fileio/fbx/fbxio.h>
+#include <core/base/fbxarray.h>
+#include <core/base/fbxstring.h>
+#include <core/base/fbxtime.h>
+#include <fileio/fbx/fbxio.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxManager;
 class FbxFile;
@@ -265,6 +265,6 @@ private:
 //! Helper to access the IOSetting object pointer as a ref ex: IOS_REF.GetBoolProp( ... );
 #define IOS_REF (*GetIOSettings())
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_READER_H_ */

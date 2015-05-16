@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_ROTATION_H_
 #define _FBXSDK_SCENE_CONSTRAINT_ROTATION_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/constraint/fbxconstraint.h>
+#include <scene/constraint/fbxconstraint.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief This constraint class contains methods for accessing the properties of a rotation constraint.
   * A rotation constraint lets you constrain the rotation of an object based on the rotation of one or more sources.
@@ -97,6 +97,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_ROTATION_H_ */

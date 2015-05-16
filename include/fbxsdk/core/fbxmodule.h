@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_MODULE_H_
 #define _FBXSDK_CORE_MODULE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #ifndef FBXSDK_ENV_WINSTORE
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 typedef void* FbxModule;
 
@@ -42,7 +42,7 @@ FBXSDK_DLL void* FbxModuleGetProc(FbxModule pModuleHandle, const char* pProcName
   */
 FBXSDK_DLL bool FbxModuleFree(FbxModule pModuleHandle);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* !FBXSDK_ENV_WINSTORE */
 

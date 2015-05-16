@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_CORE_PROPERTY_PAGE_H_
 #define _FBXSDK_CORE_PROPERTY_PAGE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstringlist.h>
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/core/fbxsymbol.h>
-#include <fbxsdk/core/fbxpropertydef.h>
+#include <core/base/fbxstringlist.h>
+#include <core/fbxobject.h>
+#include <core/fbxsymbol.h>
+#include <core/fbxpropertydef.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 typedef FbxPair<FbxInt, const char*> FbxNameMapKey;
 
@@ -1734,6 +1734,6 @@ private:
     friend class FbxPropertyHandle;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_PROPERTY_PAGE_H_ */

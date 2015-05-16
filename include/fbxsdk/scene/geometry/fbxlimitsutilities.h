@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_LIMIT_UTILS_H_
 #define _FBXSDK_SCENE_GEOMETRY_LIMIT_UTILS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/math/fbxvector4.h>
-#include <fbxsdk/core/math/fbxtransforms.h>
-#include <fbxsdk/scene/geometry/fbxnode.h>
+#include <core/math/fbxvector4.h>
+#include <core/math/fbxtransforms.h>
+#include <scene/geometry/fbxnode.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief This class represent a utility of limits for transforms.
 * \nosubgrouping
@@ -101,6 +101,6 @@ public:
 	double		mAxisLength; 
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_LIMIT_UTILS_H_ */

@@ -17,7 +17,7 @@
 
 #include <components/libxml2-2.7.8/include/libxml/globals.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Containing the valid parameter definition and modification in local scope.
   */
@@ -66,6 +66,6 @@ private:
     FbxArray<int> mParamModificationCount;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_COLLADA_NAMESPACE_H_ */

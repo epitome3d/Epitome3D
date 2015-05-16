@@ -15,11 +15,11 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fileio/collada/fbxcolladaelement.h>
+#include <fileio/collada/fbxcolladaelement.h>
 
 #include <map>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Representing a COLLADA animation element.
   */
@@ -85,6 +85,6 @@ private:
     int mOutTangentStride;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_COLLADA_ANIMATION_ELEMENT_H_ */

@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_CACHE_H_
 #define _FBXSDK_SCENE_GEOMETRY_CACHE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/core/base/fbxstatus.h>
+#include <core/fbxobject.h>
+#include <core/base/fbxstatus.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxCache_internal;
 
@@ -531,6 +531,6 @@ private:
 
 inline EFbxType FbxTypeOf(const FbxCache::EFileFormat&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_CACHE_H_ */

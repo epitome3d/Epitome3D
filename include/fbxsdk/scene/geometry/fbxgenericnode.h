@@ -13,10 +13,10 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_GENERIC_NODE_H_
 #define _FBXSDK_SCENE_GEOMETRY_GENERIC_NODE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
-#include <fbxsdk/core/fbxobject.h>
+#include <fbxsdk_def.h>
+#include <core/fbxobject.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Empty node containing properties.
   * \nosubgrouping
@@ -36,6 +36,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_GENERIC_NODE_H_ */

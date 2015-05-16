@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_MESH_H_
 #define _FBXSDK_SCENE_GEOMETRY_MESH_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxarray.h>
-#include <fbxsdk/scene/geometry/fbxgeometry.h>
+#include <core/base/fbxarray.h>
+#include <scene/geometry/fbxgeometry.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** A mesh is a geometry made of polygons.
 * The class can define a geometry with as many n-sided polygons as needed. Users can freely 
@@ -797,6 +797,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_MESH_H_ */

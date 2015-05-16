@@ -15,7 +15,7 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 struct FbxReaderFbx7_Impl;
 
@@ -175,6 +175,6 @@ private:
     FbxReaderFbx7_Impl* mImpl;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_FBX_READER_FBX7_H_ */

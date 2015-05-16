@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_STREAM_H_
 #define _FBXSDK_CORE_STREAM_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxfile.h>
+#include <core/base/fbxfile.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Abstract class for implementing I/O operations through a stream of data.
 * For instance, it can be used to read data from a memory source, thus making it possible to import files from memory. However, 
@@ -121,6 +121,6 @@ public:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_STREAM_H_ */

@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_SHADING_LAYERED_TEXTURE_H_
 #define _FBXSDK_SCENE_SHADING_LAYERED_TEXTURE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/shading/fbxtexture.h>
+#include <scene/shading/fbxtexture.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** FbxLayeredTexture is a combination of multiple textures(FbxTexture) blended sequentially.
   * For example, you can access individual texture by:
@@ -174,6 +174,6 @@ protected:
 
 inline EFbxType FbxTypeOf(const FbxLayeredTexture::EBlendMode&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SHADING_LAYERED_TEXTURE_H_ */

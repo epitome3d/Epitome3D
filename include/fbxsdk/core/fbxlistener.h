@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_CORE_LISTENER_H_
 #define _FBXSDK_CORE_LISTENER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxemitter.h>
-#include <fbxsdk/core/fbxeventhandler.h>
-#include <fbxsdk/core/base/fbxintrusivelist.h>
+#include <core/fbxemitter.h>
+#include <core/fbxeventhandler.h>
+#include <core/base/fbxintrusivelist.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**FBX SDK listener class. Once an event is emitted by an emitter, a listener should be created to listen to the event. 
   * The listener could receive a signal and take action to process the event data. 
@@ -116,6 +116,6 @@ private:
     EventHandlerList mEventHandler;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_LISTENER_H_ */

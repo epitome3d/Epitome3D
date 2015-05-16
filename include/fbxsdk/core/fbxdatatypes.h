@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_DATA_TYPES_H_
 #define _FBXSDK_CORE_DATA_TYPES_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxpropertytypes.h>
-#include <fbxsdk/core/fbxpropertyhandle.h>
+#include <core/fbxpropertytypes.h>
+#include <core/fbxpropertyhandle.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** FBX SDK data type class
   * \nosubgrouping
@@ -262,6 +262,6 @@ FBXSDK_DLL const char* FbxGetDataTypeNameForIO(const FbxDataType& pDataType);
 	extern FBXSDK_DLL FbxDataType FbxWeightDT;
 //@}
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_DATA_TYPES_H_ */

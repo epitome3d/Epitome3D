@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_BASE_REDBLACKTREE_H_
 #define _FBXSDK_CORE_BASE_REDBLACKTREE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxcontainerallocators.h>
-#include <fbxsdk/core/base/fbxpair.h>
+#include <core/base/fbxcontainerallocators.h>
+#include <core/base/fbxpair.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /*****************************************************************************************************************************
 ** WARNING! Anything beyond these lines is for internal use, may not be documented and is subject to change without notice! **
@@ -1343,6 +1343,6 @@ protected:
 
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /*_FBXSDK_CORE_BASE_REDBLACKTREE_H_ */

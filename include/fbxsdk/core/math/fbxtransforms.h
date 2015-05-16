@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_MATH_TRANSFORMS_H_
 #define _FBXSDK_CORE_MATH_TRANSFORMS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/math/fbxmath.h>
-#include <fbxsdk/core/math/fbxquaternion.h>
+#include <core/math/fbxmath.h>
+#include <core/math/fbxquaternion.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** FbxLimits defines a limit range for one transform component, either translation, rotation or scaling.
   * One transform component limit contains two part: a min value and a max value limit, which means
@@ -277,6 +277,6 @@ private:
 FBXSDK_DLL bool FbxGetContinuousRotation(FbxVector4& pRes, FbxVector4 pRot, FbxVector4 pRef, const int* pOrder);
 FBXSDK_DLL void FbxGetContinuousRotation(FbxVector4& pRes, FbxVector4 pRot, FbxVector4 pRef);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_MATH_TRANSFORMS_H_ */

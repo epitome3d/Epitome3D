@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_FILEIO_GLOBAL_SETTINGS_H_
 #define _FBXSDK_FILEIO_GLOBAL_SETTINGS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/core/base/fbxstatus.h>
-#include <fbxsdk/scene/fbxaxissystem.h>
+#include <core/fbxobject.h>
+#include <core/base/fbxstatus.h>
+#include <scene/fbxaxissystem.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief This class contains functions for accessing global settings.
   * \nosubgrouping
@@ -310,6 +310,6 @@ private:
 
 inline EFbxType FbxTypeOf(const FbxTime::EMode&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_GLOBAL_SETTINGS_H_ */

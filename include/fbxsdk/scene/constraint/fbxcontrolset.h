@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_CONTROL_SET_H_
 #define _FBXSDK_SCENE_CONSTRAINT_CONTROL_SET_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/constraint/fbxcharacter.h>
+#include <scene/constraint/fbxcharacter.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxControlSetPlug;
 
@@ -364,6 +364,6 @@ private:
 
 inline EFbxType FbxTypeOf(const FbxControlSet::EType&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_CONTROL_SET_H_ */

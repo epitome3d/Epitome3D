@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_SCENE_SHADING_IMPLEMENTATION_UTILS_H_
 #define _FBXSDK_SCENE_SHADING_IMPLEMENTATION_UTILS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/shading/fbximplementation.h>
-#include <fbxsdk/scene/shading/fbxbindingoperator.h>
-#include <fbxsdk/scene/shading/fbxoperatorentryview.h>
-#include <fbxsdk/scene/shading/fbxpropertyentryview.h>
+#include <scene/shading/fbximplementation.h>
+#include <scene/shading/fbxbindingoperator.h>
+#include <scene/shading/fbxoperatorentryview.h>
+#include <scene/shading/fbxpropertyentryview.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** Get FbxImplementation from FbxObject.
   * \param pObject                  FbxObject to get FbxImplementation.
@@ -74,6 +74,6 @@ template <typename T> bool GetBoundPropertyValue(const FbxBindingTable* pBinding
     return false;
 }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SHADING_IMPLEMENTATION_UTILS_H_ */

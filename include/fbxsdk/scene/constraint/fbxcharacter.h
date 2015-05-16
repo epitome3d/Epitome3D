@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_CONSTRAINT_CHARACTER_H_
 #define _FBXSDK_SCENE_CONSTRAINT_CHARACTER_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/math/fbxtransforms.h>
-#include <fbxsdk/scene/constraint/fbxconstraint.h>
+#include <core/math/fbxtransforms.h>
+#include <scene/constraint/fbxconstraint.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxControlSet;
 
@@ -837,6 +837,6 @@ inline EFbxType FbxTypeOf(const FbxCharacter::EHandContactType&){ return eFbxEnu
 inline EFbxType FbxTypeOf(const FbxCharacter::EFingerContactMode&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxCharacter::EContactBehaviour&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_CONSTRAINT_CHARACTER_H_ */

@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_COLLECTION_H_
 #define _FBXSDK_SCENE_COLLECTION_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
+#include <core/fbxobject.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxCriteria;
 
@@ -135,6 +135,6 @@ public:
 	//@}
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_COLLECTION_H_ */

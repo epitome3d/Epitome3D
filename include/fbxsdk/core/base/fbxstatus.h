@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_BASE_STATUS_H_
 #define _FBXSDK_CORE_BASE_STATUS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class facilitates the testing/reporting of errors.  It encapsulates the
   * status code and the internal FBXSDK error code as returned by the API functions.
@@ -114,6 +114,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS */
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_STATUS_H_ */

@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_UTILS_EMBEDDED_FILES_ACCUMULATOR_H_
 #define _FBXSDK_UTILS_EMBEDDED_FILES_ACCUMULATOR_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/utils/fbxprocessor.h>
+#include <utils/fbxprocessor.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This processor is used to accumulate the list of file dependencies (embedded files) in a hierarchy of objects.
   * It retrieves information of embedded files from objects and accumulates them to its class member mEmbeddedFiles.
@@ -124,6 +124,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_EMBEDDED_FILES_ACCUMULATOR_H_ */

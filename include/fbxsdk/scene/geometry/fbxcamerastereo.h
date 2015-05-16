@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_CAMERA_STEREO_H_
 #define _FBXSDK_SCENE_GEOMETRY_CAMERA_STEREO_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxcamera.h>
+#include <scene/geometry/fbxcamera.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This node attribute contains methods for accessing the properties of a stereo camera.
   * \nosubgrouping
@@ -240,6 +240,6 @@ protected:
 
 inline EFbxType FbxTypeOf(const FbxCameraStereo::EStereoType&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_CAMERA_STEREO_H_ */

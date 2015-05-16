@@ -13,18 +13,18 @@
 #ifndef _FBXSDK_SCENE_H_
 #define _FBXSDK_SCENE_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxset.h>
-#include <fbxsdk/core/base/fbxcharptrset.h>
-#include <fbxsdk/scene/fbxdocument.h>
-#include <fbxsdk/scene/animation/fbxanimevaluator.h>
-#include <fbxsdk/scene/geometry/fbxlayer.h>
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
-#include <fbxsdk/fileio/fbxiosettings.h>
-#include <fbxsdk/fileio/fbxglobalsettings.h>
+#include <core/base/fbxset.h>
+#include <core/base/fbxcharptrset.h>
+#include <scene/fbxdocument.h>
+#include <scene/animation/fbxanimevaluator.h>
+#include <scene/geometry/fbxlayer.h>
+#include <scene/geometry/fbxnodeattribute.h>
+#include <fileio/fbxiosettings.h>
+#include <fileio/fbxglobalsettings.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxGeometry;
 class FbxTexture;
@@ -487,6 +487,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_H_ */

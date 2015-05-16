@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_NULL_H_
 #define _FBXSDK_SCENE_GEOMETRY_NULL_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
+#include <scene/geometry/fbxnodeattribute.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief This node attribute contains the properties of a null node.
   * \nosubgrouping
@@ -114,6 +114,6 @@ public:
 
 inline EFbxType FbxTypeOf(const FbxNull::ELook&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_NULL_H_ */

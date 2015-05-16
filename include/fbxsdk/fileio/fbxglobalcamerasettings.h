@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_FILEIO_GLOBAL_CAMERA_SETTINGS_H_
 #define _FBXSDK_FILEIO_GLOBAL_CAMERA_SETTINGS_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxStatus;
 class FbxManager;
@@ -163,6 +163,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_GLOBAL_CAMERA_SETTINGS_H_ */

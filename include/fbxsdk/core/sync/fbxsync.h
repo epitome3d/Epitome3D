@@ -13,14 +13,14 @@
 #ifndef _FBXSDK_CORE_SYNC_H_
 #define _FBXSDK_CORE_SYNC_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
 #ifndef FBXSDK_ENV_WINSTORE
 
-#include <fbxsdk/core/sync/fbxclock.h>
-#include <fbxsdk/core/sync/fbxthread.h>
+#include <core/sync/fbxclock.h>
+#include <core/sync/fbxthread.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxMutexImpl;
 class FbxSemaphoreImpl;
@@ -181,7 +181,7 @@ private:
 	Item*		mTop;
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* !FBXSDK_ENV_WINSTORE */
 

@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_SCENE_SELECTION_SET_H_
 #define _FBXSDK_SCENE_SELECTION_SET_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/fbxcollection.h>
-#include <fbxsdk/scene/fbxselectionnode.h>
+#include <scene/fbxcollection.h>
+#include <scene/fbxselectionnode.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** FBX SDK selection set class.
 * \nosubgrouping
@@ -82,6 +82,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SELECTION_SET_H_ */

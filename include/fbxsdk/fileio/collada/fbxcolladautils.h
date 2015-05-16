@@ -15,8 +15,8 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fileio/collada/fbxcolladatokens.h>
-#include <fbxsdk/fileio/collada/fbxcolladaiostream.h>
+#include <fileio/collada/fbxcolladatokens.h>
+#include <fileio/collada/fbxcolladaiostream.h>
 
 #include <components/libxml2-2.7.8/include/libxml/globals.h>
 
@@ -24,7 +24,7 @@
 #include <set>
 #include <vector>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #ifndef INT_MAX
 	#define INT_MAX 0x7FFFFFFF
@@ -397,6 +397,6 @@ void IncreaseLclTranslationAnimation(FbxNode * pNode, FbxDouble3 & pOffset);
   */
 void RecursiveSearchElement(xmlNode * pBaseElement, const char * pTag, FbxArray<xmlNode*> & pResult);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_COLLADA_UTILS_H_ */

@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_LIGHT_H_
 #define _FBXSDK_SCENE_GEOMETRY_LIGHT_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
+#include <scene/geometry/fbxnodeattribute.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class FbxTexture;
 
@@ -268,6 +268,6 @@ inline EFbxType FbxTypeOf(const FbxLight::EType&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxLight::EDecayType&){ return eFbxEnum; }
 inline EFbxType FbxTypeOf(const FbxLight::EAreaLightShape&){ return eFbxEnum; }
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_LIGHT_H_ */

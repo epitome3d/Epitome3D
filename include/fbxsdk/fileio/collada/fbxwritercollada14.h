@@ -15,9 +15,9 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fileio/collada/fbxcolladautils.h>
+#include <fileio/collada/fbxcolladautils.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** \brief Class to export FBX scene into a Collada file.
 *   \nosubgrouping
@@ -565,6 +565,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_COLLADA_WRITER_H_ */

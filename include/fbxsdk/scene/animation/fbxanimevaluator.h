@@ -13,13 +13,13 @@
 #ifndef _FBXSDK_SCENE_ANIMATION_EVALUATOR_H_
 #define _FBXSDK_SCENE_ANIMATION_EVALUATOR_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
-#include <fbxsdk/scene/animation/fbxanimevalstate.h>
-#include <fbxsdk/scene/animation/fbxanimstack.h>
+#include <core/fbxobject.h>
+#include <scene/animation/fbxanimevalstate.h>
+#include <scene/animation/fbxanimstack.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** The principal interface for animation evaluators. The animation evaluator is used to compute node transforms
 * and property values at specific times during an animation. Evaluators simplify the process of computing transform 
@@ -189,6 +189,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_ANIMATION_EVALUATOR_H_ */

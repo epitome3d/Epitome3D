@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_GEOMETRY_SKELETON_H_
 #define _FBXSDK_SCENE_GEOMETRY_SKELETON_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/scene/geometry/fbxnodeattribute.h>
+#include <scene/geometry/fbxnodeattribute.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /**	This class specializes a node attribute to represent the elements forming "bone" 
   * chains. The FbxSkeleton name of the class comes from the analogy with the human body
@@ -195,6 +195,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_GEOMETRY_SKELETON_H_ */

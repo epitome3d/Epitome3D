@@ -15,7 +15,7 @@
 
 #include <fbxsdk.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 class Fbx6TypeDefinition;
 class Fbx6TypeWriteReferences;
@@ -305,6 +305,6 @@ private:
 
 bool IsNameUnique(FbxScene& pScene, FbxObject* pObject);
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_FILEIO_FBX_WRITER_FBX6_H_ */

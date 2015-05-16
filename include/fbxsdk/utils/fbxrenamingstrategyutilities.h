@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_UTILS_RENAMINGSTRATEGY_UTILITIES_H_
 #define _FBXSDK_UTILS_RENAMINGSTRATEGY_UTILITIES_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
+#include <core/base/fbxstring.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define NAMECLASH1_KEY      "_ncl1_" // name (x)
 #define NAMECLASH2_KEY		"_ncl2_" // Upper/lower cases clash
@@ -88,6 +88,6 @@ public:
 
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_UTILS_RENAMINGSTRATEGY_UTILITIES_H_ */

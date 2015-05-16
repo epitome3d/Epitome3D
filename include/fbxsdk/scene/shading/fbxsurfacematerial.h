@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_SCENE_SHADING_SURFACE_MATERIAL_H_
 #define _FBXSDK_SCENE_SHADING_SURFACE_MATERIAL_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxobject.h>
+#include <core/fbxobject.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 /** This class contains material settings.
   * \nosubgrouping
@@ -101,6 +101,6 @@ protected:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_SCENE_SHADING_SURFACE_MATERIAL_H_ */

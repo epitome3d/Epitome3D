@@ -13,11 +13,11 @@
 #ifndef _FBXSDK_CORE_PROPERTY_DEFINITION_H_
 #define _FBXSDK_CORE_PROPERTY_DEFINITION_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/fbxpropertytypes.h>
+#include <core/fbxpropertytypes.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #define FBXSDK_PROPERTY_ID_NULL	-1
 #define FBXSDK_PROPERTY_ID_ROOT 0
@@ -184,6 +184,6 @@ private:
 #endif /* !DOXYGEN_SHOULD_SKIP_THIS *****************************************************************************************/
 };
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_PROPERTY_DEFINITION_H_ */

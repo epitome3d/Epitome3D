@@ -13,12 +13,12 @@
 #ifndef _FBXSDK_CORE_BASE_UTILITIES_H_
 #define _FBXSDK_CORE_BASE_UTILITIES_H_
 
-#include <fbxsdk/fbxsdk_def.h>
+#include <fbxsdk_def.h>
 
-#include <fbxsdk/core/base/fbxstring.h>
-#include <fbxsdk/core/base/fbxstatus.h>
+#include <core/base/fbxstring.h>
+#include <core/base/fbxstatus.h>
 
-#include <fbxsdk/fbxsdk_nsbegin.h>
+#include <fbxsdk_nsbegin.h>
 
 #ifndef FBXSDK_ENV_WINSTORE
 	/** Retrieve the environment variable value.
@@ -163,6 +163,6 @@ private:
 };
 
 
-#include <fbxsdk/fbxsdk_nsend.h>
+#include <fbxsdk_nsend.h>
 
 #endif /* _FBXSDK_CORE_BASE_UTILITIES_H_ */
