@@ -16,7 +16,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 {
 	LPWSTR *szArglist;
 	int nArgs;
-	szArglist = CommandLineToArgvW(GetCommandLine(), &nArgs);
+	szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
 	Init(nArgs, (char**)szArglist);
 	glutMainLoop();
 

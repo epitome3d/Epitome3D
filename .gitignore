@@ -1,7 +1,3 @@
-# Specific Folders
-assets/model/design/
-design/
-
 # User-specific files
 *.suo
 *.user
@@ -10,6 +6,9 @@ design/
 # Build results
 obj/
 bin/
+Debug/
+Release/
+VisualGDBCache/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -140,7 +139,9 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Mac crap
+# Mac junk
 .DS_Store
-/epitome-gltester/x64/Debug/epitome-gltester.tlog
-/epitome-gltester/x64/Debug
+
+# Custom Locations
+design/
+CodeDB/
