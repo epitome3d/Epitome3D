@@ -9,6 +9,7 @@ bin/
 Debug/
 Release/
 VisualGDBCache/
+SourceCache.dat
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
