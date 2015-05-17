@@ -1,7 +1,5 @@
 #pragma once
 
-#define WIN32_LEAN_AND_MEAN  // Exclude rarely-used stuff from Windows headers
-
 #include <GL/freeglut.h>
 
 void Init(int argc, char** argv);
@@ -9,7 +7,8 @@ void Init(int argc, char** argv);
 static void RenderSceneCB();
 static void InitializeGlutCallbacks();
 
-#ifdef WIN32
+#ifdef WINDOWS
+#define WIN32_LEAN_AND_MEAN  // Exclude rarely-used stuff from Windows headers
 #include <shellapi.h>
 #pragma comment(linker, "/SUBSYSTEM:WINDOWS")
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
@@ -23,7 +22,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 	return 0;
 }
 #endif
-#ifdef UNIX
+
+#ifdef LINUX
 int main(int argc, char** argv)
 {
 	FreeConsole();
