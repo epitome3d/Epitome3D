@@ -58,7 +58,7 @@ void Init(int argc, char** argv)
 #ifdef WINDOWS
 #define WIN32_LEAN_AND_MEAN  // Exclude rarely-used stuff from Windows headers
 #include <shellapi.h>
-#pragma comment(linker, "/SUBSYSTEM:WINDOWS")
+#pragma comment(linker, "/SUBSYSTEM:WINDOWS") //enable non-shell mode
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
 	LPWSTR *szArglist;

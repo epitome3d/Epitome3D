@@ -9,10 +9,6 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D015AE54-6E8A-44DF-8A16-C9322BCA809E}</ProjectGuid>
@@ -24,11 +20,6 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Makefile</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug-Win|Win32'">
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
@@ -38,9 +29,6 @@
   <ImportGroup Label="Shared">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -57,20 +45,6 @@
     <OutDir>bin\Linux\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\Linux\$(Configuration)\$(PlatformTarget)\</IntDir>
     <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\x86_64-unknown-linux-gnu;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0002\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0004\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0003\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0000\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
-    <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
-    <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
-    <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
-    <NMakeOutput>$(ProjectDir)epitome-linuxtester-Release.vgdbsettings</NMakeOutput>
-    <IncludePath />
-    <ReferencePath />
-    <LibraryPath />
-    <OutDir>bin\Linux\$(Configuration)\$(PlatformTarget)\</OutDir>
-    <IntDir>obj\Linux\$(Configuration)\$(PlatformTarget)\</IntDir>
-    <NMakePreprocessorDefinitions>__VisualGDB_CFG_Release;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Win|Win32'">
     <OutDir>bin\Windows\Debug\$(PlatformTarget)\</OutDir>

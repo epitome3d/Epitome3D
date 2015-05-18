@@ -72,7 +72,8 @@ Global
 		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Debug-Win|Win32.ActiveCfg = Debug-Win|Win32
 		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Debug-Win|Win32.Build.0 = Debug-Win|Win32
 		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Debug-Win|x64.ActiveCfg = Debug-Win|Win32
-		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Release-Win|Win32.ActiveCfg = Release|Win32
+		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Release-Win|Win32.ActiveCfg = Debug-Win|Win32
+		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Release-Win|Win32.Build.0 = Debug-Win|Win32
 		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Release-Win|x64.ActiveCfg = Debug-Win|Win32
 		{D015AE54-6E8A-44DF-8A16-C9322BCA809E}.Release-Win|x64.Build.0 = Debug-Win|Win32
 	EndGlobalSection

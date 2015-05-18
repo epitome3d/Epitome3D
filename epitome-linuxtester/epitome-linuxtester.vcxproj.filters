@@ -5,6 +5,9 @@
       <UniqueIdentifier>{7565a9e7-d35d-4cc2-95db-7d0597f6e8f6}</UniqueIdentifier>
       <Extensions>*.mak</Extensions>
     </Filter>
+    <Filter Include="Make files">
+      <UniqueIdentifier>{a43a98ca-e135-4bee-92a2-a7e05cca8b1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\debug.mak">
