@@ -40,6 +40,8 @@ void Render()
 	angle += 0.25;
 }
 
+void Blank() { }
+
 void Init(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -48,6 +50,7 @@ void Init(int argc, char** argv)
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Tutorial 01");
 	glutIdleFunc(Render);
+	glutDisplayFunc(Blank);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	Setup(window_width, window_height);
 }

@@ -117,23 +117,17 @@
       <EnableNonStopMode>false</EnableNonStopMode>
     </AdditionalGDBSettings>
     <LaunchGDBSettings xsi:type="GDBLaunchParametersNewInstance">
-      <GDBEnvironment>
-        <Records>
-          <Record>
-            <VariableName>LANG</VariableName>
-            <Value>en_US.UTF-8</Value>
-          </Record>
-        </Records>
-      </GDBEnvironment>
       <DebuggedProgram>$(TargetPath)</DebuggedProgram>
       <GDBServerPort>2000</GDBServerPort>
       <ProgramArguments />
     </LaunchGDBSettings>
     <GenerateCtrlBreakInsteadOfCtrlC>false</GenerateCtrlBreakInsteadOfCtrlC>
+    <DeploymentTargetPath />
     <X11WindowMode>Local</X11WindowMode>
-    <KeepConsoleAfterExit>false</KeepConsoleAfterExit>
+    <KeepConsoleAfterExit>true</KeepConsoleAfterExit>
     <RunGDBUnderSudo>false</RunGDBUnderSudo>
     <DeploymentMode>Auto</DeploymentMode>
+    <LdLibraryPath />
     <DeployWhenLaunchedWithoutDebugging>true</DeployWhenLaunchedWithoutDebugging>
   </Debug>
   <CustomBuild>
@@ -143,8 +137,38 @@
     <PostCleanActions />
   </CustomBuild>
   <CustomDebug>
-    <PreDebugActions />
-    <PostDebugActions />
+    <PreDebugActions>
+      <CustomActionBase xsi:type="CommandLineAction">
+        <SkipWhenRunningCommandList>true</SkipWhenRunningCommandList>
+        <RemoteHost>
+          <HostName>127.0.0.1:3022</HostName>
+          <Transport>SSH</Transport>
+          <UserName>build</UserName>
+        </RemoteHost>
+        <Command>./epitome-linuxtester</Command>
+        <Arguments />
+        <WorkingDirectory>/media/sf_epitome/epitome-linuxtester/bin/Linux/Debug</WorkingDirectory>
+        <Environment>
+          <Records />
+        </Environment>
+      </CustomActionBase>
+    </PreDebugActions>
+    <PostDebugActions>
+      <CustomActionBase xsi:type="CommandLineAction">
+        <SkipWhenRunningCommandList>true</SkipWhenRunningCommandList>
+        <RemoteHost>
+          <HostName>127.0.0.1:3022</HostName>
+          <Transport>SSH</Transport>
+          <UserName>build</UserName>
+        </RemoteHost>
+        <Command>kill $(pidof epitome-linuxtester)</Command>
+        <Arguments />
+        <WorkingDirectory>/media/sf_epitome/epitome-linuxtester/bin/Linux/Debug</WorkingDirectory>
+        <Environment>
+          <Records />
+        </Environment>
+      </CustomActionBase>
+    </PostDebugActions>
     <BreakMode>Default</BreakMode>
   </CustomDebug>
   <CustomShortcuts>
