@@ -55,9 +55,6 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
               <classMoniker Id="ee3133c7-614e-475d-bfd8-70fc3838be3d" LastKnownName="Timer" />
             </annotatedElements>
           </comment>
-          <comment Id="b15c6694-16ae-41c4-8ba0-6ca798a8ec0f">
-            <elementDefinition Id="d34725d3-273a-4522-a0d7-532055547f35" />
-          </comment>
           <comment Id="45fda467-77b1-456c-bb6c-768e46054431">
             <elementDefinition Id="2613b6d4-5200-451b-b1d0-4f32ac830552" />
             <body>ALL DESTROYABLE OBJECTS INTANTIATED BY THE USER APP should be CREATED as either a ROOM or a BIN.</body>

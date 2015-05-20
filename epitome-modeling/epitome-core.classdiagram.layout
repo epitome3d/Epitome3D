@@ -276,10 +276,6 @@
             <OperationElementListCompartment Id="7cc73099-b22e-4397-8cf9-1cba792a6d88" absoluteBounds="12.765, 14.72617186754942, 1.4700000000000002, 0.84179684768120444" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
           </nestedChildShapes>
         </classShape>
-        <commentShape Id="00866548-7b42-4922-9f1d-eb9a8635408b" absoluteBounds="31.75, 3.625, 1.25, 0.375" customColor="251, 247, 200">
-          <commentMoniker Id="b15c6694-16ae-41c4-8ba0-6ca798a8ec0f" />
-          <relativeChildShapes />
-        </commentShape>
         <enumerationShape Id="ed7b5497-da2c-427e-86b3-696826671f9c" absoluteBounds="23.25, 21.625, 1.5, 0.85132811258236885" hideQualifiedName="false" increaseHeight="0" customColor="161, 150, 103">
           <enumerationMoniker Id="d19eee9d-3cab-4973-9200-e98a1f0ad8bf" LastKnownName="Specs" />
           <nestedChildShapes>

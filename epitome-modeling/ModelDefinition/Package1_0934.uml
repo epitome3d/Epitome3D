@@ -82,8 +82,6 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
       </annotatedElements>
     </comment>
     <comment
-      Id="d34725d3-273a-4522-a0d7-532055547f35" />
-    <comment
       Id="e665da0a-78a9-40d2-9a50-fc69e3919283">
       <body>Concurrency is a major bonus of Epitome.  The System and Memory classes work together to enable concurrent Updates, Asset Loading, and App Logic.  Rendering is NOT concurrent.</body>
       <annotatedElements>
