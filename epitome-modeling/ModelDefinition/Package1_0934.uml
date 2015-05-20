@@ -93,7 +93,9 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
     </comment>
     <comment
       Id="f5cd55d9-c99e-4101-96ba-716fddfca40a">
-      <body>YOUR APP ENTERS HERE</body>
+      <body>YOUR APP ENTERS HERE
+
+First, the app calls all Set*() methods then calls Init() to create the app.</body>
       <annotatedElements>
         <classMoniker
           Id="31ebe726-5084-4244-ad96-765d5ea1f262"
@@ -168,6 +170,23 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
         <interfaceMoniker
           Id="a8095bbb-c655-493c-b2ed-6717b839d90b"
           LastKnownName="Model"
+          LastKnownLocation="Package1_0934.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="926f73d2-4fdf-4818-a1e7-f40019fd1957">
+      <body>TODO
+
+Error Checking
+Abstraction</body>
+    </comment>
+    <comment
+      Id="93b978b7-2cda-4308-9534-7614f38209f9">
+      <body>The Concurrency class enables concurrency for Updates, Asset Loading, App Logic, and Calculation.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="b2461ebe-b8f0-430a-80d8-f1a8a8160a72"
+          LastKnownName="Concurrency"
           LastKnownLocation="Package1_0934.uml" />
       </annotatedElements>
     </comment>
@@ -423,6 +442,13 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
             <interfaceMoniker
               Id="a8095bbb-c655-493c-b2ed-6717b839d90b"
               LastKnownName="Model"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
+          <dependency
+            Id="f3bd62e1-316c-4bd3-b4f6-fd2d23fefc58">
+            <classMoniker
+              Id="2d417893-8dc0-455a-90fd-f93770e930f1"
+              LastKnownName="Dialog"
               LastKnownLocation="Package1_0934.uml" />
           </dependency>
         </suppliersInternal>
@@ -738,6 +764,30 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="10271f0c-9b81-428e-876e-c6b0d12a40b3"
+            name="SetCompositor"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="17fe1c70-290e-4458-9952-fda50c78eedb"
+            name="SetCore"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="281fe358-06ef-45f6-be68-e987d1a6cbae"
+            name="EnableConcurrency"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -906,6 +956,14 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
           <operation
             Id="a03662c8-16a0-4b17-acf4-66a29d76a059"
             name="Render"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="995fcf12-c89c-46f1-a821-6d80e7a0a4bf"
+            name="AddToFront"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1269,6 +1327,27 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
               LastKnownName="Mouse"
               LastKnownLocation="Package1_0934.uml" />
           </dependency>
+          <dependency
+            Id="a71e9f08-f11e-46e5-9d17-2b5086815ab2">
+            <classMoniker
+              Id="2d417893-8dc0-455a-90fd-f93770e930f1"
+              LastKnownName="Dialog"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
+          <dependency
+            Id="5c79659c-23d3-465a-882f-372fb2e0c05b">
+            <classMoniker
+              Id="217ccba6-316e-46a8-9c00-4bbbd031d9a3"
+              LastKnownName="Error"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
+          <dependency
+            Id="b923f4d8-17bf-4ae6-9e43-e21b61317dd8">
+            <classMoniker
+              Id="b2461ebe-b8f0-430a-80d8-f1a8a8160a72"
+              LastKnownName="Concurrency"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
         </suppliersInternal>
         <ownedOperationsInternal>
           <operation
@@ -1382,6 +1461,110 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
               LastKnownLocation="Package1_0934.uml" />
           </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="5dcef381-41ba-4d16-a926-82fc45c1ef6e"
+            name="longlong time"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="2d250ac9-b51e-40f7-818e-e7248d5e0318"
+            name="longlong timedelta"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="10b2ba44-1610-4ff3-b4f8-a76c7727c00b"
+            name="GetTime"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="78a03bb8-3120-4832-a123-81153a85fedd"
+            name="GetDelta"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="25b52dcb-e1e9-4ca3-8782-d4c2f30be837"
+                  name="lasttime"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="029f4db9-d802-4d51-9571-8499b3736caf"
+            name="Timer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="da538cc1-7fcc-4fc3-83da-7f94d370b714"
+            name="Wait"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1fe29492-3093-436b-a69c-ec30347b67b7"
+                  name="ns"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="60bc1516-81dc-4269-a271-3f50e4caf4ad"
+            name="GetDelta"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="bb82b38c-3720-4ae4-b583-3155a6260538"
+            name="WaitAsync"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e45f3791-6fc5-4afe-a142-b0c4657565cd"
+                  name="ns"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1448,14 +1631,6 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
           <operation
             Id="caab18f1-d488-4812-8222-65ccd775e778"
             name="GetInfo"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="274d007d-0c8b-44b5-b019-511197873535"
-            name="GetUsage"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1909,6 +2084,40 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d7db40ff-ac76-4770-bcc4-a32d08bf0ad9"
+            name="GetResolution"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="e8ab3d5a-339f-40db-9c23-dc7f6f656378"
+            name="GetNumber"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a73c0d11-3a37-4de5-9206-59889f3c43c9"
+            name="GetName"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="2c3c4db3-d573-49b6-86f6-5d05d9dbefaf"
+            name="IsActive"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -2085,6 +2294,198 @@ First, an object is Loaded by the MemManager when necessary, then later Cleaned 
             isQuery="false" />
         </ownedOperations>
       </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2d417893-8dc0-455a-90fd-f93770e930f1"
+        name="Dialog"
+        visibility="Protected"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="1f2fb8a4-c1a8-4786-9c66-638ff3f5a767"
+            name="Settings"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f97ffa22-6aca-45ac-b83a-e6bb5dd62bec"
+            name="SetSettings"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1c18a716-64a5-4f0d-a09f-34fc596171c1"
+            name="GetSettings"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="c9a3f9f8-c8b8-4a7c-922e-a3b566f181bc"
+            name="Display"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="ade26c43-1c9c-45a4-a1dd-e80737715b68"
+            name="Dalog"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="217ccba6-316e-46a8-9c00-4bbbd031d9a3"
+        name="Error"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="6b9c3f24-c17a-4d61-a3e9-da66322da59a">
+            <classMoniker
+              Id="2d417893-8dc0-455a-90fd-f93770e930f1"
+              LastKnownName="Dialog"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7f49c05a-cf93-4d99-94eb-b6c9ff316a3d"
+            name="GetSettings"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="98a02afc-d81d-411f-845b-de3dc6972ae5"
+            name="SetSettings"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cffbbe37-cd2e-4ddb-ae6b-ec666309e815"
+            name="Error"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ce6e70c2-39c5-42a9-8ac4-ead04b3c3472"
+                  name="message"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d69fe2c1-b4a8-484e-814d-e1e5d3dba0a8"
+            name="SetErrorFunction"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e2b32dd2-bcd3-469b-a647-fe074ff27901"
+                  name="void"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b2461ebe-b8f0-430a-80d8-f1a8a8160a72"
+        name="Concurrency"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="bdb79fa2-92fb-497d-8c77-2b87716bf98b"
+            name="vector&lt;Threads&gt; threads"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="8af0328a-5417-45c6-b1c2-f69e6e184818"
+            name="RequestThread"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="23f25ab6-8a45-44ec-9502-60188f0934d5"
+                  name="priority"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="eb142f53-7f06-4961-9229-20682fe0f1eb"
+            name="CreateThread"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9b546a82-1218-445d-ab39-f440bf1332bd"
+                  name="priority"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
 </package>
