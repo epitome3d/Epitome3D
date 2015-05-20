@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="4e42ac75-9bfd-4857-bdd0-a517fe9a88ed"
+  name="epitome-modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="2613b6d4-5200-451b-b1d0-4f32ac830552">
+      <body>ALL DESTROYABLE OBJECTS INTANTIATED BY THE USER APP should be CREATED as either a ROOM or a BIN.</body>
+      <annotatedElements>
+        <commentMoniker
+          Id="dff0ea37-98dd-4111-a0ba-60e652435c20"
+          LastKnownLocation="Package1_0934.uml" />
+        <commentMoniker
+          Id="e6016b2d-f159-4723-8658-a3e592647c5b"
+          LastKnownLocation="Package1_0934.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="c4094a27-875c-47d2-9b60-d23468b391ec">
+      <body>The methodology of Epitome3D requires that all (or almost all) classes are public and overridable by a class from another binary (e.g. epitome-extended).</body>
+    </comment>
+    <comment
+      Id="2506ea2b-04f8-4de5-a32a-703d066a6c0c">
+      <body>The System class offers customized options based on the hardware and drivers, including concurrency.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="00f753d6-5f8c-4407-b26d-14467d526dc0"
+          LastKnownName="System"
+          LastKnownLocation="Package1_0934.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="353a5101-5a6b-465b-b5c0-282be47618cb"
+        name="void" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="fe721274-f49c-4906-8558-43110c9672de"
+        name="bool" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="32b2d693-2ecc-418f-9c3e-d1c36cea2adf"
+        LastKnownName="epitome-core"
+        LastKnownLocation="Package1_0934.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f3209aba-1634-4844-8d7b-0556f983b693"
+        LastKnownName="epitome-extended"
+        LastKnownLocation="Package_0937.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

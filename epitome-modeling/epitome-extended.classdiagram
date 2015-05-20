@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="49f4e574-ad38-453e-8102-59da972892de" name="epitome-extended" linkedPackageId="a2ff1e84-e509-47fa-9a0f-e6e867f455cd" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="bd18c821-42ad-46ab-8327-5e164683a516" name="epitome-extended">
+        <ownedCommentsInternal>
+          <comment Id="26a63ea5-1e97-4eab-a7bd-a8ef7865c711">
+            <elementDefinition Id="4e66c136-962e-499e-8eac-2e8c4e5892b8" />
+            <body>Find the most "active" location within a bounded area </body>
+            <annotatedElements>
+              <classMoniker Id="7b8dba87-2457-40a1-bd33-6692d4fa9dc8" LastKnownName="ActivityCamera" />
+            </annotatedElements>
+          </comment>
+          <comment Id="e1c2b3fb-0820-448e-9671-60d8c63ea9cc">
+            <elementDefinition Id="9b8147bf-6d00-42f8-9db0-4fe012f6709c" />
+            <body>Follow an object at a function of a radius.</body>
+            <annotatedElements>
+              <classMoniker Id="7b628271-d4ec-4b99-98b6-49e11b84d720" LastKnownName="FollowCamera" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="f3209aba-1634-4844-8d7b-0556f983b693" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="748f93af-abc3-4c89-ae4a-0f972990edeb" name="Math3D" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="2ff17a88-4dee-4f3d-9b11-9d4490aa5135" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="b158b17f-7fbf-43cd-bf22-a7a27b94fd0b" name="Collision" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="e7352827-f26e-4784-a4f5-0538684eebcc" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="21c530de-556b-4549-8778-a4cfaac8ad3d" name="Light" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="8b2d13b5-eb14-45a1-ba1c-b006cefcbf03" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="0d92e1e1-47de-442f-8665-09e5c12950e7" name="Shadow" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="1ed7b207-9e15-4c95-b498-dbe87870f036" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="6e1decc7-295c-4b02-8a67-70b14c262d8c" name="Picking" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="9b66dfd0-221e-4939-87da-31acb322db75" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="7b8dba87-2457-40a1-bd33-6692d4fa9dc8" name="ActivityCamera" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="88ba9f0e-66c7-4556-9727-8d237c4f85b3" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="07b86c7e-db80-4043-96ff-327b5a2dd772" name="LightPoint" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="5b71e1b1-acdb-4381-a9d8-422a07b9dc0c" />
+              <suppliersInternal>
+                <interfaceRealization Id="531bf692-2d28-480c-900d-974338ce542e">
+                  <interfaceMoniker Id="e18ca75c-4ce6-44ef-8fd1-3751c5c42d1c" LastKnownName="Light Source" />
+                  <elementDefinition Id="ceee8a3a-cdcb-452e-a049-bda4af756feb" />
+                </interfaceRealization>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="e18ca75c-4ce6-44ef-8fd1-3751c5c42d1c" name="Light Source" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="f926d947-075b-4817-9398-4c0f4b9bd7b6" />
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="99756e80-8d81-4b6b-be5b-45986f65c64c" name="LightSpot" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="dddedd83-e546-4edb-8ba9-2118b80c5fb5" />
+              <suppliersInternal>
+                <interfaceRealization Id="d511d5b1-a7db-445a-a378-7e0e70d9c183">
+                  <interfaceMoniker Id="e18ca75c-4ce6-44ef-8fd1-3751c5c42d1c" LastKnownName="Light Source" />
+                  <elementDefinition Id="6c69010b-7185-40c7-9bb0-10f236f76cc6" />
+                </interfaceRealization>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="f6331872-3818-4705-93ab-abbc5f2c7d3c" name="LightAmbient" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="c2aec0db-e1ff-4db3-b06a-93f13a2b6f11" />
+              <suppliersInternal>
+                <interfaceRealization Id="3827e8cd-d1dc-4c5a-abdb-e8367cd799a9">
+                  <interfaceMoniker Id="e18ca75c-4ce6-44ef-8fd1-3751c5c42d1c" LastKnownName="Light Source" />
+                  <elementDefinition Id="17ad8cc1-69eb-42d4-8698-88ca008b57f7" />
+                </interfaceRealization>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="0450d1a7-1a30-445f-a348-c6e5d4841575" name="LightDirectional" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a1569e50-bd98-4aa6-92be-2e9bdafe1b20" />
+              <suppliersInternal>
+                <interfaceRealization Id="e59c3910-cdd0-44be-9d84-e1293450fd20">
+                  <interfaceMoniker Id="e18ca75c-4ce6-44ef-8fd1-3751c5c42d1c" LastKnownName="Light Source" />
+                  <elementDefinition Id="9d795649-4c4d-4337-9372-17bf3b2df8b9" />
+                </interfaceRealization>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="2cf62d35-ad6a-42cb-bada-bdf492908a4b" name="Reflection" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="e2b9457d-fbe7-45bb-b9b3-11c7dbd5d0e1" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="80ba4f2a-3ff3-4a71-a3d9-f930ee3c8fa1" name="Refraction" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="752ec428-9a31-4a2c-817e-d850f6bb2f26" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="cff53f1b-c691-4402-8cb8-4462b684101d" name="Water" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="1f2bb30d-1b18-4d94-bdc6-023619a5e2ba" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="52b5231a-7387-47b5-8698-103f3b5f03aa" name="ParticleEmitter" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="c55b336b-6798-487b-b32c-8e8c4231a86c" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="fc36a6b1-bee1-40e0-8fa6-3ad1a2ffc57f" name="Grass" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="bce5b091-444a-4598-baca-b92119b26bb3" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="fe80df71-22ac-4ea2-86fe-2c8b1f07d4b0" name="MSAA" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="1f3a88ca-8d00-469b-81f0-354552c42786" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="7b628271-d4ec-4b99-98b6-49e11b84d720" name="FollowCamera" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="85e9a226-58c5-45cd-937f-81cd4cd7c7e4" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="a2ff1e84-e509-47fa-9a0f-e6e867f455cd" name="epitome-modeling">
+    <elementDefinition Id="4e42ac75-9bfd-4857-bdd0-a517fe9a88ed" />
+    <profileInstances>
+      <packageHasProfileInstances Id="3b68e27d-9d7f-422c-8321-c515e35c9902">
+        <profileInstance Id="4d44abc8-bac3-4d47-8ba9-3001b80ed72b" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="47dec3b9-204b-4545-a4c2-a8514741fcb7">
+        <profileInstance Id="e0a2d20b-7923-4f6a-b22d-c958ff4768f6" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

@@ -1,0 +1,1098 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="12429d87-642f-45ce-85f6-18f5fbbd23b2" name="epitome-core" linkedPackageId="37c9e4be-c885-4228-8216-c4500fbdf075" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="6df1fdf4-628b-4bd8-84e7-b4ac86551425" name="epitome-core" visibility="Private">
+        <ownedCommentsInternal>
+          <comment Id="dc450583-baf0-4e2f-9753-85f190a41fbc">
+            <elementDefinition Id="dff0ea37-98dd-4111-a0ba-60e652435c20" />
+            <body>A "bin" is an object in memory that is dumpable by the Memory class.
+
+First, an object is Loaded by the MemManager when necessary, then later Cleaned when not used.</body>
+            <annotatedElements>
+              <classMoniker Id="ddb3b95f-999b-48d9-8058-14d76de09d32" LastKnownName="Bin" />
+            </annotatedElements>
+          </comment>
+          <comment Id="92c6b24f-31ab-47b3-a0cd-1b7bab0ebd3c">
+            <elementDefinition Id="e6016b2d-f159-4723-8658-a3e592647c5b" />
+            <body>A "room" is a set of objects ready to load into memory at the same time.  An event may be fired to tell certain objects (ex. within a certain distance) to load into memory or all objects may be loaded immediately.</body>
+            <annotatedElements>
+              <classMoniker Id="81911917-ee0d-4a6c-a956-bf14ee4653a1" LastKnownName="Room" />
+            </annotatedElements>
+          </comment>
+          <comment Id="c395146b-1540-4238-8374-04819e1aac07">
+            <elementDefinition Id="516c7dcf-58ec-49b3-b0ff-a0bed261660b" />
+            <body>The Viewport class contains the current viewport and its frustum, cameras, and matrices (world, projection, ortho, etc.).</body>
+            <annotatedElements>
+              <classMoniker Id="b8a8ec69-b7c0-4784-8e19-f3e7a76593ac" LastKnownName="Viewport" />
+            </annotatedElements>
+          </comment>
+          <comment Id="fcf973e4-f947-44ef-9be6-53637fe51447">
+            <elementDefinition Id="349f8093-b176-457a-86d8-07557aae9e00" />
+            <body>HLSL to GLSL Parser (available online)</body>
+            <annotatedElements>
+              <classMoniker Id="831d6c8a-48b7-4c0a-bd28-c251160afad6" LastKnownName="HLSL" />
+            </annotatedElements>
+          </comment>
+          <comment Id="3ce14338-b69c-47d5-ac07-7420291702b1">
+            <elementDefinition Id="52656e5a-2df4-4233-9779-c41a40af135c" />
+            <body>CUSTOM SHADERS GO HERE!</body>
+            <annotatedElements>
+              <interfaceMoniker Id="b2b7885f-345d-4031-ad94-237117204761" LastKnownName="Shader" />
+            </annotatedElements>
+          </comment>
+          <comment Id="6c3c0f32-2b63-423d-a9dd-360b9847c64c">
+            <elementDefinition Id="8fd4f8b5-3095-4cd4-95ec-52cdf924e455" />
+            <body>These three are experimental or in decreasing support.  Not to be implemented immediately.</body>
+            <annotatedElements>
+              <classMoniker Id="45970709-d86b-4bf8-83b6-f4407f8382f4" LastKnownName="VulkanCore" />
+            </annotatedElements>
+          </comment>
+          <comment Id="dc6d4e51-151f-4b39-95e8-9c3fcedc2051">
+            <elementDefinition Id="f6d40181-4e14-4f3e-8a34-c22427d0a026" />
+            <body>High accuracy timers with threading capabilties.</body>
+            <annotatedElements>
+              <classMoniker Id="ee3133c7-614e-475d-bfd8-70fc3838be3d" LastKnownName="Timer" />
+            </annotatedElements>
+          </comment>
+          <comment Id="b15c6694-16ae-41c4-8ba0-6ca798a8ec0f">
+            <elementDefinition Id="d34725d3-273a-4522-a0d7-532055547f35" />
+          </comment>
+          <comment Id="45fda467-77b1-456c-bb6c-768e46054431">
+            <elementDefinition Id="2613b6d4-5200-451b-b1d0-4f32ac830552" />
+            <body>ALL DESTROYABLE OBJECTS INTANTIATED BY THE USER APP should be CREATED as either a ROOM or a BIN.</body>
+            <annotatedElements>
+              <commentMoniker Id="dc450583-baf0-4e2f-9753-85f190a41fbc" />
+              <commentMoniker Id="92c6b24f-31ab-47b3-a0cd-1b7bab0ebd3c" />
+            </annotatedElements>
+          </comment>
+          <comment Id="9bbfca9f-1538-41d7-994d-05e613e13b3c">
+            <elementDefinition Id="e665da0a-78a9-40d2-9a50-fc69e3919283" />
+            <body>Concurrency is a major bonus of Epitome.  The System and Memory classes work together to enable concurrent Updates, Asset Loading, and App Logic.  Rendering is NOT concurrent.</body>
+            <annotatedElements>
+              <classMoniker Id="5d3d2e13-8469-4fab-ba1b-420781ec7dd7" LastKnownName="System" />
+            </annotatedElements>
+          </comment>
+          <comment Id="667e9a07-1c8d-44e9-8f32-1f00966106bb">
+            <elementDefinition Id="c4094a27-875c-47d2-9b60-d23468b391ec" />
+            <body>The methodology of Epitome3D requires that all (or almost all) classes are public and overridable by a class from another binary (e.g. epitome-extended).</body>
+          </comment>
+          <comment Id="46303f72-1544-4a10-806e-9594557990b1">
+            <elementDefinition Id="f5cd55d9-c99e-4101-96ba-716fddfca40a" />
+            <body>YOUR APP ENTERS HERE</body>
+            <annotatedElements>
+              <classMoniker Id="e78d2183-605d-44b8-b0da-77c3bb9da28c" LastKnownName="Init" />
+            </annotatedElements>
+          </comment>
+          <comment Id="11660134-24fe-425a-8680-77d5e71f4860">
+            <elementDefinition Id="0f0929fd-e35f-4fa3-80c2-8264ce272847" />
+            <body>A "core" is a giant abstraction layer containing hundreds of methods.  Unlike other engines, cores can be created and swapped as long as they stay up-to-date with the mainstream epitome-core.</body>
+            <annotatedElements>
+              <interfaceMoniker Id="709cf74e-6679-40a5-88c5-0b5e13e03715" LastKnownName="Core" />
+            </annotatedElements>
+          </comment>
+          <comment Id="355bd172-6fd6-49f8-bf01-03152c065b2f">
+            <elementDefinition Id="2506ea2b-04f8-4de5-a32a-703d066a6c0c" />
+            <body>The System class offers customized options based on the hardware and drivers, including concurrency.</body>
+            <annotatedElements>
+              <classMoniker Id="5d3d2e13-8469-4fab-ba1b-420781ec7dd7" LastKnownName="System" />
+            </annotatedElements>
+          </comment>
+          <comment Id="b1cd29e6-d3c6-4902-8ac9-d8067f0a2b9f">
+            <elementDefinition Id="f8a14190-40f6-443f-a51d-4fdd9c811ec1" />
+            <body>The Memory class contains methods for asynchronous dynamic allocation and deallocation of memory.</body>
+            <annotatedElements>
+              <classMoniker Id="44adb018-18aa-4590-a48f-9d8c60342556" LastKnownName="Memory" />
+            </annotatedElements>
+          </comment>
+          <comment Id="32275cef-c7b3-4e87-9b2d-751326a48e23">
+            <elementDefinition Id="99d511f1-796d-4ac4-8026-ce1ccbdb4dee" />
+            <body>Implement once Vulkan is available.</body>
+            <annotatedElements>
+              <classMoniker Id="cb52ffd2-573c-4ceb-9cdd-e4a426dddb20" LastKnownName="SPIRV" />
+            </annotatedElements>
+          </comment>
+          <comment Id="0b4b1320-dcae-42e7-b3a0-7c62ed94c603">
+            <elementDefinition Id="7f825ce0-3ddd-4e05-a076-fba5e2bab232" />
+            <body>Compositors offer various screen drawing algorithms in an unintrusive bundle.</body>
+            <annotatedElements>
+              <interfaceMoniker Id="4b75a0ef-5367-4f93-b634-d514e64990b4" LastKnownName="Compositor" />
+            </annotatedElements>
+          </comment>
+          <comment Id="cd005687-399e-45d2-88b3-f4fca1ea5271">
+            <elementDefinition Id="c4cfce26-0d13-4fa7-9a25-8112e11570a6" />
+            <body>The FPS class offers a feedback loop for the CPU and GPU classes to dynamically control the render rate.  Other classes depend on FPS for frame timers.</body>
+            <annotatedElements>
+              <classMoniker Id="2fa22eca-660b-4db7-8c02-7e0c4593d3ff" LastKnownName="FPS" />
+            </annotatedElements>
+          </comment>
+          <comment Id="1cde30eb-2677-4ca4-9649-e70865a8777a">
+            <elementDefinition Id="cf2645bd-db51-4689-8de7-528952f41d02" />
+            <body>epitome-extended should integrate with SOIL</body>
+            <annotatedElements>
+              <interfaceMoniker Id="64010f93-da10-4277-b7a4-69a8f81e6d3b" LastKnownName="Texture" />
+            </annotatedElements>
+          </comment>
+          <comment Id="8b95861e-a1a8-4298-8844-59dae77132e6">
+            <elementDefinition Id="d1c1b78f-bd7d-403f-9e8f-8f6070cc03cf" />
+            <body>OBJ and FBX file types are recommended for a start.</body>
+            <annotatedElements>
+              <interfaceMoniker Id="69131eed-afc4-4a30-97e7-ae56833192eb" LastKnownName="Model" />
+            </annotatedElements>
+          </comment>
+        </ownedCommentsInternal>
+        <elementDefinition Id="32b2d693-2ecc-418f-9c3e-d1c36cea2adf" />
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="81911917-ee0d-4a6c-a956-bf14ee4653a1" name="Room" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="08b475fc-7270-455b-a060-cc086e257348" />
+              <suppliersInternal>
+                <dependency Id="1a6f27a4-099a-45f0-8b54-0844ef5f0045">
+                  <classMoniker Id="ddb3b95f-999b-48d9-8058-14d76de09d32" LastKnownName="Bin" />
+                  <elementDefinition Id="2869c7ba-40d0-4934-9d9e-52fa7a1de701" />
+                </dependency>
+              </suppliersInternal>
+              <ownedAttributesInternal>
+                <property Id="0d407147-0f96-4e87-bf10-0b73f7cee02d" name="vector&lt;Bin&gt; items;" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b9e7841b-577f-4240-9b79-99da4de1c2e0" />
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="23f6958a-78db-4456-88c3-0ad3c7916898" name="Room" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="68c0da35-e629-4866-8724-d216dca608ea" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b3c9fca8-30b5-4a7f-bcda-38404c3df818" direction="Return">
+                        <elementDefinition Id="430d5a81-9f90-4690-939d-1e49d9421c4f" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="54b6b5f2-d50c-4dc9-9267-432a3444d66f" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="4f61c993-f8c2-42b4-86eb-64dd98c0c3f5" />
+                </operation>
+                <operation Id="49778f51-6d60-43e9-87e6-d340310a0c4d" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="afed8035-4086-417c-aed2-3412b0d084e5" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="2bed366d-15a4-4b01-b62a-7da16e32df7f" name="function(bool) doesupdate" direction="In" isUnique="false">
+                        <elementDefinition Id="b3397cd0-9365-48e9-8ed0-5cbbedf2ea88" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="b977e822-6835-440c-833e-306a9d33175f" name="Create" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="db8ae512-09dc-4c92-a6ce-aec933c73a1e" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b5911041-4408-4fa5-88a4-ba93f6ec3d0d" direction="Return">
+                        <elementDefinition Id="089b04d3-b5a5-41e9-a91f-14acef2d1c38" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="769ec390-60df-4d11-b945-b80481cafb33" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="88ff4881-aaff-4f79-be03-84b27ec95482" name="Dump" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="92b75767-b96b-4fe9-897a-61b4770bb920" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="95c255d6-5d76-4c0e-880d-61d846d61093" direction="Return">
+                        <elementDefinition Id="8cbcb122-157b-40b6-b4ee-5596fe6f2ee7" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="417aff66-0bdd-4c38-8fca-51f4a13b3033" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="f8df6b81-50f4-4561-98e2-016a3b25d10d" name="Add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="241af87d-dae8-4455-8b19-a10a3034fc1c" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b0c03ca9-a0af-4d94-91d1-5ca8a66528e4" name="Bin object" direction="In" isUnique="false">
+                        <elementDefinition Id="f0578bf1-85f0-4c11-8b21-826b1702c3db" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="4ce9a0cd-cba9-4ae5-81c4-339bc25d7c38" direction="Return">
+                        <elementDefinition Id="65d6370e-b680-4f42-aa99-9299a7fcd22d" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="07055ecf-ff22-4de4-adc2-831af43d9251" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="9023d989-5a41-4355-96a4-ef22228a7dad" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="5ffe75cb-ad4f-46e6-82c5-27ca9d75a603" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="5b91b6a3-bdfb-4e67-93f6-4072dc64cdd9" name="Bin object" direction="In" isUnique="false">
+                        <elementDefinition Id="5446d4c8-7537-4686-b243-0364f567ee18" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="138f1d53-9b4a-4ff3-9eba-bf6b08aae803" name="RenderUse" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="ebbbf5ad-b225-4da5-b12f-0773aa96e4d2" />
+              <suppliersInternal>
+                <dependency Id="010f1f6a-a481-4318-8000-8c5209534152">
+                  <interfaceMoniker Id="69131eed-afc4-4a30-97e7-ae56833192eb" LastKnownName="Model" />
+                  <elementDefinition Id="537a9708-f45c-4142-bfa8-5dd0a7afb7f1" />
+                </dependency>
+                <dependency Id="ad962335-61c9-4f24-a351-315ce87c4b64">
+                  <interfaceMoniker Id="64010f93-da10-4277-b7a4-69a8f81e6d3b" LastKnownName="Texture" />
+                  <elementDefinition Id="6db5e4d9-3bef-45f9-9783-bc9826be8a84" />
+                </dependency>
+              </suppliersInternal>
+              <ownedLiterals>
+                <enumerationLiteral Id="af30f253-c2b8-450e-a9c1-b7fac36cfc6e" name="Static">
+                  <elementDefinition Id="47fe7bba-5da2-4ef1-98ea-517769b69703" />
+                </enumerationLiteral>
+                <enumerationLiteral Id="84d75248-ae26-461e-b5fa-55e8869c5099" name="Dynamic">
+                  <elementDefinition Id="9791e995-45df-4e5d-b45c-6a1396871468" />
+                </enumerationLiteral>
+              </ownedLiterals>
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="ddb3b95f-999b-48d9-8058-14d76de09d32" name="Bin" isAbstract="true" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="fae6b277-81af-4157-9260-2e6232bba797" />
+              <suppliersInternal>
+                <interfaceRealization Id="f5a7f0ed-a97e-461c-b4c5-d407259d8545">
+                  <interfaceMoniker Id="b2b7885f-345d-4031-ad94-237117204761" LastKnownName="Shader" />
+                  <elementDefinition Id="9ec155b1-803b-40bc-b7f0-3ed45d93a9a2" />
+                </interfaceRealization>
+                <dependency Id="9caf4592-a42e-48fd-a10b-1c085f8e9bf3">
+                  <interfaceMoniker Id="69131eed-afc4-4a30-97e7-ae56833192eb" LastKnownName="Model" />
+                  <elementDefinition Id="991c1793-346c-446d-a1ea-eb967e07e83e" />
+                </dependency>
+              </suppliersInternal>
+              <generalsInternal>
+                <generalization Id="f277c8e7-6b64-4f31-b4b5-beb8e9809eb6" isSubstitutable="false">
+                  <classMoniker Id="d2d45bb0-e15e-475e-9351-ff5570ae432a" LastKnownName="Frustum" />
+                  <elementDefinition Id="6a3a9d63-cb37-42a8-9b23-0c8509e92dae" />
+                </generalization>
+                <generalization Id="f050d9d3-41dc-41ca-89a3-f33bd7382d67" isSubstitutable="false">
+                  <classMoniker Id="98b0edae-a2f6-495e-af1d-a0259c644d8a" LastKnownName="Camera" />
+                  <elementDefinition Id="3ee35ae4-6244-4098-8295-7597ddb6c8e9" />
+                </generalization>
+                <generalization Id="acbfff81-c7ad-480b-882b-5e47ff0c4b25" isSubstitutable="false">
+                  <classMoniker Id="b8a8ec69-b7c0-4784-8e19-f3e7a76593ac" LastKnownName="Viewport" />
+                  <elementDefinition Id="5dffefb9-b2f3-435d-bb5a-29b0634ffb48" />
+                </generalization>
+              </generalsInternal>
+              <ownedAttributesInternal>
+                <property Id="84ef4a58-5be7-44cd-8a3e-e8c34032903c" name="name" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ba981ead-88e6-4432-95ff-24345c3affde" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="355cffdc-8326-4139-b7d7-a9fd6795afa8" LastKnownName="String" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="05308e91-2ac1-41c2-aaa6-5a5f88502659" name="Dump" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="f7deeb34-35d7-445e-a1bc-9021f8838f9a" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="1bde6ce9-7443-4599-ba58-3c65ef486920" direction="Return">
+                        <elementDefinition Id="9b154938-ada5-43c3-9307-87b7fb6006e7" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="7f9a9afd-4942-47c3-831d-63710ef1dc80" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="ae80e170-4df6-4f78-be65-94752c6012e9" name="Load" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d13924ea-daea-4cd4-a4e0-94e95c3b5984" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="455ccf31-9572-4b01-bd84-37f4ed37f2e6" direction="Return">
+                        <elementDefinition Id="ebcd5f74-c2c5-41e8-8000-a19cc2c56648" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="14d867cd-3063-41fb-83cf-2934e5a8e385" LastKnownName="void" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="91ad4157-b30c-4205-995f-7d6083cc69a4" name="ShouldDump" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="604ff604-2941-4a9b-aa22-81a11c44f7e4" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="6ebbd739-91bc-4664-9b4b-ec4688831448" direction="Return">
+                        <elementDefinition Id="6010988a-ced2-4330-ab51-d276d53e1191" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="b13815b3-4fbd-4bb5-995a-9b537e1dc93f" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="6ae4fc14-e308-43ed-b989-78112c91ed95" name="Render" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="7c7c249d-b37b-45db-841a-5a9f246aefcc" />
+                </operation>
+                <operation Id="9451025d-615a-40ea-b0ec-cdfe843517da" name="Compute" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="abab4464-fb2f-46b6-bccd-6892dc05f639" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="b8a8ec69-b7c0-4784-8e19-f3e7a76593ac" name="Viewport" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a2dcf428-4136-4ab2-afff-00e1fa1da586" />
+              <suppliersInternal>
+                <dependency Id="bd111b10-763c-47c3-9e0a-9c24b7955a6b">
+                  <classMoniker Id="98b0edae-a2f6-495e-af1d-a0259c644d8a" LastKnownName="Camera" />
+                  <elementDefinition Id="f085879f-23a4-4978-ae7c-974746fd9d48" />
+                </dependency>
+                <dependency Id="35d1cd3c-3d95-4da5-82c6-ef8a310855ee">
+                  <classMoniker Id="d2d45bb0-e15e-475e-9351-ff5570ae432a" LastKnownName="Frustum" />
+                  <elementDefinition Id="f479d238-63ee-442b-bb74-2c80384184b2" />
+                </dependency>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="98b0edae-a2f6-495e-af1d-a0259c644d8a" name="Camera" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="59e0e237-49a4-4526-86aa-267015c67107" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="d2d45bb0-e15e-475e-9351-ff5570ae432a" name="Frustum" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="10c35877-62bc-4e82-a8aa-0f3c04bec88f" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="44adb018-18aa-4590-a48f-9d8c60342556" name="Memory" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="22360a98-dd87-4500-b748-9d65f73a27df" />
+              <suppliersInternal>
+                <dependency Id="171f1234-51e9-4513-b32e-bd2cf6a1e46a">
+                  <classMoniker Id="81911917-ee0d-4a6c-a956-bf14ee4653a1" LastKnownName="Room" />
+                  <elementDefinition Id="6ec7f09b-7417-45a4-a460-a8956a45a8a7" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="50825c55-b884-44f1-94a2-a2848a513fe8" name="SetMaxUsage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d1cf753b-abfe-4812-8f8e-85eb169877cb" />
+                  <postconditionsInternal>
+                    <constraint Id="25bbcf55-b71a-4f7c-8c1b-b95ac97e1190">
+                      <elementDefinition Id="f583c5ab-a4a5-4798-8672-a0afda6a0e70" />
+                      <specification>
+                        <literalString Id="31c89497-1ec9-4276-8bb0-2a003d226c59" value="usage is maximum memory allocated in MB or null, for dynamic allocation">
+                          <elementDefinition Id="5551d6f6-d0c6-45e8-96f0-6fa5312e966c" />
+                        </literalString>
+                      </specification>
+                    </constraint>
+                  </postconditionsInternal>
+                </operation>
+                <operation Id="8c080b5b-7152-41a0-8940-cc2d92eb84e3" name="EnableDynamicLimit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="885f4be4-0acd-41e8-abfd-5c0b53bfe38e" />
+                </operation>
+                <operation Id="c30b19b0-30e3-4361-8a77-e1ddcb0431dd" name="GetUsage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="58532153-e003-4b56-ab5f-083c27b53773" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="f2587ffe-1b9b-46d2-a907-04e681d3114e" name="RayTracer" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="0a3e9842-7dc2-478c-9128-fa12789ad656" />
+              <suppliersInternal>
+                <interfaceRealization Id="cd09b6c7-643c-4298-8931-106ec67944d9">
+                  <interfaceMoniker Id="4b75a0ef-5367-4f93-b634-d514e64990b4" LastKnownName="Compositor" />
+                  <elementDefinition Id="379b715e-18e0-415e-89fa-40b117d6baa2" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="cfe0a80d-1360-4d71-a8ee-5d69eb5142d6" name="Render" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="6b310551-82a7-4842-9d0f-eef38596697b" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="ef765ca5-7eaf-42f0-b4f1-8b1fc2f2a0ea" name="Painter" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="9d5e0da2-8bae-46bf-8d5e-4380bc243569" />
+              <suppliersInternal>
+                <interfaceRealization Id="02647d77-a5d1-4801-a07c-bac9ee9ec2d5">
+                  <interfaceMoniker Id="4b75a0ef-5367-4f93-b634-d514e64990b4" LastKnownName="Compositor" />
+                  <elementDefinition Id="a36538c3-ac9c-49eb-8094-cb02ccd08d95" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="ba746086-b8c9-4cb9-98fe-47b0ec4c849d" name="Render" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="a03662c8-16a0-4b17-acf4-66a29d76a059" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="831d6c8a-48b7-4c0a-bd28-c251160afad6" name="HLSL" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="cf390307-328e-4f2e-87c6-adeff514d3ba" />
+              <suppliersInternal>
+                <dependency Id="3e4e8619-c0d3-4517-9c10-9dbbe28e90c7">
+                  <classMoniker Id="886b3424-dec2-4a84-ba3e-1ae81d42fd49" LastKnownName="GLSL" />
+                  <elementDefinition Id="658eb184-bde6-421d-8d94-8e7dbb43191b" />
+                </dependency>
+                <interfaceRealization Id="8e6128e7-a346-4e5d-bbfa-3c7b1204dbca">
+                  <interfaceMoniker Id="b2b7885f-345d-4031-ad94-237117204761" LastKnownName="Shader" />
+                  <elementDefinition Id="3f7665c3-1b66-42d3-8bd9-277e410a312e" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="ef936f7c-fe78-4c05-920d-9e3e3a89f16a" name="Compute" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="1228d5f5-91c8-41ce-a56d-a40a4bb0dd7f" />
+                </operation>
+                <operation Id="a1382c6c-bb0f-4e49-b9fb-a8f30afd6d31" name="Render" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="dab33a45-0172-404c-ad11-b4386c965b2d" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="4b75a0ef-5367-4f93-b634-d514e64990b4" name="Compositor" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="051849e5-b444-4a34-b0c0-e75069268907" />
+              <ownedOperations>
+                <operation Id="0479c183-ded6-48a9-97df-760f92cad7eb" name="Render" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="3d9d9b2f-a988-4c17-83b2-0d507db3d804" />
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="886b3424-dec2-4a84-ba3e-1ae81d42fd49" name="GLSL" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="ba6fe76e-5dc0-4e2c-9a58-4b6778b8dff5" />
+              <suppliersInternal>
+                <interfaceRealization Id="75e014a3-53ea-4304-bf2f-7585e367f5b5">
+                  <interfaceMoniker Id="b2b7885f-345d-4031-ad94-237117204761" LastKnownName="Shader" />
+                  <elementDefinition Id="67120d6f-3282-4b66-9798-a38225e4938a" />
+                </interfaceRealization>
+                <dependency Id="929877d1-1625-4ba3-8198-202862fb81a3">
+                  <classMoniker Id="cb52ffd2-573c-4ceb-9cdd-e4a426dddb20" LastKnownName="SPIRV" />
+                  <elementDefinition Id="3a763496-a224-4afa-8315-b6b22741a9f8" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="3c0db5d9-4fe9-4ecd-a2ab-9c9d9b86b108" name="Compute" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="53e7b5f6-f85d-4c9c-bca1-b77e97ba9066" />
+                </operation>
+                <operation Id="32a7322f-8bf8-4e89-ae5e-27c96316338a" name="Render" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="2e4a819d-7e5f-4079-8df4-fe606b0bbbc5" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="b2b7885f-345d-4031-ad94-237117204761" name="Shader" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="4e572f2e-b69c-4cba-9fcc-880b34c02f6f" />
+              <ownedOperations>
+                <operation Id="bec11f6e-685c-4a6b-b418-5f7a52550444" name="Compute" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="df40cee3-e35f-46c9-989b-f5e326a9cc48" />
+                </operation>
+                <operation Id="1290bf91-b0d6-4de9-8c3c-87fce3b59655" name="Render" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="4b1b8cd7-121c-4e16-a797-348285c7f289" />
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="cb52ffd2-573c-4ceb-9cdd-e4a426dddb20" name="SPIRV" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="d2bfe2e0-1ff7-40df-855e-ea8fa31f7869" />
+              <suppliersInternal>
+                <interfaceRealization Id="57f478de-25f9-44f6-807f-6fe34bb41225">
+                  <interfaceMoniker Id="b2b7885f-345d-4031-ad94-237117204761" LastKnownName="Shader" />
+                  <elementDefinition Id="70644fe9-9d22-4ae3-a04d-e6a89510909b" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="b6ae1ff4-fc03-4a50-b05d-70f7225ec522" name="Compute" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="822828a1-88ea-4495-b936-b212edb38dd3" />
+                </operation>
+                <operation Id="5e491afa-44c3-4028-8899-89d66666fecf" name="Render" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="cd8bc034-fbcd-45f2-bd8a-bbd8bd978ef9" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="5d3d2e13-8469-4fab-ba1b-420781ec7dd7" name="System" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="00f753d6-5f8c-4407-b26d-14467d526dc0" />
+              <suppliersInternal>
+                <dependency Id="71461e6f-6724-4289-b789-cb732056969a">
+                  <classMoniker Id="3cc2f06d-f1ae-4f25-bf7b-04e8cea8bf31" LastKnownName="Displays" />
+                  <elementDefinition Id="7a450e16-76c1-423f-a769-05274b1746fc" />
+                </dependency>
+                <dependency Id="2f79a13f-2a44-482f-a078-e5de78675168">
+                  <classMoniker Id="44adb018-18aa-4590-a48f-9d8c60342556" LastKnownName="Memory" />
+                  <elementDefinition Id="9bd41863-3529-4276-b74a-8233ad966b9d" />
+                </dependency>
+                <dependency Id="8299b757-287c-47c7-971c-76ef81d1d462">
+                  <classMoniker Id="ee3133c7-614e-475d-bfd8-70fc3838be3d" LastKnownName="Timer" />
+                  <elementDefinition Id="cfefce37-5a63-4e1e-8630-12bdd6f49f21" />
+                </dependency>
+                <dependency Id="215341a0-0f41-416e-9a7f-dedf66b30467">
+                  <enumerationMoniker Id="92fbab40-12c3-4f82-9efc-c8f7c5c17ee0" LastKnownName="Capabilities" />
+                  <elementDefinition Id="13e36fce-2640-4c10-9277-9d65bd4fe1d0" />
+                </dependency>
+                <dependency Id="ad22e500-6f3a-437c-bdc6-b34706e0d5b8">
+                  <classMoniker Id="7f400954-959f-4a6b-980f-e98b59543580" LastKnownName="Keyboard" />
+                  <elementDefinition Id="ca640c41-cbe4-4340-9c2a-0741526a64ce" />
+                </dependency>
+                <dependency Id="91d842db-36ce-4821-b9a9-24e6c385f948">
+                  <classMoniker Id="5a0e8063-84b5-4328-9ff6-8cb9ab3d382b" LastKnownName="Audio" />
+                  <elementDefinition Id="19f6d9ce-6eb1-4181-9503-de0a886781fb" />
+                </dependency>
+                <dependency Id="7e7ca937-372c-4253-acc5-eaf25bd5f6c5">
+                  <enumerationMoniker Id="d19eee9d-3cab-4973-9200-e98a1f0ad8bf" LastKnownName="Specs" />
+                  <elementDefinition Id="a75b346b-60d5-4326-812c-c7c4d641268b" />
+                </dependency>
+                <dependency Id="5c2b5e9e-c288-4685-ac55-1720fdb8385c">
+                  <classMoniker Id="f5b95aa3-14a3-42a6-82c0-496b362068ed" LastKnownName="Mouse" />
+                  <elementDefinition Id="3a136b11-5922-4180-9e55-bfe2e747e380" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="7081dbc2-18d0-4bc8-9afc-8fd29f5e4af9" name="GetCapabilities" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="77a3069e-a4b7-4b4d-8048-9b85ef8c96cb" />
+                </operation>
+                <operation Id="f040bddb-c829-4880-8553-b4aa52fd20f9" name="IsCapable" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="c4e15e14-d589-49d1-b973-1dd033313a8f" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="f5868259-1c9a-44e3-ac71-f6bd4a6e2220" name="of" direction="In" isUnique="false">
+                        <elementDefinition Id="96d24513-93ca-4c44-a532-360ecd8bbd19" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="d31c907f-8dd5-4ad7-9cf5-a4358afdda2d" name="GetSpec" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="b02344d8-7e37-4901-994c-bd25f88e7656" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="3cc2f06d-f1ae-4f25-bf7b-04e8cea8bf31" name="Displays" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6873b645-777f-452e-9193-8fd2859b281d" />
+              <suppliersInternal>
+                <dependency Id="7783324f-8b98-4964-8048-cb844ef7a19f">
+                  <classMoniker Id="fce3b7ed-f03f-4061-ac74-34c0df13550b" LastKnownName="Display" />
+                  <elementDefinition Id="79a18356-4a16-4b7a-abe5-40efdd98f5ea" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="740e05f5-7ce3-4441-ae04-61edbbc03276" name="GetAllDisplays" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="fefbc6ba-a65b-4f39-8234-432b79917f97" />
+                </operation>
+                <operation Id="4071b814-7385-4249-b41b-481db79ff406" name="SetDisplays" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="345f18c0-95fb-4ccf-84ca-a9a4c217b29c" />
+                </operation>
+                <operation Id="9da0f9c4-ae88-4276-ad5d-ad36719c2c32" name="GetCurrentDisplays" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="33a6060d-22a3-45a9-baab-b16bb06ce334" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="ee3133c7-614e-475d-bfd8-70fc3838be3d" name="Timer" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6ad84718-680a-4270-bc40-ebd55a855f9e" />
+              <suppliersInternal>
+                <dependency Id="a824eb6a-186c-4af7-b9a9-805c50b65774">
+                  <classMoniker Id="8a9623d5-c97b-4643-96ec-9dff1ff47dbc" LastKnownName="CPU" />
+                  <elementDefinition Id="601bea31-3734-49c6-a285-bfd95ef39eb0" />
+                </dependency>
+                <dependency Id="6c72ea29-3b9d-4f2b-8e29-b9a3ff6db537">
+                  <classMoniker Id="a514ac6c-9278-4b47-b63f-4a3d1beca33e" LastKnownName="GPU" />
+                  <elementDefinition Id="ab2b0b0b-c869-4886-a840-78cfc5b6e030" />
+                </dependency>
+                <dependency Id="41b70379-89e2-426d-9d58-d7fb4988147f">
+                  <classMoniker Id="2fa22eca-660b-4db7-8c02-7e0c4593d3ff" LastKnownName="FPS" />
+                  <elementDefinition Id="8e8f4342-9889-47bf-8fe2-b03d5caea9a2" />
+                </dependency>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="8a9623d5-c97b-4643-96ec-9dff1ff47dbc" name="CPU" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="48551203-cbce-4c4b-b9c5-a479b5fddab6" />
+              <suppliersInternal>
+                <dependency Id="2e121f11-4e9d-41d1-98b1-c03363429ca6">
+                  <classMoniker Id="2fa22eca-660b-4db7-8c02-7e0c4593d3ff" LastKnownName="FPS" />
+                  <elementDefinition Id="8b796517-fa30-47a6-9863-a3f4e32710a3" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="103900cf-6a22-417d-a9cd-f5ac87d5cf66" name="GetInfo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="76a80278-ad92-4ea9-a53e-0052048bc1f5" />
+                </operation>
+                <operation Id="712cdd81-024c-4021-854a-e13a59694c8c" name="GetUsage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="2695ed01-e43d-42b2-9d15-ad046fa320e2" />
+                </operation>
+                <operation Id="aaa079b9-22e3-4589-9094-04748db45284" name="SetMaxUsage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="13c9e3eb-c240-4a28-9ee9-543665163f5b" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="a514ac6c-9278-4b47-b63f-4a3d1beca33e" name="GPU" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="84c73f14-b12e-4327-8bb9-bc2f7c78cca4" />
+              <suppliersInternal>
+                <dependency Id="757532dd-51f9-490f-87ff-b3bca424faf0">
+                  <classMoniker Id="2fa22eca-660b-4db7-8c02-7e0c4593d3ff" LastKnownName="FPS" />
+                  <elementDefinition Id="7abc1970-d449-47e9-b3e0-cf7eb03c1ef8" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="db64e8e9-5294-4590-9f55-f9596bf6f624" name="GetInfo" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="caab18f1-d488-4812-8222-65ccd775e778" />
+                </operation>
+                <operation Id="0356ab07-9e7b-4a8e-b7ab-c6aa85bf2383" name="GetUsage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="274d007d-0c8b-44b5-b019-511197873535" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="2fa22eca-660b-4db7-8c02-7e0c4593d3ff" name="FPS" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="c22e30b6-ff2e-4acf-bc01-72f4f090dd6b" />
+              <ownedAttributesInternal>
+                <property Id="c098c2da-957e-4ece-895a-5a4a52877f63" name="Timer frametimer" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3fd5a8bb-ee9a-440d-b5e7-22e1acfce05a" />
+                </property>
+              </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="0eaaf56b-f60c-480d-8f78-e528ddbce023" name="SetLimit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d4c0abcc-76d9-4b4e-a14a-f9b58f0283b1" />
+                </operation>
+                <operation Id="ef228c89-4cf2-4c25-a940-889cf54b6b36" name="GetLimit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="cfca561e-4a08-4457-a8bd-0c00a41a6a61" />
+                </operation>
+                <operation Id="f35102fb-8de7-4d2d-9ab4-b792b643ef4a" name="GetCurrent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="fb509dc2-8435-43b8-9d81-0130c7e0b381" />
+                </operation>
+                <operation Id="c1466fca-a409-43f9-a78a-172b7de16e93" name="VSync" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="1435a33b-d4f3-452b-aeb2-88a1e1a85c7d" />
+                </operation>
+                <operation Id="1b382db9-1660-495c-954c-3fa1cc9f3e66" name="GetTimer" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="fa80c5b9-c2ca-4620-b8f9-d4eb605f5397" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="92fbab40-12c3-4f82-9efc-c8f7c5c17ee0" name="Capabilities" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="667cbfd8-a5f6-447c-b352-dbacd911676b" />
+              <ownedLiterals>
+                <enumerationLiteral Id="f0fbcc3a-4d48-466d-abdc-b3cd65570b77" name="MultithreadingEnabled">
+                  <elementDefinition Id="d8f095f5-8e87-4777-a2cb-a55bbfc112ae" />
+                </enumerationLiteral>
+              </ownedLiterals>
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="7f400954-959f-4a6b-980f-e98b59543580" name="Keyboard" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="097edf9d-3225-4fdd-bcc7-deb9f064fd57" />
+              <suppliersInternal>
+                <dependency Id="3c1fb126-e56a-42be-bf7c-e3cac297db30">
+                  <enumerationMoniker Id="da5f85f7-feb8-4492-af2e-9241588df718" LastKnownName="Keys" />
+                  <elementDefinition Id="255b8324-86ac-410f-89be-3bafa359aa1c" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="41bccbbd-13e6-4d18-80c4-a45637421487" name="IsPressed" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="cefbf5c8-c12a-41c7-93fb-64108e122dd1" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="1842c4a3-71d8-4d5b-b656-d74e37fed1a8" name="Keys key" direction="In" isUnique="false">
+                        <elementDefinition Id="e63eef1f-3167-45d1-8559-e63f04dd044c" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="1d58d308-9ab6-4da7-a81c-c2400384638a" name="Bind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="6273db2e-1c08-4f1b-8892-87627f7faa25" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="5a0e8063-84b5-4328-9ff6-8cb9ab3d382b" name="Audio" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="01e772f7-0802-4755-9f30-07f1569e7e2c" />
+              <suppliersInternal>
+                <dependency Id="ff427b35-a567-4351-8942-b94d9f299327">
+                  <interfaceMoniker Id="0273a35b-3080-4352-85fa-cfb1ddfed921" LastKnownName="Sound" />
+                  <elementDefinition Id="6750d55e-5e6c-40e5-94cf-59081d057f8a" />
+                </dependency>
+              </suppliersInternal>
+              <ownedAttributesInternal>
+                <property Id="c88b04e8-9926-4a6b-9644-cb89aada18dd" name="vector&lt;Sound&gt; sounds" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3614e19d-c262-4ee6-ad1e-857322da339f" />
+                </property>
+              </ownedAttributesInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="0273a35b-3080-4352-85fa-cfb1ddfed921" name="Sound" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="63f05665-b09e-43d4-bf8f-9acf866feacc" />
+              <suppliersInternal>
+                <dependency Id="b94882f3-f9aa-41a3-a711-0b5d73349ed3">
+                  <interfaceMoniker Id="864c71b3-78ee-42c7-a19b-4871a68d90e6" LastKnownName="SoundEffect" />
+                  <elementDefinition Id="71ff3e28-079c-47c6-afc7-8291799b6c53" />
+                </dependency>
+                <dependency Id="dc80a9de-c093-44fb-ad5d-4fa4324370a2">
+                  <classMoniker Id="ddb3b95f-999b-48d9-8058-14d76de09d32" LastKnownName="Bin" />
+                  <elementDefinition Id="34af0841-09c2-49df-9981-ee8f60710a4a" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperations>
+                <operation Id="af553a46-f010-46c6-8d7a-158cfa3c9e0a" name="Play" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="0d797fd4-5384-4dfc-9e7f-7e2d5d156fd0" />
+                </operation>
+                <operation Id="eb69ae47-c61b-437a-ab3b-f96a3edcdd4f" name="Stop" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="be1cdc6a-d9c9-4309-ad65-e607e9031064" />
+                </operation>
+                <operation Id="da56b017-73dc-466d-be22-3bca0fe59c6c" name="AddEffect" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="cd332a32-51d2-43cc-a5ee-06c8045d82cc" />
+                </operation>
+                <operation Id="13128a71-3da5-4fc7-8b1d-9d652930951f" name="RenderEffects" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="4af0529f-722e-4fdd-9817-6d69874af4a1" />
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="904796ba-619b-479e-b90c-11e4d46728ee" name="Sound_WavePCM" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="e2cbf4c2-327b-4949-8e8e-42340fbb0b4c" />
+              <suppliersInternal>
+                <interfaceRealization Id="e5f84124-c899-4784-a9e7-d3cdee133aef">
+                  <interfaceMoniker Id="0273a35b-3080-4352-85fa-cfb1ddfed921" LastKnownName="Sound" />
+                  <elementDefinition Id="b209ef19-a001-4a3b-aa69-e0db8bbbb10d" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="17773bf9-ceb3-4b13-b045-723a056e36f6" name="Play" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="41fa0159-6119-4fb6-a146-d4d43fe4e9b1" />
+                </operation>
+                <operation Id="afec36ba-6f39-4d39-a55b-b6acb6b094b8" name="Stop" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="28c921be-eb24-4d88-bba8-250c9c350c43" />
+                </operation>
+                <operation Id="f6019b60-f50c-497f-980d-e8c916a7b400" name="AddEffect" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="3e473ca1-b9f2-42e1-ad48-f5aa1a29336d" />
+                </operation>
+                <operation Id="e55e4c6a-cfc0-4a63-9f4e-66d502d9d2bf" name="RenderEffects" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="98397afb-9dfe-48cc-85c5-775127753cba" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="d19eee9d-3cab-4973-9200-e98a1f0ad8bf" name="Specs" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="2d43a249-2fcf-4946-b1d0-95b27233f1dc" />
+              <ownedLiterals>
+                <enumerationLiteral Id="c40ea39e-cdd3-4e41-8385-5e09707e20bd" name="MaxThreads">
+                  <elementDefinition Id="d2d112c3-6e14-4e3a-99ed-67640b7b9f6c" />
+                </enumerationLiteral>
+              </ownedLiterals>
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="da5f85f7-feb8-4492-af2e-9241588df718" name="Keys" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="d7cd066e-57ea-41bc-bfa7-aa5a756204d4" />
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="fce3b7ed-f03f-4061-ac74-34c0df13550b" name="Display" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="f845ac0c-db85-4fdc-ab77-e66e1d1bf874" />
+              <ownedAttributesInternal>
+                <property Id="84686459-0820-415a-8dab-5dbfc5dbbc8a" name="resolution" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="41a429cb-3dc8-4cb3-a3ea-2ebc93d92de5" />
+                </property>
+                <property Id="5c04b7fe-deb3-4425-99e3-5984033e2efe" name="number" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ddc2cdae-7780-4295-80a6-ed121fd91e11" />
+                </property>
+                <property Id="18c5413a-6661-4d6f-9359-510f01cdccab" name="bool isactive" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f4e71394-bcd6-439b-91c3-6cb69ed8e06c" />
+                </property>
+                <property Id="1cf3e99f-6a89-43c9-b50f-bb0c41d753af" name="bool vsyncok" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2e919424-14c5-4998-9bf4-bf5cec3b98a8" />
+                </property>
+              </ownedAttributesInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="864c71b3-78ee-42c7-a19b-4871a68d90e6" name="SoundEffect" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="6822053f-05a1-421b-8b06-203f059276d0" />
+              <suppliersInternal>
+                <dependency Id="04a7b438-5be8-4c71-990c-333bd7281173">
+                  <classMoniker Id="ddb3b95f-999b-48d9-8058-14d76de09d32" LastKnownName="Bin" />
+                  <elementDefinition Id="b9fc30b8-0a46-4b2a-8104-d8b7f8d16ea1" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperations>
+                <operation Id="50722de8-7ea9-4a66-b4fd-6436a2f1eb0f" name="Compute" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="6b5df31f-c35a-4988-9470-efc73d8a62ff" />
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="45970709-d86b-4bf8-83b6-f4407f8382f4" name="VulkanCore" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="1e1e29a6-c845-4b93-9905-5871fd1928fc" />
+              <suppliersInternal>
+                <interfaceRealization Id="be8407ae-9b81-4f0b-b568-ed43507c0aa2">
+                  <interfaceMoniker Id="709cf74e-6679-40a5-88c5-0b5e13e03715" LastKnownName="Core" />
+                  <elementDefinition Id="63480f20-b386-436f-8ab3-2a65b48e333d" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="dd5ccbcc-d0d6-45e9-85d4-185b27e4d5ba" name="Init" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="97794c7f-2c3e-4e56-9ae9-399897d5a2e9" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="7df971b9-0ccc-4d4f-bf7b-a68382ccdab9" name="DX12Core" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="aa365e70-06d3-45f4-836c-f947af6dac76" />
+              <suppliersInternal>
+                <interfaceRealization Id="5fa04d4d-3f9d-42a3-9b39-1154046d063d">
+                  <interfaceMoniker Id="709cf74e-6679-40a5-88c5-0b5e13e03715" LastKnownName="Core" />
+                  <elementDefinition Id="8c7f7159-b983-4593-80b6-6ebbf836303f" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="a96f4a5e-cd08-4934-9753-413522a43312" name="Init" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="4ab73a12-f6f7-464a-a919-dbc190a45414" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="f5006cc8-0b59-48f9-bcea-b2f9b67c06c4" name="DX9Core" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="9be9e3a9-7895-445d-8a6f-22db4e4d2071" />
+              <suppliersInternal>
+                <interfaceRealization Id="de76112a-c913-4e25-a96d-9cfcaa13a5a5">
+                  <interfaceMoniker Id="709cf74e-6679-40a5-88c5-0b5e13e03715" LastKnownName="Core" />
+                  <elementDefinition Id="811b53bc-a97b-4215-8eb8-c2252459869c" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="f033a5a4-776d-4fba-b65f-c1a80d8acc6e" name="Init" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="699ded2d-7cc0-490f-b35c-e8091ebdf8ea" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="2329a52d-d57c-4c39-a830-726d7103ec34" name="DX11Core" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="63a3c613-7e67-4a5f-9d62-30feb3f2c2aa" />
+              <suppliersInternal>
+                <interfaceRealization Id="06aff0c8-2c9a-4809-8424-4cfd9431574f">
+                  <interfaceMoniker Id="709cf74e-6679-40a5-88c5-0b5e13e03715" LastKnownName="Core" />
+                  <elementDefinition Id="b66850af-005a-4fc6-b48e-d83a0e6e9cf9" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="4ef5f87f-74c3-4991-9f0d-b430946cfd2a" name="Init" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="95a1804d-4a9e-4228-ad9a-b01f4190edee" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="da0049d8-42ff-4645-9a48-fce099c724f1" name="GLCore" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="b6fd1820-0020-4475-99c7-c2fa3bec3ed6" />
+              <suppliersInternal>
+                <interfaceRealization Id="39f62452-f63b-41ae-a9ae-d60d450d58e8">
+                  <interfaceMoniker Id="709cf74e-6679-40a5-88c5-0b5e13e03715" LastKnownName="Core" />
+                  <elementDefinition Id="c05952f2-42f9-4e52-8342-c5612d3c61c0" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="c069f293-1943-4b72-bbba-880514cfbade" name="Init" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="2c4dccbd-feaa-4429-a7ca-c50b51ec58ef" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="e78d2183-605d-44b8-b0da-77c3bb9da28c" name="Init" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="31ebe726-5084-4244-ad96-765d5ea1f262" />
+              <suppliersInternal>
+                <dependency Id="ece697a5-f6b3-4761-9033-63a0bb6af9e6">
+                  <interfaceMoniker Id="4b75a0ef-5367-4f93-b634-d514e64990b4" LastKnownName="Compositor" />
+                  <elementDefinition Id="1047c457-a5a4-47c5-a71e-1888a394984a" />
+                </dependency>
+                <dependency Id="a23d6008-7619-4ebd-82ab-5ecd69507f2a">
+                  <classMoniker Id="5d3d2e13-8469-4fab-ba1b-420781ec7dd7" LastKnownName="System" />
+                  <elementDefinition Id="7bfed798-6843-4159-a28f-b4af0cd715cf" />
+                </dependency>
+                <dependency Id="0fcdd82f-da30-4274-b427-1f148cbe58cf">
+                  <interfaceMoniker Id="709cf74e-6679-40a5-88c5-0b5e13e03715" LastKnownName="Core" />
+                  <elementDefinition Id="038f5f71-4cc4-4d0f-b174-5a84823091c1" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="55e721e8-86cb-4ec4-aa4c-46d29c14a119" name="Init" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="0d319585-e25a-4027-97b5-ca268baf845c" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="0f566115-471e-41a7-b815-60e9bd0047ea" name="argc" direction="In" isUnique="false">
+                        <elementDefinition Id="7b4f1c56-27cc-4d58-a9bb-1dbf1566b709" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="003d0f2d-ee51-453d-9a52-fbf3578ae1c0" name="argv" direction="In" isUnique="false">
+                        <elementDefinition Id="4c5e26f8-59e3-4fe6-b50d-47dc9657149c" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="709cf74e-6679-40a5-88c5-0b5e13e03715" name="Core" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="ec9f92b7-a92b-44ab-bdf9-f6771447b0bd" />
+              <ownedOperations>
+                <operation Id="bca68fe5-0d00-4cf8-80e9-8fd003e9e392" name="Init" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="52f297d5-18e3-45da-8d7f-00f95785bd58" />
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="f5b95aa3-14a3-42a6-82c0-496b362068ed" name="Mouse" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="78aa9fda-d277-49e1-a9a5-1643da5476c6" />
+              <suppliersInternal>
+                <dependency Id="bac44586-5ccc-4319-8654-e5fcd076772d">
+                  <enumerationMoniker Id="c9047431-a00a-49dc-84d3-b93c005016aa" LastKnownName="MouseButtons" />
+                  <elementDefinition Id="50267de3-694c-4aec-a86d-61dfcde979d2" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="7992c423-ab68-4bf6-b3c6-73a853bc3972" name="GetPosition" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="197934e7-c6f3-48ca-b6e3-b0e96aa252d5" />
+                </operation>
+                <operation Id="ad494804-b2f1-4632-a346-767e385d40b1" name="SetPosition" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="dcc44813-e669-468f-b1c7-f810bb524a03" />
+                </operation>
+                <operation Id="9098edb8-ac64-4309-b9b2-be60242db1fa" name="Bind" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="070b3413-637c-4a7e-8d39-0d0ce537224e" />
+                </operation>
+                <operation Id="6e648fe6-c855-48c9-a7a9-d6812d37c939" name="IsPressed" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="f003fa07-b582-43e4-9d67-9bccabf9f25d" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="ef40897a-ea1a-40e1-ac9f-fc94b137ba6f" name="MouseButtons button" direction="In" isUnique="false">
+                        <elementDefinition Id="7f2c1860-cd4e-4821-846b-f5ad43045f91" />
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <enumeration Id="c9047431-a00a-49dc-84d3-b93c005016aa" name="MouseButtons" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="4602e1ad-f9d6-4518-b0ba-bf9e8cddf9f4" />
+            </enumeration>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="69131eed-afc4-4a30-97e7-ae56833192eb" name="Model" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="a8095bbb-c655-493c-b2ed-6717b839d90b" />
+              <ownedOperations>
+                <operation Id="1ee56522-079d-4c10-a990-6ed706d2dcfc" name="Create" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="6d486f39-fa28-41b1-97d2-ff3c4b127c46" />
+                </operation>
+                <operation Id="e1cf925d-a2c8-4fa1-9d74-02a0398c6df4" name="Render" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="b56cfe66-d981-4fcb-9e4e-9f647b3be448" />
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="64010f93-da10-4277-b7a4-69a8f81e6d3b" name="Texture" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="b5fba050-af91-466e-8fec-e53593464dfd" />
+              <suppliersInternal>
+                <dependency Id="fe67803a-17d0-4ded-9acc-7717e92d59c1">
+                  <classMoniker Id="ddb3b95f-999b-48d9-8058-14d76de09d32" LastKnownName="Bin" />
+                  <elementDefinition Id="388179d4-2815-499a-a2e9-25edf39c5862" />
+                </dependency>
+              </suppliersInternal>
+              <ownedOperations>
+                <operation Id="7416ae55-ed18-4f73-a532-e8ef9cedda36" name="Create" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="95f4a02e-4269-4e4c-96c9-af181d247940" />
+                </operation>
+                <operation Id="c7dc0122-b773-4bba-863b-c2847d08c681" name="Render" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="bebc9d41-5b1a-4789-87c8-516ed83541b5" />
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <packageHasNamedElement>
+      <referencedType Id="769ec390-60df-4d11-b945-b80481cafb33" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="353a5101-5a6b-465b-b5c0-282be47618cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="417aff66-0bdd-4c38-8fca-51f4a13b3033" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="353a5101-5a6b-465b-b5c0-282be47618cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="07055ecf-ff22-4de4-adc2-831af43d9251" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="353a5101-5a6b-465b-b5c0-282be47618cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="355cffdc-8326-4139-b7d7-a9fd6795afa8" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7f9a9afd-4942-47c3-831d-63710ef1dc80" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="353a5101-5a6b-465b-b5c0-282be47618cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="14d867cd-3063-41fb-83cf-2934e5a8e385" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="353a5101-5a6b-465b-b5c0-282be47618cb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b13815b3-4fbd-4bb5-995a-9b537e1dc93f" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="fe721274-f49c-4906-8558-43110c9672de" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="37c9e4be-c885-4228-8216-c4500fbdf075" name="epitome-modeling">
+    <elementDefinition Id="4e42ac75-9bfd-4857-bdd0-a517fe9a88ed" />
+    <profileInstances>
+      <packageHasProfileInstances Id="e6d04996-4aab-4558-8478-0c26090a8031">
+        <profileInstance Id="7f20335f-7db1-4c8c-b3f5-107b010dda0f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="1f8eb4ab-c623-45fa-bdb5-8a66f8c1cecc">
+        <profileInstance Id="42e470e1-1f22-4f74-88cc-4f3fcf1febe3" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

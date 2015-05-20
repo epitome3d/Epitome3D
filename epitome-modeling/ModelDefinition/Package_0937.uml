@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="f3209aba-1634-4844-8d7b-0556f983b693"
+  name="epitome-extended" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="4e66c136-962e-499e-8eac-2e8c4e5892b8">
+      <body>Find the most "active" location within a bounded area </body>
+      <annotatedElements>
+        <classMoniker
+          Id="88ba9f0e-66c7-4556-9727-8d237c4f85b3"
+          LastKnownName="ActivityCamera"
+          LastKnownLocation="Package_0937.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="9b8147bf-6d00-42f8-9db0-4fe012f6709c">
+      <body>Follow an object at a function of a radius.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="85e9a226-58c5-45cd-937f-81cd4cd7c7e4"
+          LastKnownName="FollowCamera"
+          LastKnownLocation="Package_0937.uml" />
+      </annotatedElements>
+    </comment>
+  </ownedCommentsInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="2ff17a88-4dee-4f3d-9b11-9d4490aa5135"
+        name="Math3D"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e7352827-f26e-4784-a4f5-0538684eebcc"
+        name="Collision"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8b2d13b5-eb14-45a1-ba1c-b006cefcbf03"
+        name="Light"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1ed7b207-9e15-4c95-b498-dbe87870f036"
+        name="Shadow"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9b66dfd0-221e-4939-87da-31acb322db75"
+        name="Picking"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="88ba9f0e-66c7-4556-9727-8d237c4f85b3"
+        name="ActivityCamera"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5b71e1b1-acdb-4381-a9d8-422a07b9dc0c"
+        name="LightPoint"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="ceee8a3a-cdcb-452e-a049-bda4af756feb">
+            <interfaceMoniker
+              Id="f926d947-075b-4817-9398-4c0f4b9bd7b6"
+              LastKnownName="Light Source"
+              LastKnownLocation="Package_0937.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="f926d947-075b-4817-9398-4c0f4b9bd7b6"
+        name="Light Source"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="dddedd83-e546-4edb-8ba9-2118b80c5fb5"
+        name="LightSpot"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="6c69010b-7185-40c7-9bb0-10f236f76cc6">
+            <interfaceMoniker
+              Id="f926d947-075b-4817-9398-4c0f4b9bd7b6"
+              LastKnownName="Light Source"
+              LastKnownLocation="Package_0937.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c2aec0db-e1ff-4db3-b06a-93f13a2b6f11"
+        name="LightAmbient"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="17ad8cc1-69eb-42d4-8698-88ca008b57f7">
+            <interfaceMoniker
+              Id="f926d947-075b-4817-9398-4c0f4b9bd7b6"
+              LastKnownName="Light Source"
+              LastKnownLocation="Package_0937.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a1569e50-bd98-4aa6-92be-2e9bdafe1b20"
+        name="LightDirectional"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="9d795649-4c4d-4337-9372-17bf3b2df8b9">
+            <interfaceMoniker
+              Id="f926d947-075b-4817-9398-4c0f4b9bd7b6"
+              LastKnownName="Light Source"
+              LastKnownLocation="Package_0937.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e2b9457d-fbe7-45bb-b9b3-11c7dbd5d0e1"
+        name="Reflection"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="752ec428-9a31-4a2c-817e-d850f6bb2f26"
+        name="Refraction"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1f2bb30d-1b18-4d94-bdc6-023619a5e2ba"
+        name="Water"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="41b82b4d-9dfe-45f8-bbfb-98fa641cae57"
+        name="RayTracer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c55b336b-6798-487b-b32c-8e8c4231a86c"
+        name="ParticleEmitter"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bce5b091-444a-4598-baca-b92119b26bb3"
+        name="Grass"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1f3a88ca-8d00-469b-81f0-354552c42786"
+        name="MSAA"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="85e9a226-58c5-45cd-937f-81cd4cd7c7e4"
+        name="FollowCamera"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
