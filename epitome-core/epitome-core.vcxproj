@@ -35,7 +35,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D015AE54-6E8A-44DF-8A16-C9322BCA809E}</ProjectGuid>
+    <ProjectGuid>{E1F009C3-93B6-47F2-BF66-7AA06021B250}</ProjectGuid>
     <TargetPlatformVersion>10.0.10069.0</TargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -61,15 +61,19 @@
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug-Win|Win32'">
     <PlatformToolset>v140</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Win|Win32'" Label="Configuration">
     <PlatformToolset>v140</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Win|x64'" Label="Configuration">
     <PlatformToolset>v140</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Win|x64'" Label="Configuration">
     <PlatformToolset>v140</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -90,12 +94,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\x86_64-unknown-linux-gnu;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0002\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0004\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0003\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0000\include;$(ProjectDir)\..\epitome-core\src;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\x86_64-unknown-linux-gnu;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0002\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0004\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0003\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0000\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Debug.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
-    <NMakeOutput>$(ProjectDir)epitome-tester-Debug.vgdbsettings</NMakeOutput>
+    <NMakeOutput>$(ProjectDir)epitome-core-Debug.vgdbsettings</NMakeOutput>
     <IncludePath />
     <ReferencePath />
     <LibraryPath />
@@ -104,12 +108,12 @@
     <NMakePreprocessorDefinitions>__VisualGDB_CFG_Debug;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\x86_64-unknown-linux-gnu;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0002\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0004\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0003\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0000\include;$(ProjectDir)\..\epitome-core\src;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\x86_64-unknown-linux-gnu;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0001\4.9.2\backward;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0002\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0004\include;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0003\include-fixed;$(LOCALAPPDATA)\VisualGDB\RemoteSourceCache\127.0.0.1\0000\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
     <NMakeForcedIncludes>$(ProjectDir)\gcc_Release.h;$(VISUALGDB_DIR)\gcc_compat.h;$(NMakeForcedIncludes)</NMakeForcedIncludes>
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
-    <NMakeOutput>$(ProjectDir)epitome-tester-Release.vgdbsettings</NMakeOutput>
+    <NMakeOutput>$(ProjectDir)epitome-core-Release.vgdbsettings</NMakeOutput>
     <IncludePath />
     <ReferencePath />
     <LibraryPath />
@@ -124,7 +128,7 @@
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
-    <NMakeOutput>$(ProjectDir)epitome-tester-Debug.vgdbsettings</NMakeOutput>
+    <NMakeOutput>$(ProjectDir)epitome-core-Debug.vgdbsettings</NMakeOutput>
     <IncludePath />
     <ReferencePath />
     <LibraryPath />
@@ -138,7 +142,7 @@
     <NMakeBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /build "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeBuildCommandLine>
     <NMakeCleanCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /clean "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>"$(VISUALGDB_DIR)\VisualGDB.exe" /rebuild "$(ProjectPath)" "/solution:$(SolutionPath)" "/config:$(Configuration)" "/platform:$(Platform)"</NMakeReBuildCommandLine>
-    <NMakeOutput>$(ProjectDir)epitome-tester-Release.vgdbsettings</NMakeOutput>
+    <NMakeOutput>$(ProjectDir)epitome-core-Release.vgdbsettings</NMakeOutput>
     <IncludePath />
     <ReferencePath />
     <LibraryPath />
@@ -148,8 +152,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Win|Win32'">
     <OutDir>bin\Windows\Debug\$(PlatformTarget)\</OutDir>
     <IntDir>obj\Windows\Debug\$(PlatformTarget)\</IntDir>
-    <IncludePath>$(ProjectDir)..\epitome-core\src;$(ProjectDir)..\include\opengl;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(ProjectDir)..\epitome-core\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\opengl;$(ProjectDir)\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
@@ -157,22 +161,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Win|Win32'">
     <OutDir>bin\Windows\Debug\$(PlatformTarget)\</OutDir>
     <IntDir>obj\Windows\Debug\$(PlatformTarget)\</IntDir>
-    <IncludePath>$(ProjectDir)..\epitome-core\src;$(ProjectDir)..\include\opengl;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(ProjectDir)..\epitome-core\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\opengl;$(ProjectDir)\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Win|x64'">
-    <IncludePath>$(ProjectDir)..\epitome-core\src;$(ProjectDir)..\include\opengl;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(ProjectDir)..\epitome-core\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\opengl;$(ProjectDir)\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Win|x64'">
-    <IncludePath>$(ProjectDir)..\epitome-core\src;$(ProjectDir)..\include\opengl;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(ProjectDir)..\epitome-core\bin\$(Configuration)\$(PlatformTarget)\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)..\include\opengl;$(ProjectDir)\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib\opengl\;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
@@ -182,10 +186,11 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SDLCheck>true</SDLCheck>
       <EnablePREfast>false</EnablePREfast>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -196,10 +201,11 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SDLCheck>true</SDLCheck>
       <EnablePREfast>false</EnablePREfast>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -210,10 +216,11 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SDLCheck>true</SDLCheck>
       <EnablePREfast>false</EnablePREfast>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -224,20 +231,27 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WINDOWS;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <SDLCheck>true</SDLCheck>
       <EnablePREfast>false</EnablePREfast>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\init.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\epitome-core.h" />
+    <ClInclude Include="src\init.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="debug.mak" />
     <None Include="Makefile" />
+    <None Include="release.mak" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

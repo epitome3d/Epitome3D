@@ -40,8 +40,8 @@
         <Transport>Alias</Transport>
         <UserName />
       </RemoteHost>
-      <LocalDirectory>D:\git\epitome\epitome-tester</LocalDirectory>
-      <RemoteDirectory>/media/sf_epitome/epitome-tester</RemoteDirectory>
+      <LocalDirectory>D:\git\epitome\epitome-core</LocalDirectory>
+      <RemoteDirectory>/media/sf_epitome/epitome-core</RemoteDirectory>
     </MountInfo>
     <AllowChangingHostForMainCommands>false</AllowChangingHostForMainCommands>
     <SkipBuildIfNoSourceFilesChanged>false</SkipBuildIfNoSourceFilesChanged>

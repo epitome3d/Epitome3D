@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <VisualGDBProjectSettings2 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ConfigurationName>Release</ConfigurationName>
+  <ConfigurationName>Debug</ConfigurationName>
   <Project xsi:type="com.visualgdb.project.linux">
     <CustomSourceDirectories>
       <Directories />
@@ -40,8 +40,8 @@
         <Transport>Alias</Transport>
         <UserName />
       </RemoteHost>
-      <LocalDirectory>D:\git\epitome\epitome-tester</LocalDirectory>
-      <RemoteDirectory>/media/sf_epitome/epitome-tester</RemoteDirectory>
+      <LocalDirectory>D:\git\epitome\epitome-core</LocalDirectory>
+      <RemoteDirectory>/media/sf_epitome/epitome-core</RemoteDirectory>
     </MountInfo>
     <AllowChangingHostForMainCommands>false</AllowChangingHostForMainCommands>
     <SkipBuildIfNoSourceFilesChanged>false</SkipBuildIfNoSourceFilesChanged>
@@ -50,7 +50,7 @@
   </Project>
   <Build xsi:type="com.visualgdb.build.make">
     <MakeFilePathRelativeToSourceDir>Makefile</MakeFilePathRelativeToSourceDir>
-    <MakeConfigurationName>Release</MakeConfigurationName>
+    <MakeConfigurationName>Debug</MakeConfigurationName>
     <AdditionalMakeArguments />
     <Toolchain>
       <Name>Custom toolchain</Name>

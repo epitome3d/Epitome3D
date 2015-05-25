@@ -47,7 +47,6 @@
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="light.h" />
     <ClInclude Include="src\bitmap.h" />
     <ClInclude Include="src\camera.h" />
     <ClInclude Include="src\cpu.h" />

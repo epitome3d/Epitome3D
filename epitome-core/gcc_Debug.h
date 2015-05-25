@@ -155,9 +155,6 @@
 #ifndef __SIZEOF_POINTER__
 #define __SIZEOF_POINTER__ 8
 #endif
-#ifndef NDEBUG
-#define NDEBUG 1
-#endif
 #ifndef __GCC_ATOMIC_CHAR16_T_LOCK_FREE
 #define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
 #endif
@@ -199,9 +196,6 @@
 #endif
 #ifndef __gnu_linux__
 #define __gnu_linux__ 1
-#endif
-#ifndef RELEASE
-#define RELEASE 1
 #endif
 #ifndef __LDBL_HAS_QUIET_NAN__
 #define __LDBL_HAS_QUIET_NAN__ 1
@@ -380,6 +374,9 @@
 #endif
 #ifndef __UINT64_MAX__
 #define __UINT64_MAX__ 18446744073709551615UL
+#endif
+#ifndef DEBUG
+#define DEBUG 1
 #endif
 #ifndef __INT8_TYPE__
 #define __INT8_TYPE__ signed char
@@ -739,7 +736,6 @@
 ///usr/local/include
 ///usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/include-fixed
 ///usr/include
-//../epitome-core/src
 // --- Include directories end --- //
 
 

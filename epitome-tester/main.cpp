@@ -1,5 +1,6 @@
-#include <GL/freeglut.h>
+#include <epitome-core.h>
 #include <iostream>
+using namespace EPITOME;
 
 #define window_width 640
 #define window_height 480
@@ -42,10 +43,8 @@ void Render()
 
 void Blank() { }
 
-void Init(int argc, char** argv)
+void Init()
 {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowSize(window_width, window_height);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Tutorial 01");
@@ -56,15 +55,10 @@ void Init(int argc, char** argv)
 }
 
 #ifdef WINDOWS
-#define WIN32_LEAN_AND_MEAN  // Exclude rarely-used stuff from Windows headers
-#include <shellapi.h>
-#pragma comment(linker, "/SUBSYSTEM:WINDOWS") //enable non-shell mode
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
-	LPWSTR *szArglist;
-	int nArgs;
-	szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
-	Init(nArgs, (char**)szArglist);
+	EPITOME::Initialize();
+	Init();
 	glutMainLoop();
 
 	return 0;
@@ -74,7 +68,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 #ifdef LINUX
 int main(int argc, char** argv)
 {
-	Init(argc, argv);
+	EPITOME::Initialize(argc, argv);
+	Init();
 	glutMainLoop();
 
 	return 0;

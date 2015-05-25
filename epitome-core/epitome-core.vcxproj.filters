@@ -7,10 +7,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\init.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\init.h" />
+    <ClInclude Include="src\epitome-core.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="debug.mak">
+      <Filter>Makefiles</Filter>
+    </None>
     <None Include="Makefile">
+      <Filter>Makefiles</Filter>
+    </None>
+    <None Include="release.mak">
       <Filter>Makefiles</Filter>
     </None>
   </ItemGroup>
