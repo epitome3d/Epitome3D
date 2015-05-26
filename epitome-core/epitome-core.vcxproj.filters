@@ -7,21 +7,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\init.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\init.h" />
     <ClInclude Include="src\epitome-core.h" />
+    <ClInclude Include="src\EPITOME-CORE\init.h" />
+    <ClInclude Include="src\EPITOME-CORE\system.h" />
+    <ClInclude Include="src\EPITOME-CORE\error.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="debug.mak">
-      <Filter>Makefiles</Filter>
-    </None>
     <None Include="Makefile">
       <Filter>Makefiles</Filter>
     </None>
-    <None Include="release.mak">
-      <Filter>Makefiles</Filter>
-    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\EPITOME-CORE\init.cpp" />
+    <ClCompile Include="src\EPITOME-CORE\error.cpp" />
+    <ClCompile Include="src\EPITOME-CORE\system.cpp" />
   </ItemGroup>
 </Project>

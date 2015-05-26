@@ -737,6 +737,7 @@
 ///usr/lib/gcc/x86_64-unknown-linux-gnu/4.9.2/include-fixed
 ///usr/include
 //../epitome-core/src
+//../include/opengl
 // --- Include directories end --- //
 
 

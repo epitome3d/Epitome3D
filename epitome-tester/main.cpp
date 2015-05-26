@@ -60,6 +60,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 	EPITOME::Initialize();
 	Init();
 	glutMainLoop();
+	EPITOME::Exit();
 
 	return 0;
 }

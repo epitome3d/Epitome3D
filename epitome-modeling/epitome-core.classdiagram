@@ -211,13 +211,6 @@ First, the app calls all Set*() methods then calls Init() to create the app.</bo
               <interfaceMoniker Id="69131eed-afc4-4a30-97e7-ae56833192eb" LastKnownName="Model" />
             </annotatedElements>
           </comment>
-          <comment Id="cfce9a5b-6db8-485b-ad39-3d6e18742ce7">
-            <elementDefinition Id="926f73d2-4fdf-4818-a1e7-f40019fd1957" />
-            <body>TODO
-
-Error Checking
-Abstraction</body>
-          </comment>
           <comment Id="90a6ba76-c9ce-4906-a7d7-737102ffc3f8">
             <elementDefinition Id="93b978b7-2cda-4308-9534-7614f38209f9" />
             <body>The Concurrency class enables concurrency for Updates, Asset Loading, App Logic, and Calculation.</body>
@@ -375,6 +368,10 @@ Abstraction</body>
                 <dependency Id="7dad867a-4943-4650-bcc6-953a1f2adf80">
                   <classMoniker Id="70639537-365d-4fa3-a23c-f02428c9135c" LastKnownName="Dialog" />
                   <elementDefinition Id="f3bd62e1-316c-4bd3-b4f6-fd2d23fefc58" />
+                </dependency>
+                <dependency Id="295bf99f-7740-46cf-b138-5162990c525e">
+                  <classMoniker Id="efb44314-9ae2-4f32-8db1-9fa583cfb68e" LastKnownName="Text" />
+                  <elementDefinition Id="7eee0b3c-de1a-4659-a76f-9406c91e9934" />
                 </dependency>
               </suppliersInternal>
               <generalsInternal>
@@ -1447,6 +1444,10 @@ Abstraction</body>
                   <classMoniker Id="70639537-365d-4fa3-a23c-f02428c9135c" LastKnownName="Dialog" />
                   <elementDefinition Id="6b9c3f24-c17a-4d61-a3e9-da66322da59a" />
                 </dependency>
+                <dependency Id="4866d1ef-c6c1-4c06-80dd-d654dc488beb">
+                  <classMoniker Id="7abbeab0-6534-453b-abe3-9bc3231659c8" LastKnownName="Logger" />
+                  <elementDefinition Id="f25369fa-e94d-40f2-943d-608a7cac416c" />
+                </dependency>
               </suppliersInternal>
               <ownedOperationsInternal>
                 <operation Id="3a00eb8e-47f0-4c6e-af36-3f614dd321a8" name="GetSettings" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -1553,6 +1554,32 @@ Abstraction</body>
                       </parameter>
                     </operationHasOwnedParameters>
                   </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="efb44314-9ae2-4f32-8db1-9fa583cfb68e" name="Text" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="bfc08c5b-cb86-450a-9fb9-37814c32e321" />
+              <suppliersInternal>
+                <dependency Id="9aee67ea-78e9-44f8-a2da-a5c6b1dc781e">
+                  <classMoniker Id="258d0c65-4c42-4304-916e-6b6627d26898" LastKnownName="Font" />
+                  <elementDefinition Id="a7c4370a-4904-45c5-ae4b-b964400743b8" />
+                </dependency>
+              </suppliersInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="258d0c65-4c42-4304-916e-6b6627d26898" name="Font" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="ac7b2bf3-ce15-4a4e-acbb-b24ce7717dd7" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="7abbeab0-6534-453b-abe3-9bc3231659c8" name="Logger" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="b3d2b441-3f2a-4686-9b2a-7855b91dfb19" />
+              <ownedOperationsInternal>
+                <operation Id="99586be7-c562-443a-be63-14a07d9b79fa" name="SetOnLogFunction" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d7c4fd4d-d242-4805-ba39-7760387b2e33" />
                 </operation>
               </ownedOperationsInternal>
             </class>

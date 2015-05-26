@@ -174,13 +174,6 @@ First, the app calls all Set*() methods then calls Init() to create the app.</bo
       </annotatedElements>
     </comment>
     <comment
-      Id="926f73d2-4fdf-4818-a1e7-f40019fd1957">
-      <body>TODO
-
-Error Checking
-Abstraction</body>
-    </comment>
-    <comment
       Id="93b978b7-2cda-4308-9534-7614f38209f9">
       <body>The Concurrency class enables concurrency for Updates, Asset Loading, App Logic, and Calculation.</body>
       <annotatedElements>
@@ -469,6 +462,13 @@ Abstraction</body>
             <classMoniker
               Id="2d417893-8dc0-455a-90fd-f93770e930f1"
               LastKnownName="Dialog"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
+          <dependency
+            Id="7eee0b3c-de1a-4659-a76f-9406c91e9934">
+            <classMoniker
+              Id="bfc08c5b-cb86-450a-9fb9-37814c32e321"
+              LastKnownName="Text"
               LastKnownLocation="Package1_0934.uml" />
           </dependency>
         </suppliersInternal>
@@ -2623,6 +2623,13 @@ Abstraction</body>
               LastKnownName="Dialog"
               LastKnownLocation="Package1_0934.uml" />
           </dependency>
+          <dependency
+            Id="f25369fa-e94d-40f2-943d-608a7cac416c">
+            <classMoniker
+              Id="b3d2b441-3f2a-4686-9b2a-7855b91dfb19"
+              LastKnownName="Logger"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
         </suppliersInternal>
         <ownedOperationsInternal>
           <operation
@@ -2813,6 +2820,51 @@ Abstraction</body>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bfc08c5b-cb86-450a-9fb9-37814c32e321"
+        name="Text"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="a7c4370a-4904-45c5-ae4b-b964400743b8">
+            <classMoniker
+              Id="ac7b2bf3-ce15-4a4e-acbb-b24ce7717dd7"
+              LastKnownName="Font"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ac7b2bf3-ce15-4a4e-acbb-b24ce7717dd7"
+        name="Font"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b3d2b441-3f2a-4686-9b2a-7855b91dfb19"
+        name="Logger"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="d7c4fd4d-d242-4805-ba39-7760387b2e33"
+            name="SetOnLogFunction"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>

@@ -13,8 +13,8 @@ OBJCOPY := /bin/objcopy
 
 #Additional flags
 PREPROCESSOR_MACROS := DEBUG LINUX
-INCLUDE_DIRS := ../epitome-core/bin/Linux/Debug
-LIBRARY_DIRS := 
+INCLUDE_DIRS := ../epitome-core/src
+LIBRARY_DIRS := ../epitome-core/bin/Linux/Debug
 LIBRARY_NAMES := GL glut GLU
 ADDITIONAL_LINKER_INPUTS := 
 MACOS_FRAMEWORKS := 

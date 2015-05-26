@@ -13,8 +13,8 @@ OBJCOPY := /bin/objcopy
 
 #Additional flags
 PREPROCESSOR_MACROS := RELEASE LINUX NDEBUG
-INCLUDE_DIRS := 
-LIBRARY_DIRS := 
+INCLUDE_DIRS := ../include/opengl ./src
+LIBRARY_DIRS := ../lib/opengl
 LIBRARY_NAMES := GL glut GLU
 ADDITIONAL_LINKER_INPUTS := 
 MACOS_FRAMEWORKS := 
