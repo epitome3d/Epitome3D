@@ -21,17 +21,21 @@ bool Initialize()
 	bool f;
 
 	win = EPITOME::Window::Window();
-	if (!win.Initialize(L"Epitome3D Test", false, false, true, 800, 600, 1000.0f, 0.1f, true))
+	if (!win.Initialize(L"Epitome3D Test", false, false, true, 1600, 900, 1000.0f, 0.1f, true))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	
+	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
+	t_logostart.Initialize(win.d3d->GetDevice(), L"../assets/image/epitome-512-extended3d-white.dds");
+	logostart.Initialize(win.d3d->GetDevice(), w, h);
+
 	DrawStartupText(L"Initializing models...");
 
-	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
+	
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
 	m_sphere.Initialize(win.d3d->GetDevice(), "../assets/model/sphere.fbx", true);
 
-	DrawStartupText(L"Initializing textures...");
+	//DrawStartupText(L"Initializing textures...");
 
 	t_stars.Initialize(win.d3d->GetDevice(), L"../assets/image/Stars.dds");
 	t_earth.Initialize(win.d3d->GetDevice(), L"../assets/image/Earth_CloudyDiffuse.dds");
@@ -40,11 +44,12 @@ bool Initialize()
 	t_moon.Initialize(win.d3d->GetDevice(), L"../assets/image/Moon.dds");
 	t_logo.Initialize(win.d3d->GetDevice(), L"../assets/image/epitome-512-fillblack.dds");
 
-	DrawStartupText(L"Completing initialization...");
+	//DrawStartupText(L"Completing initialization...");
 
 	cursor.Initialize(win.d3d->GetDevice(), w, h);
 	stars.Initialize(win.d3d->GetDevice(), w, h);
 	logo.Initialize(win.d3d->GetDevice(), w, h);
+	
 
 	///*** SET DIRECT3D SETTINGS ***///
 	win.d3d->TurnZBufferOn();
@@ -191,7 +196,7 @@ void Run()
 
 		//logo
 		s_tex.SetParameters(t_logo.GetTexture());
-		win.painter->AddToFront(BitmapType(&logo, &s_tex, new Transform(), w-64, h-64, 64, 64, 0.0f, true, PAINT));
+		win.painter->AddToFront(BitmapType(&logo, &s_tex, new Transform(), w-96, h-96, 96, 96, 0.0f, true, PAINT));
 
 		//mouse
 		if (mouseEnabled)
@@ -354,8 +359,37 @@ void ScrollMove(unsigned char DIK, float &directionSpeedVar, float &outputVar,
 
 void DrawStartupText(const WCHAR* string)
 {
+	int w, h;
+	bool f;
+	D3DXMATRIX world;
+	D3DXMATRIX view;
+	D3DXMATRIX projection;
+	D3DXMATRIX ortho;
+
+	win.GetWindowSize(w, h, f);
+	win.d3d->TurnZBufferOn();
 	win.d3d->BeginScene(0.0f, 0.0f, 0.0f, 0.0f);
-	win.text->Render(win.d3d->GetDeviceContext(), string, L"Segoe UI", 10, 10, 12.0f, 0xff00ff00,
-		FW1_LEFT | FW1_TOP | FW1_RESTORESTATE);
+	win.camera->SetPosition(0.0f, 0.0f, -30.0f);
+	win.camera->SetRotation(0.0f, 0.0f, 0.0f);
+	win.camera->Render();
+	win.camera->GetViewMatrix(view);
+	win.d3d->GetWorldMatrix(world);
+	win.d3d->GetOrthoMatrix(ortho);
+	win.d3d->GetProjectionMatrix(projection);
+	win.frustum->ConstructFrustum(SCREEN_DEPTH, projection, view);
+	win.viewport->SetViewport(win.d3d->GetDeviceContext(), (float)w, (float)h, 0.0f, 1.0f, 0.0f, 0.0f);
+
+	win.painter->ClearList();
+	
+	s_tex.SetParameters(t_logostart.GetTexture());
+	s_tex.Initialize(win.d3d->GetDevice(), win.GetHWND());
+	win.painter->AddToFront(BitmapType(&logostart, &s_tex,
+		new Transform(Rad), (w - 939) / 2, (h - 256) / 2, 939, 256, 0, true, PAINT));
+	win.painter->Render(win.d3d, win.frustum, win.viewport, world, view, projection, ortho);
+
+	//win.text->Render(win.d3d->GetDeviceContext(), string, L"Segoe UI", (w - 939) / 2, (h - 256) / 2 + 300, 24.0f, 0xffffffff,
+	//	FW1_LEFT | FW1_TOP | FW1_RESTORESTATE);
 	win.d3d->EndScene();
+
+	Sleep(2000);
 }

@@ -10,8 +10,8 @@ namespace EPITOME
 	public:
 		inline static int Exit()
 		{
-			//glfwTerminate();
-			//EPITOME::Errors::CreateError(0, "");
+			glfwTerminate();
+			EPITOME::Errors::CreateError(0, "");
 			return true;
 		}
 	};
