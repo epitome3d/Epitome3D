@@ -9,8 +9,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 #find_package(GLUT REQUIRED)
 include_directories(${GLUT_INCLUDE_DIRS})
 link_directories(${GLUT_LIBRARY_DIRS})
-include_directories("../epitome-core")
-link_directories("../epitome-core")
+include_directories("../epitome-core/src")
+link_directories("../epitome-core/src")
 #add_definitions(${GLUT_DEFINITIONS})
 #########################################################
 # FIND OPENGL
