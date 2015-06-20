@@ -1,7 +1,7 @@
 #pragma once
 
 #include <GLFW/glfw3.h>
-#include "EPITOME-CORE/error.h" //initializes error functions
+#include "error.h" //initializes error functions
 
 namespace EPITOME
 {
