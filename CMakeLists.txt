@@ -11,8 +11,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 include_directories(include/opengl)
 link_directories(lib/opengl)
 
-include_directories(../epitome-core/src)
-link_directories(../epitome-core/src)
+include_directories(epitome-core/src)
+link_directories(epitome-core/src)
 
 #add_definitions(${GLUT_DEFINITIONS})
 #########################################################
