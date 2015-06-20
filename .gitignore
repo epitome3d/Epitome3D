@@ -6,6 +6,7 @@
 # Build results
 obj/
 bin/
+build/
 Debug/
 Release/
 VisualGDBCache/
