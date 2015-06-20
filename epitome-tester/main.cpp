@@ -2,6 +2,9 @@
 #include <iostream>
 using namespace EPITOME;
 
+//#pragma comment(lib, "freeglut.lib")
+//#pragma comment(lib, "freeglutd.lib")
+
 #define window_width 640
 #define window_height 480
 
