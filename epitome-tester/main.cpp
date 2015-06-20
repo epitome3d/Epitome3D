@@ -93,6 +93,7 @@ void Loop(GLFWwindow* window)
 #ifdef _WINDOWS
 #include <windows.h>
 #include <shellapi.h>
+#pragma comment(linker, "/subsystem:windows")
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
 	LPWSTR *szArglist;

@@ -43,7 +43,7 @@ set(E3D_TESTER_FILES
 )
 
 set(E3D_LIBRARIES
-    lib/opengl/glfw3
+    ../lib/opengl/glfw3
 )
     
 add_library(epitome-core ${E3D_CORE_FILES})
