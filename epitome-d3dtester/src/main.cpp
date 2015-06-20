@@ -21,7 +21,7 @@ bool Initialize()
 	bool f;
 
 	win = EPITOME::Window::Window();
-	if (!win.Initialize(L"Epitome3D Test", false, false, true, 1600, 900, 1000.0f, 0.1f, true))
+	if (!win.Initialize(L"Epitome3D Test", false, false, true, 1600, 900, 1000.0f, 0.1f, false))
 	{ return false; }
 	win.GetWindowSize(w, h, f);
 	
@@ -30,10 +30,9 @@ bool Initialize()
 	logostart.Initialize(win.d3d->GetDevice(), w, h);
 
 	DrawStartupText(L"Initializing models...");
-
 	
 	s_light.Initialize(win.d3d->GetDevice(), win.GetHWND());
-	m_sphere.Initialize(win.d3d->GetDevice(), "../assets/model/sphere.fbx", true);
+	m_sphere.Initialize(win.d3d->GetDevice(), "../assets/model/teapot.fbx", true);
 
 	//DrawStartupText(L"Initializing textures...");
 
