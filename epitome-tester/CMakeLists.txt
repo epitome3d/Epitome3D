@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 #########################################################
 #find_package(GLUT REQUIRED)
 
-if(GLUT_INCLUDE_DIRS})
+if(GLUT_INCLUDE_DIRS)
 	include_directories(${GLUT_INCLUDE_DIRS})
 else
 	include_directories("../include/opengl")
