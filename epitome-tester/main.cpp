@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace EPITOME;
 
+#include <GL/freeglut.h>
 //#pragma comment(lib, "freeglut.lib")
 //#pragma comment(lib, "freeglutd.lib")
 
