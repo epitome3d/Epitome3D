@@ -45,4 +45,4 @@ set(E3D_TESTER_FILES
 add_library(epitome-core ${E3D_CORE_FILES})
 add_executable(epitome-tester ${E3D_TESTER_FILES})
 
-target_link_libraries(epitome-tester ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
+target_link_libraries(epitome-tester ${E3D_LIBRARIES})
