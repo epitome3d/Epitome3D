@@ -41,6 +41,10 @@ set(E3D_TESTER_FILES
     epitome-tester/gcc_Debug.h
     epitome-tester/gcc_Release.h
 )
+
+set(E3D_LIBRARIES
+    lib/opengl/glfw3.lib
+)
     
 add_library(epitome-core ${E3D_CORE_FILES})
 add_executable(epitome-tester ${E3D_TESTER_FILES})
