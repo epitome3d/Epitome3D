@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(Epitome3D)
 
-option(E3D_ROOT "The root directory of the Epitome3D project.  Can be relative to the output folder." ../)
+#option(E3D_ROOT "The root directory of the Epitome3D project.  Can be relative to the output folder." ../)
 
 if(WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWINDOWS")
@@ -14,11 +14,9 @@ else()
 endif()
 
 if(WIN32)
-    set(E3D_LIB_EXTENSION )
     set(E3D_WIN32 WIN32) #prevents console from starting up
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-    set(E3D_LIB_EXTENSION .lib)
     set(E3D_WIN32 )
 endif()
 
@@ -41,7 +39,6 @@ set(E3D_TESTER_FILES
 )
 
 #Store location variables
-set(GLFW_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib/glfw)
 set(E3D_SOURCE ${CMAKE_CURRENT_SOURCE_DIR})
 set(E3D_BIN ${CMAKE_BINARY_DIR})
 
