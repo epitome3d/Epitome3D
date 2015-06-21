@@ -12,7 +12,7 @@ elseif(APPLE)
 elseif(UNIX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX -DUNIX")
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DUNIX")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DUNKNOWN")
 endif()
 
 if(WIN32)
