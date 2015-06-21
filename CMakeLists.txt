@@ -65,7 +65,46 @@ set(E3D_INCLUDES
 )
 include_directories(${E3D_INCLUDES})
 
+#Add Epitome Core
 add_library(epitome-core STATIC ${E3D_CORE_FILES})
 
+#Add Epitome Tester
 add_executable(epitome-tester ${E3D_WIN32} ${E3D_TESTER_FILES})
 target_link_libraries(epitome-tester ${E3D_LIBRARIES})
+
+#Set folders for Visual Studio
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_target_properties(uninstall PROPERTIES FOLDER "CMakePredefinedTargets")
+
+MACRO(FREEGLUT_ADD name)
+    IF(FREEGLUT_BUILD_DEMOS)
+        IF(FREEGLUT_BUILD_SHARED_LIBS)
+            set_target_properties(${name} PROPERTIES FOLDER "FreeGLUT/Demos")
+        ENDIF()
+        IF(FREEGLUT_BUILD_STATIC_LIBS)
+            set_target_properties(${name}_static PROPERTIES FOLDER "FreeGLUT/Demos")
+        ENDIF()
+    ENDIF()
+ENDMACRO()
+
+IF(FREEGLUT_BUILD_SHARED_LIBS)
+    set_target_properties(freeglut PROPERTIES FOLDER "FreeGLUT")
+endif()
+IF(FREEGLUT_BUILD_STATIC_LIBS)
+    set_target_properties(freeglut_static PROPERTIES FOLDER "FreeGLUT")
+endif()
+FREEGLUT_ADD(CallbackMaker)
+FREEGLUT_ADD(Fractals)
+FREEGLUT_ADD(Fractals_random)
+FREEGLUT_ADD(Lorenz)
+FREEGLUT_ADD(One)
+FREEGLUT_ADD(Resizer)
+FREEGLUT_ADD(multi-touch)
+FREEGLUT_ADD(shapes)
+FREEGLUT_ADD(smooth_opengl3)
+FREEGLUT_ADD(subwin)
+FREEGLUT_ADD(timer)
+if(LINUX)
+    FREEGLUT_ADD(spaceball)
+endif()
+
