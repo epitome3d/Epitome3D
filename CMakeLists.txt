@@ -3,12 +3,10 @@ project(Epitome3D)
 
 option(E3D_ROOT "The root directory of the Epitome3D project.  Can be relative to the output folder." ../)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
 if(WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWINDOWS")
 elseif(APPLE)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DAPPLE -DUNIX")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DMAC -DUNIX")
 elseif(UNIX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX -DUNIX")
 else()
@@ -19,6 +17,7 @@ if(WIN32)
     set(E3D_LIB_EXTENSION )
     set(E3D_WIN32 WIN32) #prevents console from starting up
 else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
     set(E3D_LIB_EXTENSION .lib)
     set(E3D_WIN32 )
 endif()
