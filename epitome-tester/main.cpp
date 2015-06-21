@@ -90,7 +90,7 @@ void Loop(GLFWwindow* window)
 	}
 }
 
-#ifdef _WINDOWS
+#ifdef WINDOWS
 #include <windows.h>
 #include <shellapi.h>
 #pragma comment(linker, "/subsystem:windows")

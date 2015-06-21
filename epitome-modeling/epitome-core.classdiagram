@@ -232,6 +232,27 @@ First, the app calls all Set*() methods then calls Init() to create the app.</bo
               <classMoniker Id="fe71a8a6-50ee-4071-86c1-d460eefc19c7" LastKnownName="Window" />
             </annotatedElements>
           </comment>
+          <comment Id="2f94bcb8-187d-4868-a96a-8748a000cac5">
+            <elementDefinition Id="49df3577-4b35-40f1-b823-709ea251cfdd" />
+          </comment>
+          <comment Id="8e35036e-baec-437b-a781-7caf5927024f">
+            <elementDefinition Id="d5e37324-581d-4924-af3e-673b949627c8" />
+            <body>Blueprints?
+3D scalable models
+Realtime!
+Dynamic Quality changes</body>
+            <annotatedElements>
+              <interfaceMoniker Id="1939387a-9fda-4e07-b77d-a4b9f59d2dec" LastKnownName="Primitives" />
+            </annotatedElements>
+          </comment>
+          <comment Id="e56ae555-b918-4c51-99c3-52d4a9d86a1a">
+            <elementDefinition Id="ac09f734-1487-41bc-8fec-34263b108913" />
+            <body>No engine has done this yet!
+SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically modified)</body>
+            <annotatedElements>
+              <interfaceMoniker Id="47fb87e8-ca45-4e48-a68c-dd13e552dbae" LastKnownName="Vector" />
+            </annotatedElements>
+          </comment>
         </ownedCommentsInternal>
         <elementDefinition Id="32b2d693-2ecc-418f-9c3e-d1c36cea2adf" />
         <packagedElements>
@@ -1583,6 +1604,16 @@ First, the app calls all Set*() methods then calls Init() to create the app.</bo
                 </operation>
               </ownedOperationsInternal>
             </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="47fb87e8-ca45-4e48-a68c-dd13e552dbae" name="Vector" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="2d0e8744-4d8a-4d28-b862-60f1689b097f" />
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="1939387a-9fda-4e07-b77d-a4b9f59d2dec" name="Primitives" isAbstract="false" isLeaf="false">
+              <elementDefinition Id="23b9be03-8682-4c28-9681-b0a923762b25" />
+            </Interface>
           </packageHasNamedElement>
         </packagedElements>
       </package>

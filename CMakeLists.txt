@@ -1,28 +1,23 @@
 cmake_minimum_required(VERSION 3.2)
-project(epitome3d)
+project(Epitome3D)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-#########################################################
-# FIND GLUT
-#########################################################
-#find_package(GLUT REQUIRED)
+if(WIN32)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWINDOWS")
+elseif(APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DAPPLE -DUNIX")
+elseif(UNIX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX -DUNIX")
+endif()
 
-include_directories(include/opengl)
-link_directories(lib/opengl)
-
-include_directories(epitome-core/src)
-link_directories(epitome-core/src)
-
-#add_definitions(${GLUT_DEFINITIONS})
-#########################################################
-# FIND OPENGL
-#########################################################
-#find_package(OpenGL REQUIRED)
-#include_directories(${OpenGL_INCLUDE_DIRS})
-#link_directories(${OpenGL_LIBRARY_DIRS})
-#add_definitions(${OpenGL_DEFINITIONS})
-#########################################################
+if(WIN32)
+    set(E3D_LIB_EXTENSION )
+    set(E3D_WIN32 WIN32) #prevents console from starting up
+else()
+    set(E3D_LIB_EXTENSION .lib)
+    set(E3D_WIN32 )
+endif()
 
 set(E3D_CORE_FILES
     epitome-core/src/EPITOME-CORE/error.cpp
@@ -43,10 +38,13 @@ set(E3D_TESTER_FILES
 )
 
 set(E3D_LIBRARIES
-    ../lib/opengl/glfw3
+    ${E3D_ROOT}lib/opengl/glfw3${E3D_LIB_EXTENSION}
 )
-    
-add_library(epitome-core ${E3D_CORE_FILES})
-add_executable(epitome-tester ${E3D_TESTER_FILES})
 
+include_directories(epitome-core/src include/opengl)
+link_directories(lib/opengl)
+    
+add_library(epitome-core STATIC ${E3D_CORE_FILES})
+
+add_executable(epitome-tester ${E3D_WIN32} ${E3D_TESTER_FILES})
 target_link_libraries(epitome-tester ${E3D_LIBRARIES})

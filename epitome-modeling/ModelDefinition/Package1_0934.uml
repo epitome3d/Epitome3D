@@ -203,6 +203,32 @@ First, the app calls all Set*() methods then calls Init() to create the app.</bo
           LastKnownLocation="Package1_0934.uml" />
       </annotatedElements>
     </comment>
+    <comment
+      Id="49df3577-4b35-40f1-b823-709ea251cfdd" />
+    <comment
+      Id="d5e37324-581d-4924-af3e-673b949627c8">
+      <body>Blueprints?
+3D scalable models
+Realtime!
+Dynamic Quality changes</body>
+      <annotatedElements>
+        <interfaceMoniker
+          Id="23b9be03-8682-4c28-9681-b0a923762b25"
+          LastKnownName="Primitives"
+          LastKnownLocation="Package1_0934.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="ac09f734-1487-41bc-8fec-34263b108913">
+      <body>No engine has done this yet!
+SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically modified)</body>
+      <annotatedElements>
+        <interfaceMoniker
+          Id="2d0e8744-4d8a-4d28-b862-60f1689b097f"
+          LastKnownName="Vector"
+          LastKnownLocation="Package1_0934.uml" />
+      </annotatedElements>
+    </comment>
   </ownedCommentsInternal>
   <packagedElements>
     <packageHasNamedElement>
@@ -2867,6 +2893,26 @@ First, the app calls all Set*() methods then calls Init() to create the app.</bo
             isQuery="false" />
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="2d0e8744-4d8a-4d28-b862-60f1689b097f"
+        name="Vector"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="23b9be03-8682-4c28-9681-b0a923762b25"
+        name="Primitives"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="f40e217a-7356-4f07-a75e-763fdc99dc6d"
+        LastKnownName="Package1"
+        LastKnownLocation="Package_2121.uml" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

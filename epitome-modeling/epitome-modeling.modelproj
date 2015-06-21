@@ -45,6 +45,9 @@
     <Content Include="ModelDefinition\Package_0937.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package_2121.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\epitome-modeling.uml">
       <SubType>Content</SubType>

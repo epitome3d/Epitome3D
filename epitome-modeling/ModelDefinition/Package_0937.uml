@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="f3209aba-1634-4844-8d7b-0556f983b693"
   name="epitome-extended" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -21,6 +21,16 @@
         <classMoniker
           Id="85e9a226-58c5-45cd-937f-81cd4cd7c7e4"
           LastKnownName="FollowCamera"
+          LastKnownLocation="Package_0937.uml" />
+      </annotatedElements>
+    </comment>
+    <comment
+      Id="ed464d1e-5db8-45a3-9881-b4c1cb17d89b">
+      <body>Target video editing</body>
+      <annotatedElements>
+        <classMoniker
+          Id="c55b336b-6798-487b-b32c-8e8c4231a86c"
+          LastKnownName="ParticleEmitter"
           LastKnownLocation="Package_0937.uml" />
       </annotatedElements>
     </comment>
@@ -213,6 +223,46 @@
       <class
         Id="85e9a226-58c5-45cd-937f-81cd4cd7c7e4"
         name="FollowCamera"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4a8be98c-69f3-487c-b0c6-e640cd224596"
+        name="Downsampling"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="23c98be0-3380-4644-a065-27175df56876"
+        name="Triangulation"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a63af3a5-cb13-4dc6-a486-1f4cb422a207"
+        name="Grass"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="618e51b7-0550-4e6d-b313-1b08c5387905"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="caee6aa7-06f2-4cab-9367-7c463ccfd894"
+        name="Fluid Dynamics"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
