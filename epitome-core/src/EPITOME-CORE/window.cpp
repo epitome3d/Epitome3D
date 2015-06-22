@@ -4,19 +4,6 @@ namespace EPITOME
 {
 	GL_Window::GL_Window(int width, int height, char* title)
 	{
-		//Initialize GLFW
-		if (!glfwInit())
-		{
-			//TODO: Improve error handling
-			fprintf(stderr, "GLFW initialization failure.\n");
-			return;
-		}
-
-		glfwWindowHint(GLFW_SAMPLES, 4);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
 		
 		if (window == NULL)
