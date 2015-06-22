@@ -17,7 +17,7 @@ namespace EPITOME
 		glfwMakeContextCurrent(window);
 	}
 
-	Window::GL_Window(const GL_Window& win)
+	Window::Window(const Window& win)
 	{
 		window = win.get_window_handle();
 	}
