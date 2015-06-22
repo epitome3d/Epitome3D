@@ -1,10 +1,8 @@
-//#include <epitome-core.h>
+#include <epitome-core.h>
 #include <iostream>
-//using namespace EPITOME;
+using namespace EPITOME;
 
 //#include <GL/freeglut.h>
-//#include <GL/glu.h>
-#define GLFW_INCLUDE_GLU
 #include <GL/glut.h>
 #include <GLFW/glfw3.h>
 
@@ -27,16 +25,13 @@ static void Key(GLFWwindow* window, int key, int scancode, int action, int mods)
 		glfwSetWindowShouldClose(window, GL_TRUE);
 }
 
-static void Error(int error, const char* description)
+static void ErrorFn(int error, const char* description)
 {
 	fputs(description, stderr);
 }
 
 GLFWwindow* Init()
 {
-	//set error function
-	glfwSetErrorCallback(Error);
-
 	//create window
 	GLFWwindow* window = glfwCreateWindow(window_width, window_height, "Tutorial 01", NULL, NULL);
 	if (!window) {
@@ -96,14 +91,14 @@ void Loop(GLFWwindow* window)
 #pragma comment(linker, "/subsystem:windows")
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
+	Initialize();
+
 	LPWSTR *szArglist;
 	int argc;
 	char** argv;
 	szArglist = CommandLineToArgvW(GetCommandLineW(), &argc);
 	argv = (char**)szArglist;
 
-	if (!glfwInit())
-		exit(EXIT_FAILURE);
 	GLFWwindow* window = Init();
 	Loop(window);
 	glfwTerminate();
@@ -114,8 +109,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 
 int main(int argc, char** argv)
 {
-	if (!glfwInit())
-		exit(EXIT_FAILURE);
+	Initialize();
+
 	GLFWwindow* window = Init();
 	Loop(window);
 	glfwTerminate();

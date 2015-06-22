@@ -1,13 +1,16 @@
 #pragma once
+#include <stdio.h>
+#include <GLFW/glfw3.h>
 
 namespace EPITOME
 {	
 	//List of errors supported by EPITOME-Core
-	enum Error
+	enum Errors
 	{
-		E3D_SUCCESS = (int)true,
-		E3D_FAILURE = (int)false,
-		E3D_UNKNOWN = -1
+		E3D_UNKNOWN = -1,
+		E3D_SUCCESS = 0,
+		E3D_FAILURE = 1,
+		E3D_FAIL_INIT_GLFW = 2
 	};
 
 	//Priority of an error.  Higher priority means more actions are taken due to the error.
@@ -23,11 +26,14 @@ namespace EPITOME
 	static const ErrorPriority E3D_ErrorMinPriority = EP_ERROR;
 
 	//An error returned by a call to Epitome's functions
-	class Errors
+	class Error sealed
 	{
 	public:
+		//The internal error function dealing with OpenGL
+		static void GLFWErrorFunction(int error, const char* description);
+
 		//Instantiate an error returned by a call to Epitome's functions.  Priority defaults to level 3 (error).
-		static void CreateError(int error, const char* description, ErrorPriority priority = EP_ERROR);
+		Error(int error, const char* description, ErrorPriority priority = EP_ERROR);
 
 		//Set an error function for Epitome.  When errors are created AND are of higher or equal priority than 
 		//E3D_ErrorMinPriority, they will pipe into the function.
@@ -38,8 +44,29 @@ namespace EPITOME
 		static void ResetErrorFunction();
 
 		//The default error function.  Custom error functions may fall back to this function by calling it.
-		static void DefaultErrorFunction(int, const char*, ErrorPriority);
+		inline static void DefaultErrorFunction(int error, const char* description, ErrorPriority priority)
+		{
+			FILE* buf = (priority >= EP_ERROR) ? stderr : stdout;
+			fputs(description, buf);
+		}
+
+		inline int getCode()
+		{
+			return error;
+		}
+		inline const char* getDescription()
+		{
+			return description;
+		}
+		inline ErrorPriority getPriority()
+		{
+			return priority;
+		}
+
 	private:
 		static void(*callback)(int, const char*, ErrorPriority); //Callback for the error function.  When an error is created, this class forwards to the callback.
+		int error;
+		const char* description;
+		ErrorPriority priority;
 	};
 }
