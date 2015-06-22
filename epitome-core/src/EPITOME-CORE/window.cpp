@@ -36,7 +36,7 @@ namespace EPITOME
 
 	GL_Window::~GL_Window()
 	{
-		glfwTerminate();
+		glfwDestroyWindow(window);
 	}
 
 	GLFWwindow* GL_Window::get_window_handle() const
