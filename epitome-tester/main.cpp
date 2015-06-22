@@ -1,10 +1,10 @@
-#include <epitome-core.h>
-#include <iostream>
-using namespace EPITOME;
-
 //#include <GL/freeglut.h>
 #include <GL/glut.h>
 #include <GLFW/glfw3.h>
+
+#include <epitome-core.h>
+#include <iostream>
+using namespace EPITOME;
 
 #define window_width 640
 #define window_height 480

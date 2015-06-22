@@ -7,12 +7,12 @@
 namespace EPITOME
 {
 	//Initializes Epitome3D components.
-	static void Initialize();
+	void Initialize();
 
 	//Destroys all Epitome3D components and exits with error code SUCCESS.
-	static void Exit();
+	void Exit();
 
 	//Destroys all Epitome3D components and exits with a custom Error instance.
 	//Will attempt to send Error to the error function and logger.
-	static void Exit(Error errorcode);
+	void Exit(Error errorcode);
 }

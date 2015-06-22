@@ -3,6 +3,7 @@ project(Epitome3D)
 
 #option(E3D_ROOT "The root directory of the Epitome3D project.  Can be relative to the output folder." ../)
 
+#set OpenGL as the renderer for now
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DOPENGL")
 
 if(WIN32)
@@ -51,6 +52,9 @@ add_subdirectory(${E3D_SOURCE}/lib/glfw/)
 #Build FreeGLUT
 add_subdirectory(${E3D_SOURCE}/lib/freeglut/freeglut/freeglut/)
 
+#Add Epitome Core
+add_library(epitome-core STATIC ${E3D_CORE_FILES})
+
 #Link all dependencies
 set(E3D_LIBRARIES
     glfw 
@@ -58,6 +62,7 @@ set(E3D_LIBRARIES
     ${OPENGL_glu_LIBRARY}
     freeglut
     ${FREEGLUT_LIBRARIES}
+    epitome-core
 )
 
 #Include headers
@@ -68,9 +73,6 @@ set(E3D_INCLUDES
     lib/freeglut/freeglut/freeglut/include
 )
 include_directories(${E3D_INCLUDES})
-
-#Add Epitome Core
-add_library(epitome-core STATIC ${E3D_CORE_FILES})
 
 #Add Epitome Tester
 add_executable(epitome-tester ${E3D_WIN32} ${E3D_TESTER_FILES})

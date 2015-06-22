@@ -9,10 +9,7 @@ namespace EPITOME
 		
 		if (window == NULL)
 		{
-			//TODO: Improve error handling here as well
-			fprintf(stderr, "GLFW window failed.\n");
-			glfwTerminate();
-			return;
+			
 		}
 		glfwMakeContextCurrent(window);
 	}

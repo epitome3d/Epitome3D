@@ -63,8 +63,9 @@ namespace EPITOME
 			return priority;
 		}
 
-	private:
 		static void(*callback)(int, const char*, ErrorPriority); //Callback for the error function.  When an error is created, this class forwards to the callback.
+
+	private:
 		int error;
 		const char* description;
 		ErrorPriority priority;
