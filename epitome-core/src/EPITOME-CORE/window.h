@@ -9,17 +9,19 @@
 
 namespace EPITOME
 {
-	class GL_Window
+	class Window
 	{
+	#if OPENGL
 	public:
-		GL_Window(int width, int height, char* title);
-		GL_Window(const GL_Window&);
-		~GL_Window();
-
+		Window(int width, int height, char* title);
+		Window(const Window&);
+		~Window();
+		
 		GLFWwindow* get_window_handle() const;
 	private:
 		GLFWwindow* window;
 	}
+	#endif
 }
 
 #endif

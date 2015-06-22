@@ -2,7 +2,8 @@
 
 namespace EPITOME
 {
-	GL_Window::GL_Window(int width, int height, char* title)
+	#if OPENGL
+	Window::Window(int width, int height, char* title)
 	{
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
 		
@@ -16,18 +17,19 @@ namespace EPITOME
 		glfwMakeContextCurrent(window);
 	}
 
-	GL_Window::GL_Window(const GL_Window& win)
+	Window::GL_Window(const GL_Window& win)
 	{
 		window = win.get_window_handle();
 	}
 
-	GL_Window::~GL_Window()
+	Window::~Window()
 	{
 		glfwDestroyWindow(window);
 	}
 
-	GLFWwindow* GL_Window::get_window_handle() const
+	GLFWwindow* Window::get_window_handle() const
 	{
 		return window;
 	}
+	#endif
 }

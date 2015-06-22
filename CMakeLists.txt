@@ -3,6 +3,8 @@ project(Epitome3D)
 
 #option(E3D_ROOT "The root directory of the Epitome3D project.  Can be relative to the output folder." ../)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DOPENGL")
+
 if(WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWINDOWS")
 elseif(APPLE)
