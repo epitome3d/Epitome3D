@@ -1,12 +1,25 @@
 #include "init.h"
 
-void EPITOME::Initialize(int argc, char** argv)
+namespace EPITOME
 {
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
-}
+	void Initialize()
+	{
+		//initialize Error class
+		Error::ResetErrorFunction();
 
-void EPITOME::Exit()
-{
-	EPITOME::System::Exit();
+		//initialize GLFW
+		if (!glfwInit())
+			Exit(Error(E3D_FAIL_INIT_GLFW, "glfwInit() failed", EP_FATAL));
+	}
+
+	void Exit()
+	{
+		Exit(Error(E3D_SUCCESS, "", EP_RESULT));
+	}
+
+	void Exit(Error error)
+	{
+		System::Exit();
+		exit(error.getCode());
+	}
 }

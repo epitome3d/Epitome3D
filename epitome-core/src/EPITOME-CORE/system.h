@@ -11,8 +11,7 @@ namespace EPITOME
 		inline static int Exit()
 		{
 			glfwTerminate();
-			EPITOME::Errors::CreateError(0, "");
-			return true;
+			return E3D_SUCCESS;
 		}
 	};
 }

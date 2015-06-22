@@ -1,13 +1,7 @@
 #pragma once
 
-#ifdef _WINDOWS
-#define WINDOWS
-#endif
+#define GLFW_INCLUDE_GLU
 
-#ifdef __gnu_linux__
-#define LINUX
-#endif
-
+#include "EPITOME-CORE/error.cpp" //initializes error functions
 #include "EPITOME-CORE/init.cpp" //functions to initialize Epitome3D
-#include "EPITOME-CORE/error.h" //initializes error functions
-#include "EPITOME-CORE/system.h" //initializes system specifications
+#include "EPITOME-CORE/system.cpp" //initializes system specifications
