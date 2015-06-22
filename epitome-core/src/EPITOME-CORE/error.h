@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 
 namespace EPITOME
-{	
+{
 	//List of errors supported by EPITOME-Core
 	enum Errors
 	{
@@ -23,14 +23,20 @@ namespace EPITOME
 		EP_RESULT = 0	//result - never throws or logs
 	};
 
+	typedef void(*E3DErrorFn)(int, const char*, ErrorPriority);
+
 	static const ErrorPriority E3D_ErrorMinPriority = EP_ERROR;
+
+	//The internal error function dealing with OpenGL
+	static void GLFWErrorFunction(int error, const char* description);
+
+	//Internal callback for the error function.  When an error is created, this class forwards to the callback.
+	static void(*_E3D_errorCallbackFn)(int, const char*, ErrorPriority); 
 
 	//An error returned by a call to Epitome's functions
 	class Error sealed
 	{
 	public:
-		//The internal error function dealing with OpenGL
-		static void GLFWErrorFunction(int error, const char* description);
 
 		//Instantiate an error returned by a call to Epitome's functions.  Priority defaults to level 3 (error).
 		Error(int error, const char* description, ErrorPriority priority = EP_ERROR);
@@ -38,7 +44,7 @@ namespace EPITOME
 		//Set an error function for Epitome.  When errors are created AND are of higher or equal priority than 
 		//E3D_ErrorMinPriority, they will pipe into the function.
 		//The callback should be a function defined as function(int error, const char* description, ErrorPriority priority).
-		static void SetErrorFunction(void(*callback)(int, const char*, ErrorPriority));
+		static void SetErrorFunction(E3DErrorFn callback);
 
 		//Set the error function to the default state.
 		static void ResetErrorFunction();
@@ -62,8 +68,6 @@ namespace EPITOME
 		{
 			return priority;
 		}
-
-		static void(*callback)(int, const char*, ErrorPriority); //Callback for the error function.  When an error is created, this class forwards to the callback.
 
 	private:
 		int error;

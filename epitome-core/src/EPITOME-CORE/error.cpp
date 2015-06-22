@@ -12,25 +12,25 @@ namespace EPITOME
 
 		if (E3D_SUCCESS) return;
 		if (priority < E3D_ErrorMinPriority) return;
-		if (callback)
+		if (_E3D_errorCallbackFn)
 		{
-			callback(error, description, priority);
+			_E3D_errorCallbackFn(error, description, priority);
 		}
 	}
 
-	void Error::SetErrorFunction(void(*cb)(int, const char*, ErrorPriority))
+	void Error::SetErrorFunction(E3DErrorFn callback)
 	{
-		callback = cb;
+		_E3D_errorCallbackFn = callback;
 	}
 
-	void Error::GLFWErrorFunction(int error, const char * description)
+	void GLFWErrorFunction(int error, const char * description)
 	{
-		callback(error, description, EP_ERROR);
+		_E3D_errorCallbackFn(error, description, EP_ERROR);
 	}
 
 	void Error::ResetErrorFunction()
 	{
-		callback = DefaultErrorFunction;
+		_E3D_errorCallbackFn = DefaultErrorFunction;
 		glfwSetErrorCallback(GLFWErrorFunction);
 	}
 	
