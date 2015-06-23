@@ -17,4 +17,15 @@ namespace EPITOME
 		Room(Room&);
 		std::vector<T*> items;
 	};
+
+	template <typename T>
+	class Disposable
+	{
+	public:
+		Disposable(T);
+		void Dispose();
+
+	private:
+		T item;
+	};
 }
