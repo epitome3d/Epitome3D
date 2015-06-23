@@ -26,5 +26,16 @@ namespace EPITOME
 	{
 		return window;
 	}
+
+	void Window::set_key_handler(GLFWkeyfun func) {
+		glfwSetKeyCallback(window, func);
+	}
+
+	size<int> Window::get_size() const {
+		int width, height;
+		glfwGetFramebufferSize(window, &width, &height);
+
+		return size<int>(width, height);
+	}
 	#endif
 }

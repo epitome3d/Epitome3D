@@ -8,6 +8,7 @@
 #include <GLFW/glfw3.h>
 
 #include "error.h"
+#include "utility.h"
 
 namespace EPITOME
 {
@@ -20,6 +21,8 @@ namespace EPITOME
 
 	#if OPENGL
 		GLFWwindow* get_window_handle() const;
+		void set_key_handler(GLFWkeyfun func);
+		size<int> get_size() const;
 	private:
 		GLFWwindow* window;
 	};
