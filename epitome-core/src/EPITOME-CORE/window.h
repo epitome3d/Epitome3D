@@ -27,8 +27,8 @@ namespace EPITOME
 
 		inline void Dispose() { this->~Window(); }
 
-	#if OPENGL
 		GLFWwindow* getWindowHandle() const;
+		void close() const;
 		bool shouldClose() const;
 		void swapBuffers();
 		void setKeyHandler(GLFWkeyfun func);
@@ -36,7 +36,6 @@ namespace EPITOME
 	private:
 		GLFWwindow* window;
 	};
-	#endif
 }
 
 #endif

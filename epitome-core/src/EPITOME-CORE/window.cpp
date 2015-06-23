@@ -53,6 +53,11 @@ namespace EPITOME
 		return glfwWindowShouldClose(window);
 	}
 
+	void Window::close() const
+	{
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	}
+
 	void Window::swapBuffers()
 	{
 		glfwSwapBuffers(window);
