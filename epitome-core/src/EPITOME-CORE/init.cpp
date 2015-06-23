@@ -9,7 +9,7 @@ namespace EPITOME
 
 		//initialize GLFW
 		if (!glfwInit())
-			Exit(Error(E3D_FAIL_INIT_GLFW, "glfwInit() failed", EP_FATAL));
+			Exit(Error(E3D_FAIL_CORE_INIT, "glfwInit() failed", EP_FATAL));
 	}
 
 	void Exit()

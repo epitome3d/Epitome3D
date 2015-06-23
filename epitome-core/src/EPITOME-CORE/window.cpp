@@ -7,7 +7,7 @@ namespace EPITOME
 	{
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
 		if (window == NULL)
-			Error::Error(E3D_FAIL_INIT_GLFW, "glfwCreateWindow() failed", EP_FATAL);
+			Error::Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
 
 		glfwMakeContextCurrent(window);
 	}
