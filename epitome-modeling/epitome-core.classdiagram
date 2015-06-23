@@ -253,6 +253,13 @@ SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically 
               <interfaceMoniker Id="47fb87e8-ca45-4e48-a68c-dd13e552dbae" LastKnownName="Vector" />
             </annotatedElements>
           </comment>
+          <comment Id="102b7ca7-8753-4c4e-ad1f-b6e37a2e2544">
+            <elementDefinition Id="5c63eb40-fd69-4dfc-888e-e0b2edf8bd09" />
+            <body>Supports video playback similar to Bink.</body>
+            <annotatedElements>
+              <classMoniker Id="631201c4-fda3-4573-ae3d-a94c916f6b9b" LastKnownName="Video" />
+            </annotatedElements>
+          </comment>
         </ownedCommentsInternal>
         <elementDefinition Id="32b2d693-2ecc-418f-9c3e-d1c36cea2adf" />
         <packagedElements>
@@ -407,6 +414,10 @@ SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically 
                 <generalization Id="acbfff81-c7ad-480b-882b-5e47ff0c4b25" isSubstitutable="false">
                   <classMoniker Id="b8a8ec69-b7c0-4784-8e19-f3e7a76593ac" LastKnownName="Viewport" />
                   <elementDefinition Id="5dffefb9-b2f3-435d-bb5a-29b0634ffb48" />
+                </generalization>
+                <generalization Id="0749a2af-b82f-4e83-8439-1653c102c132" isSubstitutable="false">
+                  <classMoniker Id="631201c4-fda3-4573-ae3d-a94c916f6b9b" LastKnownName="Video" />
+                  <elementDefinition Id="4054e732-03b9-4ed6-b6de-67322f00cfd4" />
                 </generalization>
               </generalsInternal>
               <ownedAttributesInternal>
@@ -1614,6 +1625,17 @@ SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically 
             <Interface Id="1939387a-9fda-4e07-b77d-a4b9f59d2dec" name="Primitives" isAbstract="false" isLeaf="false">
               <elementDefinition Id="23b9be03-8682-4c28-9681-b0a923762b25" />
             </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="631201c4-fda3-4573-ae3d-a94c916f6b9b" name="Video" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a4ca8b80-10c1-44c3-867f-d242bb399a41" />
+              <suppliersInternal>
+                <dependency Id="2edb59be-56cb-4316-9526-3083c937c710">
+                  <interfaceMoniker Id="64010f93-da10-4277-b7a4-69a8f81e6d3b" LastKnownName="Texture" />
+                  <elementDefinition Id="39bd2c0a-0606-40f9-88cf-a308eac45de0" />
+                </dependency>
+              </suppliersInternal>
+            </class>
           </packageHasNamedElement>
         </packagedElements>
       </package>

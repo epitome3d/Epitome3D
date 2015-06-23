@@ -229,6 +229,16 @@ SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically 
           LastKnownLocation="Package1_0934.uml" />
       </annotatedElements>
     </comment>
+    <comment
+      Id="5c63eb40-fd69-4dfc-888e-e0b2edf8bd09">
+      <body>Supports video playback similar to Bink.</body>
+      <annotatedElements>
+        <classMoniker
+          Id="a4ca8b80-10c1-44c3-867f-d242bb399a41"
+          LastKnownName="Video"
+          LastKnownLocation="Package1_0934.uml" />
+      </annotatedElements>
+    </comment>
   </ownedCommentsInternal>
   <packagedElements>
     <packageHasNamedElement>
@@ -545,6 +555,14 @@ SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically 
             <classMoniker
               Id="a2dcf428-4136-4ab2-afff-00e1fa1da586"
               LastKnownName="Viewport"
+              LastKnownLocation="Package1_0934.uml" />
+          </generalization>
+          <generalization
+            Id="4054e732-03b9-4ed6-b6de-67322f00cfd4"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a4ca8b80-10c1-44c3-867f-d242bb399a41"
+              LastKnownName="Video"
               LastKnownLocation="Package1_0934.uml" />
           </generalization>
         </generalsInternal>
@@ -2913,6 +2931,24 @@ SVG/similar -&gt; Intermediate format -&gt; Texture (quality can be dynamically 
         Id="f40e217a-7356-4f07-a75e-763fdc99dc6d"
         LastKnownName="Package1"
         LastKnownLocation="Package_2121.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a4ca8b80-10c1-44c3-867f-d242bb399a41"
+        name="Video"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="39bd2c0a-0606-40f9-88cf-a308eac45de0">
+            <interfaceMoniker
+              Id="b5fba050-af91-466e-8fec-e53593464dfd"
+              LastKnownName="Texture"
+              LastKnownLocation="Package1_0934.uml" />
+          </dependency>
+        </suppliersInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
 </package>
