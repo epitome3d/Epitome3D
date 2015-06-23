@@ -28,6 +28,8 @@ set(E3D_CORE_FILES
     epitome-core/src/EPITOME-CORE/error.h
     epitome-core/src/EPITOME-CORE/init.cpp
     epitome-core/src/EPITOME-CORE/init.h
+    epitome-core/src/EPITOME-CORE/keyboard.cpp
+    epitome-core/src/EPITOME-CORE/keyboard.h
     epitome-core/src/EPITOME-CORE/memory.cpp
     epitome-core/src/EPITOME-CORE/memory.h
     epitome-core/src/EPITOME-CORE/system.cpp

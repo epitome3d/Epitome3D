@@ -34,6 +34,7 @@ Window Init()
 	//set key callbacks
 	//TODO eventually abstract this to the Keyboard and use a frame-based system
 	//TODO User asks if the key is equal whenever they want, frm the Keyboard
+	//TODO keys are specific to the window
 	window.setKeyHandler(Key);
 
 	//get window size

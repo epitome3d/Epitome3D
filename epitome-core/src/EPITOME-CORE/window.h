@@ -9,8 +9,9 @@
 #include <GLFW/glfw3.h>
 
 #include "error.h"
-#include "utility.h"
+#include "utils.h"
 #include "memory.h"
+#include "keyboard.h"
 
 namespace EPITOME
 {

@@ -5,10 +5,15 @@ namespace EPITOME
 	#if OPENGL
 	Window::Window(int width, int height, char* title)
 	{
+		//create the window
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
 		if (window == NULL)
 			Error::Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
 
+		//bind with keyboard
+		Keyboard::AddWindow(this);
+
+		//TODO multithreading for multiple windows
 		glfwMakeContextCurrent(window);
 	}
 
