@@ -48,6 +48,16 @@ namespace EPITOME
 		return window;
 	}
 
+	bool Window::should_close() const
+	{
+		return glfwWindowShouldClose(window);
+	}
+
+	void Window::swap_buffers()
+	{
+		glfwSwapBuffers(window);
+	}
+
 	void Window::set_key_handler(GLFWkeyfun func) {
 		glfwSetKeyCallback(window, func);
 	}

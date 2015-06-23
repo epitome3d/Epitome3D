@@ -26,6 +26,8 @@ namespace EPITOME
 
 	#if OPENGL
 		GLFWwindow* get_window_handle() const;
+		bool should_close() const;
+		void swap_buffers();
 		void set_key_handler(GLFWkeyfun func);
 		size<int> get_size() const;
 	private:

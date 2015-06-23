@@ -46,9 +46,9 @@ Window Init()
 	return window;
 }
 
-void Loop(GLFWwindow* window)
+void Loop(Window window)
 {
-	while (!glfwWindowShouldClose(window))
+	while (!window.should_close())
 	{
 		//keep running
 		// Z angle
@@ -70,7 +70,7 @@ void Loop(GLFWwindow* window)
 		glColor3ub(255, 255, 000); glVertex2f(-1, -1);
 		glEnd();
 		// Swap buffers (color buffers, makes previous render visible)
-		glfwSwapBuffers(window);
+		window.swap_buffers();
 		// Increase angle to rotate
 		angle += 0.25;
 
@@ -94,7 +94,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 	argv = (char**)szArglist;
 
 	Window window = Init();
-	Loop(window.get_window_handle());
+	Loop(window);
 	glfwTerminate();
 	return 0;
 }
