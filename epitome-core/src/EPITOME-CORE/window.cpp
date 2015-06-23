@@ -14,7 +14,7 @@ namespace EPITOME
 
 	Window::Window(const Window& win)
 	{
-		window = win.get_window_handle();
+		window = win.getWindowHandle();
 	}
 
 	Window::Window(Window&& win)
