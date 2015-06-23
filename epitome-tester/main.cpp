@@ -77,35 +77,28 @@ void Loop(Window window)
 	}
 }
 
+int main(int argc, char** argv)
+{
+	Initialize();
+
+	Window window = Init();
+	Loop(window);
+	Exit();
+}
+
 #ifdef WINDOWS
 #include <windows.h>
 #include <shellapi.h>
 #pragma comment(linker, "/subsystem:windows")
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
-	Initialize();
-
 	LPWSTR *szArglist;
 	int argc;
 	char** argv;
 	szArglist = CommandLineToArgvW(GetCommandLineW(), &argc);
 	argv = (char**)szArglist;
 
-	Window window = Init();
-	Loop(window);
-	glfwTerminate();
-	return 0;
+	main(argc, argv);
 }
 
-#else
-
-int main(int argc, char** argv)
-{
-	Initialize();
-
-	Window window = Init();
-	Loop(window.get_window_handle());
-	glfwTerminate();
-	return 0;
-}
 #endif
