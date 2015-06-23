@@ -42,5 +42,5 @@ namespace EPITOME
 	}
 
 	template <typename T>
-	Disposable<T>::Dispose() {}
+	void Disposable<T>::Dispose() {}
 }
