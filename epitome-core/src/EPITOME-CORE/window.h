@@ -25,11 +25,11 @@ namespace EPITOME
 		friend void swap(Window& first, Window& second);
 
 	#if OPENGL
-		GLFWwindow* get_window_handle() const;
-		bool should_close() const;
-		void swap_buffers();
-		void set_key_handler(GLFWkeyfun func);
-		size<int> get_size() const;
+		GLFWwindow* getWindowHandle() const;
+		bool shouldClose() const;
+		void swapBuffers();
+		void setKeyHandler(GLFWkeyfun func);
+		size<int> getSize() const;
 	private:
 		GLFWwindow* window;
 	};

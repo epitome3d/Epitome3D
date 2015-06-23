@@ -43,26 +43,26 @@ namespace EPITOME
 		std::swap(first.window, second.window);
 	}
 
-	GLFWwindow* Window::get_window_handle() const
+	GLFWwindow* Window::getWindowHandle() const
 	{
 		return window;
 	}
 
-	bool Window::should_close() const
+	bool Window::shouldClose() const
 	{
 		return glfwWindowShouldClose(window);
 	}
 
-	void Window::swap_buffers()
+	void Window::swapBuffers()
 	{
 		glfwSwapBuffers(window);
 	}
 
-	void Window::set_key_handler(GLFWkeyfun func) {
+	void Window::setKeyHandler(GLFWkeyfun func) {
 		glfwSetKeyCallback(window, func);
 	}
 
-	size<int> Window::get_size() const {
+	size<int> Window::getSize() const {
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
 
