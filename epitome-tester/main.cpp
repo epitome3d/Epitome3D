@@ -1,13 +1,9 @@
-//#include <GL/freeglut.h>
-#include <EPITOME-CORE/window.h>
-
 #include <epitome-core.h>
 #include <iostream>
 using namespace EPITOME;
 
 #define window_width 640
 #define window_height 480
-
 
 //Initialize OpenGL perspective matrix
 void Setup(int width, int height)
