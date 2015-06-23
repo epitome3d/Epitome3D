@@ -1,6 +1,5 @@
 //#include <GL/freeglut.h>
-#include <GL/glut.h>
-#include <GLFW/glfw3.h>
+#include <EPITOME-CORE/window.h>
 
 #include <epitome-core.h>
 #include <iostream>
@@ -8,6 +7,7 @@ using namespace EPITOME;
 
 #define window_width 640
 #define window_height 480
+
 
 //Initialize OpenGL perspective matrix
 void Setup(int width, int height)
@@ -30,24 +30,18 @@ static void ErrorFn(int error, const char* description)
 	fputs(description, stderr);
 }
 
-GLFWwindow* Init()
+Window Init()
 {
 	//create window
-	GLFWwindow* window = glfwCreateWindow(window_width, window_height, "Tutorial 01", NULL, NULL);
-	if (!window) {
-		glfwTerminate();
-		exit(EXIT_FAILURE);
-	}
-	glfwMakeContextCurrent(window);
+	Window window(window_width, window_height, "Tutorial 01");
 
 	//set key callbacks
-	glfwSetKeyCallback(window, Key);
+	window.set_key_handler(Key);
 
 	//get window size
-	int width, height;
-	glfwGetFramebufferSize(window, &width, &height);
+	auto size = window.get_size();
 
-	Setup(width, height);
+	Setup(size.width, size.height);
 
 	return window;
 }
@@ -99,8 +93,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline,
 	szArglist = CommandLineToArgvW(GetCommandLineW(), &argc);
 	argv = (char**)szArglist;
 
-	GLFWwindow* window = Init();
-	Loop(window);
+	Window window = Init();
+	Loop(window.get_window_handle());
 	glfwTerminate();
 	return 0;
 }
@@ -111,8 +105,8 @@ int main(int argc, char** argv)
 {
 	Initialize();
 
-	GLFWwindow* window = Init();
-	Loop(window);
+	Window window = Init();
+	Loop(window.get_window_handle());
 	glfwTerminate();
 	return 0;
 }

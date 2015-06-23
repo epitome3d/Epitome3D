@@ -17,9 +17,30 @@ namespace EPITOME
 		window = win.get_window_handle();
 	}
 
+	Window::Window(Window&& win)
+	{
+		window = win.window;
+		win.window = NULL;
+	}
+
 	Window::~Window()
 	{
-		glfwDestroyWindow(window);
+		if (window)
+		{
+			glfwDestroyWindow(window);
+		}
+	}
+
+	Window& Window::operator=(Window other)
+	{
+		swap(*this, other);
+
+		return *this;
+	}
+
+	void swap(Window & first, Window & second)
+	{
+		std::swap(first.window, second.window);
 	}
 
 	GLFWwindow* Window::get_window_handle() const
