@@ -29,9 +29,11 @@ static void ErrorFn(int error, const char* description)
 Window Init()
 {
 	//create window
-	Window window(window_width, window_height, "Tutorial 01");
+	Window window(window_width, window_height, "Epitome3D Demo");
 
 	//set key callbacks
+	//TODO eventually abstract this to the Keyboard and use a frame-based system
+	//TODO User asks if the key is equal whenever they want, frm the Keyboard
 	window.setKeyHandler(Key);
 
 	//get window size

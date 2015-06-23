@@ -1,9 +1,10 @@
+#pragma once
 #include <vector>
 
 namespace EPITOME
 {
 	template <typename T>
-	class Room
+	class Room : public Disposable
 	{
 	public:
 		Room();
@@ -18,14 +19,16 @@ namespace EPITOME
 		std::vector<T*> items;
 	};
 
-	template <typename T>
-	class Disposable
+	__interface Disposable
 	{
 	public:
-		Disposable(T);
-		void Dispose();
+		virtual void Dispose() = 0;
+	};
 
-	private:
-		T item;
+	__interface Bin : public Disposable
+	{
+	public:
+		virtual void Load() = 0;
+		virtual void Unload() = 0;
 	};
 }

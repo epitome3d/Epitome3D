@@ -10,10 +10,11 @@
 
 #include "error.h"
 #include "utility.h"
+#include "memory.h"
 
 namespace EPITOME
 {
-	class Window
+	class Window : public Disposable
 	{
 	public:
 		Window(int width, int height, char* title);
@@ -23,6 +24,8 @@ namespace EPITOME
 
 		Window& operator=(Window other);
 		friend void swap(Window& first, Window& second);
+
+		inline void Dispose() { this->~Window(); }
 
 	#if OPENGL
 		GLFWwindow* getWindowHandle() const;

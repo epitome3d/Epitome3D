@@ -9,5 +9,6 @@
 #include <EPITOME-CORE/init.h> //functions to initialize Epitome3D
 #include <EPITOME-CORE/error.h> //initializes error functions
 #include <EPITOME-CORE/utility.h> //Epitome3D utilities
+#include <EPITOME-CORE/memory.h> //Memory management
 
 //lowest level (dependencies)

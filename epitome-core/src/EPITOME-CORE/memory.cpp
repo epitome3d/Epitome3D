@@ -34,13 +34,4 @@ namespace EPITOME
 		}
 		items.clear();
 	}
-
-	template <typename T>
-	Disposable<T>::Disposable(T item)
-	{
-		this->item = item;
-	}
-
-	template <typename T>
-	void Disposable<T>::Dispose() {}
 }
