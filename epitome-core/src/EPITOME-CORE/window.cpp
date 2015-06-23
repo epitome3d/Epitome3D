@@ -62,11 +62,11 @@ namespace EPITOME
 		glfwSetKeyCallback(window, func);
 	}
 
-	size<int> Window::getSize() const {
+	Size<int> Window::getSize() const {
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
 
-		return size<int>(width, height);
+		return Size<int>(width, height);
 	}
 	#endif
 }

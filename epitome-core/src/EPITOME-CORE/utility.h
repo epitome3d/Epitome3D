@@ -3,12 +3,12 @@
 /* Utility structures */
 namespace EPITOME {
 	template <typename T>
-	struct point
+	struct Point
 	{
 		T x;
 		T y;
 
-		point(T x, T y)
+		Point(T x, T y)
 		{
 			this->x = x;
 			this->y = y;
@@ -16,12 +16,12 @@ namespace EPITOME {
 	};
 
 	template <typename T>
-	struct size
+	struct Size
 	{
 		T width;
 		T height;
 
-		size(T width, T height)
+		Size(T width, T height)
 		{
 			this->width = width;
 			this->height = height;

@@ -36,10 +36,10 @@ Window Init()
 	Window window(window_width, window_height, "Tutorial 01");
 
 	//set key callbacks
-	window.set_key_handler(Key);
+	window.setKeyHandler(Key);
 
 	//get window size
-	auto size = window.get_size();
+	auto size = window.getSize();
 
 	Setup(size.width, size.height);
 
@@ -48,7 +48,7 @@ Window Init()
 
 void Loop(Window window)
 {
-	while (!window.should_close())
+	while (!window.shouldClose())
 	{
 		//keep running
 		// Z angle
@@ -70,7 +70,7 @@ void Loop(Window window)
 		glColor3ub(255, 255, 000); glVertex2f(-1, -1);
 		glEnd();
 		// Swap buffers (color buffers, makes previous render visible)
-		window.swap_buffers();
+		window.swapBuffers();
 		// Increase angle to rotate
 		angle += 0.25;
 

@@ -29,7 +29,7 @@ namespace EPITOME
 		bool shouldClose() const;
 		void swapBuffers();
 		void setKeyHandler(GLFWkeyfun func);
-		size<int> getSize() const;
+		Size<int> getSize() const;
 	private:
 		GLFWwindow* window;
 	};
