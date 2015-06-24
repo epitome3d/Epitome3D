@@ -11,6 +11,10 @@ namespace EPITOME
 	//Initializes Epitome3D components.
 	void Initialize();
 
+	//Updates the values of all Epitome3D components.
+	//This function is to be called at the end of every event loop (frame).
+	void Update();
+
 	//Destroys all Epitome3D components and exits with error code SUCCESS.
 	void Exit();
 

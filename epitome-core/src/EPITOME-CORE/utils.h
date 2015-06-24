@@ -12,12 +12,27 @@ namespace EPITOME {
 		virtual void Initialize() = 0;
 	};
 
+	/*
+	* Applies to classes that are part of the Epitome3D pipeline and require and Update() method on every event loop
+    */
+	__interface Updateable
+	{
+	public:
+		virtual void Update() = 0;
+	};
+
+	/*
+	* Applies to classes that can be disposed once
+	*/
 	__interface Disposable
 	{
 	public:
 		virtual void Dispose() = 0;
 	};
-
+	
+	/*
+	* Applies to classes that store data on disk and can be loaded and unloaded to/from memory.
+	*/
 	__interface Bin : public Disposable
 	{
 	public:

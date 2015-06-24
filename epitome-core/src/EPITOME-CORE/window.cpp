@@ -31,10 +31,10 @@ namespace EPITOME
 
 	Window::~Window()
 	{
+		Keyboard::RemoveWindow(this);
+		Mouse::RemoveWindow(this);
 		if (window)
 		{
-			Keyboard::RemoveWindow(this);
-			Mouse::RemoveWindow(this);
 			glfwDestroyWindow(window);
 		}
 	}

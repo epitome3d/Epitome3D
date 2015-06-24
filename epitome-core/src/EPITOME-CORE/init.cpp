@@ -15,6 +15,13 @@ namespace EPITOME
 		Keyboard::Initialize();
 	}
 
+	void Update()
+	{
+		glfwPollEvents();
+
+		Keyboard::Update();
+	}
+
 	void Exit()
 	{
 		Exit(Error(E3D_SUCCESS, "", EP_RESULT));

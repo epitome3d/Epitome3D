@@ -5,6 +5,8 @@ using namespace EPITOME;
 #define window_width 640
 #define window_height 480
 
+Window* mainwindow;
+
 //Initialize OpenGL perspective matrix
 void Setup(int width, int height)
 {
@@ -15,10 +17,10 @@ void Setup(int width, int height)
 	glMatrixMode(GL_MODELVIEW);
 }
 
-static void Key(GLFWwindow* window, int key, int scancode, int action, int mods)
+static void E3DKey(Keys key, KeyState state)
 {
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GL_TRUE);
+	if (key == KEY_ESCAPE && state == KEYS_PRESSED)
+		mainwindow->close();
 }
 
 static void ErrorFn(int error, const char* description)
@@ -26,28 +28,25 @@ static void ErrorFn(int error, const char* description)
 	fputs(description, stderr);
 }
 
-Window Init()
+void Init()
 {
 	//create window
-	Window window(window_width, window_height, "Epitome3D Demo");
+	mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
 
 	//set key callbacks
-	//TODO eventually abstract this to the Keyboard and use a frame-based system
-	//TODO User asks if the key is equal whenever they want, frm the Keyboard
-	//TODO keys are specific to the window
-	window.setKeyHandler(Key);
+	//TODO keys are specific to the window?
+	//window.setKeyHandler(Key);
+	Keyboard::onReleased(KEY_ESCAPE, E3DKey);
 
 	//get window size
-	auto size = window.getSize();
+	auto size = mainwindow->getSize();
 
 	Setup(size.width, size.height);
-
-	return window;
 }
 
-void Loop(Window window)
+void Loop()
 {
-	while (!window.shouldClose())
+	while (!mainwindow->shouldClose())
 	{
 		//keep running
 		// Z angle
@@ -78,7 +77,10 @@ void Loop(Window window)
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);
-		glColor3f(0.0, 1.0, 0.0);
+
+		GLfloat b = (Keyboard::isPressedOrHeld(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
+
+		glColor3f(0.0, 1.0, b);
 		glBegin(GL_POLYGON);
 		glVertex3f(mPos.x-2, mPos.y-2, -50);
 		glVertex3f(mPos.x+2, mPos.y-2, -50);
@@ -86,22 +88,29 @@ void Loop(Window window)
 		glVertex3f(mPos.x-2, mPos.y+2, -50);
 		glEnd();
 		// Swap buffers (color buffers, makes previous render visible)
-		window.swapBuffers();
+		mainwindow->swapBuffers();
 		// Increase angle to rotate
 		angle += 0.25;
 
 		//checks for events
-		glfwPollEvents();
+		Update();
 	}
+}
+
+void Dispose()
+{
+	delete mainwindow; //will call the destructor and the Dispose() method
 }
 
 int main(int argc, char** argv)
 {
-	Initialize();
+	EPITOME::Initialize();
 
-	Window window = Init();
-	Loop(window);
-	Exit();
+	Init();
+	Loop();
+	Dispose();
+
+	EPITOME::Exit();
 }
 
 #ifdef WINDOWS
