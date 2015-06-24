@@ -71,10 +71,13 @@ namespace EPITOME
 		//add key to update queue - update next frame
 		_key_eventqueue.push_back(loc);
 
-		//send key to upstream function, if set
+		//send key to upstream function, if set AND if the current state matches the function states
 		E3DKeyFunction fn = _key_function[loc].fn;
 		if (fn != NULL)
-			fn((EPITOME::Keys)loc, _key_states[loc]);
+		{
+			if ((_key_function[loc].states & _key_states[loc]) > 0)
+				fn((EPITOME::Keys)loc, _key_states[loc]);
+		}
 	}
 
 	KeyState Keyboard::getState(Keys key)
