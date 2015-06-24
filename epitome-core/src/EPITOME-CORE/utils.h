@@ -3,6 +3,12 @@
 /* Utility structures */
 namespace EPITOME {
 
+	__interface Initializable
+	{
+	public:
+		virtual void Initialize() = 0;
+	};
+
 	__interface Disposable
 	{
 	public:

@@ -33,8 +33,9 @@ namespace EPITOME
 	{
 		if (window)
 		{
-			glfwDestroyWindow(window);
+			Keyboard::RemoveWindow(this);
 			Mouse::RemoveWindow(this);
+			glfwDestroyWindow(window);
 		}
 	}
 
@@ -57,7 +58,7 @@ namespace EPITOME
 
 	bool Window::shouldClose() const
 	{
-		return glfwWindowShouldClose(window);
+		return (glfwWindowShouldClose(window) == 1);
 	}
 
 	void Window::close() const

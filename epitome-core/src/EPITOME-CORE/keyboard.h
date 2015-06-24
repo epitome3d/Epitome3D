@@ -15,7 +15,7 @@ namespace EPITOME
 
 	typedef void(*E3DKeyFunction)(Keys, KeyState, Window);
 
-	class Keyboard
+	static class Keyboard
 	{
 	public:
 		//TODO Set up the internal vectors here
@@ -23,6 +23,9 @@ namespace EPITOME
 
 		//Add a window to the key manager
 		static void AddWindow(Window* window);
+
+		//Remove a window from the key manager
+		static void RemoveWindow(Window* window);
 
 		//Get the state of a key pressed on a particular window
 		static KeyState getState(Window window, Keys key);
@@ -33,9 +36,8 @@ namespace EPITOME
 		//Calls a function when a key is pressed
 		static bool onPressed(Window window, Keys key, E3DKeyFunction fn);
 
+		//Calls a function when a key is released
 		static bool onReleased(Window window, Keys key, E3DKeyFunction fn);
-
-		static bool onHeldFor(Window window, Keys key, long ms, E3DKeyFunction fn);
 
 		//Clears a function from all keys
 		//TODO removeKeyFunction()
@@ -50,5 +52,7 @@ namespace EPITOME
 
 		static vector<KeyState> _key_states;
 		static vector<void*> _key_function;
+
+		static vector<short> _key_lookup_GLFW;
 	};
 }

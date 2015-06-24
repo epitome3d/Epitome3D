@@ -16,6 +16,9 @@
 
 namespace EPITOME
 {
+	class Window;
+	typedef void (*E3DWindowFunction)(Window);
+
 	class Window : public Disposable
 	{
 	public:
@@ -28,6 +31,9 @@ namespace EPITOME
 		friend void swap(Window& first, Window& second);
 
 		inline void Dispose() { this->~Window(); }
+
+		void onResize(E3DWindowFunction fn);
+		void onClose(E3DWindowFunction fn);
 
 		GLFWwindow* getWindowHandle() const;
 		void close() const;
