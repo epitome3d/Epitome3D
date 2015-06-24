@@ -82,29 +82,29 @@ namespace EPITOME
 		return _key_states[key];
 	}
 
-	bool Keyboard::isPressed(Keys key)
+	bool Keyboard::isKeyPressed(Keys key)
 	{
 		KeyState state = getState(key);
 		return (state == KeyState::KEYS_PRESSED);
 	}
-	bool Keyboard::isPressedOrHeld(Keys key)
+	bool Keyboard::isKeyDown(Keys key)
 	{
 		KeyState state = getState(key);
 		return (state == KeyState::KEYS_PRESSED || state == KeyState::KEYS_HELD);
 	}
 
-	bool Keyboard::isReleased(Keys key)
+	bool Keyboard::isKeyReleased(Keys key)
 	{
 		KeyState state = getState(key);
 		return (state == KeyState::KEYS_RELEASED);
 	}
 
-	void Keyboard::onPressed(Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyPressed(Keys key, E3DKeyFunction fn)
 	{
 		_registerFunction(key, fn, KeyState::KEYS_PRESSED);
 	}
 
-	void Keyboard::onReleased(Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyReleased(Keys key, E3DKeyFunction fn)
 	{
 		_registerFunction(key, fn, KeyState::KEYS_RELEASED);
 	}

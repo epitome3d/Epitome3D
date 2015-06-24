@@ -36,7 +36,7 @@ void Init()
 	//set key callbacks
 	//TODO keys are specific to the window?
 	//window.setKeyHandler(Key);
-	Keyboard::onReleased(KEY_ESCAPE, E3DKey);
+	Keyboard::onKeyReleased(KEY_ESCAPE, E3DKey);
 
 	//get window size
 	auto size = mainwindow->getSize();
@@ -78,7 +78,7 @@ void Loop()
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		GLfloat b = (Keyboard::isPressedOrHeld(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
+		GLfloat b = (Keyboard::isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
 
 		glColor3f(0.0, 1.0, b);
 		glBegin(GL_POLYGON);

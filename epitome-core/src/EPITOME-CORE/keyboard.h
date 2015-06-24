@@ -49,7 +49,6 @@ namespace EPITOME
 	 Thoughts?
 	 */
 	typedef void(*E3DKeyFunction)(Keys, KeyState);
-	typedef void(*E3DKeyFunction)(Keys, KeyState);
 
 	struct E3DKeyFunctionState
 	{
@@ -84,20 +83,20 @@ namespace EPITOME
 		//Get the state of a key pressed
 		static KeyState getState(Keys key);
 
+		//Test if a key was just pressed
+		static bool isKeyPressed(Keys key);
+
 		//Test if a key is pressed
-		static bool isPressed(Keys key);
+		static bool isKeyDown(Keys key);
 
-		//Test if a key is pressed or held down
-		static bool isPressedOrHeld(Keys key);
-
-		//Test if a key is pressed or held down
-		static bool isReleased(Keys key);
+		//Test if a key was just released
+		static bool isKeyReleased(Keys key);
 
 		//Calls a function when a key is pressed
-		static void onPressed(Keys key, E3DKeyFunction fn);
+		static void onKeyPressed(Keys key, E3DKeyFunction fn);
 
 		//Calls a function when a key is released
-		static void onReleased(Keys key, E3DKeyFunction fn);
+		static void onKeyReleased(Keys key, E3DKeyFunction fn);
 
 		//Clears a function from all keys
 		//TODO removeKeyFunction()
