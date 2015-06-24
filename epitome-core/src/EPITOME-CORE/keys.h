@@ -2,6 +2,11 @@
 
 namespace EPITOME
 {
+	/* 
+	 * KeyState codes mirrors GLFW macros,
+	 * except for NOTPRESSED, which doesn't
+	 * exist in GLFW
+	 */
 	enum KeyState
 	{
 		KEYS_NOTPRESSED = 1,

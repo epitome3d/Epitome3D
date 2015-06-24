@@ -22,7 +22,7 @@ namespace EPITOME
 		}
 		_key_eventqueue.clear();
 	}
-
+		
 	void Keyboard::Update()
 	{
 		for each (short key in _key_eventqueue)
@@ -35,7 +35,7 @@ namespace EPITOME
 				_key_states[key] = KeyState::KEYS_HELD;
 			if (state == KeyState::KEYS_RELEASED)
 				_key_states[key] = KeyState::KEYS_NOTPRESSED;
-		}
+	}
 
 		//reset event queue
 		_key_eventqueue.clear();
@@ -47,7 +47,7 @@ namespace EPITOME
 		if (!fn)
 			Error(E3D_FAIL_CORE_INIT, "glfwSetKeyCallback() failed");
 	}
-	
+
 	void Keyboard::RemoveWindow(Window * window)
 	{
 		glfwSetKeyCallback(window->getWindowHandle(), NULL);
