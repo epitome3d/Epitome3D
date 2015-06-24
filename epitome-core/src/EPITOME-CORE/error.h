@@ -23,7 +23,7 @@ namespace EPITOME
 		EP_RESULT = 0	//result - never throws or logs
 	};
 
-	typedef void(*E3DErrorFn)(int, const char*, ErrorPriority);
+	typedef void(*E3DErrorFunction)(int, const char*, ErrorPriority);
 
 	static const ErrorPriority E3D_ErrorMinPriority = EP_ERROR;
 
@@ -44,7 +44,7 @@ namespace EPITOME
 		//Set an error function for Epitome.  When errors are created AND are of higher or equal priority than 
 		//E3D_ErrorMinPriority, they will pipe into the function.
 		//The callback should be a function defined as function(int error, const char* description, ErrorPriority priority).
-		static void SetErrorFunction(E3DErrorFn callback);
+		static void SetErrorFunction(E3DErrorFunction callback);
 
 		//Set the error function to the default state.
 		static void ResetErrorFunction();

@@ -2,6 +2,14 @@
 
 namespace EPITOME
 {
+	enum KeyState
+	{
+		KEYS_NOTPRESSED = 0,
+		KEYS_PRESSED = 1,
+		KEYS_HELD = 2,
+		KEYS_RELEASED = 3
+	};
+
 	enum Keys
 	{
 		KEY_UNKNOWN = -1,

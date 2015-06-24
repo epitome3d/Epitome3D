@@ -18,7 +18,7 @@ namespace EPITOME
 		}
 	}
 
-	void Error::SetErrorFunction(E3DErrorFn callback)
+	void Error::SetErrorFunction(E3DErrorFunction callback)
 	{
 		_E3D_errorCallbackFn = callback;
 	}
