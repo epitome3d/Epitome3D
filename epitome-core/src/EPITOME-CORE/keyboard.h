@@ -4,6 +4,8 @@
 #include "window.h"
 #include "keys.h"
 #include <GLFW/glfw3.h>
+#include <vector>
+using namespace std;
 
 namespace EPITOME
 {
@@ -11,39 +13,42 @@ namespace EPITOME
 
 	class Window; //forward declaration of Window to solve circular reference issues
 
-	typedef void(*E3DKeyFunction0)();
-	typedef void(*E3DKeyFunction1)(Keys);
-	typedef void(*E3DKeyFunction2)(Keys, KeyState);
-	typedef void(*E3DKeyFunction3)(Keys, KeyState, Window);
+	typedef void(*E3DKeyFunction)(Keys, KeyState, Window);
 
 	class Keyboard
 	{
 	public:
+		//TODO Set up the internal vectors here
+		static void Initialize();
+
 		//Add a window to the key manager
 		static void AddWindow(Window* window);
 
 		//Get the state of a key pressed on a particular window
 		static KeyState getState(Window window, Keys key);
+
 		//Test if a key is pressed
 		static bool isPressed(Window window, Keys key);
 
-		//Get the character equivalent of a key
-		//Includes modifiers
-		static char getChar(Window window, Keys key);
-		
 		//Calls a function when a key is pressed
-		template<typename T>
-		static bool onPressed(Window window, Keys key, T fn);
+		static bool onPressed(Window window, Keys key, E3DKeyFunction fn);
+
+		static bool onReleased(Window window, Keys key, E3DKeyFunction fn);
+
+		static bool onHeldFor(Window window, Keys key, long ms, E3DKeyFunction fn);
+
+		//Clears a function from all keys
+		//TODO removeKeyFunction()
+		//TODO removeAllKeyFunctions()
+
+		//TODO Get the character equivalent of a key - possible? useful?
+		//static char getChar(Window window, Keys key);
+
 	private:
 		//interal key function
 		static void GLFWKeyFunction(GLFWwindow*, int, int, int, int);
 
-		//list of keys and functions
+		static vector<KeyState> _key_states;
+		static vector<void*> _key_function;
 	};
-	template <typename T>
-	inline bool Keyboard::onPressed(Window window, Keys key, T fn)
-	{
-		static_assert(std::is_void<()>::value || std::is_void<(Window, Keys)>::value, "onPressed: function T must be an E3DKeyFunction");
-		
-	}
 }
