@@ -31,13 +31,15 @@ set(E3D_CORE_FILES
     epitome-core/src/EPITOME-CORE/keyboard.cpp
     epitome-core/src/EPITOME-CORE/keyboard.h
     epitome-core/src/EPITOME-CORE/keys.h
+    epitome-core/src/EPITOME-CORE/mouse.cpp
+    epitome-core/src/EPITOME-CORE/mouse.h
     epitome-core/src/EPITOME-CORE/memory.cpp
     epitome-core/src/EPITOME-CORE/memory.h
     epitome-core/src/EPITOME-CORE/system.cpp
     epitome-core/src/EPITOME-CORE/system.h
     epitome-core/src/EPITOME-CORE/window.cpp
     epitome-core/src/EPITOME-CORE/window.h
-    epitome-core/src/EPITOME-CORE/utility.h
+    epitome-core/src/EPITOME-CORE/utils.h
     epitome-core/src/epitome-core.h
     epitome-core/gcc_Debug.h
     epitome-core/gcc_Release.h

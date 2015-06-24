@@ -55,7 +55,9 @@ void Loop(Window window)
 		// Clear color (screen)
 		// And depth (used internally to block obstructed objects)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		// Load identity matrix
+
+		// BEGIN OLD CODE (to be reimplemented once demo viewed)
+		/*//Load identity matrix
 		glLoadIdentity();
 		// Multiply in translation matrix
 		glTranslatef(0, 0, -10);
@@ -67,6 +69,20 @@ void Loop(Window window)
 		glColor3ub(000, 255, 000); glVertex2f(1, 1);
 		glColor3ub(000, 000, 255); glVertex2f(1, -1);
 		glColor3ub(255, 255, 000); glVertex2f(-1, -1);
+		glEnd();*/
+		// END OLD CODE
+
+		// Inefficient/sloppy at the moment, for demonstration purposes
+		Point<double> mPos = EPITOME::Mouse::getMousePosition();
+		mPos.x = (mPos.x - 320) / 12;
+		mPos.y = (-mPos.y + 230) / 12;
+		glClear(GL_COLOR_BUFFER_BIT);
+		glColor3f(0.0, 1.0, 0.0);
+		glBegin(GL_POLYGON);
+		glVertex3f(mPos.x-2, mPos.y-2, -50);
+		glVertex3f(mPos.x+2, mPos.y-2, -50);
+		glVertex3f(mPos.x+2, mPos.y+2, -50);
+		glVertex3f(mPos.x-2, mPos.y+2, -50);
 		glEnd();
 		// Swap buffers (color buffers, makes previous render visible)
 		window.swapBuffers();

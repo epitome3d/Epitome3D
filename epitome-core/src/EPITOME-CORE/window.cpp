@@ -10,8 +10,9 @@ namespace EPITOME
 		if (window == NULL)
 			Error::Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
 
-		//bind with keyboard
+		//bind with keyboard and mouse
 		Keyboard::AddWindow(this);
+		Mouse::AddWindow(this);
 
 		//TODO multithreading for multiple windows
 		glfwMakeContextCurrent(window);
@@ -33,6 +34,7 @@ namespace EPITOME
 		if (window)
 		{
 			glfwDestroyWindow(window);
+			Mouse::RemoveWindow(this);
 		}
 	}
 

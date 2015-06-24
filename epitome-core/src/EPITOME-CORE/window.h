@@ -12,6 +12,7 @@
 #include "utils.h"
 #include "memory.h"
 #include "keyboard.h"
+#include "mouse.h"
 
 namespace EPITOME
 {
