@@ -10,6 +10,9 @@ namespace EPITOME
 		//initialize GLFW
 		if (!glfwInit())
 			Exit(Error(E3D_FAIL_CORE_INIT, "glfwInit() failed", EP_FATAL));
+
+		//initialize classes
+		Keyboard::Initialize();
 	}
 
 	void Exit()

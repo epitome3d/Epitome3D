@@ -3,6 +3,9 @@
 /* Utility structures */
 namespace EPITOME {
 
+	/*
+	* Applies to classes that must only initialize once
+	*/
 	__interface Initializable
 	{
 	public:
@@ -33,6 +36,11 @@ namespace EPITOME {
 		{
 			this->x = x;
 			this->y = y;
+		}
+		Point(const Point &other)
+		{
+			this->x = other.x;
+			this->y = other.y;
 		}
 	};
 

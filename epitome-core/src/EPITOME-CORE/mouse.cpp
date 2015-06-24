@@ -2,10 +2,9 @@
 
 namespace EPITOME
 {
-	void Mouse::Initialize()
-	{
-		m_mouseLoc = Point<double>(0.0, 0.0);
-	}
+	Point<double> Mouse::m_mouseLoc = Point<double>(0.0, 0.0);
+	std::vector<Window*> Mouse::m_winVec = std::vector<Window*>();
+
 	void Mouse::AddWindow(Window* w)
 	{
 		glfwSetCursorPosCallback(w->getWindowHandle(), m_callback);

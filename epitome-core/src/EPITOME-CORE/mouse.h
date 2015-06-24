@@ -11,23 +11,22 @@ namespace EPITOME
 	/* Forward declaration to prevent circular references */
 	class Window;
 
-	//TODO is using the static keyword OK here?
-	static class Mouse : public Initializable
+	class Mouse
 	{
 	public:
-		//TODO should this be Mouse() instead?
-		static void Initialize();
 
 		static void AddWindow(Window* w);
 
 		static void RemoveWindow(Window* w);
 
-		//TODO I'm worried this might mess up when using multiple monitors and multiple windows
-		//TODO Make this function NOT global, but with a Window parameter?
 		static Point<double> getMousePosition();
-	private:
-		//TODO specify by Window's address?
-		//vector<Window*> and vector<Point<double>>
+
+		/* 
+		 * These are never to be used, only accessed through whatever get methods may exist.
+		 * A better method for encapsulation should be discussed, however I am reluctant to
+		 * make Mouse a class, because it should only ever need to be initialized once, if
+		 * the one mouse object model is to be used.
+		 */
 		static Point<double> m_mouseLoc;
 		static std::vector<Window*> m_winVec;
 		static void m_callback(GLFWwindow* window, double xpos, double ypos);

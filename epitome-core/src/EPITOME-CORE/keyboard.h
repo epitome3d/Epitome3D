@@ -15,7 +15,7 @@ namespace EPITOME
 
 	typedef void(*E3DKeyFunction)(Keys, KeyState, Window);
 
-	static class Keyboard
+	class Keyboard : public Initializable
 	{
 	public:
 		//TODO Set up the internal vectors here

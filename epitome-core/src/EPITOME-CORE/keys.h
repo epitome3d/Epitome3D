@@ -135,6 +135,9 @@ namespace EPITOME
 		KEY_RIGHT_CONTROL = 116,
 		KEY_RIGHT_ALT = 117,
 		KEY_RIGHT_SUPER = 118,
-		KEY_MENU = 119
+		KEY_MENU = 119,
+		KEY_LAST = KEY_MENU
 	};
+
+	const short KEYS_COUNT = (short)KEY_LAST + 1;
 }

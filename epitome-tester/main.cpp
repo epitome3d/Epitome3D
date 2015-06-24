@@ -73,6 +73,7 @@ void Loop(Window window)
 		// END OLD CODE
 
 		// Inefficient/sloppy at the moment, for demonstration purposes
+
 		Point<double> mPos = EPITOME::Mouse::getMousePosition();
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;

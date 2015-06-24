@@ -6,6 +6,7 @@ namespace EPITOME
 	{
 		
 	}
+
 	void Keyboard::AddWindow(Window* window)
 	{
 		GLFWkeyfun fn = glfwSetKeyCallback(window->getWindowHandle(), GLFWKeyFunction);

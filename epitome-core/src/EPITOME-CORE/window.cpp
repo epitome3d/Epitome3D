@@ -58,7 +58,7 @@ namespace EPITOME
 
 	bool Window::shouldClose() const
 	{
-		return (glfwWindowShouldClose(window) == 1);
+		return (glfwWindowShouldClose(window) != 0);
 	}
 
 	void Window::close() const
