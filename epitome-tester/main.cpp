@@ -33,14 +33,15 @@ static void ErrorFn(int error, const char* description)
 
 static void ResizeFn(Window& win, Size<int> s)
 {
-
+	MessageBox(NULL, "Second onResize!", "ANOTHER", MB_OK);
+	return;
 }
 
 void Init()
 {
 	//create window
 	mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
-	mainwindow->onResize(ResizeFn);
+	//mainwindow->onResize(ResizeFn);
 
 	secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND Window");
 	secondwindow->onResize(ResizeFn);
@@ -51,7 +52,7 @@ void Init()
 #else
 		std::cout << "I'm preventing you from resizing any faster than incrementally! \
 Oh wait, just kidding, there's no MessageBox in your way in this version. \
-But there is something better: 30fps frame updates!" << std::endl;
+But there is something better: VSync!" << std::endl;
 #endif
 	});
 
