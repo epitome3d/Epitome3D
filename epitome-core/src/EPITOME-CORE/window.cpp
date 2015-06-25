@@ -51,6 +51,16 @@ namespace EPITOME
 		//TODO test if window resized here
 	}
 
+	void Window::onResize(E3DWindowFunction fn)
+	{
+		
+	}
+
+	bool Window::isSizeChanged() const
+	{
+		return m_isResized;
+	}
+
 	void swap(Window & first, Window & second)
 	{
 		std::swap(first.window, second.window);
@@ -61,6 +71,10 @@ namespace EPITOME
 		return window;
 	}
 
+	void Window::onClose(E3DWindowFunction fn)
+	{
+	}
+
 	bool Window::isClosing() const
 	{
 		return (glfwWindowShouldClose(window) != 0);
@@ -69,6 +83,24 @@ namespace EPITOME
 	void Window::close() const
 	{
 		glfwSetWindowShouldClose(window, GL_TRUE);
+	}
+
+	bool Window::isFullscreen() const
+	{
+		return false;
+	}
+
+	void Window::setFullscreen(bool fullscreen)
+	{
+	}
+
+	char * Window::getTitle() const
+	{
+		return nullptr;
+	}
+
+	void Window::setTitle(const char * title)
+	{
 	}
 
 	void Window::swapBuffers()

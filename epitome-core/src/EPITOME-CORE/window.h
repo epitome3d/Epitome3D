@@ -69,6 +69,7 @@ namespace EPITOME
 		void setKeyHandler(GLFWkeyfun func);
 	private:
 		GLFWwindow* window;
+		bool m_isResized;
 	};
 }
 
