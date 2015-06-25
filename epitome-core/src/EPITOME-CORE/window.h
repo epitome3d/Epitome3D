@@ -45,7 +45,7 @@ namespace EPITOME
 		void setFullscreen(bool fullscreen);
 
 		char* getTitle() const;
-		void setTitle(const char* title);
+		void setTitle(char* title);
 
 		//TODO decrease the number of methods here?
 		bool isMinimized() const;
@@ -70,6 +70,7 @@ namespace EPITOME
 	private:
 		GLFWwindow* window;
 		bool m_isResized;
+		char* m_title; //required b/c can't get title through GLFW
 	};
 }
 

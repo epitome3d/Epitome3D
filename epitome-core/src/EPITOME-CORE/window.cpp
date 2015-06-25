@@ -96,13 +96,15 @@ namespace EPITOME
 
 	char * Window::getTitle() const
 	{
-		return nullptr;
+		return m_title;
 	}
 
-	void Window::setTitle(const char * title)
+	void Window::setTitle(char * title)
 	{
+		m_title = title;
+		glfwSetWindowTitle(window, title);
 	}
-
+	
 	void Window::swapBuffers()
 	{
 		glfwSwapBuffers(window);
