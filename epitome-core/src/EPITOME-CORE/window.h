@@ -19,7 +19,7 @@ namespace EPITOME
 {
 	class Window;
 	typedef void (*E3DWindowFunction)(Window&);
-	typedef void(*E3DWindowResizeFunction)(Window&, Size<int>);
+	typedef std::function<void(Window&, Size<int>)> E3DWindowResizeFunction;
 	typedef std::unordered_map<GLFWwindow*, Window*, std::function<std::size_t(GLFWwindow*)>, std::function<bool(GLFWwindow*, GLFWwindow*)>> WINDOW_MAP_TYPE;
 
 	std::size_t GLFW_WINDOW_TO_SIZE_T(GLFWwindow* win);
@@ -40,7 +40,7 @@ namespace EPITOME
 		inline void Dispose() { this->~Window(); }
 		void Update();
 
-		void onResize(E3DWindowFunction fn);
+		void onResize(E3DWindowResizeFunction fn);
 		bool isSizeChanged() const;
 		Size<int> getSize() const;
 
@@ -74,11 +74,14 @@ namespace EPITOME
 		void swapBuffers();
 		//TODO delete this method?  Replace with an instance of Keyboard?
 		void setKeyHandler(GLFWkeyfun func);
+
+		friend void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height);
 	private:
 		unsigned int reference_num;
 		GLFWwindow* window;
 		bool m_isResized;
 		char* m_title; //required b/c can't get title through GLFW
+		E3DWindowResizeFunction m_resizeFunction;
 	};
 }
 

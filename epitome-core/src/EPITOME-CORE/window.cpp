@@ -1,5 +1,4 @@
 #include "window.h"
-#include <Windows.h>
 
 namespace EPITOME
 {
@@ -90,9 +89,10 @@ namespace EPITOME
 		//TODO test if window resized here
 	}
 
-	void Window::onResize(E3DWindowFunction fn)
+	void Window::onResize(E3DWindowResizeFunction fn)
 	{
-		
+		m_resizeFunction = fn;
+		glfwSetWindowSizeCallback(window, E3D_WindowResizeCallback);
 	}
 
 	bool Window::isSizeChanged() const
@@ -184,6 +184,20 @@ namespace EPITOME
 			GLFW_WINDOW_ACTIVE = window;
 			WINDOW_ACTIVE = WINDOW_MAP[window];
 		}
+	}
+
+	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height)
+	{
+		Window* win;
+		if (window == GLFW_WINDOW_ACTIVE)
+		{
+			win = WINDOW_ACTIVE;
+		}
+		else
+		{
+			win = WINDOW_MAP[window];
+		}
+		win->m_resizeFunction(*win, Size<int>(width, height));
 	}
 	#endif
 }

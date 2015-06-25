@@ -32,7 +32,13 @@ void Init()
 {
 	//create window
 	mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
-
+	mainwindow->onResize([](Window& win, Size<int> s) {
+#ifdef WINDOWS
+		MessageBox(NULL, "Hey!", "Cool beans!", MB_OK);
+#else
+		std::cout << "I'm preventing you from resizing any faster than incrementally! Oh wait, just kidding, there's no MessageBox in your way in this version." << std::endl;
+#endif
+	});
 	//set key callbacks
 	//TODO keys are specific to the window?
 	//window.setKeyHandler(Key);
