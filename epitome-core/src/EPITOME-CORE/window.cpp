@@ -61,7 +61,7 @@ namespace EPITOME
 		return window;
 	}
 
-	bool Window::shouldClose() const
+	bool Window::isClosing() const
 	{
 		return (glfwWindowShouldClose(window) != 0);
 	}
@@ -82,6 +82,8 @@ namespace EPITOME
 
 	Size<int> Window::getSize() const {
 		int width, height;
+		//TODO this is the size of the buffer, in pixels!  But should we not have a getWindowSize() in screen coordinates as well?
+		//TODO ex. fullscreen apps which have low pixel framebuffers but giant screens
 		glfwGetFramebufferSize(window, &width, &height);
 
 		return Size<int>(width, height);

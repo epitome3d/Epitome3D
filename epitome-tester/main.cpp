@@ -46,7 +46,7 @@ void Init()
 
 void Loop()
 {
-	while (!mainwindow->shouldClose())
+	while (!mainwindow->isClosing())
 	{
 		//keep running
 		// Z angle
