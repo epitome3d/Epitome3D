@@ -17,26 +17,37 @@
 
 namespace EPITOME
 {
+	//Forward declaration of class so that the below can access it
 	class Window;
+
+	//Define types of functions used as callbacks
 	typedef std::function<void(Window&)> E3DWindowFunction;
 	typedef std::function<void(Window&, Size<int>)> E3DWindowResizeFunction;
+
+	//Define class of unordered map to map windows, with custom hashing and equal functions
 	typedef std::unordered_map<GLFWwindow*, Window*, std::function<std::size_t(GLFWwindow*)>, std::function<bool(GLFWwindow*, GLFWwindow*)>> WINDOW_MAP_TYPE;
 
+	//Custom hashing and equal functions for above
 	std::size_t GLFW_WINDOW_TO_SIZE_T(GLFWwindow* win);
 	bool GLFW_WINDOW_EQUALS(GLFWwindow* one, GLFWwindow* two);
+
+	//Callback used for focus that modifies the map and active variables below
 	void E3D_WindowFocusCallback(GLFWwindow* window, int focus);
 
+	//Holds pointer to active window and active GLFW window
 	extern GLFWwindow* GLFW_WINDOW_ACTIVE;
 	extern Window* WINDOW_ACTIVE;
 
 	class Window : public Disposable
 	{
 	public:
+		//Constructors, destructors, and the like
 		Window(int width, int height, char* title);
 		Window(const Window&);
 		Window(Window&&);
 		~Window();
 
+		//Copy-and-swap idiom
 		Window& operator=(Window other);
 		friend void swap(Window& first, Window& second);
 

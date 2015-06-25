@@ -3,17 +3,23 @@
 namespace EPITOME
 {
 	#if OPENGL
+	//Defining active window variables
 	Window* WINDOW_ACTIVE = nullptr;
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
 	
+	//Initializing the window map
 	WINDOW_MAP_TYPE::size_type WINDOW_MAP_DEFAULT_SIZE = 5;
 	WINDOW_MAP_TYPE WINDOW_MAP = WINDOW_MAP_TYPE(WINDOW_MAP_DEFAULT_SIZE, GLFW_WINDOW_TO_SIZE_T, GLFW_WINDOW_EQUALS);
 
+	//Converts GLFW_Window ptr to size_t as a psuedo-hashing function
+	//TODO: Improved version most likely needed
 	std::size_t GLFW_WINDOW_TO_SIZE_T(GLFWwindow* win)
 	{
 		return (std::size_t)win;
 	}
 
+	//Is one window pointer equal to another?
+	//Used because equality callback is mandatory w/ unordered_map
 	bool GLFW_WINDOW_EQUALS(GLFWwindow* one, GLFWwindow* two)
 	{
 		return one == two;
@@ -45,6 +51,9 @@ namespace EPITOME
 		glfwMakeContextCurrent(window);
 	}
 
+	//Copy constructor
+	//Currently has few, if any, acceptable uses
+	//Soon to be deprecated
 	Window::Window(const Window& win)
 	{
 		reference_num = win.reference_num + 1;
@@ -52,6 +61,9 @@ namespace EPITOME
 		m_title = win.m_title;
 	}
 
+	//Move constructor
+	//Extracts life force of another window
+	//and puts it into this one.
 	Window::Window(Window&& win)
 	{
 		WINDOW_MAP[window] = this;
@@ -63,6 +75,7 @@ namespace EPITOME
 		win.m_title = NULL;
 	}
 
+	//The window is about to die
 	Window::~Window()
 	{
 		//Pointer is valid and this is the original refrence to window
@@ -106,16 +119,6 @@ namespace EPITOME
 	void swap(Window & first, Window & second)
 	{
 		std::swap(first.window, second.window);
-	}
-
-	bool GLFW_WINDOW_PTR_EQUAL_TO(GLFWwindow * one, GLFWwindow * two)
-	{
-		return one == two;
-	}
-
-	std::size_t GLFW_WINDOW_PTR_TO_SIZE_T(GLFWwindow* win)
-	{
-		return (std::size_t)win;
 	}
 
 	void Window::onChangeFocus(E3DWindowFunction fn)
