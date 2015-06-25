@@ -73,10 +73,10 @@ namespace EPITOME
 
 		//send key to upstream function, if set AND if the current state matches the function states
 		E3DKeyFunction fn = _key_function[loc].fn;
-		if (fn != NULL)
+		if (fn != NULL && window == GLFW_WINDOW_ACTIVE)
 		{
 			if ((_key_function[loc].states & _key_states[loc]) > 0)
-				fn((EPITOME::Keys)loc, _key_states[loc]);
+				fn(*WINDOW_ACTIVE, (EPITOME::Keys)loc, _key_states[loc]);
 		}
 	}
 

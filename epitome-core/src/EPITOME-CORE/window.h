@@ -26,6 +26,9 @@ namespace EPITOME
 	bool GLFW_WINDOW_EQUALS(GLFWwindow* one, GLFWwindow* two);
 	void E3D_WindowFocusCallback(GLFWwindow* window, int focus);
 
+	extern GLFWwindow* GLFW_WINDOW_ACTIVE;
+	extern Window* WINDOW_ACTIVE;
+
 	class Window : public Disposable, public Updateable
 	{
 	public:

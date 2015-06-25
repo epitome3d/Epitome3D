@@ -3,7 +3,6 @@
 namespace EPITOME
 {
 	#if OPENGL
-
 	Window* WINDOW_ACTIVE = nullptr;
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
 	

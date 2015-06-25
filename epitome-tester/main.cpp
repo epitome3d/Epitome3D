@@ -17,7 +17,7 @@ void Setup(int width, int height)
 	glMatrixMode(GL_MODELVIEW);
 }
 
-static void E3DKey(Keys key, KeyState state)
+static void E3DKey(Window& win, Keys key, KeyState state)
 {
 	if (key == KEY_ESCAPE && state == KEYS_RELEASED) //this is in case we throw more keys in this loop
 		mainwindow->close();

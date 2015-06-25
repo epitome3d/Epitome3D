@@ -48,7 +48,7 @@ namespace EPITOME
 
 	 Thoughts?
 	 */
-	typedef void(*E3DKeyFunction)(Keys, KeyState);
+	typedef void(*E3DKeyFunction)(Window&, Keys, KeyState);
 
 	struct E3DKeyFunctionState
 	{
