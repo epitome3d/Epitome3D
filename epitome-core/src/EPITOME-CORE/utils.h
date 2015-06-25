@@ -24,6 +24,15 @@ namespace EPITOME {
 	};
 
 	/*
+	* Applies to classes that are part of the Epitome3D pipeline and can render objects during runtime
+	*/
+	/*__interface Renderable
+	{
+	public:
+		virtual void Render() = 0;
+	};*/
+
+	/*
 	* Applies to classes that can be disposed once
 	*/
 	__interface Disposable
@@ -33,14 +42,14 @@ namespace EPITOME {
 	};
 	
 	/*
-	* Applies to classes that store data on disk and can be loaded and unloaded to/from memory.
+	* Applies to classes that store data on disk and can be loaded and unloaded to/from memory as well as disposed.
 	*/
 	__interface Bin : public Disposable
 	{
 	public:
 		virtual void Load() = 0;
 		virtual void Unload() = 0;
-		virtual void isLoaded() = 0;
+		virtual bool isLoaded() = 0;
 	};
 
 	template <typename T>

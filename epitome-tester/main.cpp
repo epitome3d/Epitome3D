@@ -6,6 +6,7 @@ using namespace EPITOME;
 #define window_height 480
 
 Window* mainwindow;
+Window* secondwindow;
 
 //Initialize OpenGL perspective matrix
 void Setup(int width, int height)
@@ -21,6 +22,8 @@ static void E3DKey(Window& win, Keys key, KeyState state)
 {
 	if (key == KEY_ESCAPE && state == KEYS_RELEASED) //this is in case we throw more keys in this loop
 		mainwindow->close();
+	if (key == KEY_ESCAPE && state == KEYS_PRESSED)
+		secondwindow->close();
 }
 
 static void ErrorFn(int error, const char* description)
@@ -28,20 +31,34 @@ static void ErrorFn(int error, const char* description)
 	fputs(description, stderr);
 }
 
+static void ResizeFn(Window& win, Size<int> s)
+{
+
+}
+
 void Init()
 {
 	//create window
 	mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
+	mainwindow->onResize(ResizeFn);
+
+	secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND Window");
+	secondwindow->onResize(ResizeFn);
+
 	mainwindow->onResize([](Window& win, Size<int> s) {
 #ifdef WINDOWS
 		MessageBox(NULL, "Hey!", "Cool beans!", MB_OK);
 #else
-		std::cout << "I'm preventing you from resizing any faster than incrementally! Oh wait, just kidding, there's no MessageBox in your way in this version." << std::endl;
+		std::cout << "I'm preventing you from resizing any faster than incrementally! \
+Oh wait, just kidding, there's no MessageBox in your way in this version. \
+But there is something better: 30fps frame updates!" << std::endl;
 #endif
 	});
 
+	//TODO onClose does not fire when closed using ESCAPE key
 	mainwindow->onClose([](Window& win) {
 #ifdef WINDOWS
+		//TODO abstract Messagebox to Dialog
 		MessageBox(NULL, "Yikes! I'm shutting down!", "Noooo!", MB_OK);
 #else
 		std::cout << "Gotta close fast!" << std::endl;
@@ -50,6 +67,7 @@ void Init()
 	//set key callbacks
 	//TODO keys are specific to the window?
 	//window.setKeyHandler(Key);
+	Keyboard::onKeyPressed(KEY_ESCAPE, E3DKey);
 	Keyboard::onKeyReleased(KEY_ESCAPE, E3DKey);
 
 	//get window size
@@ -102,7 +120,14 @@ void Loop()
 		glVertex3f(mPos.x-2, mPos.y+2, -50);
 		glEnd();
 		// Swap buffers (color buffers, makes previous render visible)
-		mainwindow->swapBuffers();
+		if (!mainwindow->isClosing())
+		{
+			mainwindow->Render();
+		}
+		if (!secondwindow->isClosing())
+		{
+			secondwindow->Render();
+		}
 		// Increase angle to rotate
 		angle += 0.25;
 
@@ -114,6 +139,7 @@ void Loop()
 void Dispose()
 {
 	delete mainwindow; //will call the destructor and the Dispose() method
+	delete secondwindow;
 }
 
 int main(int argc, char** argv)

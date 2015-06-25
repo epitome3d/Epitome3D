@@ -29,7 +29,7 @@ namespace EPITOME
 	extern GLFWwindow* GLFW_WINDOW_ACTIVE;
 	extern Window* WINDOW_ACTIVE;
 
-	class Window : public Disposable, public Updateable
+	class Window : public Disposable
 	{
 	public:
 		Window(int width, int height, char* title);
@@ -41,7 +41,9 @@ namespace EPITOME
 		friend void swap(Window& first, Window& second);
 
 		inline void Dispose() { this->~Window(); }
-		void Update();
+		void Render();
+
+		bool isActive();
 
 		void onResize(E3DWindowResizeFunction fn);
 		bool isSizeChanged() const;
@@ -72,9 +74,7 @@ namespace EPITOME
 		//TODO there are probably more at http://www.glfw.org/docs/latest/window.html
 
 		GLFWwindow* getWindowHandle() const;
-		
-		//TODO rename to something prettier
-		void swapBuffers();
+
 		//TODO delete this method?  Replace with an instance of Keyboard?
 		void setKeyHandler(GLFWkeyfun func);
 
@@ -87,6 +87,8 @@ namespace EPITOME
 		char* m_title; //required b/c can't get title through GLFW
 		E3DWindowResizeFunction m_resizeFunction;
 		E3DWindowFunction m_closeFunction;
+
+		void _swapBuffers();
 	};
 }
 

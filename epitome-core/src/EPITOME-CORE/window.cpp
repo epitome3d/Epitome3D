@@ -7,8 +7,7 @@ namespace EPITOME
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
 	
 	WINDOW_MAP_TYPE::size_type WINDOW_MAP_DEFAULT_SIZE = 5;
-	//This is not a function, visual studio is an idiot
-	WINDOW_MAP_TYPE WINDOW_MAP(WINDOW_MAP_DEFAULT_SIZE, GLFW_WINDOW_TO_SIZE_T, GLFW_WINDOW_EQUALS);
+	WINDOW_MAP_TYPE WINDOW_MAP = WINDOW_MAP_TYPE(WINDOW_MAP_DEFAULT_SIZE, GLFW_WINDOW_TO_SIZE_T, GLFW_WINDOW_EQUALS);
 
 	std::size_t GLFW_WINDOW_TO_SIZE_T(GLFWwindow* win)
 	{
@@ -83,9 +82,14 @@ namespace EPITOME
 		return *this;
 	}
 
-	void Window::Update()
+	void Window::Render()
 	{
-		//TODO test if window resized here
+		_swapBuffers();
+	}
+
+	bool Window::isActive()
+	{
+		return (window == GLFW_WINDOW_ACTIVE);
 	}
 
 	void Window::onResize(E3DWindowResizeFunction fn)
@@ -126,6 +130,7 @@ namespace EPITOME
 
 	void Window::onClose(E3DWindowFunction fn)
 	{
+		//TODO should we have a central way of storing and deinstancing callbacks?
 		m_closeFunction = fn;
 		glfwSetWindowCloseCallback(window, E3D_WindowCloseCallback);
 	}
@@ -160,7 +165,7 @@ namespace EPITOME
 		glfwSetWindowTitle(window, title);
 	}
 	
-	void Window::swapBuffers()
+	void Window::_swapBuffers()
 	{
 		glfwSwapBuffers(window);
 	}
