@@ -39,6 +39,14 @@ void Init()
 		std::cout << "I'm preventing you from resizing any faster than incrementally! Oh wait, just kidding, there's no MessageBox in your way in this version." << std::endl;
 #endif
 	});
+
+	mainwindow->onClose([](Window& win) {
+#ifdef WINDOWS
+		MessageBox(NULL, "Yikes! I'm shutting down!", "Noooo!", MB_OK);
+#else
+		std::cout << "Gotta close fast!" << std::endl;
+#endif
+	});
 	//set key callbacks
 	//TODO keys are specific to the window?
 	//window.setKeyHandler(Key);

@@ -126,6 +126,8 @@ namespace EPITOME
 
 	void Window::onClose(E3DWindowFunction fn)
 	{
+		m_closeFunction = fn;
+		glfwSetWindowCloseCallback(window, E3D_WindowCloseCallback);
 	}
 
 	bool Window::isClosing() const
@@ -185,6 +187,9 @@ namespace EPITOME
 		}
 	}
 
+	//TODO: Find some way to remove code duplication w/o
+	//function call overhead or macros. Perhaps template
+	//wizardry could achieve this?
 	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height)
 	{
 		Window* win;
@@ -197,6 +202,20 @@ namespace EPITOME
 			win = WINDOW_MAP[window];
 		}
 		win->m_resizeFunction(*win, Size<int>(width, height));
+	}
+
+	void E3D_WindowCloseCallback(GLFWwindow* window)
+	{
+		Window* win;
+		if (window == GLFW_WINDOW_ACTIVE)
+		{
+			win = WINDOW_ACTIVE;
+		}
+		else
+		{
+			win = WINDOW_MAP[window];
+		}
+		win->m_closeFunction(*win);
 	}
 	#endif
 }

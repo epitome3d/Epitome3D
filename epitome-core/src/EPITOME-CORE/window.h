@@ -18,7 +18,7 @@
 namespace EPITOME
 {
 	class Window;
-	typedef void (*E3DWindowFunction)(Window&);
+	typedef std::function<void(Window&)> E3DWindowFunction;
 	typedef std::function<void(Window&, Size<int>)> E3DWindowResizeFunction;
 	typedef std::unordered_map<GLFWwindow*, Window*, std::function<std::size_t(GLFWwindow*)>, std::function<bool(GLFWwindow*, GLFWwindow*)>> WINDOW_MAP_TYPE;
 
@@ -79,12 +79,14 @@ namespace EPITOME
 		void setKeyHandler(GLFWkeyfun func);
 
 		friend void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height);
+		friend void E3D_WindowCloseCallback(GLFWwindow* window);
 	private:
 		unsigned int reference_num;
 		GLFWwindow* window;
 		bool m_isResized;
 		char* m_title; //required b/c can't get title through GLFW
 		E3DWindowResizeFunction m_resizeFunction;
+		E3DWindowFunction m_closeFunction;
 	};
 }
 
