@@ -46,6 +46,11 @@ namespace EPITOME
 		return *this;
 	}
 
+	void Window::Update()
+	{
+		//TODO test if window resized here
+	}
+
 	void swap(Window & first, Window & second)
 	{
 		std::swap(first.window, second.window);
