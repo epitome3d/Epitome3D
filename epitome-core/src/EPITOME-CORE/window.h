@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <utility>
+#include <unordered_map>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -17,7 +18,13 @@
 namespace EPITOME
 {
 	class Window;
-	typedef void (*E3DWindowFunction)(Window);
+	typedef void (*E3DWindowFunction)(Window&);
+	typedef void(*E3DWindowResizeFunction)(Window&, Size<int>);
+	typedef std::unordered_map<GLFWwindow*, Window*, std::function<std::size_t(GLFWwindow*)>, std::function<bool(GLFWwindow*, GLFWwindow*)>> WINDOW_MAP_TYPE;
+
+	std::size_t GLFW_WINDOW_TO_SIZE_T(GLFWwindow* win);
+	bool GLFW_WINDOW_EQUALS(GLFWwindow* one, GLFWwindow* two);
+	void E3D_WindowFocusCallback(GLFWwindow* window, int focus);
 
 	class Window : public Disposable, public Updateable
 	{
@@ -68,6 +75,7 @@ namespace EPITOME
 		//TODO delete this method?  Replace with an instance of Keyboard?
 		void setKeyHandler(GLFWkeyfun func);
 	private:
+		unsigned int reference_num;
 		GLFWwindow* window;
 		bool m_isResized;
 		char* m_title; //required b/c can't get title through GLFW

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <functional>
+
 /* Utility structures */
 namespace EPITOME {
 
