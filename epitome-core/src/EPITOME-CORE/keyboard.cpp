@@ -9,11 +9,6 @@ namespace EPITOME
 
 	void Keyboard::Initialize()
 	{
-		//the below removed because unexpected keys default to UNKNOWN
-		//for (size_t i = 0; i < KEYS_COUNT; i++)
-		//{
-		//	_key_lookup[i] = -1;
-		//}
 		for (short i = 0; i < KEYS_COUNT; i++)
 		{
 			_key_states[i] = KeyState::KEYS_NOTPRESSED;
@@ -80,39 +75,40 @@ namespace EPITOME
 		}
 	}
 
-	KeyState Keyboard::getState(Keys key)
+	KeyState Keyboard::getState(Window* window, Keys key)
 	{
-		return _key_states[key];
+		return (window->isActive()) ? _key_states[key] : KeyState::KEYS_NOTPRESSED;
 	}
 
-	bool Keyboard::isKeyPressed(Keys key)
+	bool Keyboard::isKeyPressed(Window* window, Keys key)
 	{
-		KeyState state = getState(key);
+		KeyState state = getState(window, key);
 		return (state == KeyState::KEYS_PRESSED);
 	}
-	bool Keyboard::isKeyDown(Keys key)
+	bool Keyboard::isKeyDown(Window* window, Keys key)
 	{
-		KeyState state = getState(key);
+		KeyState state = getState(window, key);
 		return (state == KeyState::KEYS_PRESSED || state == KeyState::KEYS_HELD);
 	}
 
-	bool Keyboard::isKeyReleased(Keys key)
+	bool Keyboard::isKeyReleased(Window* window, Keys key)
 	{
-		KeyState state = getState(key);
+		KeyState state = getState(window, key);
 		return (state == KeyState::KEYS_RELEASED);
 	}
 
-	void Keyboard::onKeyPressed(Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyPressed(Window* window, Keys key, E3DKeyFunction fn)
 	{
-		_registerFunction(key, fn, KeyState::KEYS_PRESSED);
+		_registerFunction(window, key, fn, KeyState::KEYS_PRESSED);
 	}
 
-	void Keyboard::onKeyReleased(Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyReleased(Window* window, Keys key, E3DKeyFunction fn)
 	{
-		_registerFunction(key, fn, KeyState::KEYS_RELEASED);
+		_registerFunction(window, key, fn, KeyState::KEYS_RELEASED);
 	}
 
-	void Keyboard::_registerFunction(Keys key, E3DKeyFunction fn, KeyState state)
+	//TODO problems with multiple windows
+	void Keyboard::_registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state)
 	{
 		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state);
 	}
