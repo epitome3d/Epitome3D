@@ -46,6 +46,8 @@ void Init()
 	secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND Window");
 	secondwindow->onResize(ResizeFn);
 
+	mainwindow->beginDraw();
+
 	mainwindow->onResize([](Window& win, Size<int> s) {
 #ifdef WINDOWS
 		MessageBox(NULL, "Hey!", "Cool beans!", MB_OK);

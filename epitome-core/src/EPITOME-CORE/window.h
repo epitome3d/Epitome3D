@@ -54,6 +54,9 @@ namespace EPITOME
 		inline void Dispose() { this->~Window(); }
 		void Render();
 
+		//begin drawing on this window - sets this window as current
+		void beginDraw();
+
 		bool isActive();
 
 		void onResize(E3DWindowResizeFunction fn);

@@ -48,7 +48,7 @@ namespace EPITOME
 		glfwSetWindowFocusCallback(window, E3D_WindowFocusCallback);
 
 		//TODO multithreading for multiple windows
-		glfwMakeContextCurrent(window);
+		beginDraw();
 	}
 
 	//Copy constructor
@@ -98,6 +98,11 @@ namespace EPITOME
 	void Window::Render()
 	{
 		_swapBuffers();
+	}
+
+	void Window::beginDraw()
+	{
+		glfwMakeContextCurrent(window);
 	}
 
 	bool Window::isActive()
