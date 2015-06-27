@@ -1,6 +1,6 @@
 [submodule "lib/glfw"]
 	path = lib/glfw
-	url = https://github.com/glfw/glfw.git
+	url = https://github.com/epitome3d/glfw.git
 [submodule "lib/freeglut"]
 	path = lib/freeglut
 	url = https://github.com/dcnieho/FreeGLUT.git
