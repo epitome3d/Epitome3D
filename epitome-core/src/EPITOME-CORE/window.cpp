@@ -154,7 +154,7 @@ namespace EPITOME
 		return (glfwWindowShouldClose(window) != 0);
 	}
 
-	void Window::close() const
+	void Window::close()
 	{
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
