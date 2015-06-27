@@ -38,6 +38,8 @@ static void ResizeFn(Window& win, Size<int> s)
 static void ThreadLoop(Window* window)
 {
 	window->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
+	glfwMakeContextCurrent(window->getWindowHandle());
+	glfwSwapInterval(1);
 
 	while (running)
 	{
@@ -65,10 +67,8 @@ static void ThreadLoop(Window* window)
 		// END OLD CODE
 
 		//TODO Inefficient/sloppy at the moment, for demonstration purposes
-		glfwMakeContextCurrent(window->getWindowHandle());
-		glfwSwapInterval(1);
 
-		Point<double> mPos = window->mouse->m_mousePos;
+		Point<double> mPos = window->mouse->getPosition();
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -102,10 +102,10 @@ static void ThreadLoop(Window* window)
 void Run()
 {
 	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
-	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
+	//Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
 
 	thread w1(ThreadLoop, mainwindow);
-	thread w2(ThreadLoop, secondwindow);
+	//thread w2(ThreadLoop, secondwindow);
 
 	while (running)
 	{
@@ -113,13 +113,13 @@ void Run()
 	}
 
 	glfwHideWindow(mainwindow->getWindowHandle());
-	glfwHideWindow(secondwindow->getWindowHandle());
+	//glfwHideWindow(secondwindow->getWindowHandle());
 
 	w1.join();
-	w2.join();
+	//w2.join();
 
 	delete mainwindow; //will call the destructor and the Dispose() method
-	delete secondwindow;
+	//delete secondwindow;
 }
 
 int main(int argc, char** argv)
