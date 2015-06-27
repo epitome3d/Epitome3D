@@ -38,7 +38,6 @@ static void ResizeFn(Window& win, Size<int> s)
 static void ThreadLoop(Window* window)
 {
 	auto size = window->getSize();
-	window->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
 	window->beginDraw();
 
 	glViewport(0, 0, size.width, size.height);
@@ -109,22 +108,24 @@ static void ThreadLoop(Window* window)
 void Run()
 {
 	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
+	mainwindow->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
+	glfwShowWindow(mainwindow->getHandle());
 	//Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
 
-	//thread w1(ThreadLoop, mainwindow);
+	thread w1(ThreadLoop, mainwindow);
 	//thread w2(ThreadLoop, secondwindow);
 	
-	ThreadLoop(mainwindow);
+	//ThreadLoop(mainwindow);
 
-	//while (running)
-	//{
-	//	glfwWaitEvents();
-	//}
+	while (running)
+	{
+		glfwWaitEvents();
+	}
 
-	glfwHideWindow(mainwindow->getWindowHandle());
-	//glfwHideWindow(secondwindow->getWindowHandle());
+	glfwHideWindow(mainwindow->getHandle());
+	//glfwHideWindow(secondwindow->getHandle());
 
-	//w1.join();
+	w1.join();
 	//w2.join();
 
 	delete mainwindow; //will call the destructor and the Dispose() method

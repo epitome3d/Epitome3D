@@ -9,7 +9,7 @@ namespace EPITOME
 	Keyboard::Keyboard(Window* window)
 	{
 		this->_window = window;
-		GLFWkeyfun fn = glfwSetKeyCallback(window->getWindowHandle(), GLFWKeyFunction);
+		GLFWkeyfun fn = glfwSetKeyCallback(window->getHandle(), GLFWKeyFunction);
 		if (!fn)
 			Error(E3D_FAIL_CORE_INIT, "glfwSetKeyCallback() failed");
 
@@ -23,7 +23,7 @@ namespace EPITOME
 
 	Keyboard::~Keyboard()
 	{
-		glfwSetKeyCallback(_window->getWindowHandle(), NULL);
+		glfwSetKeyCallback(_window->getHandle(), NULL);
 	}
 
 	void Keyboard::Initialize()
@@ -133,6 +133,6 @@ namespace EPITOME
 	//TODO problems with multiple windows
 	void Keyboard::_registerFunction(Keys key, E3DKeyFunction fn, KeyState state)
 	{
-		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state, _window->getWindowHandle());
+		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state, _window->getHandle());
 	}
 }

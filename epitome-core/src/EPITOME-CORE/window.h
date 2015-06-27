@@ -95,7 +95,7 @@ namespace EPITOME
 		
 		//TODO there are probably more at http://www.glfw.org/docs/latest/window.html
 
-		GLFWwindow* getWindowHandle() const;
+		GLFWwindow* getHandle() const;
 
 		//TODO delete this method?  Replace with an instance of Keyboard?
 		void setKeyHandler(GLFWkeyfun func);

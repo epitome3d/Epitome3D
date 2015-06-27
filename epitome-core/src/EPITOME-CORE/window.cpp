@@ -59,7 +59,7 @@ namespace EPITOME
 	Window::Window(const Window& win)
 	{
 		reference_num = win.reference_num + 1;
-		window = win.getWindowHandle();
+		window = win.getHandle();
 		m_title = win.m_title;
 	}
 
@@ -133,7 +133,7 @@ namespace EPITOME
 
 	}
 
-	GLFWwindow* Window::getWindowHandle() const
+	GLFWwindow* Window::getHandle() const
 	{
 		return window;
 	}
