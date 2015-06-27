@@ -109,6 +109,9 @@ namespace EPITOME
 		char* m_title; //required b/c can't get title through GLFW
 		E3DWindowResizeFunction m_resizeFunction;
 		E3DWindowFunction m_closeFunction;
+		//Do not touch - for use by mouse class only
+		double* m_mouse_xpos;
+		double* m_mouse_ypos;
 
 		void _swapBuffers();
 	};

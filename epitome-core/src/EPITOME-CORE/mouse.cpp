@@ -43,13 +43,14 @@ namespace EPITOME
 
 	void Mouse::m_callback(GLFWwindow* win, double xpos, double ypos)
 	{
-		_GLFWwindow* new_win = (_GLFWwindow*)win;
-		Window* e_win = (Window*)new_win->_E3DWindow;
-		Mouse* mouse = e_win->mouse;
-		Point<double>* pos = &mouse->m_mousePos;
-		pos->x = xpos;
-		pos->y = ypos;
-
 		//call callback function here later
+	}
+
+	Point<double> Mouse::getCursorPos()
+	{
+		double x;
+		double y;
+		glfwGetCursorPos(m_win, &x, &y);
+		return Point<double>(x, y);
 	}
 }
