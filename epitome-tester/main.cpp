@@ -1,12 +1,12 @@
 #include <epitome-core.h>
 #include <iostream>
+#include <thread>
 using namespace EPITOME;
 
 #define window_width 640
 #define window_height 480
 
-Window* mainwindow;
-Window* secondwindow;
+static bool running = true;
 
 //Initialize OpenGL perspective matrix
 void Setup(int width, int height)
@@ -21,9 +21,7 @@ void Setup(int width, int height)
 static void E3DKey(Window& win, Keys key, KeyState state)
 {
 	if (key == KEY_ESCAPE && state == KEYS_RELEASED) //this is in case we throw more keys in this loop
-		mainwindow->close();
-	if (key == KEY_ESCAPE && state == KEYS_PRESSED)
-		secondwindow->close();
+		win.close();
 }
 
 static void ErrorFn(int error, const char* description)
@@ -37,59 +35,11 @@ static void ResizeFn(Window& win, Size<int> s)
 	return;
 }
 
-void Init()
+static void ThreadLoop(Window* window)
 {
-	//create window
-	mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
-	//mainwindow->onResize(ResizeFn);
+	window->keyboard->onKeyReleased(Keys::KEY_SPACE, E3DKey);
 
-	secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND Window");
-	secondwindow->onResize(ResizeFn);
-
-	mainwindow->beginDraw();
-
-	mainwindow->onResize([](Window& win, Size<int> s) {
-#ifdef WINDOWS
-		MessageBox(NULL, "Hey!", "Cool beans!", MB_OK);
-#else
-		std::cout << "I'm preventing you from resizing any faster than incrementally! \
-Oh wait, just kidding, there's no MessageBox in your way in this version. \
-But there is something better: VSync!" << std::endl;
-#endif
-	});
-
-	//TODO onClose does not fire when closed using ESCAPE key
-	mainwindow->onClose([](Window& win) {
-#ifdef WINDOWS
-		//TODO abstract Messagebox to Dialog
-		MessageBox(NULL, "Yikes! I'm shutting down!", "Noooo!", MB_OK);
-#else
-		std::cout << "Gotta close fast!" << std::endl;
-#endif
-	});
-	secondwindow->onClose([](Window& win) {
-#ifdef WINDOWS
-		//TODO abstract Messagebox to Dialog
-		MessageBox(NULL, "Yikes! I'm shutting down!", "Noooo!", MB_OK);
-#else
-		std::cout << "Gotta close fast!" << std::endl;
-#endif
-	});
-	//set key callbacks
-	//TODO keys are specific to the window?
-	//window.setKeyHandler(Key);
-	secondwindow->keyboard->onKeyPressed(KEY_ESCAPE, E3DKey);
-	secondwindow->keyboard->onKeyReleased(KEY_ESCAPE, E3DKey);
-
-	//get window size
-	auto size = mainwindow->getSize();
-
-	Setup(size.width, size.height);
-}
-
-void Loop()
-{
-	while (!mainwindow->isClosing() || !secondwindow->isClosing())
+	while (!window->isClosing())
 	{
 		//keep running
 		// Z angle
@@ -115,59 +65,53 @@ void Loop()
 		// END OLD CODE
 
 		//TODO Inefficient/sloppy at the moment, for demonstration purposes
-		if (!mainwindow->isClosing())
-		{
-			mainwindow->beginDraw();
-			Point<double> mPos = EPITOME::Mouse::getMousePosition(mainwindow);
-			mPos.x = (mPos.x - 320) / 12;
-			mPos.y = (-mPos.y + 230) / 12;
-			glClear(GL_COLOR_BUFFER_BIT);
+		window->beginDraw();
+		Point<double> mPos = EPITOME::Mouse::getMousePosition(window);
+		mPos.x = (mPos.x - 320) / 12;
+		mPos.y = (-mPos.y + 230) / 12;
+		glClear(GL_COLOR_BUFFER_BIT);
 
-			GLfloat b = (mainwindow->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
+		GLfloat b = (window->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
 
-			glColor3f(0.0, 1.0, b);
-			glBegin(GL_POLYGON);
-			glVertex3f(mPos.x-2, mPos.y-2, -50);
-			glVertex3f(mPos.x+2, mPos.y-2, -50);
-			glVertex3f(mPos.x+2, mPos.y+2, -50);
-			glVertex3f(mPos.x-2, mPos.y+2, -50);
-			glEnd();
+		glColor3f(0.0, 1.0, b);
+		glBegin(GL_POLYGON);
+		glVertex3f(mPos.x-2, mPos.y-2, -50);
+		glVertex3f(mPos.x+2, mPos.y-2, -50);
+		glVertex3f(mPos.x+2, mPos.y+2, -50);
+		glVertex3f(mPos.x-2, mPos.y+2, -50);
+		glEnd();
 
-			// Swap buffers (color buffers, makes previous render visible)
-			mainwindow->Render();
-		}
+		// Swap buffers (color buffers, makes previous render visible)
+		window->Render();
 		
-		if (!secondwindow->isClosing())
-		{
-			secondwindow->beginDraw();
-			Point<double> mPos = EPITOME::Mouse::getMousePosition(secondwindow);
-			mPos.x = (mPos.x - 320) / 12;
-			mPos.y = (-mPos.y + 230) / 12;
-			glClear(GL_COLOR_BUFFER_BIT);
-
-			GLfloat b = (secondwindow->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
-
-			glColor3f(0.0, 1.0, b);
-			glBegin(GL_POLYGON);
-			glVertex3f(mPos.x - 2, mPos.y - 2, -50);
-			glVertex3f(mPos.x + 2, mPos.y - 2, -50);
-			glVertex3f(mPos.x + 2, mPos.y + 2, -50);
-			glVertex3f(mPos.x - 2, mPos.y + 2, -50);
-			glEnd();
-
-			// Swap buffers (color buffers, makes previous render visible)
-			secondwindow->Render();
-		}
 		// Increase angle to rotate
 		angle += 0.25;
 
 		//checks for events
 		Update();
 	}
+	running = false;
 }
 
-void Dispose()
+void Run()
 {
+	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
+	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
+
+	thread w1(ThreadLoop, mainwindow);
+	thread w2(ThreadLoop, secondwindow);
+
+	while (running)
+	{
+		glfwWaitEvents();
+	}
+
+	glfwHideWindow(mainwindow->getWindowHandle());
+	glfwHideWindow(secondwindow->getWindowHandle());
+
+	w1.join();
+	w2.join();
+
 	delete mainwindow; //will call the destructor and the Dispose() method
 	delete secondwindow;
 }
@@ -176,9 +120,7 @@ int main(int argc, char** argv)
 {
 	EPITOME::Initialize();
 
-	Init();
-	Loop();
-	Dispose();
+	Run();
 
 	EPITOME::Exit();
 }
