@@ -2,30 +2,27 @@
 
 namespace EPITOME
 {
-	Point<double> Mouse::m_mouseLoc = Point<double>(0.0, 0.0);
-	std::vector<Window*> Mouse::m_winVec = std::vector<Window*>();
+	Point<double> Mouse::_mouseLoc = Point<double>(0.0, 0.0);
 
 	void Mouse::AddWindow(Window* w)
 	{
-		glfwSetCursorPosCallback(w->getWindowHandle(), m_callback);
-		//TODO m_winVec currently serves no purpose.  Are we planning to un-globalize?
-		m_winVec.push_back(w);
+		glfwSetCursorPosCallback(w->getWindowHandle(), _callback);
 	}
 
 	void Mouse::RemoveWindow(Window* w)
 	{
 		/* Makes use of the erase-remove idiom to remove w from the vector. */
-		m_winVec.erase(std::remove(m_winVec.begin(), m_winVec.end(), w), m_winVec.end());
+		//m_winVec.erase(std::remove(m_winVec.begin(), m_winVec.end(), w), m_winVec.end());
 	}
 
 	Point<double> Mouse::getMousePosition()
 	{
-		return m_mouseLoc;
+		return _mouseLoc;
 	}
 
-	void Mouse::m_callback(GLFWwindow* window, double xpos, double ypos)
+	void Mouse::_callback(GLFWwindow* window, double xpos, double ypos)
 	{
-		m_mouseLoc.x = xpos;
-		m_mouseLoc.y = ypos;
+		_mouseLoc.x = xpos;
+		_mouseLoc.y = ypos;
 	}
 }
