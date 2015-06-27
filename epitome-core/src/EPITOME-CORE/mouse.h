@@ -20,8 +20,8 @@ namespace EPITOME
 	{
 	public:
 		Mouse(GLFWwindow* win);
-		void setCallback(E3D_MouseFunction mfunc);
-		void unsetCallback();
+		void onMove(E3D_MouseFunction mfunc);
+		void unsetMove();
 		Point<double> getPosition();
 		friend class Window;
 

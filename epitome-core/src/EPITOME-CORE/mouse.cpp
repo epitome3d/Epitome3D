@@ -12,13 +12,13 @@ namespace EPITOME
 		m->m_mfunc(*window, Point<double>(xpos, ypos));
 	}
 
-	void Mouse::setCallback(E3D_MouseFunction mf)
+	void Mouse::onMove(E3D_MouseFunction mf)
 	{
 		m_mfunc = mf;
 		glfwSetCursorPosCallback(m_win, m_callback);
 	}
 
-	void Mouse::unsetCallback()
+	void Mouse::unsetMove()
 	{
 		glfwSetCursorPosCallback(m_win, NULL);
 	}

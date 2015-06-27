@@ -57,6 +57,7 @@ namespace EPITOME
 
 		//Calls a function when a key is pressed
 		void onKeyPressed(Keys key, E3DKeyFunction fn);
+		void unsetKeyPressed(Keys key);
 
 		//Calls a function when a key is released
 		void onKeyReleased(Keys key, E3DKeyFunction fn);

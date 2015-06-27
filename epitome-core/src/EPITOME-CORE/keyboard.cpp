@@ -115,6 +115,11 @@ namespace EPITOME
 		_registerFunction(key, fn, KeyState::KEYS_PRESSED);
 	}
 
+	void Keyboard::unsetKeyPressed(Keys key)
+	{
+		_registerFunction(key, NULL, KeyState::KEYS_PRESSED);
+	}
+
 	void Keyboard::onKeyReleased(Keys key, E3DKeyFunction fn)
 	{
 		_registerFunction(key, fn, KeyState::KEYS_RELEASED);
