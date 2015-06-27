@@ -37,9 +37,9 @@ static void ResizeFn(Window& win, Size<int> s)
 
 static void ThreadLoop(Window* window)
 {
-	window->keyboard->onKeyReleased(Keys::KEY_SPACE, E3DKey);
+	window->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
 
-	while (!window->isClosing())
+	while (running)
 	{
 		//keep running
 		// Z angle
@@ -65,8 +65,10 @@ static void ThreadLoop(Window* window)
 		// END OLD CODE
 
 		//TODO Inefficient/sloppy at the moment, for demonstration purposes
-		window->beginDraw();
-		Point<double> mPos = EPITOME::Mouse::getMousePosition(window);
+		glfwMakeContextCurrent(window->getWindowHandle());
+		glfwSwapInterval(1);
+
+		Point<double> mPos = window->mouse->m_mousePos;
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -83,13 +85,17 @@ static void ThreadLoop(Window* window)
 
 		// Swap buffers (color buffers, makes previous render visible)
 		window->Render();
-		
+
 		// Increase angle to rotate
 		angle += 0.25;
 
 		//checks for events
 		Update();
+
+		if (window->isClosing())
+			running = false;
 	}
+	glfwMakeContextCurrent(NULL);
 	running = false;
 }
 

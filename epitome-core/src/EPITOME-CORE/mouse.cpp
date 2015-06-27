@@ -36,13 +36,20 @@ namespace EPITOME
 		_mouseLoc.y = ypos;
 	}*/
 
-	Mouse::Mouse(Window* win) : m_mousePos(0, 0), m_win(win), m_glfw_win(win->getWindowHandle()) {}
+	Mouse::Mouse(GLFWwindow* win) : m_mousePos(0, 0), m_win(win)
+	{
+		glfwSetCursorPosCallback(win, m_callback);
+	}
 
 	void Mouse::m_callback(GLFWwindow* win, double xpos, double ypos)
 	{
-		if (win == GLFW_WINDOW_ACTIVE)
-		{
+		_GLFWwindow* new_win = (_GLFWwindow*)win;
+		Window* e_win = (Window*)new_win->_E3DWindow;
+		Mouse* mouse = e_win->mouse;
+		Point<double>* pos = &mouse->m_mousePos;
+		pos->x = xpos;
+		pos->y = ypos;
 
-		}
+		//call callback function here later
 	}
 }

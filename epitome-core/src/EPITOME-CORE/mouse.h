@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <vector>
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <GLFW/glfw3internal.h>
+
 #include "window.h"
 #include "utils.h"
 
@@ -31,17 +35,16 @@ namespace EPITOME
 	class Mouse
 	{
 	public:
-		Mouse(Window* win);
-		~Mouse();
-		void setCallback(E3D_MouseFunction mfunc);
+		Mouse(GLFWwindow* win);
+		//~Mouse();
+		//void setCallback(E3D_MouseFunction mfunc);
 
 		Point<double> m_mousePos;
 		friend class Window;
 
 	private:
 		static void m_callback(GLFWwindow* window, double xpos, double ypos);
-		GLFWwindow* m_glfw_win;
-		Window* m_win;
+		GLFWwindow* m_win;
 		E3D_MouseFunction m_mfunc;
 	};
 }
