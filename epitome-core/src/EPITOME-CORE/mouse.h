@@ -11,6 +11,8 @@ namespace EPITOME
 	/* Forward declaration to prevent circular references */
 	class Window;
 
+	typedef std::function<bool(Window&, Point<double>)> E3D_MouseFunction;
+
 	/*class Mouse
 	{
 	public:
@@ -29,13 +31,17 @@ namespace EPITOME
 	class Mouse
 	{
 	public:
-		Mouse();
+		Mouse(Window* win);
 		~Mouse();
-		Point<double> m_mousePos;
+		void setCallback(E3D_MouseFunction mfunc);
 
+		Point<double> m_mousePos;
 		friend class Window;
 
 	private:
-		static void _callback(GLFWwindow* window, double xpos, double ypos);
+		static void m_callback(GLFWwindow* window, double xpos, double ypos);
+		GLFWwindow* m_glfw_win;
+		Window* m_win;
+		E3D_MouseFunction m_mfunc;
 	};
 }

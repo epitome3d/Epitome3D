@@ -86,6 +86,9 @@ namespace EPITOME
 		friend class Keyboard;
 		Keyboard* keyboard;
 
+		friend class Mouse;
+		Mouse* mouse;
+
 		//TODO change to E3DFocusFunction
 		void onChangeFocus(E3DWindowFunction fn);
 		
