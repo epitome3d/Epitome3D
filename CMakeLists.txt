@@ -78,6 +78,7 @@ set(E3D_INCLUDES
     epitome-core/src
     include/opengl
     lib/glfw/include
+    lib/glfw/src
     lib/freeglut/freeglut/freeglut/include
 )
 include_directories(${E3D_INCLUDES})

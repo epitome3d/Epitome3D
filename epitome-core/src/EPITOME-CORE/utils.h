@@ -4,34 +4,6 @@
 
 /* Utility structures */
 namespace EPITOME {
-
-	/*
-	* Applies to classes that must only initialize once
-	*/
-	__interface Initializable
-	{
-	public:
-		virtual void Initialize() = 0;
-	};
-
-	/*
-	* Applies to classes that are part of the Epitome3D pipeline and require and Update() method on every event loop
-    */
-	__interface Updateable
-	{
-	public:
-		virtual void Update() = 0;
-	};
-
-	/*
-	* Applies to classes that are part of the Epitome3D pipeline and can render objects during runtime
-	*/
-	/*__interface Renderable
-	{
-	public:
-		virtual void Render() = 0;
-	};*/
-
 	/*
 	* Applies to classes that can be disposed once
 	*/
@@ -40,6 +12,8 @@ namespace EPITOME {
 	public:
 		virtual void Dispose() = 0;
 	};
+
+	
 	
 	/*
 	* Applies to classes that store data on disk and can be loaded and unloaded to/from memory as well as disposed.

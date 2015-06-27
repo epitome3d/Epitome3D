@@ -67,6 +67,14 @@ But there is something better: VSync!" << std::endl;
 		std::cout << "Gotta close fast!" << std::endl;
 #endif
 	});
+	secondwindow->onClose([](Window& win) {
+#ifdef WINDOWS
+		//TODO abstract Messagebox to Dialog
+		MessageBox(NULL, "Yikes! I'm shutting down!", "Noooo!", MB_OK);
+#else
+		std::cout << "Gotta close fast!" << std::endl;
+#endif
+	});
 	//set key callbacks
 	//TODO keys are specific to the window?
 	//window.setKeyHandler(Key);
@@ -81,7 +89,7 @@ But there is something better: VSync!" << std::endl;
 
 void Loop()
 {
-	while (!mainwindow->isClosing())
+	while (!mainwindow->isClosing() || !secondwindow->isClosing())
 	{
 		//keep running
 		// Z angle
@@ -106,29 +114,48 @@ void Loop()
 		glEnd();*/
 		// END OLD CODE
 
-		// Inefficient/sloppy at the moment, for demonstration purposes
-
-		Point<double> mPos = EPITOME::Mouse::getMousePosition(mainwindow);
-		mPos.x = (mPos.x - 320) / 12;
-		mPos.y = (-mPos.y + 230) / 12;
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		GLfloat b = (mainwindow->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
-
-		glColor3f(0.0, 1.0, b);
-		glBegin(GL_POLYGON);
-		glVertex3f(mPos.x-2, mPos.y-2, -50);
-		glVertex3f(mPos.x+2, mPos.y-2, -50);
-		glVertex3f(mPos.x+2, mPos.y+2, -50);
-		glVertex3f(mPos.x-2, mPos.y+2, -50);
-		glEnd();
-		// Swap buffers (color buffers, makes previous render visible)
+		//TODO Inefficient/sloppy at the moment, for demonstration purposes
 		if (!mainwindow->isClosing())
 		{
+			mainwindow->beginDraw();
+			Point<double> mPos = EPITOME::Mouse::getMousePosition(mainwindow);
+			mPos.x = (mPos.x - 320) / 12;
+			mPos.y = (-mPos.y + 230) / 12;
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			GLfloat b = (mainwindow->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
+
+			glColor3f(0.0, 1.0, b);
+			glBegin(GL_POLYGON);
+			glVertex3f(mPos.x-2, mPos.y-2, -50);
+			glVertex3f(mPos.x+2, mPos.y-2, -50);
+			glVertex3f(mPos.x+2, mPos.y+2, -50);
+			glVertex3f(mPos.x-2, mPos.y+2, -50);
+			glEnd();
+
+			// Swap buffers (color buffers, makes previous render visible)
 			mainwindow->Render();
 		}
+		
 		if (!secondwindow->isClosing())
 		{
+			secondwindow->beginDraw();
+			Point<double> mPos = EPITOME::Mouse::getMousePosition(secondwindow);
+			mPos.x = (mPos.x - 320) / 12;
+			mPos.y = (-mPos.y + 230) / 12;
+			glClear(GL_COLOR_BUFFER_BIT);
+
+			GLfloat b = (secondwindow->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
+
+			glColor3f(0.0, 1.0, b);
+			glBegin(GL_POLYGON);
+			glVertex3f(mPos.x - 2, mPos.y - 2, -50);
+			glVertex3f(mPos.x + 2, mPos.y - 2, -50);
+			glVertex3f(mPos.x + 2, mPos.y + 2, -50);
+			glVertex3f(mPos.x - 2, mPos.y + 2, -50);
+			glEnd();
+
+			// Swap buffers (color buffers, makes previous render visible)
 			secondwindow->Render();
 		}
 		// Increase angle to rotate

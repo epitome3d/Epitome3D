@@ -35,7 +35,7 @@ namespace EPITOME
 		}
 	};
 
-	class Keyboard : public Updateable
+	class Keyboard
 	{
 	public:
 		Keyboard(Window* window);
