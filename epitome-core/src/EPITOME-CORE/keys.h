@@ -143,7 +143,7 @@ namespace EPITOME
 		KEY_MENU = 119,
 		KEY_LAST = KEY_MENU
 	};
-	static const short KEYS_COUNT = (short)KEY_LAST + 1;
+	const short KEYS_COUNT = (short)KEY_LAST + 1;
 
 	#if OPENGL
 	static const short KEYS_LOOKUP_LAST = GLFW_KEY_LAST + 1;
