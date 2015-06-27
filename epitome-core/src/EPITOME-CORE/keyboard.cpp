@@ -109,7 +109,7 @@ namespace EPITOME
 	}
 
 	//TODO problems with multiple windows
-	void Keyboard::_registerFunction(const Window& window, Keys key, E3DKeyFunction fn, KeyState state)
+	static void Keyboard::_registerFunction(const Window& window, Keys key, E3DKeyFunction fn, KeyState state)
 	{
 		window._key_function[key] = E3DKeyFunctionState(fn, window._key_function[key].states | state, window.getWindowHandle());
 	}

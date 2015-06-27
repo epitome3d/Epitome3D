@@ -77,7 +77,7 @@ namespace EPITOME
 		//interal key function
 		static void GLFWKeyFunction(GLFWwindow*, int, int, int, int);
 
-		void _registerFunction(const Window& window, Keys key, E3DKeyFunction fn, KeyState state);
+		static void _registerFunction(const Window& window, Keys key, E3DKeyFunction fn, KeyState state);
 
 		static KeyState _key_states[KEYS_COUNT];
 		static short _key_lookup[KEYS_LOOKUP_LAST];
