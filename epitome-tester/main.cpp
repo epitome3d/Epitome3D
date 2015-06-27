@@ -118,7 +118,7 @@ void Loop()
 		if (!mainwindow->isClosing())
 		{
 			mainwindow->beginDraw();
-			Point<double> mPos = EPITOME::Mouse::getMousePosition(mainwindow);
+			Point<double> mPos = mainwindow->mouse->m_mousePos;
 			mPos.x = (mPos.x - 320) / 12;
 			mPos.y = (-mPos.y + 230) / 12;
 			glClear(GL_COLOR_BUFFER_BIT);
@@ -140,7 +140,7 @@ void Loop()
 		if (!secondwindow->isClosing())
 		{
 			secondwindow->beginDraw();
-			Point<double> mPos = EPITOME::Mouse::getMousePosition(secondwindow);
+			Point<double> mPos = secondwindow->mouse->m_mousePos;
 			mPos.x = (mPos.x - 320) / 12;
 			mPos.y = (-mPos.y + 230) / 12;
 			glClear(GL_COLOR_BUFFER_BIT);
