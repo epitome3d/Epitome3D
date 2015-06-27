@@ -65,7 +65,7 @@ namespace EPITOME
 
 		void onClose(E3DWindowFunction fn);
 		bool isClosing() const;
-		void close() const;
+		void close();
 
 		bool isFullscreen() const;
 		void setFullscreen(bool fullscreen);
