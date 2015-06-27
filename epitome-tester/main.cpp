@@ -37,8 +37,15 @@ static void ResizeFn(Window& win, Size<int> s)
 
 static void ThreadLoop(Window* window)
 {
+	auto size = window->getSize();
 	window->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
-	glfwMakeContextCurrent(window->getWindowHandle());
+	window->beginDraw();
+
+	glViewport(0, 0, size.width, size.height);
+	glMatrixMode(GL_PROJECTION);
+	glEnable(GL_DEPTH_TEST);
+	gluPerspective(45, (float)size.width / (float)size.height, .1, 100);
+	glMatrixMode(GL_MODELVIEW);
 	glfwSwapInterval(1);
 
 	while (running)
@@ -51,7 +58,7 @@ static void ThreadLoop(Window* window)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// BEGIN OLD CODE (to be reimplemented once demo viewed)
-		/*//Load identity matrix
+		//Load identity matrix
 		glLoadIdentity();
 		// Multiply in translation matrix
 		glTranslatef(0, 0, -10);
@@ -63,12 +70,12 @@ static void ThreadLoop(Window* window)
 		glColor3ub(000, 255, 000); glVertex2f(1, 1);
 		glColor3ub(000, 000, 255); glVertex2f(1, -1);
 		glColor3ub(255, 255, 000); glVertex2f(-1, -1);
-		glEnd();*/
+		glEnd();
 		// END OLD CODE
 
 		//TODO Inefficient/sloppy at the moment, for demonstration purposes
 
-		Point<double> mPos = window->mouse->getPosition();
+		/*Point<double> mPos = window->mouse->getPosition();
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -81,7 +88,7 @@ static void ThreadLoop(Window* window)
 		glVertex3f(mPos.x+2, mPos.y-2, -50);
 		glVertex3f(mPos.x+2, mPos.y+2, -50);
 		glVertex3f(mPos.x-2, mPos.y+2, -50);
-		glEnd();
+		glEnd();*/
 
 		// Swap buffers (color buffers, makes previous render visible)
 		window->Render();
@@ -104,18 +111,20 @@ void Run()
 	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
 	//Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
 
-	thread w1(ThreadLoop, mainwindow);
+	//thread w1(ThreadLoop, mainwindow);
 	//thread w2(ThreadLoop, secondwindow);
+	
+	ThreadLoop(mainwindow);
 
-	while (running)
-	{
-		glfwWaitEvents();
-	}
+	//while (running)
+	//{
+	//	glfwWaitEvents();
+	//}
 
 	glfwHideWindow(mainwindow->getWindowHandle());
 	//glfwHideWindow(secondwindow->getWindowHandle());
 
-	w1.join();
+	//w1.join();
 	//w2.join();
 
 	delete mainwindow; //will call the destructor and the Dispose() method
