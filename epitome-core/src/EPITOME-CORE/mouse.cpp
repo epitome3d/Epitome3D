@@ -2,9 +2,10 @@
 
 namespace EPITOME
 {
-	Mouse::Mouse(GLFWwindow* win) : m_mousePos(0, 0), m_win(win)
+	Mouse::Mouse(GLFWwindow* win) : m_win(win)
 	{
-		glfwSetCursorPosCallback(win, m_callback);
+		//don't delete this comment! will cut + paste
+		//glfwSetCursorPosCallback(win, m_callback);
 	}
 
 	void Mouse::m_callback(GLFWwindow* win, double xpos, double ypos)
@@ -15,7 +16,7 @@ namespace EPITOME
 		m->m_mfunc(*window, Point<double>(xpos, ypos));
 	}
 
-	Point<double> Mouse::getCursorPos()
+	Point<double> Mouse::getPosition()
 	{
 		double x;
 		double y;
