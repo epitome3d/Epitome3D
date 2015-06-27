@@ -61,10 +61,10 @@ namespace EPITOME
 		static bool isKeyReleased(Window* window, Keys key);
 
 		//Calls a function when a key is pressed
-		static void onKeyPressed(Window* window, Keys key, E3DKeyFunction fn);
+		static void onKeyPressed(const Window& window, Keys key, E3DKeyFunction fn);
 
 		//Calls a function when a key is released
-		static void onKeyReleased(Window* window, Keys key, E3DKeyFunction fn);
+		static void onKeyReleased(const Window& window, Keys key, E3DKeyFunction fn);
 
 		//Clears a function from all keys
 		//TODO removeKeyFunction()
@@ -77,7 +77,7 @@ namespace EPITOME
 		//interal key function
 		static void GLFWKeyFunction(GLFWwindow*, int, int, int, int);
 
-		static void _registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state);
+		void _registerFunction(const Window& window, Keys key, E3DKeyFunction fn, KeyState state);
 
 		static KeyState _key_states[KEYS_COUNT];
 		static short _key_lookup[KEYS_LOOKUP_LAST];

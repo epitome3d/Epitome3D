@@ -98,19 +98,19 @@ namespace EPITOME
 		return (state == KeyState::KEYS_RELEASED);
 	}
 
-	void Keyboard::onKeyPressed(Window* window, Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyPressed(const Window& window, Keys key, E3DKeyFunction fn)
 	{
 		_registerFunction(window, key, fn, KeyState::KEYS_PRESSED);
 	}
 
-	void Keyboard::onKeyReleased(Window* window, Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyReleased(const Window& window, Keys key, E3DKeyFunction fn)
 	{
 		_registerFunction(window, key, fn, KeyState::KEYS_RELEASED);
 	}
 
 	//TODO problems with multiple windows
-	void Keyboard::_registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state)
+	void Keyboard::_registerFunction(const Window& window, Keys key, E3DKeyFunction fn, KeyState state)
 	{
-		window->_key_function[key] = E3DKeyFunctionState(fn, window->_key_function[key].states | state, window->getWindowHandle());
+		window._key_function[key] = E3DKeyFunctionState(fn, window._key_function[key].states | state, window.getWindowHandle());
 	}
 }

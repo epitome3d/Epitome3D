@@ -70,8 +70,8 @@ But there is something better: VSync!" << std::endl;
 	//set key callbacks
 	//TODO keys are specific to the window?
 	//window.setKeyHandler(Key);
-	Keyboard::onKeyPressed(mainwindow, KEY_ESCAPE, E3DKey);
-	Keyboard::onKeyReleased(mainwindow, KEY_ESCAPE, E3DKey);
+	Keyboard::onKeyPressed(*mainwindow, KEY_ESCAPE, E3DKey);
+	Keyboard::onKeyReleased(*mainwindow, KEY_ESCAPE, E3DKey);
 
 	//get window size
 	auto size = mainwindow->getSize();
