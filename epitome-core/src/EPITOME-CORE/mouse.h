@@ -22,9 +22,7 @@ namespace EPITOME
 		Mouse(GLFWwindow* win);
 		//~Mouse();
 		//void setCallback(E3D_MouseFunction mfunc);
-		Point<double> getCursorPos();
-
-		Point<double> m_mousePos;
+		Point<double> getPosition();
 		friend class Window;
 
 	private:

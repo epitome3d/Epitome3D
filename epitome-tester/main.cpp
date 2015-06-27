@@ -68,7 +68,7 @@ static void ThreadLoop(Window* window)
 		glfwMakeContextCurrent(window->getWindowHandle());
 		glfwSwapInterval(1);
 
-		Point<double> mPos = window->mouse->m_mousePos;
+		Point<double> mPos = window->mouse->getPosition();
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);
