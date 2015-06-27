@@ -16,22 +16,6 @@ namespace EPITOME
 	class Window;
 
 	typedef std::function<bool(Window&, Point<double>)> E3D_MouseFunction;
-
-	/*class Mouse
-	{
-	public:
-
-		static void AddWindow(Window* w);
-
-		static void RemoveWindow(Window* w);
-
-		static Point<double> getMousePosition(Window* w);
-
-	private:
-		static Point<double> _mouseLoc;
-		static void _callback(GLFWwindow* window, double xpos, double ypos);
-	};*/
-
 	class Mouse
 	{
 	public:
