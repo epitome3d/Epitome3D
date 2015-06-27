@@ -80,7 +80,6 @@ namespace EPITOME
 		static void _registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state);
 
 		static KeyState _key_states[KEYS_COUNT];
-		static E3DKeyFunctionState _key_function[KEYS_COUNT];
 		static short _key_lookup[KEYS_LOOKUP_LAST];
 
 		static vector<short> _key_eventqueue;

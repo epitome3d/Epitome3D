@@ -4,7 +4,6 @@ namespace EPITOME
 {
 	vector<short> Keyboard::_key_eventqueue = vector<short>();
 	KeyState Keyboard::_key_states[KEYS_COUNT] = { };
-	E3DKeyFunctionState Keyboard::_key_function[KEYS_COUNT];
 	short Keyboard::_key_lookup[KEYS_LOOKUP_LAST] = { };
 
 	void Keyboard::Initialize()
@@ -12,7 +11,6 @@ namespace EPITOME
 		for (short i = 0; i < KEYS_COUNT; i++)
 		{
 			_key_states[i] = KeyState::KEYS_NOTPRESSED;
-			_key_function[i] = E3DKeyFunctionState();
 			_key_lookup[KEYS_LOOKUP[i]] = i;
 		}
 		_key_eventqueue.clear();
@@ -67,11 +65,14 @@ namespace EPITOME
 		_key_eventqueue.push_back(loc);
 
 		//send key to upstream function, if set AND if the current state matches the function states
-		E3DKeyFunction fn = _key_function[loc].fn;
-		if (fn != NULL && window == GLFW_WINDOW_ACTIVE && window == _key_function[loc].window)
+		if (window == GLFW_WINDOW_ACTIVE)
 		{
-			if ((_key_function[loc].states & _key_states[loc]) > 0)
-				fn(*WINDOW_ACTIVE, (EPITOME::Keys)loc, _key_states[loc]);
+			E3DKeyFunction fn = WINDOW_ACTIVE->_key_function[loc].fn;
+			if (window == WINDOW_ACTIVE->_key_function[loc].window && fn != nullptr)
+			{
+				if ((WINDOW_ACTIVE->_key_function[loc].states & _key_states[loc]) > 0)
+					fn(*WINDOW_ACTIVE, (EPITOME::Keys)loc, _key_states[loc]);
+			}
 		}
 	}
 
@@ -110,6 +111,6 @@ namespace EPITOME
 	//TODO problems with multiple windows
 	void Keyboard::_registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state)
 	{
-		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state, window->getWindowHandle());
+		window->_key_function[key] = E3DKeyFunctionState(fn, window->_key_function[key].states | state, window->getWindowHandle());
 	}
 }

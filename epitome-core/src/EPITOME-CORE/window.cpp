@@ -47,6 +47,12 @@ namespace EPITOME
 		//set focus callback
 		glfwSetWindowFocusCallback(window, E3D_WindowFocusCallback);
 
+		//setup default key bindings
+		for (int i = 0; i < KEYS_COUNT; i++)
+		{
+			_key_function[i] = E3DKeyFunctionState();
+		}
+
 		//TODO multithreading for multiple windows
 		beginDraw();
 	}

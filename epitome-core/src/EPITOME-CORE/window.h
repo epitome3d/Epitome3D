@@ -94,6 +94,9 @@ namespace EPITOME
 
 		friend void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height);
 		friend void E3D_WindowCloseCallback(GLFWwindow* window);
+
+		friend class Keyboard;
+		E3DKeyFunctionState _key_function[KEYS_COUNT];
 	private:
 		unsigned int reference_num;
 		GLFWwindow* window;
