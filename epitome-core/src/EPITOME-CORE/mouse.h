@@ -28,7 +28,6 @@ namespace EPITOME
 		 * the one mouse object model is to be used.
 		 */
 		static Point<double> m_mouseLoc;
-		static std::vector<Window*> m_winVec;
 		static void m_callback(GLFWwindow* window, double xpos, double ypos);
 	};
 }
