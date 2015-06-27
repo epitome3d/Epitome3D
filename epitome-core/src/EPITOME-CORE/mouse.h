@@ -11,7 +11,7 @@ namespace EPITOME
 	/* Forward declaration to prevent circular references */
 	class Window;
 
-	class Mouse
+	/*class Mouse
 	{
 	public:
 
@@ -23,6 +23,19 @@ namespace EPITOME
 
 	private:
 		static Point<double> _mouseLoc;
+		static void _callback(GLFWwindow* window, double xpos, double ypos);
+	};*/
+
+	class Mouse
+	{
+	public:
+		Mouse();
+		~Mouse();
+		Point<double> m_mousePos;
+
+		friend class Window;
+
+	private:
 		static void _callback(GLFWwindow* window, double xpos, double ypos);
 	};
 }
