@@ -125,6 +125,11 @@ namespace EPITOME
 		_registerFunction(key, fn, KeyState::KEYS_RELEASED);
 	}
 
+	void Keyboard::unsetKeyReleased(Keys key)
+	{
+		_registerFunction(key, NULL, KeyState::KEYS_RELEASED);
+	}
+
 	//TODO problems with multiple windows
 	void Keyboard::_registerFunction(Keys key, E3DKeyFunction fn, KeyState state)
 	{

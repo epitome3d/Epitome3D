@@ -61,6 +61,7 @@ namespace EPITOME
 
 		//Calls a function when a key is released
 		void onKeyReleased(Keys key, E3DKeyFunction fn);
+		void unsetKeyReleased(Keys key);
 
 		//Clears a function from all keys
 		//TODO removeKeyFunction()
