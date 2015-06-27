@@ -44,22 +44,22 @@ namespace EPITOME
 		void Update();
 
 		//Get the state of a key pressed
-		KeyState getState(Window* window, Keys key);
+		KeyState getState(Keys key);
 
 		//Test if a key was just pressed
-		bool isKeyPressed(Window* window, Keys key);
+		bool isKeyPressed(Keys key);
 
 		//Test if a key is pressed
-		bool isKeyDown(Window* window, Keys key);
+		bool isKeyDown(Keys key);
 
 		//Test if a key was just released
-		bool isKeyReleased(Window* window, Keys key);
+		bool isKeyReleased(Keys key);
 
 		//Calls a function when a key is pressed
-		void onKeyPressed(Window* window, Keys key, E3DKeyFunction fn);
+		void onKeyPressed(Keys key, E3DKeyFunction fn);
 
 		//Calls a function when a key is released
-		void onKeyReleased(Window* window, Keys key, E3DKeyFunction fn);
+		void onKeyReleased(Keys key, E3DKeyFunction fn);
 
 		//Clears a function from all keys
 		//TODO removeKeyFunction()
@@ -74,7 +74,7 @@ namespace EPITOME
 		//interal key function
 		static void GLFWKeyFunction(GLFWwindow*, int, int, int, int);
 
-		void _registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state);
+		void _registerFunction(Keys key, E3DKeyFunction fn, KeyState state);
 
 		static bool _isInitialized;
 		static KeyState _key_states[KEYS_COUNT];

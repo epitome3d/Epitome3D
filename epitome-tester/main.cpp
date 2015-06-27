@@ -70,8 +70,8 @@ But there is something better: VSync!" << std::endl;
 	//set key callbacks
 	//TODO keys are specific to the window?
 	//window.setKeyHandler(Key);
-	mainwindow->keyboard->onKeyPressed(mainwindow, KEY_ESCAPE, E3DKey);
-	mainwindow->keyboard->onKeyReleased(mainwindow, KEY_ESCAPE, E3DKey);
+	secondwindow->keyboard->onKeyPressed(KEY_ESCAPE, E3DKey);
+	secondwindow->keyboard->onKeyReleased(KEY_ESCAPE, E3DKey);
 
 	//get window size
 	auto size = mainwindow->getSize();
@@ -113,7 +113,7 @@ void Loop()
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		GLfloat b = (mainwindow->keyboard->isKeyDown(mainwindow, Keys::KEY_SPACE)) ? 1.0f : 0.0f;
+		GLfloat b = (mainwindow->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
 
 		glColor3f(0.0, 1.0, b);
 		glBegin(GL_POLYGON);

@@ -88,41 +88,41 @@ namespace EPITOME
 		}
 	}
 
-	KeyState Keyboard::getState(Window* window, Keys key)
+	KeyState Keyboard::getState(Keys key)
 	{
-		return (window->isActive()) ? _key_states[key] : KeyState::KEYS_NOTPRESSED;
+		return (_window->isActive()) ? _key_states[key] : KeyState::KEYS_NOTPRESSED;
 	}
 
-	bool Keyboard::isKeyPressed(Window* window, Keys key)
+	bool Keyboard::isKeyPressed(Keys key)
 	{
-		KeyState state = getState(window, key);
+		KeyState state = getState(key);
 		return (state == KeyState::KEYS_PRESSED);
 	}
-	bool Keyboard::isKeyDown(Window* window, Keys key)
+	bool Keyboard::isKeyDown(Keys key)
 	{
-		KeyState state = getState(window, key);
+		KeyState state = getState(key);
 		return (state == KeyState::KEYS_PRESSED || state == KeyState::KEYS_HELD);
 	}
 
-	bool Keyboard::isKeyReleased(Window* window, Keys key)
+	bool Keyboard::isKeyReleased(Keys key)
 	{
-		KeyState state = getState(window, key);
+		KeyState state = getState(key);
 		return (state == KeyState::KEYS_RELEASED);
 	}
 
-	void Keyboard::onKeyPressed(Window* window, Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyPressed(Keys key, E3DKeyFunction fn)
 	{
-		_registerFunction(window, key, fn, KeyState::KEYS_PRESSED);
+		_registerFunction(key, fn, KeyState::KEYS_PRESSED);
 	}
 
-	void Keyboard::onKeyReleased(Window* window, Keys key, E3DKeyFunction fn)
+	void Keyboard::onKeyReleased(Keys key, E3DKeyFunction fn)
 	{
-		_registerFunction(window, key, fn, KeyState::KEYS_RELEASED);
+		_registerFunction(key, fn, KeyState::KEYS_RELEASED);
 	}
 
 	//TODO problems with multiple windows
-	void Keyboard::_registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state)
+	void Keyboard::_registerFunction(Keys key, E3DKeyFunction fn, KeyState state)
 	{
-		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state, window->getWindowHandle());
+		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state, _window->getWindowHandle());
 	}
 }
