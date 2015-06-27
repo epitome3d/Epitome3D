@@ -108,7 +108,7 @@ void Loop()
 
 		// Inefficient/sloppy at the moment, for demonstration purposes
 
-		Point<double> mPos = EPITOME::Mouse::getMousePosition();
+		Point<double> mPos = EPITOME::Mouse::getMousePosition(mainwindow);
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;
 		glClear(GL_COLOR_BUFFER_BIT);

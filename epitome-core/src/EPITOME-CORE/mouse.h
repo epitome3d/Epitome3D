@@ -19,7 +19,7 @@ namespace EPITOME
 
 		static void RemoveWindow(Window* w);
 
-		static Point<double> getMousePosition();
+		static Point<double> getMousePosition(Window* w);
 
 	private:
 		static Point<double> _mouseLoc;
