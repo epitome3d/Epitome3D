@@ -36,7 +36,7 @@ namespace EPITOME
 			Error::Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
 
 		//bind with keyboard and mouse
-		Keyboard::AddWindow(this);
+		keyboard = new Keyboard(this);
 		Mouse::AddWindow(this);
 
 		//add to map of windows and make active window
@@ -83,7 +83,7 @@ namespace EPITOME
 		{
 			WINDOW_MAP.erase(window);
 			glfwDestroyWindow(window);
-			Keyboard::RemoveWindow(this);
+			delete keyboard;
 			Mouse::RemoveWindow(this);
 		}
 	}

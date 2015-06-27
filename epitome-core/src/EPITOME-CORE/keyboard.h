@@ -35,36 +35,31 @@ namespace EPITOME
 		}
 	};
 
-	class Keyboard : public Initializable, public Updateable
+	class Keyboard : public Updateable
 	{
 	public:
-		static void Initialize();
+		Keyboard(Window* window);
+		~Keyboard();
 
-		static void Update();
-
-		//Add a window to the key manager
-		static void AddWindow(Window* window);
-
-		//Remove a window from the key manager
-		static void RemoveWindow(Window* window);
+		void Update();
 
 		//Get the state of a key pressed
-		static KeyState getState(Window* window, Keys key);
+		KeyState getState(Window* window, Keys key);
 
 		//Test if a key was just pressed
-		static bool isKeyPressed(Window* window, Keys key);
+		bool isKeyPressed(Window* window, Keys key);
 
 		//Test if a key is pressed
-		static bool isKeyDown(Window* window, Keys key);
+		bool isKeyDown(Window* window, Keys key);
 
 		//Test if a key was just released
-		static bool isKeyReleased(Window* window, Keys key);
+		bool isKeyReleased(Window* window, Keys key);
 
 		//Calls a function when a key is pressed
-		static void onKeyPressed(Window* window, Keys key, E3DKeyFunction fn);
+		void onKeyPressed(Window* window, Keys key, E3DKeyFunction fn);
 
 		//Calls a function when a key is released
-		static void onKeyReleased(Window* window, Keys key, E3DKeyFunction fn);
+		void onKeyReleased(Window* window, Keys key, E3DKeyFunction fn);
 
 		//Clears a function from all keys
 		//TODO removeKeyFunction()
@@ -74,15 +69,19 @@ namespace EPITOME
 		//static char getChar(Window window, Keys key);
 
 	private:
+		static void Initialize();
+
 		//interal key function
 		static void GLFWKeyFunction(GLFWwindow*, int, int, int, int);
 
-		static void _registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state);
+		void _registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state);
 
+		static bool _isInitialized;
 		static KeyState _key_states[KEYS_COUNT];
-		static E3DKeyFunctionState _key_function[KEYS_COUNT];
 		static short _key_lookup[KEYS_LOOKUP_LAST];
 
-		static vector<short> _key_eventqueue;
+		Window* _window;
+		E3DKeyFunctionState _key_function[KEYS_COUNT];
+		vector<short> _key_eventqueue;
 	};
 }

@@ -19,6 +19,7 @@ namespace EPITOME
 {
 	//Forward declaration of class so that the below can access it
 	class Window;
+	
 
 	//Define types of functions used as callbacks
 	typedef std::function<void(Window&)> E3DWindowFunction;
@@ -81,6 +82,9 @@ namespace EPITOME
 		bool isMinimizing() const;
 		void onRestore(E3DWindowFunction fn);
 		bool isRestoring() const;
+
+		friend class Keyboard;
+		Keyboard* keyboard;
 
 		//TODO change to E3DFocusFunction
 		void onChangeFocus(E3DWindowFunction fn);
