@@ -19,16 +19,19 @@ namespace EPITOME
 	{
 		E3DKeyFunction fn;
 		short states;
+		GLFWwindow* window;
 
 		E3DKeyFunctionState()
 		{
 			this->fn = NULL;
 			this->states = 0;
+			this->window = NULL;
 		}
-		E3DKeyFunctionState(E3DKeyFunction fn, short states)
+		E3DKeyFunctionState(E3DKeyFunction fn, short states, GLFWwindow* window)
 		{
 			this->fn = fn;
 			this->states = states;
+			this->window = window;
 		}
 	};
 

@@ -68,7 +68,7 @@ namespace EPITOME
 
 		//send key to upstream function, if set AND if the current state matches the function states
 		E3DKeyFunction fn = _key_function[loc].fn;
-		if (fn != NULL && window == GLFW_WINDOW_ACTIVE)
+		if (fn != NULL && window == GLFW_WINDOW_ACTIVE && window == _key_function[loc].window)
 		{
 			if ((_key_function[loc].states & _key_states[loc]) > 0)
 				fn(*WINDOW_ACTIVE, (EPITOME::Keys)loc, _key_states[loc]);
@@ -110,6 +110,6 @@ namespace EPITOME
 	//TODO problems with multiple windows
 	void Keyboard::_registerFunction(Window* window, Keys key, E3DKeyFunction fn, KeyState state)
 	{
-		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state);
+		_key_function[key] = E3DKeyFunctionState(fn, _key_function[key].states | state, window->getWindowHandle());
 	}
 }
