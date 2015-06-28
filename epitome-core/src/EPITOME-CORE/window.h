@@ -47,8 +47,8 @@ namespace EPITOME
 		Window& operator=(Window other);
 		friend void swap(Window& first, Window& second);
 
-		inline void Dispose() { this->~Window(); }
-		void Render();
+		inline void dispose() { this->~Window(); }
+		void render();
 
 		//begin drawing on this window - sets this window as current
 		void beginDraw();
@@ -57,11 +57,17 @@ namespace EPITOME
 
 		void onResize(E3DWindowResizeFunction fn);
 		bool isSizeChanged() const;
-		Size<int> getSize() const;
+		//Get the size of the framebuffer, in pixels
+		Size<int> getBufferSize() const;
+		//Get the size of the window, in screen coordinates
+		Size<int> getWindowSize() const;
 
 		void onClose(E3DWindowFunction fn);
 		bool isClosing() const;
 		void close() const;
+
+		void hide();
+		void show();
 
 		bool isFullscreen() const;
 		void setFullscreen(bool fullscreen);

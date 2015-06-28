@@ -10,10 +10,8 @@ namespace EPITOME {
 	__interface Disposable
 	{
 	public:
-		virtual void Dispose() = 0;
+		virtual void dispose() = 0;
 	};
-
-	
 	
 	/*
 	* Applies to classes that store data on disk and can be loaded and unloaded to/from memory as well as disposed.
@@ -21,8 +19,8 @@ namespace EPITOME {
 	__interface Bin : public Disposable
 	{
 	public:
-		virtual void Load() = 0;
-		virtual void Unload() = 0;
+		virtual void load() = 0;
+		virtual void unload() = 0;
 		virtual bool isLoaded() = 0;
 	};
 

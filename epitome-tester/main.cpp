@@ -8,16 +8,6 @@ using namespace EPITOME;
 
 static bool running = true;
 
-//Initialize OpenGL perspective matrix
-void Setup(int width, int height)
-{
-	glViewport(0, 0, width, height);
-	glMatrixMode(GL_PROJECTION);
-	glEnable(GL_DEPTH_TEST);
-	gluPerspective(45, (float)width / height, .1, 100);
-	glMatrixMode(GL_MODELVIEW);
-}
-
 static void E3DKey(Window& win, Keys key, KeyState state)
 {
 	if (key == KEY_ESCAPE && state == KEYS_RELEASED) //this is in case we throw more keys in this loop
@@ -37,7 +27,10 @@ static void ResizeFn(Window& win, Size<int> s)
 
 static void ThreadLoop(Window* window)
 {
-	auto size = window->getSize();
+	//set a few events
+	window->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
+
+	auto size = window->getBufferSize();
 	window->beginDraw();
 
 	glViewport(0, 0, size.width, size.height);
@@ -49,6 +42,9 @@ static void ThreadLoop(Window* window)
 
 	while (running)
 	{
+		if (window->isClosing())
+			running = false;
+
 		//keep running
 		// Z angle
 		static float angle;
@@ -90,16 +86,13 @@ static void ThreadLoop(Window* window)
 		glEnd();*/
 
 		// Swap buffers (color buffers, makes previous render visible)
-		window->Render();
+		window->render();
 
 		// Increase angle to rotate
 		angle += 0.25;
 
 		//checks for events
 		Update();
-
-		if (window->isClosing())
-			running = false;
 	}
 	glfwMakeContextCurrent(NULL);
 	running = false;
@@ -108,9 +101,9 @@ static void ThreadLoop(Window* window)
 void Run()
 {
 	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
-	mainwindow->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
-	glfwShowWindow(mainwindow->getHandle());
+	mainwindow->show();
 	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
+	secondwindow->show();
 
 	thread w1(ThreadLoop, mainwindow);
 	thread w2(ThreadLoop, secondwindow);
@@ -120,13 +113,13 @@ void Run()
 		glfwWaitEvents();
 	}
 
-	glfwHideWindow(mainwindow->getHandle());
-	glfwHideWindow(secondwindow->getHandle());
+	mainwindow->hide();
+	secondwindow->hide();
 
 	w1.join();
 	w2.join();
 
-	delete mainwindow; //will call the destructor and the Dispose() method
+	delete mainwindow; //will call the destructor and the dispose() method
 	delete secondwindow;
 }
 

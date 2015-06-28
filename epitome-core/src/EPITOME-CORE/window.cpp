@@ -82,7 +82,7 @@ namespace EPITOME
 		return *this;
 	}
 
-	void Window::Render()
+	void Window::render()
 	{
 		_swapBuffers();
 	}
@@ -140,6 +140,16 @@ namespace EPITOME
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 
+	void Window::hide()
+	{
+		glfwHideWindow(getHandle());
+	}
+
+	void Window::show()
+	{
+		glfwShowWindow(getHandle());
+	}
+
 	bool Window::isFullscreen() const
 	{
 		return false;
@@ -169,12 +179,15 @@ namespace EPITOME
 		glfwSetKeyCallback(window, func);
 	}
 
-	Size<int> Window::getSize() const {
+	Size<int> Window::getBufferSize() const {
 		int width, height;
-		//TODO this is the size of the buffer, in pixels!  But should we not have a getWindowSize() in screen coordinates as well?
-		//TODO ex. fullscreen apps which have low pixel framebuffers but giant screens
 		glfwGetFramebufferSize(window, &width, &height);
+		return Size<int>(width, height);
+	}
 
+	Size<int> Window::getWindowSize() const {
+		int width, height;
+		glfwGetWindowSize(window, &width, &height);
 		return Size<int>(width, height);
 	}
 
@@ -186,10 +199,8 @@ namespace EPITOME
 			WINDOW_ACTIVE = Window::getWindow(window);
 		}
 	}
-
-	//TODO: Find some way to remove code duplication w/o
-	//function call overhead or macros. Perhaps template
-	//wizardry could achieve this?
+	 
+	//TODO: Find some way to remove code duplication w/o function call overhead or macros. Perhaps template wizardry could achieve this?
 	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height)
 	{
 		Window* win = Window::getWindow(window);

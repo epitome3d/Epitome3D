@@ -29,7 +29,7 @@ namespace EPITOME
 	{
 		for (T* a : items)
 		{
-			a->Dispose();
+			a->dispose();
 			delete a;
 		}
 		items.clear();
