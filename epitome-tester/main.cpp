@@ -92,7 +92,7 @@ static void ThreadLoop(Window* window)
 		angle += 0.25;
 
 		//checks for events
-		update();
+		Update();
 	}
 	glfwMakeContextCurrent(NULL);
 	running = false;
@@ -125,11 +125,11 @@ void Run()
 
 int main(int argc, char** argv)
 {
-	EPITOME::initialize();
+	EPITOME::Initialize();
 
 	Run();
 
-	EPITOME::exit();
+	EPITOME::Exit();
 }
 
 #ifdef WINDOWS

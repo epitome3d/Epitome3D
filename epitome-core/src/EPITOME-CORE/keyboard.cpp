@@ -18,7 +18,7 @@ namespace EPITOME
 			_key_function[i] = E3DKeyFunctionState();
 		}
 		_key_eventqueue.clear();
-		initialize();
+		Initialize();
 	}
 
 	Keyboard::~Keyboard()
@@ -26,7 +26,7 @@ namespace EPITOME
 		glfwSetKeyCallback(_window->getHandle(), NULL);
 	}
 
-	void Keyboard::initialize()
+	void Keyboard::Initialize()
 	{
 		if (_isInitialized)
 			return;
@@ -39,7 +39,7 @@ namespace EPITOME
 		}
 	}
 		
-	void Keyboard::update()
+	void Keyboard::Update()
 	{
 		for each (short key in _key_eventqueue)
 		{
