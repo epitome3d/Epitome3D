@@ -113,11 +113,6 @@ namespace EPITOME
 		std::swap(first.window, second.window);
 	}
 
-	void Window::onChangeFocus(E3DWindowFunction fn)
-	{
-
-	}
-
 	GLFWwindow* Window::getHandle() const
 	{
 		return window;
@@ -140,23 +135,24 @@ namespace EPITOME
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 
+	void Window::cancelClose() const
+	{
+		glfwSetWindowShouldClose(window, GL_FALSE);
+	}
+
 	void Window::hide()
 	{
-		glfwHideWindow(getHandle());
+		glfwHideWindow(window);
 	}
 
 	void Window::show()
 	{
-		glfwShowWindow(getHandle());
+		glfwShowWindow(window);
 	}
 
-	bool Window::isFullscreen() const
+	bool Window::isVisible()
 	{
-		return false;
-	}
-
-	void Window::setFullscreen(bool fullscreen)
-	{
+		return glfwGetWindowAttrib(window, GLFW_VISIBLE) == 0 ? false : true;
 	}
 
 	char * Window::getTitle() const
@@ -191,6 +187,23 @@ namespace EPITOME
 		return Size<int>(width, height);
 	}
 
+	void Window::setWindowSize(int width, int height)
+	{
+		glfwSetWindowSize(window, width, height);
+	}
+
+	Point<int> Window::getPosition() const
+	{
+		int x, y;
+		glfwGetWindowPos(window, &x, &y);
+		return Point<int>(x, y);
+	}
+
+	void Window::setPosition(int x, int y)
+	{
+		glfwSetWindowPos(window, x, y);
+	}
+
 	void E3D_WindowFocusCallback(GLFWwindow* window, int focus)
 	{
 		if (focus == GL_TRUE)
@@ -199,7 +212,7 @@ namespace EPITOME
 			WINDOW_ACTIVE = Window::getWindow(window);
 		}
 	}
-	 
+	
 	//TODO: Find some way to remove code duplication w/o function call overhead or macros. Perhaps template wizardry could achieve this?
 	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height)
 	{

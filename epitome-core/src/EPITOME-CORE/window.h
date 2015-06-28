@@ -1,5 +1,4 @@
-#ifndef EPITOME_GL_WINDOW
-#define EPITOME_GL_WINDOW
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -61,13 +60,23 @@ namespace EPITOME
 		Size<int> getBufferSize() const;
 		//Get the size of the window, in screen coordinates
 		Size<int> getWindowSize() const;
+		//Set the size of the window, in screen coordinates
+		//In fullscreen, this changes the size of the framebuffer
+		void setWindowSize(int width, int height);
+
+		Point<int> getPosition() const;
+		void setPosition(int x, int y);
+		void onPositionChange();
+		bool isPositionChanged();
 
 		void onClose(E3DWindowFunction fn);
 		bool isClosing() const;
 		void close() const;
+		void cancelClose() const;
 
 		void hide();
 		void show();
+		bool isVisible();
 
 		bool isFullscreen() const;
 		void setFullscreen(bool fullscreen);
@@ -113,5 +122,3 @@ namespace EPITOME
 		void _swapBuffers();
 	};
 }
-
-#endif

@@ -24,6 +24,8 @@ else()
 endif()
 
 set(E3D_CORE_FILES
+    epitome-core/src/EPITOME-CORE/display.cpp
+    epitome-core/src/EPITOME-CORE/display.h
     epitome-core/src/EPITOME-CORE/error.cpp
     epitome-core/src/EPITOME-CORE/error.h
     epitome-core/src/EPITOME-CORE/init.cpp
@@ -78,7 +80,6 @@ set(E3D_INCLUDES
     epitome-core/src
     include/opengl
     lib/glfw/include
-    lib/glfw/src
     lib/freeglut/freeglut/freeglut/include
 )
 include_directories(${E3D_INCLUDES})
