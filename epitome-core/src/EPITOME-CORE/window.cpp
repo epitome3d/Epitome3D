@@ -50,7 +50,8 @@ namespace EPITOME
 		glfwSetWindowFocusCallback(window, E3D_WindowFocusCallback);
 
 		//TODO multithreading for multiple windows
-		beginDraw();
+		//TODO this line MUST be called from the thread
+		//beginDraw();
 	}
 
 	//Copy constructor

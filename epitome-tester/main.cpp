@@ -110,12 +110,10 @@ void Run()
 	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
 	mainwindow->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
 	glfwShowWindow(mainwindow->getHandle());
-	//Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
+	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
 
 	thread w1(ThreadLoop, mainwindow);
-	//thread w2(ThreadLoop, secondwindow);
-	
-	//ThreadLoop(mainwindow);
+	thread w2(ThreadLoop, secondwindow);
 
 	while (running)
 	{
@@ -123,13 +121,13 @@ void Run()
 	}
 
 	glfwHideWindow(mainwindow->getHandle());
-	//glfwHideWindow(secondwindow->getHandle());
+	glfwHideWindow(secondwindow->getHandle());
 
 	w1.join();
-	//w2.join();
+	w2.join();
 
 	delete mainwindow; //will call the destructor and the Dispose() method
-	//delete secondwindow;
+	delete secondwindow;
 }
 
 int main(int argc, char** argv)
