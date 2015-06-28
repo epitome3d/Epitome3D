@@ -41,7 +41,7 @@ namespace EPITOME
 		Keyboard(Window* window);
 		~Keyboard();
 
-		void Update();
+		void update();
 
 		//Get the state of a key pressed
 		KeyState getState(Keys key);
@@ -71,10 +71,10 @@ namespace EPITOME
 		//static char getChar(Window window, Keys key);
 
 	private:
-		static void Initialize();
+		static void initialize();
 
 		//interal key function
-		static void GLFWKeyFunction(GLFWwindow*, int, int, int, int);
+		static void E3D_GLFWKeyFunction(GLFWwindow*, int, int, int, int);
 
 		void _registerFunction(Keys key, E3DKeyFunction fn, KeyState state);
 

@@ -2,29 +2,29 @@
 
 namespace EPITOME
 {
-	void Initialize()
+	void initialize()
 	{
 		//initialize Error class
-		Error::ResetErrorFunction();
+		Error::resetErrorFunction();
 
 		//initialize GLFW
 		if (!glfwInit())
-			Exit(Error(E3D_FAIL_CORE_INIT, "glfwInit() failed", EP_FATAL));
+			exit(Error(E3D_FAIL_CORE_INIT, "glfwInit() failed", EP_FATAL));
 	}
 
-	void Update()
+	void update()
 	{
 		glfwPollEvents();
 	}
 
-	void Exit()
+	void exit()
 	{
-		Exit(Error(E3D_SUCCESS, "", EP_RESULT));
+		exit(Error(E3D_SUCCESS, "", EP_RESULT));
 	}
 
-	void Exit(Error error)
+	void exit(Error error)
 	{
-		System::Exit();
+		System::exit();
 		exit(error.getCode());
 	}
 }

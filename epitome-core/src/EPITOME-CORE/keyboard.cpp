@@ -9,7 +9,7 @@ namespace EPITOME
 	Keyboard::Keyboard(Window* window)
 	{
 		this->_window = window;
-		GLFWkeyfun fn = glfwSetKeyCallback(window->getHandle(), GLFWKeyFunction);
+		GLFWkeyfun fn = glfwSetKeyCallback(window->getHandle(), E3D_GLFWKeyFunction);
 		if (!fn)
 			Error(E3D_FAIL_CORE_INIT, "glfwSetKeyCallback() failed");
 
@@ -18,7 +18,7 @@ namespace EPITOME
 			_key_function[i] = E3DKeyFunctionState();
 		}
 		_key_eventqueue.clear();
-		Initialize();
+		initialize();
 	}
 
 	Keyboard::~Keyboard()
@@ -26,7 +26,7 @@ namespace EPITOME
 		glfwSetKeyCallback(_window->getHandle(), NULL);
 	}
 
-	void Keyboard::Initialize()
+	void Keyboard::initialize()
 	{
 		if (_isInitialized)
 			return;
@@ -39,7 +39,7 @@ namespace EPITOME
 		}
 	}
 		
-	void Keyboard::Update()
+	void Keyboard::update()
 	{
 		for each (short key in _key_eventqueue)
 		{
@@ -61,7 +61,7 @@ namespace EPITOME
 	* The GLFW key function override
 	* Action can be GLFW_PRESS, GLFW_RELEASE, or GLFW_REPEAT
 	*/
-	void Keyboard::GLFWKeyFunction(GLFWwindow* window, int key, int scancode, int action, int mods)
+	void Keyboard::E3D_GLFWKeyFunction(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		//make sure the selected window is the active window
 		if (window != GLFW_WINDOW_ACTIVE)

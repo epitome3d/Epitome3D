@@ -18,20 +18,20 @@ namespace EPITOME
 		}
 	}
 
-	void Error::SetErrorFunction(E3DErrorFunction callback)
+	void Error::setErrorFunction(E3DErrorFunction callback)
 	{
 		_E3D_errorCallbackFn = callback;
 	}
 
-	void GLFWErrorFunction(int error, const char * description)
+	void E3D_GLFWErrorCallback(int error, const char * description)
 	{
 		_E3D_errorCallbackFn(error, description, EP_ERROR);
 	}
 
-	void Error::ResetErrorFunction()
+	void Error::resetErrorFunction()
 	{
-		_E3D_errorCallbackFn = DefaultErrorFunction;
-		glfwSetErrorCallback(GLFWErrorFunction);
+		_E3D_errorCallbackFn = defaultErrorFunction;
+		glfwSetErrorCallback(E3D_GLFWErrorCallback);
 	}
 	
 }

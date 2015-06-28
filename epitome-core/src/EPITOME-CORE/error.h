@@ -28,7 +28,7 @@ namespace EPITOME
 	static const ErrorPriority E3D_ErrorMinPriority = EP_ERROR;
 
 	//The internal error function dealing with OpenGL
-	static void GLFWErrorFunction(int error, const char* description);
+	static void E3D_GLFWErrorCallback(int error, const char* description);
 
 	//Internal callback for the error function.  When an error is created, this class forwards to the callback.
 	static void(*_E3D_errorCallbackFn)(int, const char*, ErrorPriority); 
@@ -44,13 +44,13 @@ namespace EPITOME
 		//Set an error function for Epitome.  When errors are created AND are of higher or equal priority than 
 		//E3D_ErrorMinPriority, they will pipe into the function.
 		//The callback should be a function defined as function(int error, const char* description, ErrorPriority priority).
-		static void SetErrorFunction(E3DErrorFunction callback);
+		static void setErrorFunction(E3DErrorFunction callback);
 
 		//Set the error function to the default state.
-		static void ResetErrorFunction();
+		static void resetErrorFunction();
 
 		//The default error function.  Custom error functions may fall back to this function by calling it.
-		inline static void DefaultErrorFunction(int error, const char* description, ErrorPriority priority)
+		inline static void defaultErrorFunction(int error, const char* description, ErrorPriority priority)
 		{
 			FILE* buf = (priority >= EP_ERROR) ? stderr : stdout;
 			fputs(description, buf);

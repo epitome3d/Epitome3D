@@ -14,7 +14,7 @@ namespace EPITOME
 		//TODO add vSync - every single or double VBlank to this (swap interval function)
 		//TODO also MSAA
 
-		inline static int Exit()
+		inline static int exit()
 		{
 			glfwTerminate();
 			return E3D_SUCCESS;
