@@ -6,24 +6,6 @@ namespace EPITOME
 	//Defining active window variables
 	Window* WINDOW_ACTIVE = nullptr;
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
-	
-	//Initializing the window map
-	WINDOW_MAP_TYPE::size_type WINDOW_MAP_DEFAULT_SIZE = 5;
-	WINDOW_MAP_TYPE WINDOW_MAP = WINDOW_MAP_TYPE(WINDOW_MAP_DEFAULT_SIZE, GLFW_WINDOW_TO_SIZE_T, GLFW_WINDOW_EQUALS);
-
-	//Converts GLFW_Window ptr to size_t as a psuedo-hashing function
-	//TODO: Improved version most likely needed
-	std::size_t GLFW_WINDOW_TO_SIZE_T(GLFWwindow* win)
-	{
-		return (std::size_t)win;
-	}
-
-	//Is one window pointer equal to another?
-	//Used because equality callback is mandatory w/ unordered_map
-	bool GLFW_WINDOW_EQUALS(GLFWwindow* one, GLFWwindow* two)
-	{
-		return one == two;
-	}
 
 	Window::Window(int width, int height, char* title)
 	{
@@ -35,14 +17,14 @@ namespace EPITOME
 		if (window == NULL)
 			Error::Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
 
+		//set a reference pointer back to this window
 		((_GLFWwindow*)window)->_E3DWindow = this;
 
 		//bind with keyboard and mouse
 		keyboard = new Keyboard(this);
 		mouse = new Mouse(window);
 
-		//add to map of windows and make active window
-		WINDOW_MAP[window] = this;
+		//make active window
 		WINDOW_ACTIVE = this;
 		GLFW_WINDOW_ACTIVE = window;
 
@@ -50,7 +32,6 @@ namespace EPITOME
 		glfwSetWindowFocusCallback(window, E3D_WindowFocusCallback);
 
 		//TODO multithreading for multiple windows
-		//TODO this line MUST be called from the thread
 		//beginDraw();
 	}
 
@@ -69,7 +50,6 @@ namespace EPITOME
 	//and puts it into this one.
 	Window::Window(Window&& win)
 	{
-		WINDOW_MAP[window] = this;
 		reference_num = win.reference_num;
 		win.reference_num = 100; //dummy large value
 		window = win.window;
@@ -84,11 +64,15 @@ namespace EPITOME
 		//Pointer is valid and this is the original refrence to window
 		if (window && reference_num == 1)
 		{
-			WINDOW_MAP.erase(window);
 			glfwDestroyWindow(window);
 			delete keyboard;
 			delete mouse;
 		}
+	}
+
+	Window* Window::getWindow(GLFWwindow* window)
+	{
+		return ((Window*)((_GLFWwindow*)window)->_E3DWindow);
 	}
 
 	Window& Window::operator=(Window other)
@@ -199,7 +183,7 @@ namespace EPITOME
 		if (focus == GL_TRUE)
 		{
 			GLFW_WINDOW_ACTIVE = window;
-			WINDOW_ACTIVE = WINDOW_MAP[window];
+			WINDOW_ACTIVE = Window::getWindow(window);
 		}
 	}
 
@@ -208,29 +192,13 @@ namespace EPITOME
 	//wizardry could achieve this?
 	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height)
 	{
-		Window* win;
-		if (window == GLFW_WINDOW_ACTIVE)
-		{
-			win = WINDOW_ACTIVE;
-		}
-		else
-		{
-			win = WINDOW_MAP[window];
-		}
+		Window* win = Window::getWindow(window);
 		win->m_resizeFunction(*win, Size<int>(width, height));
 	}
 
 	void E3D_WindowCloseCallback(GLFWwindow* window)
 	{
-		Window* win;
-		if (window == GLFW_WINDOW_ACTIVE)
-		{
-			win = WINDOW_ACTIVE;
-		}
-		else
-		{
-			win = WINDOW_MAP[window];
-		}
+		Window* win = Window::getWindow(window);
 		win->m_closeFunction(*win);
 	}
 	#endif
