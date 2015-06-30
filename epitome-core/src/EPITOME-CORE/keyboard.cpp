@@ -41,7 +41,7 @@ namespace EPITOME
 		
 	void Keyboard::Update()
 	{
-		for each (short key in _key_eventqueue)
+		for (short key : _key_eventqueue)
 		{
 			//get key state
 			KeyState state = _key_states[key];

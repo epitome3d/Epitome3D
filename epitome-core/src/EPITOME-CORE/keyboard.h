@@ -1,9 +1,11 @@
 #pragma once
 
-#include "utils.h"
-#include "window.h"
-#include "keys.h"
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
+#include "utils.h"
+#include "keys.h"
+
 #include <vector>
 using namespace std;
 
@@ -87,3 +89,5 @@ namespace EPITOME
 		vector<short> _key_eventqueue;
 	};
 }
+
+#include "window.h"

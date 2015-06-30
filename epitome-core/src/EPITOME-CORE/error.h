@@ -34,7 +34,7 @@ namespace EPITOME
 	static void(*_E3D_errorCallbackFn)(int, const char*, ErrorPriority); 
 
 	//An error returned by a call to Epitome's functions
-	class Error sealed
+	class Error
 	{
 	public:
 

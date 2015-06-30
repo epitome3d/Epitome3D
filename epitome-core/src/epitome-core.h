@@ -1,6 +1,6 @@
 #pragma once
 
-#define GLFW_INCLUDE_GLU
+
 
 //highest level 
 

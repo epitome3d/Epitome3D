@@ -7,7 +7,7 @@ namespace EPITOME
 	Window* WINDOW_ACTIVE = nullptr;
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
 
-	Window::Window(int width, int height, char* title)
+	Window::Window(int width, int height, const char* title)
 	{
 		//Set this instance as the owner of this window
 		reference_num = 1;
@@ -15,7 +15,7 @@ namespace EPITOME
 		//create the window
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
 		if (window == NULL)
-			Error::Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
+			Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
 
 		//set a reference pointer back to this window
 		((_GLFWwindow*)window)->_E3DWindow = this;
@@ -152,7 +152,7 @@ namespace EPITOME
 
 	bool Window::isVisible()
 	{
-		return glfwGetWindowAttrib(window, GLFW_VISIBLE) == 0 ? false : true;
+		return glfwGetWindowAttrib(window, GLFW_VISIBLE) != 0;
 	}
 
 	char * Window::getTitle() const
@@ -212,7 +212,7 @@ namespace EPITOME
 			WINDOW_ACTIVE = Window::getWindow(window);
 		}
 	}
-	
+
 	//TODO: Find some way to remove code duplication w/o function call overhead or macros. Perhaps template wizardry could achieve this?
 	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height)
 	{

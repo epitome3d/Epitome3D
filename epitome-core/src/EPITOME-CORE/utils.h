@@ -7,7 +7,7 @@ namespace EPITOME {
 	/*
 	* Applies to classes that can be disposed once
 	*/
-	__interface Disposable
+	class Disposable
 	{
 	public:
 		virtual void dispose() = 0;
@@ -16,7 +16,7 @@ namespace EPITOME {
 	/*
 	* Applies to classes that store data on disk and can be loaded and unloaded to/from memory as well as disposed.
 	*/
-	__interface Bin : public Disposable
+	class Bin : public Disposable
 	{
 	public:
 		virtual void load() = 0;

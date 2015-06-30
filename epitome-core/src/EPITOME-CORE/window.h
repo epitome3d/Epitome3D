@@ -26,6 +26,8 @@ namespace EPITOME
 
 	//Callback used for focus that modifies the map and active variables below
 	void E3D_WindowFocusCallback(GLFWwindow* window, int focus);
+	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height);
+	void E3D_WindowCloseCallback(GLFWwindow* window);
 
 	//Holds pointer to active window and active GLFW window
 	extern GLFWwindow* GLFW_WINDOW_ACTIVE;
@@ -35,7 +37,7 @@ namespace EPITOME
 	{
 	public:
 		//Constructors, destructors, and the like
-		Window(int width, int height, char* title);
+		Window(int width, int height, const char* title);
 		Window(const Window&);
 		Window(Window&&);
 		~Window();
@@ -113,15 +115,13 @@ namespace EPITOME
 		//TODO delete this method?  Replace with an instance of Keyboard?
 		void setKeyHandler(GLFWkeyfun func);
 
-		friend void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height);
-		friend void E3D_WindowCloseCallback(GLFWwindow* window);
+		E3DWindowResizeFunction m_resizeFunction;
+		E3DWindowFunction m_closeFunction;
 	private:
 		unsigned int reference_num;
 		GLFWwindow* window;
 		bool m_isResized;
 		char* m_title; //required b/c can't get title through GLFW
-		E3DWindowResizeFunction m_resizeFunction;
-		E3DWindowFunction m_closeFunction;
 
 		void _swapBuffers();
 	};

@@ -7,7 +7,6 @@
 #include <GLFW/glfw3.h>
 #include <GLFW/glfw3internal.h>
 
-#include "window.h"
 #include "utils.h"
 
 namespace EPITOME
@@ -31,3 +30,5 @@ namespace EPITOME
 		E3D_MouseFunction m_mfunc;
 	};
 }
+
+#include "window.h"
