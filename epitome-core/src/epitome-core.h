@@ -10,5 +10,6 @@
 #include <EPITOME-CORE/error.h> //initializes error functions
 #include <EPITOME-CORE/utils.h> //Epitome3D utilities
 #include <EPITOME-CORE/memory.h> //Memory management
+#include <EPITOME-CORE/display.h> //Display and video mode management
 
 //lowest level (dependencies)

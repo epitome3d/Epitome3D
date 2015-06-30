@@ -53,10 +53,20 @@ namespace EPITOME {
 		T width;
 		T height;
 
+		Size()
+		{
+			this->width = 0;
+			this->height = 0;
+		}
 		Size(T width, T height)
 		{
 			this->width = width;
 			this->height = height;
+		}
+		Size(const Size &other)
+		{
+			this->width = other.width;
+			this->height = other.height;
 		}
 	};
 }

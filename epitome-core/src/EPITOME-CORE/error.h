@@ -10,7 +10,8 @@ namespace EPITOME
 		E3D_UNKNOWN = -1,
 		E3D_SUCCESS = 0,
 		E3D_FAILURE = 1,
-		E3D_FAIL_CORE_INIT = 2
+		E3D_FAIL_CORE_INIT = 2,
+		E3D_INVALID_PARAMETER = 3
 	};
 
 	//Priority of an error.  Higher priority means more actions are taken due to the error.

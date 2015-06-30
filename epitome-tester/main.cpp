@@ -109,6 +109,11 @@ void Run()
 	secondwindow->show();
 	secondwindow->setPosition(170 + window_width, 100);
 
+	//Display testing
+	Display d = Displays::getPrimary();
+	Size<int> s = d.getPhysicalSize();
+	VideoMode v = d.getBestVideoMode();
+
 	thread w1(ThreadLoop, mainwindow);
 	thread w2(ThreadLoop, secondwindow);
 

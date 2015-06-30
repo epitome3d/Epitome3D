@@ -30,9 +30,29 @@ namespace EPITOME
 		return Size<int>(w, h);
 	}
 
+	VideoMode Display::getBestVideoMode()
+	{
+		int count;
+		const GLFWvidmode* modes = glfwGetVideoModes(glfwGetPrimaryMonitor(), &count);
+
+		int maxWidth = 0;
+		int maxHeight = 0;
+		int maxLoc = 0;
+		for (int i = 0; i < count; i++)
+		{
+			if (modes[i].width > maxWidth)
+				maxWidth = modes[i].width; maxLoc = i;
+			if (modes[i].height > maxHeight)
+				maxHeight = modes[i].height; maxLoc = i;
+		}
+
+		GLFWvidmode best = modes[maxLoc];
+		return VideoMode(best);
+	}
+
 	Display Displays::getPrimary()
 	{
-		return getDisplay(glfwGetPrimaryMonitor());
+		return Display(glfwGetPrimaryMonitor());
 	}
 
 	Display* Displays::getAllDisplays(int& count)
@@ -44,8 +64,43 @@ namespace EPITOME
 		//TODO we MUST delete this array!!!  MEMORY LEAK ALERT
 	}
 
-	Display Displays::getDisplay(GLFWmonitor* monitor)
+	VideoMode::VideoMode()
 	{
-		return Display(monitor);
+		_setVideoMode(1, 1, 1, 3);
 	}
+
+	void VideoMode::_setVideoMode(unsigned int width, unsigned int height, unsigned int refreshRate, unsigned int bitsPerPixel)
+	{
+		if (height == 0 || width == 0 || refreshRate == 0 || bitsPerPixel == 0 || bitsPerPixel % 3 != 0)
+			Error(E3D_INVALID_PARAMETER, "A parameter is invalid.");
+
+		this->width = width;
+		this->height = height;
+		this->refreshRate = refreshRate;
+		this->bitsPerPixel = bitsPerPixel;
+
+		unsigned int gcd = Math::gcd<unsigned int>(width, height);
+		this->ratio = Size<unsigned int>((unsigned int)floor(width / gcd), (unsigned int)floor(height / gcd));
+	}
+
+	VideoMode::VideoMode(GLFWvidmode& mode)
+	{
+		_setVideoMode(mode.width, mode.height, mode.refreshRate, mode.redBits + mode.greenBits + mode.blueBits);
+	}
+
+	VideoMode::VideoMode(unsigned int width, unsigned int height, unsigned int refreshRate, unsigned int bitsPerPixel)
+	{
+		_setVideoMode(width, height, refreshRate, bitsPerPixel);
+	}
+
+	ColorCorrection::ColorCorrection()
+	{
+		//TODO not implemented
+	}
+
+	ColorCorrection::ColorCorrection(double gamma, double brightness, double contrast)
+	{
+		//TODO not implemented
+	}
+
 }
