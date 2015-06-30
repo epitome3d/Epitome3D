@@ -7,11 +7,16 @@ using namespace EPITOME;
 #define window_height 480
 
 static bool running = true;
+static bool enter_pressed = false;
 
 static void E3DKey(Window& win, Keys key, KeyState state)
 {
 	if (key == KEY_ESCAPE && state == KEYS_RELEASED) //this is in case we throw more keys in this loop
 		win.close();
+	if (key == KEY_ENTER && state == KEYS_PRESSED)
+		enter_pressed = true;
+	if (key == KEY_ENTER && state == KEYS_RELEASED)
+		enter_pressed = false;
 }
 
 static void ErrorFn(int error, const char* description)
@@ -23,6 +28,8 @@ static void ThreadLoop(Window* window)
 {
 	//set a few events
 	window->keyboard->onKeyReleased(Keys::KEY_ESCAPE, E3DKey);
+	window->keyboard->onKeyPressed(KEY_ENTER, E3DKey);
+	window->keyboard->onKeyReleased(KEY_ENTER, E3DKey);
 
 	auto size = window->getBufferSize();
 	window->beginDraw();
@@ -70,8 +77,9 @@ static void ThreadLoop(Window* window)
 		mPos.y = (-mPos.y + 230) / 12;
 
 		GLfloat b = (window->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
+		GLfloat r = (enter_pressed) ? 1.0f : 0.0f;
 
-		glColor3f(0.0, 1.0, b);
+		glColor3f(r, 1.0, b);
 		glBegin(GL_POLYGON);
 		glVertex3f(mPos.x-2, mPos.y-2, -50);
 		glVertex3f(mPos.x+2, mPos.y-2, -50);
