@@ -19,12 +19,6 @@ static void ErrorFn(int error, const char* description)
 	fputs(description, stderr);
 }
 
-static void ResizeFn(Window& win, Size<int> s)
-{
-	MessageBox(NULL, "Second onResize!", "ANOTHER", MB_OK);
-	return;
-}
-
 static void ThreadLoop(Window* window)
 {
 	//set a few events
@@ -52,9 +46,9 @@ static void ThreadLoop(Window* window)
 		// And depth (used internally to block obstructed objects)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// BEGIN OLD CODE (to be reimplemented once demo viewed)
+		// BEGIN OLD CODE
 		//Load identity matrix
-		glLoadIdentity();
+		/*glLoadIdentity();
 		// Multiply in translation matrix
 		glTranslatef(0, 0, -10);
 		// Multiply in rotation matrix
@@ -65,15 +59,15 @@ static void ThreadLoop(Window* window)
 		glColor3ub(000, 255, 000); glVertex2f(1, 1);
 		glColor3ub(000, 000, 255); glVertex2f(1, -1);
 		glColor3ub(255, 255, 000); glVertex2f(-1, -1);
-		glEnd();
+		glEnd();*/
 		// END OLD CODE
 
 		//TODO Inefficient/sloppy at the moment, for demonstration purposes
 
-		/*Point<double> mPos = window->mouse->getPosition();
+		Point<double> mPos = window->mouse->getPosition();
+		//TODO why???
 		mPos.x = (mPos.x - 320) / 12;
 		mPos.y = (-mPos.y + 230) / 12;
-		glClear(GL_COLOR_BUFFER_BIT);
 
 		GLfloat b = (window->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
 
@@ -83,7 +77,7 @@ static void ThreadLoop(Window* window)
 		glVertex3f(mPos.x+2, mPos.y-2, -50);
 		glVertex3f(mPos.x+2, mPos.y+2, -50);
 		glVertex3f(mPos.x-2, mPos.y+2, -50);
-		glEnd();*/
+		glEnd();
 
 		// Swap buffers (color buffers, makes previous render visible)
 		window->render();
@@ -105,7 +99,7 @@ void Run()
 	mainwindow->show();
 	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
 	secondwindow->show();
-	secondwindow->setPosition(124 + window_width, 100);
+	secondwindow->setPosition(170 + window_width, 100);
 
 	thread w1(ThreadLoop, mainwindow);
 	thread w2(ThreadLoop, secondwindow);

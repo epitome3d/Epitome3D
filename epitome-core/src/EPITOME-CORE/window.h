@@ -41,6 +41,10 @@ namespace EPITOME
 		~Window();
 
 		static Window* getWindow(GLFWwindow*);
+		inline static Window* getActiveWindow()
+		{
+			return WINDOW_ACTIVE;
+		}
 
 		//Copy-and-swap idiom
 		Window& operator=(Window other);
