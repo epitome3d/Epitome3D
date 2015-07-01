@@ -142,8 +142,16 @@ namespace EPITOME
 	{
 		this->mode = WindowMode::E3D_WINDOW_MODE_FULLSCREEN;
 
+		const GLFWvidmode videomode = mode.mode;
+		
 		dispose();
-		_createGLFWWindow(mode.getSize().width, mode.getSize().height, m_title, display.monitor, NULL);
+
+		glfwWindowHint(GLFW_RED_BITS, videomode.redBits);
+		glfwWindowHint(GLFW_GREEN_BITS, videomode.greenBits);
+		glfwWindowHint(GLFW_BLUE_BITS, videomode.blueBits);
+		glfwWindowHint(GLFW_REFRESH_RATE, videomode.refreshRate);
+		glfwWindowHint(GLFW_DECORATED, false);
+		_createGLFWWindow(mode.width, mode.height, m_title, display.monitor, NULL);
 	}
 
 	char * Window::getTitle() const

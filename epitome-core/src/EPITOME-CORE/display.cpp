@@ -85,12 +85,8 @@ namespace EPITOME
 
 	VideoMode::VideoMode(GLFWvidmode& mode)
 	{
+		this->mode = mode;
 		_setVideoMode(mode.width, mode.height, mode.refreshRate, mode.redBits + mode.greenBits + mode.blueBits);
-	}
-
-	VideoMode::VideoMode(unsigned int width, unsigned int height, unsigned int refreshRate, unsigned int bitsPerPixel)
-	{
-		_setVideoMode(width, height, refreshRate, bitsPerPixel);
 	}
 
 	ColorCorrection::ColorCorrection()

@@ -50,7 +50,6 @@ namespace EPITOME
 	public:
 		VideoMode();
 		VideoMode(GLFWvidmode& mode);
-		VideoMode(unsigned int width, unsigned int height, unsigned int refreshRate, unsigned int bitsPerPixel);
 
 		//Gets the size of the video mode, in pixels
 		inline Size<unsigned int> getSize() { return Size<unsigned int>(width, height); }
@@ -61,6 +60,10 @@ namespace EPITOME
 		//Gets the bits per pixel value of the red, green, and blue fields
 		inline unsigned int getBitsPerPixel() { return bitsPerPixel; }
 	private:
+		friend class Window;
+
+		GLFWvidmode mode;
+
 		//Width in pixels
 		unsigned int width;
 		//Height in pixels

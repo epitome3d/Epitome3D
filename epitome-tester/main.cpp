@@ -109,8 +109,8 @@ void Run()
 
 	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
 	mainwindow->setPosition(100, 100);
-	mainwindow->show();
 	mainwindow->setModeFullscreen(d);
+	mainwindow->show();
 
 	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
 	secondwindow->hide(); //TODO hiding for now to demonstrate full-screen-ness
