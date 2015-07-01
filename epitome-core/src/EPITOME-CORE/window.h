@@ -17,8 +17,10 @@
 
 namespace EPITOME
 {
-	//Forward declaration of class so that the below can access it
+	//Forward declaration of classes so that the below can access it
 	class Window;
+	struct Display;
+	struct VideoMode;
 
 	//Define types of functions used as callbacks
 	typedef std::function<void(Window&)> E3DWindowFunction;
@@ -33,6 +35,13 @@ namespace EPITOME
 	extern GLFWwindow* GLFW_WINDOW_ACTIVE;
 	extern Window* WINDOW_ACTIVE;
 
+	enum WindowMode
+	{
+		E3D_WINDOW_MODE_WINDOWED,
+		E3D_WINDOW_MODE_FULLSCREEN,
+		E3D_WINDOW_MODE_BORDERLESS
+	};
+
 	class Window : public Disposable
 	{
 	public:
@@ -40,7 +49,7 @@ namespace EPITOME
 		Window(int width, int height, const char* title);
 		Window(const Window&);
 		Window(Window&&);
-		~Window();
+		inline ~Window() { dispose(); }
 
 		static Window* getWindow(GLFWwindow*);
 		inline static Window* getActiveWindow()
@@ -52,7 +61,7 @@ namespace EPITOME
 		Window& operator=(Window other);
 		friend void swap(Window& first, Window& second);
 
-		inline void dispose() { this->~Window(); }
+		void dispose();
 		void render();
 
 		//begin drawing on this window - sets this window as current
@@ -84,8 +93,11 @@ namespace EPITOME
 		void show();
 		bool isVisible();
 
-		bool isFullscreen() const;
-		void setFullscreen(bool fullscreen);
+		inline WindowMode getMode() { return mode; }
+		void setModeFullscreen(Display display);
+		void setModeFullscreen(Display display, VideoMode mode);
+		void setModeWindowed();
+		void setModeBorderless();
 
 		char* getTitle() const;
 		void setTitle(char* title);
@@ -118,11 +130,17 @@ namespace EPITOME
 		E3DWindowResizeFunction m_resizeFunction;
 		E3DWindowFunction m_closeFunction;
 	private:
+		WindowMode mode;
 		unsigned int reference_num;
 		GLFWwindow* window;
 		bool m_isResized;
 		char* m_title; //required b/c can't get title through GLFW
+		
+		Display* m_fullscreen;
 
 		void _swapBuffers();
+		void _createGLFWWindow(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share);
 	};
 }
+
+#include "display.h"

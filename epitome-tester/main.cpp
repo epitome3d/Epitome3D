@@ -102,17 +102,21 @@ static void ThreadLoop(Window* window)
 
 void Run()
 {
-	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
-	mainwindow->setPosition(100, 100);
-	mainwindow->show();
-	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
-	secondwindow->show();
-	secondwindow->setPosition(170 + window_width, 100);
-
-	//Display testing
+	//Get primary display information
 	Display d = Displays::getPrimary();
 	Size<int> s = d.getPhysicalSize();
 	VideoMode v = d.getBestVideoMode();
+
+	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
+	mainwindow->setPosition(100, 100);
+	mainwindow->show();
+	mainwindow->setModeFullscreen(d);
+
+	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
+	secondwindow->hide(); //TODO hiding for now to demonstrate full-screen-ness
+	secondwindow->setPosition(170 + window_width, 100);
+
+	
 
 	thread w1(ThreadLoop, mainwindow);
 	thread w2(ThreadLoop, secondwindow);

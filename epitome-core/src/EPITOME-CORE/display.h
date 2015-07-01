@@ -4,14 +4,16 @@
 #include <GLFW/glfw3.h>
 
 #include "utils.h"
-#include "window.h"
 #include "mathbasic.h"
+#include "window.h"
 #include <vector>
 using namespace std;
 
 namespace EPITOME
 {
 	//TODO how should we handle classes that are unique features of GLFW?  (ex. gamma ramp and monitors)
+
+	class Window;
 
 	struct ColorCorrection
 	{
@@ -101,6 +103,7 @@ namespace EPITOME
 	private:
 		GLFWmonitor* monitor;
 		ColorCorrection correction;
+		friend class Window;
 		Window* window;
 
 		#ifndef OPENGL

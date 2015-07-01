@@ -3,36 +3,13 @@
 namespace EPITOME
 {
 	#if OPENGL
-	//Defining active window variables
 	Window* WINDOW_ACTIVE = nullptr;
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
+	WindowMode mode = WindowMode::E3D_WINDOW_MODE_WINDOWED;
 
 	Window::Window(int width, int height, const char* title)
 	{
-		//Set this instance as the owner of this window
-		reference_num = 1;
-
-		//create the window
-		window = glfwCreateWindow(width, height, title, NULL, NULL);
-		if (window == NULL)
-			Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
-
-		//set a reference pointer back to this window
-		((_GLFWwindow*)window)->_E3DWindow = this;
-
-		//bind with keyboard and mouse
-		keyboard = new Keyboard(this);
-		mouse = new Mouse(window);
-
-		//make active window
-		WINDOW_ACTIVE = this;
-		GLFW_WINDOW_ACTIVE = window;
-
-		//set focus callback
-		glfwSetWindowFocusCallback(window, E3D_WindowFocusCallback);
-
-		//TODO multithreading for multiple windows
-		//beginDraw();
+		_createGLFWWindow(width, height, title, NULL, NULL);
 	}
 
 	//Copy constructor
@@ -59,7 +36,7 @@ namespace EPITOME
 	}
 
 	//The window is about to die
-	Window::~Window()
+	void Window::dispose()
 	{
 		//Pointer is valid and this is the original refrence to window
 		if (window && reference_num == 1)
@@ -155,6 +132,20 @@ namespace EPITOME
 		return glfwGetWindowAttrib(window, GLFW_VISIBLE) != 0;
 	}
 
+	void Window::setModeFullscreen(Display display)
+	{
+		VideoMode best = display.getBestVideoMode();
+		setModeFullscreen(display, best);
+	}
+
+	void Window::setModeFullscreen(Display display, VideoMode mode)
+	{
+		this->mode = WindowMode::E3D_WINDOW_MODE_FULLSCREEN;
+
+		dispose();
+		_createGLFWWindow(mode.getSize().width, mode.getSize().height, m_title, display.monitor, NULL);
+	}
+
 	char * Window::getTitle() const
 	{
 		return m_title;
@@ -169,6 +160,37 @@ namespace EPITOME
 	void Window::_swapBuffers()
 	{
 		glfwSwapBuffers(window);
+	}
+
+	void Window::_createGLFWWindow(int width, int height, const char * title, GLFWmonitor * monitor, GLFWwindow * share)
+	{
+		//Set this instance as the owner of this window
+		reference_num = 1;
+
+		//create the window
+		window = glfwCreateWindow(width, height, title, NULL, NULL);
+		if (window == NULL)
+			Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
+
+		//set variables
+		this->m_title = (char *)title;
+
+		//set a reference pointer back to this window
+		((_GLFWwindow*)window)->_E3DWindow = this;
+
+		//bind with keyboard and mouse
+		keyboard = new Keyboard(this);
+		mouse = new Mouse(window);
+
+		//make active window
+		WINDOW_ACTIVE = this;
+		GLFW_WINDOW_ACTIVE = window;
+
+		//set focus callback
+		glfwSetWindowFocusCallback(window, E3D_WindowFocusCallback);
+
+		//TODO multithreading for multiple windows
+		//beginDraw();
 	}
 
 	void Window::setKeyHandler(GLFWkeyfun func) {
