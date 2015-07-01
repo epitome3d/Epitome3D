@@ -73,8 +73,8 @@ static void ThreadLoop(Window* window)
 
 		Point<double> mPos = window->mouse->getPosition();
 		//TODO why???
-		mPos.x = (mPos.x - 320) / 12;
-		mPos.y = (-mPos.y + 230) / 12;
+		mPos.x = (mPos.x - 960) / 26; //37
+		mPos.y = (-mPos.y + 530) / 26;
 
 		GLfloat b = (window->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
 		GLfloat r = (enter_pressed) ? 1.0f : 0.0f;
