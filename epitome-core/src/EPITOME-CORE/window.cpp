@@ -5,11 +5,30 @@ namespace EPITOME
 	#if OPENGL
 	Window* WINDOW_ACTIVE = nullptr;
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
-	WindowMode mode = WindowMode::E3D_WINDOW_MODE_WINDOWED;
 
-	Window::Window(int width, int height, const char* title)
+	WindowMode mode = WindowMode::E3D_WINDOW_MODE_NOTCREATED;
+
+	Window::Window(int width, int height, const char* title, WindowMode mode)
 	{
-		_createGLFWWindow(width, height, title, NULL, NULL);
+		this->mode = mode;
+		this->width = width;
+		this->height = height;
+		this->m_title = (char*)title;
+		switch (mode)
+		{
+		case E3D_WINDOW_MODE_WINDOWED:
+			setModeWindowed(); break;
+		case E3D_WINDOW_MODE_FULLSCREEN:
+			setModeFullscreen(Displays::getPrimary()); break;
+		case E3D_WINDOW_MODE_BORDERLESS:
+			setModeBorderless(); break;
+		case E3D_WINDOW_MODE_NOTCREATED:
+			return; break;
+		default:
+			setModeWindowed(); break;
+		}
+		
+		//_createGLFWWindow(width, height, title, NULL, NULL);
 	}
 
 	//Copy constructor
@@ -38,8 +57,8 @@ namespace EPITOME
 	//The window is about to die
 	void Window::dispose()
 	{
-		//Pointer is valid and this is the original refrence to window
-		if (window && reference_num == 1)
+		//Pointer is valid and this is the original refrence to window and window already created
+		if (window && reference_num == 1 && mode != E3D_WINDOW_MODE_NOTCREATED)
 		{
 			glfwDestroyWindow(window);
 			delete keyboard;
@@ -47,7 +66,7 @@ namespace EPITOME
 		}
 	}
 
-	Window* Window::getWindow(GLFWwindow* window)
+	Window* Window::_getWindow(GLFWwindow* window)
 	{
 		return ((Window*)((_GLFWwindow*)window)->_E3DWindow);
 	}
@@ -66,6 +85,7 @@ namespace EPITOME
 
 	void Window::beginDraw()
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		glfwMakeContextCurrent(window);
 	}
 
@@ -76,6 +96,7 @@ namespace EPITOME
 
 	void Window::onResize(E3DWindowResizeFunction fn)
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		m_resizeFunction = fn;
 		glfwSetWindowSizeCallback(window, E3D_WindowResizeCallback);
 	}
@@ -97,6 +118,7 @@ namespace EPITOME
 
 	void Window::onClose(E3DWindowFunction fn)
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		//TODO should we have a central way of storing and deinstancing callbacks?
 		m_closeFunction = fn;
 		glfwSetWindowCloseCallback(window, E3D_WindowCloseCallback);
@@ -104,31 +126,37 @@ namespace EPITOME
 
 	bool Window::isClosing() const
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		return (glfwWindowShouldClose(window) != 0);
 	}
 
 	void Window::close() const
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 
 	void Window::cancelClose() const
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		glfwSetWindowShouldClose(window, GL_FALSE);
 	}
 
 	void Window::hide()
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		glfwHideWindow(window);
 	}
 
 	void Window::show()
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		glfwShowWindow(window);
 	}
 
 	bool Window::isVisible()
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		return glfwGetWindowAttrib(window, GLFW_VISIBLE) != 0;
 	}
 
@@ -151,7 +179,30 @@ namespace EPITOME
 		glfwWindowHint(GLFW_BLUE_BITS, videomode.blueBits);
 		glfwWindowHint(GLFW_REFRESH_RATE, videomode.refreshRate);
 		glfwWindowHint(GLFW_DECORATED, false);
+		glfwWindowHint(GLFW_AUTO_ICONIFY, true);  //TODO temporary for debugging
 		_createGLFWWindow(mode.width, mode.height, m_title, display.monitor, NULL);
+	}
+
+	void Window::setModeWindowed()
+	{
+		this->mode = WindowMode::E3D_WINDOW_MODE_WINDOWED;
+
+		dispose();
+
+		glfwWindowHint(GLFW_DECORATED, true);
+		glfwWindowHint(GLFW_AUTO_ICONIFY, true);
+		_createGLFWWindow(width, height, m_title, NULL, NULL);
+	}
+
+	void Window::setModeBorderless()
+	{
+		this->mode = WindowMode::E3D_WINDOW_MODE_BORDERLESS;
+
+		dispose();
+
+		glfwWindowHint(GLFW_DECORATED, false);
+		glfwWindowHint(GLFW_AUTO_ICONIFY, true);
+		_createGLFWWindow(width, height, m_title, NULL, NULL);
 	}
 
 	char * Window::getTitle() const
@@ -161,6 +212,7 @@ namespace EPITOME
 
 	void Window::setTitle(char * title)
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		m_title = title;
 		glfwSetWindowTitle(window, title);
 	}
@@ -176,7 +228,8 @@ namespace EPITOME
 		reference_num = 1;
 
 		//create the window
-		window = glfwCreateWindow(width, height, title, NULL, NULL);
+		//TODO BUGBUG setting monitor and share to NOT NULL causes issues with fullscreen displays
+		window = glfwCreateWindow(width, height, title, monitor, share);
 		if (window == NULL)
 			Error(E3D_FAIL_CORE_INIT, "glfwCreateWindow() failed", EP_FATAL);
 
@@ -202,18 +255,21 @@ namespace EPITOME
 	}
 
 	void Window::setKeyHandler(GLFWkeyfun func) {
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		glfwSetKeyCallback(window, func);
 	}
 
-	Size<int> Window::getBufferSize() const {
+	Size<int> Window::getBufferSize() {
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		int width, height;
 		glfwGetFramebufferSize(window, &width, &height);
 		return Size<int>(width, height);
 	}
 
-	Size<int> Window::getWindowSize() const {
-		int width, height;
-		glfwGetWindowSize(window, &width, &height);
+	Size<int> Window::getWindowSize() 
+	{
+		if (mode != E3D_WINDOW_MODE_NOTCREATED)
+			glfwGetWindowSize(window, &width, &height);
 		return Size<int>(width, height);
 	}
 
@@ -224,6 +280,7 @@ namespace EPITOME
 
 	Point<int> Window::getPosition() const
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		int x, y;
 		glfwGetWindowPos(window, &x, &y);
 		return Point<int>(x, y);
@@ -231,6 +288,7 @@ namespace EPITOME
 
 	void Window::setPosition(int x, int y)
 	{
+		E3D_MACRO_WINDOW_REQUIRE_INIT;
 		glfwSetWindowPos(window, x, y);
 	}
 
@@ -239,20 +297,20 @@ namespace EPITOME
 		if (focus == GL_TRUE)
 		{
 			GLFW_WINDOW_ACTIVE = window;
-			WINDOW_ACTIVE = Window::getWindow(window);
+			WINDOW_ACTIVE = Window::_getWindow(window);
 		}
 	}
 
 	//TODO: Find some way to remove code duplication w/o function call overhead or macros. Perhaps template wizardry could achieve this?
 	void E3D_WindowResizeCallback(GLFWwindow* window, int width, int height)
 	{
-		Window* win = Window::getWindow(window);
+		Window* win = Window::_getWindow(window);
 		win->m_resizeFunction(*win, Size<int>(width, height));
 	}
 
 	void E3D_WindowCloseCallback(GLFWwindow* window)
 	{
-		Window* win = Window::getWindow(window);
+		Window* win = Window::_getWindow(window);
 		win->m_closeFunction(*win);
 	}
 	#endif

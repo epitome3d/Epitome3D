@@ -1,5 +1,6 @@
 #pragma once
 #include <stdio.h>
+#include <exception>
 #include <GLFW/glfw3.h>
 
 namespace EPITOME
@@ -11,7 +12,9 @@ namespace EPITOME
 		E3D_SUCCESS = 0,
 		E3D_FAILURE = 1,
 		E3D_FAIL_CORE_INIT = 2,
-		E3D_INVALID_PARAMETER = 3
+		E3D_INVALID_PARAMETER = 3,
+		E3D_LIBRARY_NOT_INITIALIZED = 4,
+		E3D_COMPONENT_NOT_INITIALIZED = 5
 	};
 
 	//Priority of an error.  Higher priority means more actions are taken due to the error.
@@ -53,8 +56,9 @@ namespace EPITOME
 		//The default error function.  Custom error functions may fall back to this function by calling it.
 		inline static void defaultErrorFunction(int error, const char* description, ErrorPriority priority)
 		{
-			FILE* buf = (priority >= EP_ERROR) ? stderr : stdout;
-			fputs(description, buf);
+			fprintf(stderr, "%s\r\n", description);
+
+			//throw std::exception(description);
 		}
 
 		inline int getCode()

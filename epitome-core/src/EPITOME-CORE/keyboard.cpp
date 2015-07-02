@@ -10,8 +10,8 @@ namespace EPITOME
 	{
 		this->_window = window;
 		GLFWkeyfun fn = glfwSetKeyCallback(window->getHandle(), E3D_GLFWKeyFunction);
-		if (!fn)
-			Error(E3D_FAIL_CORE_INIT, "glfwSetKeyCallback() failed");
+		//if (!fn)
+			//Error(E3D_FAIL_CORE_INIT, "glfwSetKeyCallback() failed");
 
 		for (short i = 0; i < KEYS_COUNT; i++)
 		{

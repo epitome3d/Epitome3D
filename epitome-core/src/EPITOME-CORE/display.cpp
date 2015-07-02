@@ -33,7 +33,7 @@ namespace EPITOME
 	VideoMode Display::getBestVideoMode()
 	{
 		int count;
-		const GLFWvidmode* modes = glfwGetVideoModes(glfwGetPrimaryMonitor(), &count);
+		const GLFWvidmode* modes = glfwGetVideoModes(monitor, &count);
 
 		int maxWidth = 0;
 		int maxHeight = 0;

@@ -107,16 +107,15 @@ void Run()
 	Size<int> s = d.getPhysicalSize();
 	VideoMode v = d.getBestVideoMode();
 
-	Window* mainwindow = new Window(window_width, window_height, "Epitome3D Demo");
-	mainwindow->setPosition(100, 100);
-	mainwindow->setModeFullscreen(d);
+	//create a placebo window, then create a fullscreen window with the full properties
+	Window* mainwindow = new Window(v.getSize().width, v.getSize().height, "Epitome3D Demo", E3D_WINDOW_MODE_FULLSCREEN);
+	//mainwindow->setPosition(100, 100); //useless in fullscreen
+	//mainwindow->setModeFullscreen(d);
 	mainwindow->show();
 
 	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
 	secondwindow->hide(); //TODO hiding for now to demonstrate full-screen-ness
 	secondwindow->setPosition(170 + window_width, 100);
-
-	
 
 	thread w1(ThreadLoop, mainwindow);
 	thread w2(ThreadLoop, secondwindow);
@@ -148,7 +147,7 @@ int main(int argc, char** argv)
 #ifdef WINDOWS
 #include <windows.h>
 #include <shellapi.h>
-#pragma comment(linker, "/subsystem:windows")
+#pragma comment(linker, "/subsystem:console")
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
 	LPWSTR *szArglist;

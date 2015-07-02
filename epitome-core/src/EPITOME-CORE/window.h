@@ -39,19 +39,21 @@ namespace EPITOME
 	{
 		E3D_WINDOW_MODE_WINDOWED,
 		E3D_WINDOW_MODE_FULLSCREEN,
-		E3D_WINDOW_MODE_BORDERLESS
+		E3D_WINDOW_MODE_BORDERLESS,
+		E3D_WINDOW_MODE_NOTCREATED
 	};
+
+	#define E3D_MACRO_WINDOW_REQUIRE_INIT if (this->mode == E3D_WINDOW_MODE_NOTCREATED) { Error(E3D_COMPONENT_NOT_INITIALIZED, "Must create the window before running this method.  Run setMode*() to create the window."); }
 
 	class Window : public Disposable
 	{
 	public:
 		//Constructors, destructors, and the like
-		Window(int width, int height, const char* title);
+		Window(int width, int height, const char* title, WindowMode mode = WindowMode::E3D_WINDOW_MODE_WINDOWED);
 		Window(const Window&);
 		Window(Window&&);
 		inline ~Window() { dispose(); }
 
-		static Window* getWindow(GLFWwindow*);
 		inline static Window* getActiveWindow()
 		{
 			return WINDOW_ACTIVE;
@@ -72,9 +74,9 @@ namespace EPITOME
 		void onResize(E3DWindowResizeFunction fn);
 		bool isSizeChanged() const;
 		//Get the size of the framebuffer, in pixels
-		Size<int> getBufferSize() const;
+		Size<int> getBufferSize();
 		//Get the size of the window, in screen coordinates
-		Size<int> getWindowSize() const;
+		Size<int> getWindowSize();
 		//Set the size of the window, in screen coordinates
 		//In fullscreen, this changes the size of the framebuffer
 		void setWindowSize(int width, int height);
@@ -129,12 +131,15 @@ namespace EPITOME
 
 		E3DWindowResizeFunction m_resizeFunction;
 		E3DWindowFunction m_closeFunction;
+
+		static Window* _getWindow(GLFWwindow*);
 	private:
 		WindowMode mode;
 		unsigned int reference_num;
 		GLFWwindow* window;
 		bool m_isResized;
 		char* m_title; //required b/c can't get title through GLFW
+		int width, height;
 		
 		Display* m_fullscreen;
 
