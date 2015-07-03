@@ -59,7 +59,13 @@ namespace EPITOME
 	{
 		GLFWmonitor** monitors = glfwGetMonitors(&count);
 		//allocate the array
+		
 		Display* displays = new Display[count];
+
+		//copy the arrays
+		for (int i = 0; i < count; i++)
+			displays[i] = monitors[i];
+
 		return displays;
 		//TODO we MUST delete this array!!!  MEMORY LEAK ALERT
 	}

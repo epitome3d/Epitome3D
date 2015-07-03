@@ -102,16 +102,16 @@ static void ThreadLoop(Window* window)
 
 void Run()
 {
-	//Get primary display information
-	Display d = Displays::getPrimary();
-	Size<int> s = d.getPhysicalSize();
-	VideoMode v = d.getBestVideoMode();
+	//Get display information
+	Display primaryDisplay = Displays::getPrimary();
+	Size<int> displaySize = primaryDisplay.getPhysicalSize();
+	VideoMode videoMode = primaryDisplay.getBestVideoMode();
 
 	//glfwCreateWindow(window_width, window_height, "Title", glfwGetPrimaryMonitor(), NULL);
 
 	//create a placebo window, then create a fullscreen window with the full properties
-	Window* mainwindow = new Window(v.getSize().width, v.getSize().height, "Epitome3D Demo", E3D_WINDOW_MODE_NOTCREATED);
-	mainwindow->setModeFullscreen(d, v);
+	Window* mainwindow = new Window(videoMode.getSize().width, videoMode.getSize().height, "Epitome3D Demo", E3D_WINDOW_MODE_NOTCREATED);
+	mainwindow->setModeFullscreen(primaryDisplay, videoMode);
 	//mainwindow->setPosition(100, 100); //useless in fullscreen
 	mainwindow->show();
 
