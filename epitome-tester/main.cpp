@@ -107,32 +107,37 @@ void Run()
 	Size<int> s = d.getPhysicalSize();
 	VideoMode v = d.getBestVideoMode();
 
+	//glfwCreateWindow(window_width, window_height, "Title", glfwGetPrimaryMonitor(), NULL);
+
 	//create a placebo window, then create a fullscreen window with the full properties
-	Window* mainwindow = new Window(v.getSize().width, v.getSize().height, "Epitome3D Demo", E3D_WINDOW_MODE_FULLSCREEN);
+	Window* mainwindow = new Window(v.getSize().width, v.getSize().height, "Epitome3D Demo", E3D_WINDOW_MODE_NOTCREATED);
+	mainwindow->setModeFullscreen(d, v);
 	//mainwindow->setPosition(100, 100); //useless in fullscreen
-	//mainwindow->setModeFullscreen(d);
 	mainwindow->show();
 
-	Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
-	secondwindow->hide(); //TODO hiding for now to demonstrate full-screen-ness
-	secondwindow->setPosition(170 + window_width, 100);
-
+	//TODO when writing the Threading class, make sure to run this BEFORE creating the next window
 	thread w1(ThreadLoop, mainwindow);
-	thread w2(ThreadLoop, secondwindow);
+	//ThreadLoop(mainwindow);
+
+	//Window* secondwindow = new Window(window_width, window_height, "Epitome3D Demo - SECOND WINDOW");
+	//secondwindow->hide(); //TODO hiding for now to demonstrate full-screen-ness
+	//secondwindow->setPosition(170 + window_width, 100);
+	
+	//thread w2(ThreadLoop, secondwindow);
 
 	while (running)
 	{
-		glfwWaitEvents();
+		glfwWaitEvents(); //necessary because some events must process on the main thread
 	}
 
 	mainwindow->hide();
-	secondwindow->hide();
+	//secondwindow->hide();
 
 	w1.join();
-	w2.join();
+	//w2.join();
 
 	delete mainwindow; //will call the destructor and the dispose() method
-	delete secondwindow;
+	//delete secondwindow;
 }
 
 int main(int argc, char** argv)
@@ -147,7 +152,9 @@ int main(int argc, char** argv)
 #ifdef WINDOWS
 #include <windows.h>
 #include <shellapi.h>
-#pragma comment(linker, "/subsystem:console")
+#ifdef _DEBUG
+#pragma comment(linker, "/subsystem:console") //display a debug console to show warnings and errors, etc.
+#endif
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
 	LPWSTR *szArglist;

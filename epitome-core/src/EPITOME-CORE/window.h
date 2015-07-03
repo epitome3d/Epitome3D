@@ -119,8 +119,8 @@ namespace EPITOME
 		friend class Mouse;
 		Mouse* mouse;
 
-		//TODO change to E3DFocusFunction
 		void onChangeFocus(E3DWindowFunction fn);
+		//TODO void focus() - GLFW doesn't do that yet, so we should add it back to GLFW
 		
 		//TODO there are probably more at http://www.glfw.org/docs/latest/window.html
 

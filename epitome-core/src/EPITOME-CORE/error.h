@@ -56,9 +56,11 @@ namespace EPITOME
 		//The default error function.  Custom error functions may fall back to this function by calling it.
 		inline static void defaultErrorFunction(int error, const char* description, ErrorPriority priority)
 		{
-			fprintf(stderr, "%s\r\n", description);
-
-			//throw std::exception(description);
+			fprintf(stderr, "[EPITOME] %s\r\n", description);
+			
+			#ifdef _DEBUG
+			throw std::exception(description);
+			#endif
 		}
 
 		inline int getCode()

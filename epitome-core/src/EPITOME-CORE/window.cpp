@@ -39,6 +39,7 @@ namespace EPITOME
 		reference_num = win.reference_num + 1;
 		window = win.getHandle();
 		m_title = win.m_title;
+		mode = win.mode;
 	}
 
 	//Move constructor
@@ -52,6 +53,7 @@ namespace EPITOME
 		m_title = win.m_title;
 		win.window = NULL;
 		win.m_title = NULL;
+		win.mode = win.mode;
 	}
 
 	//The window is about to die
