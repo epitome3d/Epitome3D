@@ -14,6 +14,7 @@
 #include "memory.h"
 #include "keyboard.h"
 #include "mouse.h"
+#include "display.h"
 
 namespace EPITOME
 {
@@ -100,6 +101,7 @@ namespace EPITOME
 		void setModeFullscreen(Display display, VideoMode mode);
 		void setModeWindowed();
 		void setModeBorderless();
+		Display getDisplay();
 
 		char* getTitle() const;
 		void setTitle(char* title);
@@ -141,11 +143,9 @@ namespace EPITOME
 		char* m_title; //required b/c can't get title through GLFW
 		int width, height;
 		
-		Display* m_fullscreen;
+		Display* m_display;
 
 		void _swapBuffers();
 		void _createGLFWWindow(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share);
 	};
 }
-
-#include "display.h"

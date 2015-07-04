@@ -7,6 +7,7 @@ namespace EPITOME
 	GLFWwindow* GLFW_WINDOW_ACTIVE = nullptr;
 
 	WindowMode mode = WindowMode::E3D_WINDOW_MODE_NOTCREATED;
+	Display* m_display = nullptr;
 
 	Window::Window(int width, int height, const char* title, WindowMode mode)
 	{
@@ -82,6 +83,7 @@ namespace EPITOME
 
 	void Window::render()
 	{
+		glFlush();
 		_swapBuffers();
 	}
 
@@ -171,7 +173,7 @@ namespace EPITOME
 	void Window::setModeFullscreen(Display display, VideoMode mode)
 	{
 		this->mode = WindowMode::E3D_WINDOW_MODE_FULLSCREEN;
-
+		this->m_display = &display;
 		const GLFWvidmode videomode = mode.mode;
 		
 		dispose();
@@ -188,6 +190,7 @@ namespace EPITOME
 	void Window::setModeWindowed()
 	{
 		this->mode = WindowMode::E3D_WINDOW_MODE_WINDOWED;
+		this->m_display = NULL;
 
 		dispose();
 
@@ -199,12 +202,23 @@ namespace EPITOME
 	void Window::setModeBorderless()
 	{
 		this->mode = WindowMode::E3D_WINDOW_MODE_BORDERLESS;
+		this->m_display = NULL;
 
 		dispose();
 
 		glfwWindowHint(GLFW_DECORATED, false);
 		glfwWindowHint(GLFW_AUTO_ICONIFY, true);
 		_createGLFWWindow(width, height, m_title, NULL, NULL);
+	}
+
+	Display Window::getDisplay()
+	{
+		if (m_display == nullptr)
+		{
+			//find the current display, when not in fullscreen mode
+			return Displays::getPrimary();
+		}
+		return *m_display;
 	}
 
 	char * Window::getTitle() const

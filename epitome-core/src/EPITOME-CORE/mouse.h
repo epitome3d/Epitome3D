@@ -14,7 +14,7 @@ namespace EPITOME
 	/* Forward declaration to prevent circular references */
 	class Window;
 
-	typedef std::function<bool(Window&, Point<double>)> E3D_MouseFunction;
+	typedef std::function<void(Window&, Point<double>)> E3D_MouseFunction;
 	class Mouse
 	{
 	public:
