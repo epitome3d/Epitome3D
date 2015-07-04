@@ -32,6 +32,7 @@ static void ThreadLoop(Window* window)
 	window->keyboard->onKeyReleased(KEY_ENTER, E3DKey);
 
 	auto size = window->getBufferSize();
+	auto winsize = window->getWindowSize();
 	window->beginDraw();
 
 	glViewport(0, 0, size.width, size.height);
@@ -70,11 +71,10 @@ static void ThreadLoop(Window* window)
 		// END OLD CODE
 
 		//TODO Inefficient/sloppy at the moment, for demonstration purposes
-
 		Point<double> mPos = window->mouse->getPosition();
 		//TODO why???
-		mPos.x = (mPos.x - 960) / 26; //37
-		mPos.y = (-mPos.y + 530) / 26;
+		mPos.x = (mPos.x - winsize.width/2) / (winsize.width/73); //37
+		mPos.y = (-mPos.y + winsize.height/2) / (winsize.width/73);
 
 		GLfloat b = (window->keyboard->isKeyDown(Keys::KEY_SPACE)) ? 1.0f : 0.0f;
 		GLfloat r = (enter_pressed) ? 1.0f : 0.0f;
@@ -110,7 +110,7 @@ void Run()
 	//glfwCreateWindow(window_width, window_height, "Title", glfwGetPrimaryMonitor(), NULL);
 
 	//create a placebo window, then create a fullscreen window with the full properties
-	Window* mainwindow = new Window(videoMode.getSize().width, videoMode.getSize().height, "Epitome3D Demo", E3D_WINDOW_MODE_NOTCREATED);
+	Window* mainwindow = new Window(videoMode.getSize().width, videoMode.getSize().height, "Epitome3D Demo");
 	mainwindow->setModeFullscreen(primaryDisplay, videoMode);
 	//mainwindow->setPosition(100, 100); //useless in fullscreen
 	mainwindow->show();
