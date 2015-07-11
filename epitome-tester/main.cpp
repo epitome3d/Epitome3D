@@ -178,8 +178,7 @@ void DrawImage(const Size<int>& size, GLuint texture) {
 	glLoadIdentity();
 	glDisable(GL_LIGHTING);
 
-
-	glColor3f(1, 1, 1);
+	
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, texture);
 
@@ -250,8 +249,8 @@ void Run()
 	thirdwindow.show();
 	thirdwindow.setPosition(300, 300);
 
-	thread w3(ThirdLoop, thirdwindow);
-	//ThirdLoop(thirdwindow);
+	//thread w3(ThirdLoop, thirdwindow);
+	ThirdLoop(thirdwindow);
 
 	while (running)
 	{
