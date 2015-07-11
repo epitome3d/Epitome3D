@@ -106,6 +106,118 @@ static void ThreadLoop(Window* window)
 	running = false;
 }
 
+GLuint loadBMP(const char * imagepath)
+{
+	// Data read from the header of the BMP file
+	unsigned char header[54]; // Each BMP file begins by a 54-bytes header
+	unsigned int dataPos;     // Position in the file where the actual data begins
+	unsigned int width, height;
+	unsigned int imageSize;   // = width*height*3
+							  // Actual RGB data
+	unsigned char * data;
+	// Open the file
+	FILE * file = fopen(imagepath, "rb");
+	if (!file) {
+		return 0;
+	}
+	if (fread(header, 1, 54, file) != 54) { // If not 54 bytes read : problem
+		// Not a correct BMP file
+		return 0;
+	}
+	if (header[0] != 'B' || header[1] != 'M') {
+		// Not a correct BMP file
+		return 0;
+	}
+	
+	// Read ints from the byte array
+	dataPos = *(int*)&(header[0x0A]);
+	imageSize = *(int*)&(header[0x22]);
+	width = *(int*)&(header[0x12]);
+	height = *(int*)&(header[0x16]);
+	// Some BMP files are misformatted, guess missing information
+	if (imageSize == 0)    imageSize = width*height * 3; // 3 : one byte for each Red, Green and Blue component
+	if (dataPos == 0)      dataPos = 54; // The BMP header is done that way
+	
+	// Create a buffer
+	data = new unsigned char[imageSize];
+
+	// Read the actual data from the file into the buffer
+	fread(data, 1, imageSize, file);
+
+	//Everything is in memory now, the file can be closed
+	fclose(file);
+
+	// Create one OpenGL texture
+	GLuint textureID;
+	glGenTextures(1, &textureID);
+
+	// "Bind" the newly created texture : all future texture functions will modify this texture
+	glBindTexture(GL_TEXTURE_2D, textureID);
+
+	// Give the image to OpenGL
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	
+	return textureID;
+}
+
+void DrawImage(const Size<int>& size, GLuint texture) {
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	glOrtho(0.0, size.width, 0.0, size.height, -1.0, 1.0);
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+
+
+	glLoadIdentity();
+	glDisable(GL_LIGHTING);
+
+
+	glColor3f(1, 1, 1);
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+
+	// Draw a textured quad
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 0); glVertex3f(0, 0, 0);
+	glTexCoord2f(0, 1); glVertex3f(0, 100, 0);
+	glTexCoord2f(1, 1); glVertex3f(100, 100, 0);
+	glTexCoord2f(1, 0); glVertex3f(100, 0, 0);
+	glEnd();
+
+
+	glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+
+
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+
+	glMatrixMode(GL_MODELVIEW);
+
+}
+
+static void ThirdLoop(Window& win)
+{
+	GLuint tex = loadBMP("cat.bmp");
+	auto size = win.getWindowSize();
+	while (running)
+	{
+		if (win.isClosing())
+			running = false;
+		
+		win.beginDraw();
+		DrawImage(size, tex);
+		win.render();
+
+		Update();
+	}
+}
+
 void Run()
 {
 	//Get display information
@@ -128,6 +240,12 @@ void Run()
 	
 	thread w2(ThreadLoop, secondwindow);
 
+	Window thirdwindow(window_width, window_height, "Three");
+	thirdwindow.show();
+	thirdwindow.setPosition(300, 300);
+
+	thread w3(ThirdLoop, thirdwindow);
+
 	while (running)
 	{
 		glfwWaitEvents(); //necessary because some events must process on the main thread
@@ -146,7 +264,7 @@ void Run()
 int main(int argc, char** argv)
 {
 	EPITOME::Initialize();
-
+	
 	Run();
 
 	EPITOME::Exit();
