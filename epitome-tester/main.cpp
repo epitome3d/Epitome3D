@@ -147,6 +147,9 @@ GLuint loadBMP(const char * imagepath)
 	//Everything is in memory now, the file can be closed
 	fclose(file);
 
+	// Bind to dummy texture beforehand
+	glBindTexture(GL_TEXTURE_2D, 0);
+
 	// Create one OpenGL texture
 	GLuint textureID;
 	glGenTextures(1, &textureID);
@@ -205,12 +208,15 @@ static void ThirdLoop(Window& win)
 {
 	GLuint tex = loadBMP("cat.bmp");
 	auto size = win.getWindowSize();
+	win.beginDraw();
 	while (running)
 	{
 		if (win.isClosing())
 			running = false;
-		
-		win.beginDraw();
+
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Set background color to black and opaque
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);         // Clear the color buffer (background)
+
 		DrawImage(size, tex);
 		win.render();
 
@@ -245,6 +251,7 @@ void Run()
 	thirdwindow.setPosition(300, 300);
 
 	thread w3(ThirdLoop, thirdwindow);
+	//ThirdLoop(thirdwindow);
 
 	while (running)
 	{
