@@ -106,6 +106,8 @@ static void ThreadLoop(Window* window)
 	running = false;
 }
 
+//#include <Windows.h>
+
 GLuint loadBMP(const char * imagepath)
 {
 	// Data read from the header of the BMP file
@@ -135,9 +137,17 @@ GLuint loadBMP(const char * imagepath)
 	width = *(int*)&(header[0x12]);
 	height = *(int*)&(header[0x16]);
 	// Some BMP files are misformatted, guess missing information
-	if (imageSize == 0)    imageSize = width*height * 3; // 3 : one byte for each Red, Green and Blue component
-	if (dataPos == 0)      dataPos = 54; // The BMP header is done that way
-	
+	if (imageSize == 0)
+	{
+		//MessageBox(NULL, "no size", "whoopsie", MB_OK);
+		imageSize = width*height * 3; // 3 : one byte for each Red, Green and Blue component
+	}
+	if (dataPos == 0)
+	{
+		//MessageBox(NULL, "no size", "whoopsie", MB_OK);
+		dataPos = 54; // The BMP header is done that way
+	}
+
 	// Create a buffer
 	data = new unsigned char[imageSize];
 
@@ -148,7 +158,7 @@ GLuint loadBMP(const char * imagepath)
 	fclose(file);
 
 	// Bind to dummy texture beforehand
-	glBindTexture(GL_TEXTURE_2D, 0);
+	//glBindTexture(GL_TEXTURE_2D, 0);
 
 	// Create one OpenGL texture
 	GLuint textureID;
@@ -267,11 +277,33 @@ void Run()
 	delete secondwindow;
 }
 
+void AnotherRun() 
+{
+	GLFWwindow* window = glfwCreateWindow(256, 256, "2D Texture Test", NULL, NULL);
+	GLuint tex = loadBMP("cat.bmp");
+
+	glfwMakeContextCurrent(window);
+	//glBindTexture(GL_TEXTURE_2D, tex);
+	Size<int> s(256, 256);
+
+	for (int i = 0; i < 100; i++) {
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Set background color to black and opaque
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);         // Clear the color buffer (background)
+
+		DrawImage(s, tex);
+
+		glfwWaitEvents();
+		glfwSwapBuffers(window);
+	}
+	glfwDestroyWindow(window);
+}
+
 int main(int argc, char** argv)
 {
 	EPITOME::Initialize();
 	
-	Run();
+	//Run();
+	AnotherRun();
 
 	EPITOME::Exit();
 }
