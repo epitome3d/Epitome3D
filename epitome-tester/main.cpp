@@ -298,6 +298,82 @@ void AnotherRun()
 	glfwDestroyWindow(window);
 }
 
+unsigned int CreateTexture(unsigned int Width, unsigned int Height, unsigned char* Pixels)
+{
+	unsigned int ID = 0;
+	glGenTextures(1, &ID);
+	glBindTexture(GL_TEXTURE_2D, ID);
+	glPixelStorei(GL_UNPACK_ROW_LENGTH, Width);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, GL_BGRA, GL_UNSIGNED_BYTE, Pixels);
+	glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	return ID;
+}
+
+void DestroyTexture(unsigned int ID)
+{
+	glDeleteTextures(1, &ID);
+}
+
+void DrawTexture(unsigned int ID, float X1, float Y1, float X2, float Y2)
+{
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, ID);
+	glColor4ub(0xFF, 0xFF, 0xFF, 0xFF);
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0f, 1.0f);
+	glVertex2f(X1, Y1);
+	glTexCoord2f(0.0f, 0.0f);
+	glVertex2f(X1, Y2);
+	glTexCoord2f(1.0f, 0.0f);
+	glVertex2f(X2, Y2);
+	glTexCoord2f(1.0f, 1.0f);
+	glVertex2f(X2, Y1);
+	glEnd();
+	glDisable(GL_TEXTURE_2D);
+}
+
+void AnotherAnotherRun()
+{
+	GLFWwindow* window = glfwCreateWindow(256, 256, "2D Texture Test", NULL, NULL);
+	glfwMakeContextCurrent(window);
+	static float angle = 0.0f;
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	int w = 800;
+	int h = 600;
+	glOrtho(0.0f, w, h, 0.0f, 0.0f, -1.0f);
+
+	glMatrixMode(GL_MODELVIEW);
+	glShadeModel(GL_SMOOTH);
+	glClearColor(0.0f, 40.0f / 256.0f, 100.0f / 256.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearDepth(1.0f);
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+
+	glPushMatrix();
+	glTranslatef(400, 300, 0);
+	glScalef(100, 100, 0);
+	glRotatef(angle, 0.0f, 0.0f, 1.0f);
+
+	GLuint TextureID = loadBMP("cat.bmp");
+	DrawTexture(TextureID, 0.0f, 0.0f, 1.0f, 1.0f);
+
+	glPopMatrix();
+	++angle;
+
+	glfwSwapBuffers(window);
+	Sleep(5);
+	glfwDestroyWindow(window);
+}
+
 int main(int argc, char** argv)
 {
 	EPITOME::Initialize();
